@@ -1,0 +1,59 @@
+@import "../../../../../../../assets/sass/mixin.css";
+@import "../../../../../../../assets/sass/variables";
+
+.layout{
+  padding-bottom: 50px;
+  background-color: nth($gray,1);
+}
+.bg-white{
+  background-color: #fff;
+}
+.order{
+  padding: 30px;
+}
+.red{
+  color: nth($red,2)
+}
+
+.title{
+  padding-bottom:15px;
+  background-color: #f7f7f7;
+  height: 44px;
+  .p-title{
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    color: #333;
+  }
+}
+.cash-input{
+  height: 44px;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: none;
+}
+.pass-input{
+  height: 36px;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: none;
+  border-radius: 3px;
+}
+.pass-input+a{
+  font-size: 12px;
+}
+.pt{
+  padding-top: 20px;
+}
+
+.class-button{
+  width: 90px;
+  height: 30px;
+  background-color: #EA3A3A;
+  outline: none;
+  &:focus{
+    outline: none;
+  }
+}

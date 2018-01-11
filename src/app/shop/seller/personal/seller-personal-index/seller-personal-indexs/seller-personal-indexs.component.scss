@@ -1,0 +1,683 @@
+.index-header{
+  height: 180px;
+  border:1px solid #eee;
+  padding: 20px;
+  .ico-seller{
+    width: 106px;
+    height: 106px;
+    position: relative;
+  }
+  .edit{
+    margin-left: 5px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-position:-231px -507px;
+    outline: none;
+  }
+
+  .edit:hover{
+    background-position: -249px -507px;
+  }
+  .index-header-middle{
+    height: 140px;
+    padding: 0 40px;
+    position: relative;
+    .service{
+      transition: all .2s;
+      &:hover{
+        cursor: pointer;
+        >div{
+          color: #EA3A3A!important;
+        }
+        .ico-service{
+          transform: translateY(-5px);
+        }
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+    .video{
+      transition: all .2s;
+      &:hover{
+        cursor: pointer;
+        >div{
+          color: #EA3A3A!important;
+        }
+        .ico-video{
+          transform: translateY(-5px);
+        }
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+    .order{
+      transition: all .2s;
+      &:hover{
+        cursor: pointer;
+        >div{
+          color: #EA3A3A!important;
+        }
+        .ico-order{
+          transform: translateY(-5px);
+        }
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+    .text{
+      transition: all .2s;
+      &:hover{
+        cursor: pointer;
+        >div{
+          color: #EA3A3A!important;
+        }
+        .ico-text{
+          transform: translateY(-5px);
+        }
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+    .ico-size{
+      width: 40px;
+      height: 40px;
+    }
+    .ico-service{
+      background-position: -500px -35px;
+    }
+    .ico-video{
+      background-position: -587px -35px;
+    }
+    .ico-order{
+      background-position: -543px -35px;
+    }
+    .ico-text{
+      background-position: -631px -35px;
+    }
+    .ico-un-service{background-position: -500px -78px;}
+    .ico-un-video{background-position: -587px -78px;}
+    .ico-un-order{background-position: -543px -78px;}
+    .ico-un-text{background-position: -631px -78px;}
+    .mt-5 {
+      font-size: 12px;
+      color:#5D5D5D;
+    }
+  }
+  .index-header-right{
+    padding: 20px;
+    background: url(".././../../../../../assets/images/slope.png");
+    .ico-wallet{
+      display: inline-block;
+      width: 24px;
+      height: 18px;
+      background-position: -203px -96px;
+      margin-right: 10px;
+    }
+    .gray{
+      background-color: #D9D9D9;
+    }
+    button{
+      width: 90px;
+      height: 30px;
+      background-color: #EA3A3A;
+      border: 0;
+      color: #fff;
+      border-radius: 3px;
+      &:focus{
+        outline: none;
+      }
+    }
+    .ico-help{
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 5px;
+      background-position: -169px -211px;
+    }
+    .ico-help[title]{
+      font-size: 12px;
+    }
+    .income {
+      p:last-child {
+        font-weight: 600;
+      }
+    }
+    .freeze{
+      border-right: 1px dashed #DCDCDC;
+      border-left: 1px dashed #DCDCDC;
+      padding-left: 10px;
+      p:last-child{
+        font-weight: 600;
+      }
+    }
+    .balance{
+      p:last-child{
+        color: #EA3A3A;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.index-main{
+  border:1px solid #eee;
+  .main-title{
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 1px solid #eee;
+    >span{
+      display: inline-block;
+      height: 16px;
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 16px;
+      padding-left: 15px;
+      border-left: 4px solid #EA3A3A;
+    }
+  }
+  .main-content{
+    padding: 20px;
+    padding-top: 30px;
+    position: relative;
+    .main-content-head{
+      position: relative;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+      span.num{
+        position: absolute;
+        top: -6px;
+        right: 9px;
+        display: inline-block;
+        min-width: 16px;
+        height: 16px;
+        line-height:14px;
+        font-size: 12px;
+        border: 1px solid #EA3A3A;
+        border-radius: 50%;
+        color: #EA3A3A;
+      }
+      >div{
+        position: absolute;
+        top: -5px;
+        right: 0;
+        width: 90px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #fff;
+        border: 1px solid #EA3A3A;
+        border-radius: 3px;
+        &:hover{
+          background-color: #EA3A3A;
+          a{
+            color: #fff!important;
+          }
+        }
+        >a{
+          color: #EA3A3A!important;
+        }
+      }
+      ul{
+        padding: 0;
+        margin: 0;
+        li{
+          float: left;
+          &:focus{
+            outline: none;
+          }
+          &:hover{
+            cursor: pointer;
+            color: #EA3A3A;
+          }
+          &:first-child{
+            padding-right: 20px;
+          }
+          &:nth-child(2){
+            padding-left: 20px;
+            padding-right: 20px;
+            border-left: 1px solid #DCDCDC;
+            border-right: 1px solid #DCDCDC;
+          }
+          &:last-child{
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+    .main-content-detail{
+      .order-head{
+        height: 34px;
+        line-height: 34px;
+        padding-left: 20px;
+        background-color: #f7f7f7;
+        color: #666;
+      }
+      .none{
+        height: 137px;
+        line-height: 137px;
+        font-size: 16px;
+      }
+      .order-detail{
+        .order-detail-head{
+          height: 34px;
+          line-height: 34px;
+          padding-left: 20px;
+          background-color: #F7F7F7;
+          .order-num,.order-time{
+            font-size: 12px;
+            color: #999;
+          }
+        }
+        .order-content{
+          height: 80px;
+          font-size: 12px;
+          padding: 10px 0 10px 20px;
+          border: 1px solid #eee;
+          border-top: 0;
+          .goods-name{
+            &:hover{
+              color: #EA3A3A;
+              cursor: pointer;
+            }
+            img:hover{
+              cursor: pointer;
+            }
+            img:focus{
+              outline:none;
+            }
+            .goods-title{
+              height: 60px;
+              line-height: 60px;
+              >span{
+                &:focus{
+                  outline: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.order-more{
+  &:hover{
+    span{
+      color: #EA3A3A;
+      cursor: pointer;
+    }
+  }
+  span{
+    outline: none;
+  }
+}
+
+.index-bottom{
+  border:1px solid #eee;
+  .bottom-title{
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #eee;
+    >span{
+      display: inline-block;
+      height: 16px;
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 16px;
+      padding-left: 15px;
+      border-left: 4px solid #EA3A3A;
+    }
+  }
+  .bottom-main{
+    position: relative;
+    height: 102px;
+    padding: 20px;
+    div:focus{
+      outline:none
+    ;
+    }
+    .ico-video{
+      display: inline-block;
+      width: 44px;
+      height: 42px;
+      background-position: -453px -143px;
+    }
+    .ico-txt{
+      display: inline-block;
+      width: 48px;
+      height: 44px;
+      background-position: -449px -93px;
+    }
+    .class-info{
+      position: absolute;
+      top: 35px;
+      right: 20px;
+      width: 90px;
+      height: 30px;
+      line-height: 30px;
+      background-color: #fff;
+      border: 1px solid #EA3A3A;
+      border-radius: 3px;
+      &:hover{
+        background-color: #EA3A3A;
+        a{
+          color: #fff!important;
+        }
+      }
+      >a{
+        color: #EA3A3A!important;
+      }
+    }
+    p {
+      margin-bottom:4px;
+    }
+  }
+}
+
+.ico-going{
+  top: -2px;
+  display: inline-block;
+  width: 19px;
+  height: 17px;
+  background-position: -160px -96px;
+}
+.ico-pay{
+  top: -2px;
+  display: inline-block;
+  width: 19px;
+  height: 16px;
+  background-position: -137px -96px;
+}
+.ico-finish{
+  top: -2px;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background-position: -183px -96px;
+}
+
+.order-detail-check{
+  a{
+    color:#333;
+    font-size:12px;
+    &:hover{
+      color: #EA3A3A;
+    }
+  }
+}
+.pdt-22{
+  padding-top: 22px;
+}
+
+// 弹性布局
+._flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  align-items: baseline;
+}
+.flex_ {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.juect-content {
+  -webkit-justify-content:center;
+  justify-content:center;
+  -moz-box-pack:center;
+  -webkit--moz-box-pack:center;
+  box-pack:center;
+}
+/* 认证页面 */
+.auth-wrap {
+  width:984px;
+  height:475px;
+  margin-top:20px;
+  border:1px solid #F3F3F3;
+  .auth-title {
+    text-align: center;
+    height:98px;
+    line-height:98px;
+    font-size:18px;
+    color:#5D5D5D;
+    display: block;
+  }
+  .auth-container {
+    width:510px;
+    height:270px;
+    margin: 0 auto;
+    .aptitude-auth-wrap , .wallet-account {
+      width:240px;
+      height:270px;
+      border:1px solid #ECECEC;
+      display: block;
+      .aptitude-title , .wallet-title {
+        display: block;
+        font-size:16px;
+        color:#2E2E2E;
+        margin-top:30px;
+        text-align:center;
+      }
+      .aptitude-desc , .wallet-desc {
+        display: block;
+        margin-top:20px;
+        font-size:12px;
+        color:#909090;
+        text-align:center;
+      }
+      .aptitude-wrap , .wallet-wrap {
+        width:59px;
+        height:59px;
+        margin:0 auto;
+        margin-top:34px;
+        margin-bottom:34px;
+        .aptitude-icon {
+          display: block;
+          width:59px;
+          height:59px;
+          background: url('../../../../../../assets/images/aptitude-icon.png');
+          background-size: contain;
+        }
+      }
+      .aptitude-auth , .wallet-nav {
+        width:100%;
+        height:36px;
+        margin:0 auto;
+        margin-top:33px;
+        .aptitude-btn , .wallet-btn {
+          width:160px;
+          height:36px;
+          line-height:36px;
+          font-size:14px;
+          color:#EA3A3A;
+          background-color: #FFFFFF;
+          border:1px solid #EA3A3A;
+          -webkit-border-radius:18px;
+          -moz-border-radius:18px;
+          border-radius:18px;
+          margin: 0 auto;
+          outline:none;
+          text-align: center;
+        }
+      }
+    }
+    .wallet-account {
+      margin-left:33px;
+    }
+    .wallet-wrap {
+      width:66px;
+      .wallet-icon {
+        display: block;
+        width:66px;
+        height:59px;
+        background: url('../../../../../../assets/images/wallet-icon.png');
+        background-size: contain;
+      }
+    }
+    .aptitude-auth-wrap:hover , .wallet-account:hover {
+      border:1px solid #EE6161 !important;
+    }
+    .aptitude-btn:hover , .wallet-btn:hover {
+      text-decoration:underline;
+      color:#D63236;
+    }
+    .lines {
+      width:240px;
+      height:8px;
+      background-color: #ECECEC;
+    }
+  }
+  .wallets .lines {
+    margin-left:33px;
+  }
+  .finish-auth {
+    width: 220px;
+    height: 36px;
+    font-size: 16px;
+    color: #FFFFFF;
+    line-height: 36px;
+    background-color: #D4D4D4;
+    border: 0;
+    border-radius: 18px;
+    margin: 0 auto;
+    margin-top: 38px;
+    text-align: center;
+    outline:none;
+  }
+  .finish-auth:hover {
+    text-decoration:underline;
+    color:#FFFFFF;
+  }
+}
+
+// 基金公司标签
+.user-tag {
+  display: block;
+  width:50px;
+  height:50px;
+  position: absolute;
+  z-index:1;
+  background: url('../../../../../../assets/images/enterprise-tag.png');
+}
+.service-tags {
+  display: block;
+  width:50px;
+  height:50px;
+  position: absolute;
+  z-index:1;
+  background: url('../../../../../../assets/images/service-tag.png');
+}
+
+// 服务商标签
+.audit-status {
+  display: block;
+  width:52px;
+  height:16px;
+  line-height:16px;
+  text-align: center;
+  position: absolute;
+  bottom:0;
+  right:0;
+  z-index:1;
+  background-color: #B3B3B3;
+  font-size:12px;
+  color:#FFFFFF;
+}
+.audit-passed {
+  background-color: #7DB744;
+}
+
+// 认证通过icon
+.auth-success-icon {
+  display: inline-block;
+  width:14px;
+  height:14px;
+  background: url('../../../../../../assets/images/auth-success-icon.png') no-repeat;
+  background-size: contain;
+  padding-left:20px;
+}
+.auth-success-bg {
+  background: #D63236 !important;
+}
+
+
+
+.ico-arrow{
+  top: -45px;
+  left: 55px;
+  width: 40px;
+  height: 36px;
+  background-position: -512px -143px;
+}
+.already-know{
+  width: 120px;
+  height: 36px;
+  border-radius: 20px;
+  background-color: #FF4040;
+  color: #fff;
+  line-height: 36px
+}
+.already-know:hover{
+  cursor: pointer;
+}
+
+.video,.text{
+  p:first-child{
+    font-weight:bold;
+    font-size: 16px;
+    margin:0 0 7px;
+  }
+  p:last-child{
+    font-size: 12px;
+    color: #666;
+    &:hover{
+      cursor: pointer;
+      color: #EA3A3A;
+    }
+  }
+}
+.video-ico:hover,.text-ico:hover{
+  cursor: pointer;
+}
+
+.ico-seller{
+  outline: none;
+  &:hover{
+    cursor: pointer;
+  }
+  &+div{
+    outline: none;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.cover-guide{
+  a{
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+  }
+}
+
+.open{
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #EA3A3A;
+  color: #EA3A3A;
+  background-color: #fff;
+  border-radius: 3px;
+}

@@ -1,0 +1,63 @@
+<!--<div class="bodytop">-->
+  <!--<div class="titlebox">-->
+    <!--<div class="title">恭喜成为服务商，在这里发布服务吧</div>-->
+    <!--<div>从创建服务商品开始，这将是您的店铺主页</div>-->
+  <!--</div>-->
+<!--</div>-->
+<app-head-home [homeTitle]="['创建店铺']"></app-head-home>
+<!--<div class="containers">-->
+  <!--<div class="ui-g ui-g-nopad">-->
+    <!--<div class="ui-g-12" style="font-size: 24px;font-weight: 600;">恭喜成为服务商，在这里发布服务吧</div>-->
+    <!--<div class="ui-g-12 ui-g-nopad" style="font-size: 18px;font-weight: 500;">从创建服务商品开始，这将是您的店铺主页</div>-->
+  <!--</div>-->
+  <!--<ul class="stepbox">-->
+    <!--<li>-->
+      <!--<div class="step">步骤一：从店铺基本信息开始<span></span></div>-->
+      <!--<div>服务类型、基本信息等等</div>-->
+      <!--<a class="gotobtn" (click)="gotoInfo()">-->
+        <!--{{stepone}}-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<div class="step">步骤二：建立商品类型并设置<span></span></div>-->
+      <!--<div>( 照片、简短描述、标题 )</div>-->
+      <!--<input type="button" class="gotobtn" (click)="goIncreased()" value="去建立 >" [disabled]="btn_disabled" />-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
+<div class="layout">
+  <div class="ui-g ui-g-nopad" style="height: 20px;">
+    <div class="ui-g-12" style="background-color: #f2f2f2;"></div>
+  </div>
+  <div class="wrap-1200 bg-white" style="min-height: 588px;padding: 30px 82px;">
+    <div class="ui-g" style="margin-left: -52px;">
+      <div class="ui-g-12 ui-g-nopad" style="font-size: 24px;font-weight: 500;"><span class="ico-global" style="display: inline-block;width: 32px;height: 32px;background-position: -150px -421px;margin-right: 20px; "></span>恭喜成为服务商，在这里发布服务吧</div>
+      <div class="ui-g-12 ui-g-nopad" style="font-size: 18px;margin-top: 20px;margin-left: 52px;">从创建服务商品开始，这将是您的店铺主页</div>
+    </div>
+    <div class="ui-g" style="margin-top: 30px;padding: 0 30px;background-color: #FCFCFC;">
+      <div class="ui-g-12" style="padding: 30px 20px">
+        <div class="ui-g-3 ui-g-nopad">
+          <div class="ui-g-12 ui-g-nopad" style="border-left: 5px solid #aa2426;font-size: 16px;font-weight: 600;padding-left: 20px;">步骤一：从店铺基本信息开始</div>
+          <div class="ui-g-12 ui-g-nopad" style="padding-left: 20px;">(服务类型、基本信息等等)</div>
+        </div>
+        <div class="ui-g-2 ui-g-offset-7 text-right">
+          <!--<a class="gotobtn" (click)="gotoInfo()">-->
+          <!--{{stepone}}-->
+          <!--</a>-->
+          <button [routerLink]="['/shop/step/step-info']" class="gotobtn submit-btn">
+            去完成 >
+          </button>
+        </div>
+      </div>
+      <!--<div class="ui-g-12 ui-g-nopad" style="padding: 30px 20px;">-->
+        <!--<div class="ui-g-3 ui-g-nopad">-->
+          <!--<div class="ui-g-12 ui-g-nopad" style="border-left: 5px solid #aa2426;font-size: 16px;font-weight: 600;padding-left: 20px;">步骤二：建立商品类型并设置</div>-->
+          <!--<div class="ui-g-12 ui-g-nopad" style="padding-left: 20px;">( 照片、简短描述、标题 )</div>-->
+        <!--</div>-->
+        <!--<div class="ui-g-2 ui-g-offset-7 text-right">-->
+          <!--<button type="button" class="gotobtn submit-btn" (click)="goIncreased()" [disabled]="btn_disabled">去建立 ></button>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>

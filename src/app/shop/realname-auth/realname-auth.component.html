@@ -1,0 +1,96 @@
+<div class='data-certificate-wrap'>
+  <div class='main-wrap'>
+    <div class='nav-menus'>行业资质</div>
+    <!-- 内容容器的大小 -->
+    <div class='Content-container flex_'>
+      <div class='realname-auth-wrap'>
+        <!-- 内容容器的大小 -->
+        <div class='Content-container-warp'>
+          <!-- 公司名称 -->
+          <div class='company-nav flex_'>
+            <div class='left-nav flex_'>
+              <i class='require-Terms'>*</i><span class='min-Title' style='color:#2E2E2E;font-size:14px;font-weight:bold;'>公司名称：</span>
+            </div>
+            <div class='right-nav'>
+              <div class='company-cons' *ngIf="authStatus === 1 || authStatus === 3">{{companyName}}</div>
+              <div *ngIf="authStatus === 0 || authStatus === 2">
+                <input type="text" [ngClass]="{'err-border':error_status[2]}" #compayname name='companyName' placeholder='请输入公司名称' maxlength='30' [value]="companyName" autocomplete="off" (input)="inputfn(compayname.value)" />
+                <span class='char-leng'><span style='color:#333;'>{{charleng}}</span>/30</span>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix company-error" *ngIf="error_status[2]">
+            <span class="help-block error-Info">{{companyErr}}</span>
+          </div>
+
+          <!-- 店铺类型 -->
+          <div class='shop-type-wrap'>
+            <div class='left-nav mt-18 flex_'>
+              <i class='require-Terms store-types'>*</i><span class='min-Title' style='color:#2E2E2E;font-size:14px;font-weight:bold;'>您的店铺服务类型</span><span *ngIf="authStatus !== 1">（可多选，最多可选三个）：</span>
+            </div>
+            <div class='aptitude-Nav'>
+              <!-- 店铺类型第一次填写或重填显示的 -->
+              <div *ngIf="authStatus !== 1">
+                <ul class='shop-type-list'>
+                  <li *ngFor="let item of typeList;let i = index;">
+                    <p-checkbox label="{{item?.title}}" value="{{item?.id}}" name="typeItem" [(ngModel)]="selectedValues" (click)='selectServiceType(4)' [disabled]="notSelected[i]"></p-checkbox>
+                  </li>
+                </ul>
+                <div class="clearfix" *ngIf="error_status[0]">
+                  <span class="help-block error-Info">{{error_info[0]}}</span>
+                </div>
+              </div>
+              <!-- 店铺类型认证通过显示的 -->
+              <div *ngIf="authStatus === 1">
+                <ul class='shop-type-lists'>
+                  <li *ngFor="let item of typeList;let i = index;">
+                    <div class='itmess' *ngIf="notSelected[i] === false"><span class='succes-bgs'>√</span><span class='content-texts'>{{item?.title}}</span></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 根据状态控制提示显示文字 -->
+          <div class='left-nav mt-18 flex_'>
+            <i class='require-Terms store-types'>*</i><span class='min-Title' style='color:#2E2E2E;font-size:14px;font-weight:bold;'>行业的资质证明</span><span *ngIf="authStatus === 0 || authStatus === 2">（请提交跟店铺服务类型相关的资质证明）</span>
+          </div>
+          <!-- 行业资质证明第一次填写或重填显示的 -->
+          <div class='qualification-file-wrap' *ngIf="authStatus !== 1">
+            <div class='service-agreement'>
+              <div class='aptitude-Nav flex_'>
+                <div *ngFor="let pic of aptitudeProve;let i = index;">
+                  <div class='data-pictures'>
+                    <app-basic-img-upload (imgEvent)="authenticationData($event, i)" [previewImg]="pic" [selectPreview]="false"></app-basic-img-upload>
+                    <i class='lawful-operation-icon'></i>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix" *ngIf="error_status[1]">
+                <span class="help-block error-Info">{{serviceType_Info}}</span>
+              </div>
+            </div>
+          </div>
+          <!-- 行业资质证明审核中和审核通过显示的 -->
+          <div class='qualification-file-wrap' *ngIf="authStatus === 1">
+            <div class='service-agreement'>
+              <div class='aptitude-Nav flex_'>
+                <div *ngFor="let pic of aptitudeProve;let i = index;">
+                  <div class='data-pictures'>
+                    <img src="{{imageDomain}}{{pic}}" alt="" width='245px' height='155'>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--根据状态来显示按钮 -->
+          <div class='sub-Btn' *ngIf="authStatus !== 1">
+            <button class='submit-btn' (click)='onSubmit()' *ngIf="authStatus === 3">审核中</button>
+            <button class='submit-btn sub-color' (click)='onSubmit()' *ngIf="authStatus === 0 || authStatus === 2">提交认证</button>
+          </div>
+        </div>
+      </div>
+      <div class='wrap-mask' *ngIf="authStatus === 1 || authStatus === 3"></div>
+    </div>
+  </div>
+</div>
+<!-- </form> -->

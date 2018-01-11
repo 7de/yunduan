@@ -1,0 +1,429 @@
+<div class="wrap-con">
+  <h3 class="title"><a href="javascript:history.go(-1)">&lt; 返回</a><span *ngIf="productId">修改</span><span *ngIf="!productId">新增</span>投资产品</h3>
+  <form class="form custom-form" [formGroup]="formGroup" (submit)="onSubmit(formGroup)">
+    <div class="part">
+      <h4 class="titles">产品基础信息（<span class="red">*</span>必填）</h4>
+      <div class="row clearfix">
+        <div class="col-md-5">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>项目名称</label></div>
+                <input type="text" class="form-control" [readonly]="productId" maxlength="15"
+                       formControlName="name" placeholder="请输入项目（投资产品）名称">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>产品状态</label></div>
+                <select class="form-control" formControlName="kind" (change)="disabedFun($event)">
+                  <option value="">请选择</option>
+                  <option value="1">募集中</option>
+                  <option value="0">运行中</option>
+                  <option value="2">已清盘</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-md-5">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>备案号</label></div>
+                <input type="text" minlength="1" maxlength="15" [readonly]="productId" class="form-control" formControlName="backup_num"
+                       placeholder="请输入基金编号">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <label class="col-xs-12 col-md-12 control-label">已募集金额（万元）</label>
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <input type="text" minlength="0" maxlength="15" [readonly]="disabledInput" [ngModel]="alreadyVal" class="form-control" formControlName="already"
+                       placeholder="请输入金额数目"/>
+                <span class="errorMessage" *ngIf="errorBool">{{errorMsg}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-md-5">
+          <div class="row">
+            <!--<label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>成立日期 </label>-->
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>成立日期</label></div>
+                <p-calendar [ngModel]="productData?.create_date" [readonlyInput]="true"
+                            formControlName="create_date" placeholder="请选择"
+                            dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                            yearRange="1990:2030" [locale]="cn" styleClass="form-calendar form-calendar-border">
+                </p-calendar>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <label class="col-xs-12 col-md-12 control-label">业绩报酬(%)</label>
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <input type="text" minlength="1" maxlength="5"
+                       class=" form-control" formControlName="pay_back" placeholder="请输入业绩报酬">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row clearfix">
+        <div class="col-md-5">
+          <div class="row">
+            <label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>管理规模（万元）</label>
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="publish"
+                       placeholder="请输入数目">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <!--<label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>风险等级 </label>-->
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span> <label>风险等级</label></div>
+                <select class="form-control" formControlName="risk">
+                  <option value="">请选择</option>
+                  <option value="1">高风险</option>
+                  <option value="2">较高风险</option>
+                  <option value="3">中等风险</option>
+                  <option value="4">较低风险</option>
+                  <option value="5">低风险</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-md-5">
+          <div class="row">
+            <!--<label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>产品类型 </label>-->
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>产品类型</label></div>
+                <select class="form-control" formControlName="type">
+                  <option value="">请选择</option>                  
+                  <option value="1">证券</option>
+                  <option value="2">股权</option>
+                  <option value="3">创业</option>
+                  <option value="4">其他</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="part">
+      <h4 class="titles">基金经理（<span class="red">*</span>必填）</h4>
+      <div class="row clearfix">
+        <div class="col-md-5">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>基金经理</label></div>
+                <select class="form-control" id="name" formControlName="manager_id">
+                  <option value="">请选择</option>
+                  <option *ngFor="let manager of managers" [value]="manager.id">{{manager.name}}</option>
+                  <!--<option [value]="productData?.manager.id">{{productData?.manager.name}}</option>-->
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="part">
+      <h4 class="titles">日期信息（<span class="red">*</span>必填）</h4>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <!--<label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>发行开始日 </label>-->
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span> <label>发行开始日</label></div>
+                <p-calendar [readonlyInput]="true" formControlName="sell_start" dateFormat="yy-mm-dd"
+                            [maxDate]="formGroup.value.sell_end || null" placeholder="请选择" [monthNavigator]="true"
+                            [yearNavigator]="true" yearRange="1990:2030" [locale]="cn"
+                            styleClass="form-calendar form-calendar-border"></p-calendar>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <!--<label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>封闭期（个月）</label>-->
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>封闭期（个月）</label></div>
+                <select class="form-control" formControlName="closed_end">
+                  <option value="">请选择</option>                    
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <!--<label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>发行结束日 </label>-->
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>发行结束日</label></div>
+                <p-calendar [readonlyInput]="true" formControlName="sell_end" dateFormat="yy-mm-dd"
+                            [minDate]="formGroup.value.sell_start || null" placeholder="请选择" [monthNavigator]="true"
+                            [yearNavigator]="true" yearRange="1990:2030" [locale]="cn"
+                            styleClass="form-calendar form-calendar-border"></p-calendar>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <!--<label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>开放日 </label>-->
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <div class="col-xs-12 col-md-12 control-label"><span class="red">*</span><label>开放日</label></div>
+                <input type="text" minlength="1" maxlength="35" class="form-control"
+                       formControlName="open_date" placeholder="如 半年内最后一个交易日">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="part">
+      <h4 class="titles">交易规则（<span class="red">*</span>必填）</h4>
+      <p>费用信息：</p>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <label class="col-xs-12 col-md-12 control-label"><span class="red">*</span>认购起点（万元）</label>
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="take_up"
+                       placeholder="请输入认购起点">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <label class="col-xs-12 col-md-12 control-label">托管费（%）</label>
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="deposit_fee"
+                       placeholder="请输入托管费">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <label class="col-xs-12 col-md-12 control-label">固定管理费(%）</label>
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="management_fee"
+                       placeholder="请输入固定管理费">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <label class="col-xs-12 col-md-12 control-label">浮动管理费（%） </label>
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="float_fee"
+                       placeholder="请输入浮动管理费"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <label class="col-xs-12 col-md-12 control-label">其他费用（%） </label>
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <input type="text" class="form-control" minlength="1" maxlength="15" formControlName="other_fee"
+                       placeholder="请输入金额数目"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>买入规则：</p>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <label class="col-md-2 control-label" style="margin-top: 58px;">认购费：</label>
+            <div class="col-md-10">
+              <ul class="form-ul">
+                <div class="row"><label class="col-md-5 text-center">买入金额（万）</label>
+                  <label class="col-md-3 col-md-offset-1 text-center">费率（%）</label>
+                </div>
+                <li class="row" formArrayName="subscribe"
+                    *ngFor="let item of formGroup.get('subscribe')['controls']; let i = index;">
+                  <div [formGroupName]="i">
+                    <div class="col-md-5 clearfix">
+                      <div class="col-md-5">
+                        <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="from"
+                               placeholder="输入金额"/>
+                      </div>
+                      <span class="col-md-2 text-center" style="height: 36px;line-height:36px;">~</span>
+                      <div class="col-md-5">
+                        <input type="text" minlength="1" maxlength="15" class="form-control pull-left"
+                               formControlName="to" placeholder="输入金额"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                      <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="rate"
+                             placeholder="输入费率"/>
+                    </div>
+                    <div *ngIf="i + 1 === subscribeLen" class="col-md-2 col-md-offset-1 clearfix">
+                      <span class="add-btn" *ngIf="subscribeLen < 5" (click)="addItem('subscribe')">+</span>
+                      <span *ngIf="subscribeLen > 1" (click)="deleteItem('subscribe')"
+                            class="add-btn ml-10 add-span">-</span>
+                    </div>
+                  </div>
+                </li>
+                <!--<span *ngIf="subscribeError" class="group-error">您输入的认购费为空或者不符合规则</span>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <div class="row">
+            <label class="col-md-2 control-label" style="margin-top: 58px;">申购费：</label>
+            <div class="col-md-10">
+              <ul class="form-ul">
+                <div class="row"><label class="col-md-5 text-center">买入金额（万）</label>
+                  <label class="col-md-3 col-md-offset-1 text-center">费率（%）</label>
+                </div>
+                <li class="row" formArrayName="purchase"
+                    *ngFor="let item of formGroup.get('purchase')['controls']; let i = index;">
+                  <div [formGroupName]="i">
+                    <div class="col-md-5 clearfix">
+                      <div class="col-md-5">
+                        <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="from"
+                               placeholder="输入金额"/>
+                      </div>
+                      <span class="col-md-2 text-center" style="height: 36px;line-height:36px;">~</span>
+                      <div class="col-md-5">
+                        <input type="text" minlength="1" maxlength="15" class="form-control pull-left"
+                               formControlName="to" placeholder="输入金额"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                      <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="rate"
+                             placeholder="输入费率"/>
+                    </div>
+                    <div *ngIf="i + 1 === purchaseLen" class="col-md-2 col-md-offset-1 clearfix">
+                      <span class="add-btn" *ngIf="purchaseLen < 5" (click)="addItem('purchase')">+</span>
+                      <span *ngIf="purchaseLen > 1" (click)="deleteItem('purchase')"
+                            class="add-btn ml-10 add-span">-</span>
+                    </div>
+                  </div>
+                </li>
+                <!--<span *ngIf="purchaseError" class="group-error">您输入的申购费为空或者不符合规则</span>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>卖出规则：</p>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <label class="col-md-2 control-label" style="margin-top: 58px;">赎回费：</label>
+            <div class="col-md-10">
+              <ul class="form-ul">
+                <div class="row"><label class="col-md-5 text-center">持有期限（天）</label><label
+                  class="col-md-3 col-md-offset-1 text-center">费率（%）</label></div>
+                <li class="row" formArrayName="sell"
+                    *ngFor="let item of formGroup.get('sell')['controls']; let i = index;">
+                  <div [formGroupName]="i">
+                    <div class="col-md-5 clearfix">
+                      <div class="col-md-5">
+                        <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="from"
+                               placeholder="输入天数"/>
+                      </div>
+                      <span class="col-md-2 text-center" style="height: 36px;line-height:36px;">~</span>
+                      <div class="col-md-5">
+                        <input type="text" minlength="1" maxlength="15" class="form-control pull-left"
+                               formControlName="to" placeholder="输入天数"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                      <input type="text" minlength="1" maxlength="15" class="form-control" formControlName="rate"
+                             placeholder="输入费率"/>
+                    </div>
+                    <div *ngIf="i + 1 === sellLen" class="col-md-2 col-md-offset-1 clearfix">
+                      <span class="add-btn" *ngIf="sellLen < 5" (click)="addItem('sell')">+</span>
+                      <span *ngIf="sellLen > 1" (click)="deleteItem('sell')" class="add-btn ml-10 add-span">-</span>
+                    </div>
+                  </div>
+                </li>
+                <!--<span *ngIf="sellError" class="group-error">您输入的赎回费为空或者不符合规则</span>-->
+              </ul>
+            </div>
+          </div>
+          <div class="tip mt-30">
+            <h5>备注：</h5>
+            <p>例：当买入金额大于500万后，费率统一为0.5%时，可填写为：</p>
+            <div class="tip-info text-center">
+              <div class="row"><label class="col-md-5">买入金额（万）</label><label
+                class="col-md-3 col-md-offset-1">费率（%）</label></div>
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-md-5">
+                  <span class="col-md-5 ">&ge;</span>
+                  <span class="col-md-2">~</span>
+                  <span class="col-md-5">500</span>
+                </div>
+                <span class="col-md-3 col-md-offset-1">0.5</span>
+                <div class="col-md-3" style="color: #777">赎回费率同理</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1"></div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-sm-12 text-center mt-20">
+        <button type="submit" class="btn btn-red">保存</button>
+      </div>
+    </div>
+  </form>
+</div>

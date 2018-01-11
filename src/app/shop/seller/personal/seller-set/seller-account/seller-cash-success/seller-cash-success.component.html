@@ -1,0 +1,36 @@
+<app-heads-single [bgc]="true"></app-heads-single>
+<div class="wrap-1200">
+  <app-head-wallet [panelTitle]="['提现']" [users]="users"></app-head-wallet>
+</div>
+<div class="layout">
+  <div class="wrap-1200">
+    <div class="ui-g">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="head-title">
+          您的位置：<span class="pdr-10" [routerLink]="['/seller/personal/index/indexs']">个人中心</span>&gt;<span class="pdr-10 pdl-10" [routerLink]="['/seller/personal/set']">设置</span>&gt;<span class="pdr-10 pdl-10" [routerLink]="['/seller/personal/set/account']">支付账号管理</span>&gt;<span class="pdl-10" [routerLink]="['/seller/personal/set/account']">我的钱包</span>
+        </div>
+      </div>
+    </div>
+    <div class="order bg-white ui-g">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="title pdl-20 ui-g-12 ui-g-nopad">
+          <p class="p-title">提取余额到对公账号</p>
+        </div>
+        <div class="ui-g-12 ui-g-nopad cash-suc" style="padding: 30px;">
+          <div class="ui-g-12 ui-g-nopad">
+            <span class="ico-global ico-success mr-10"></span><b style="font-size: 18px;">提现申请已提交，等待银行处理</b>
+          </div>
+          <div class="ui-g-12 ui-g-nopad" style="color: #999;margin-left: 54px;">
+            如果信息填写有误，导致提现失败，资金将自动退还到您的钱包中
+          </div>
+          <div class="ui-g-12 ui-g-nopad mt-30" style="margin-left: 54px;">
+            <button [routerLink]="['/seller/cash']" class="cash-success-button">继续提现</button>
+            <button [routerLink]="['/seller/detail']" [queryParams]="{'pay_type':''}" class="cash-success-button ml-20">查看收支明细</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer [bgc]="1"></app-footer>
+

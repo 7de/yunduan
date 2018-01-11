@@ -1,0 +1,118 @@
+<div class="app-upload-video">
+  <p class="pictures-bread">
+    <span class="color-999 fs-12">你的位置：</span>
+    <a class="fs-12" [routerLink]="['../video-material']" [queryParams]="{status: 'all-videos'}">视频素材 ></a>
+    <span class="color-999 fs-12">上传视频</span>
+  </p>
+  <div class="ui-g pictures-upload-content">
+    <form class="form-horizontal ui-g-12 ui-g-nopad" [formGroup]="formGroup" (submit)="onSubmit(formGroup)" role="form" novalidate>
+      <div class="step clearfix">
+        <div class="step-header">
+          <p class="fs-14">上传视频</p>
+        </div>
+        <div class="step-content">
+          <app-video-upload (result)="getVideo($event)"></app-video-upload>
+          <p class="form-tips">上传单个视频最大为100M</p>
+          <p class="form-tips form-tips_error" *ngIf="formGroup.get('url').invalid && formGroup.get('url').touched">请上传视频</p>
+        </div>
+      </div>
+      <div class="step clearfix">
+        <div class="step-header">
+          <p class="fs-14">步骤1：添加至专辑</p>
+        </div>
+        <div class="step-content ui-g-9">
+          <div class="row">
+            <label class="col-sm-2 control-label">
+              <span class="color-red">*</span>添加至连载:
+            </label>
+            <div class="col-sm-8 form-group">
+              <label class="hide">连载</label>
+              <div class="serial-select">
+                <div class="select-zoom">
+                  <input formControlName="media_id" (focus)="showList()" (blur)="hideList()" type="text" readonly/>
+                  <img *ngIf="selectObj" [src]="selectObj?.img | image" />
+                  <span class="select-zoom-title">{{selectObj?selectObj.title:'请选择连载'}}</span>
+                  <span class="caret"></span>
+                  <div class="select-down" *ngIf="selectZoom">
+                    <div class="select-item" *ngFor="let item of serialItem">
+                      <input [value]="item?.id" (click)="onClick(item)" type="text" /> {{item?.title}}
+                    </div>
+                  </div>
+                </div>
+                <a class="create-serial" (click)="getMySerialList()">创建连载</a>
+              </div>
+              <span class="form-tips" *ngIf="errors['selectObj']">请选择需要添加的连载</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step clearfix">
+        <div class="step-header">
+          <p class="fs-14">步骤2：完善基本信息</p>
+        </div>
+        <div class="step-content clearfix">
+
+          <div class="row ui-g-8">
+            <label class="col-sm-2 control-label">
+              <span class="color-red">*</span>视频标题:
+            </label>
+            <div class="col-sm-8 form-group">
+              <label class="hide">视频标题</label>
+              <input class="form-control" formControlName="title" type="text" maxlength="30" />
+              <app-string-length class="limit-num" [limitLength]="30" [dataProvider]="formGroup.value['title']"></app-string-length>
+              <p class="form-tips">建议使用简洁明了的标题，请不要包含任何多余信息，如连载标题、日期等。</p>
+            </div>
+          </div>
+
+          <div class="row ui-g-8">
+            <label class="col-sm-2 control-label">
+              <span class="color-red">*</span>封面图片:
+            </label>
+            <div class="col-sm-8 form-group" [class.has-error]="formGroup.get('img').invalid && formGroup.get('img').touched">
+              <app-lives-img-upload (result)="getImage($event)"></app-lives-img-upload>
+              <span class="help-block" *ngIf="formGroup.get('img').invalid && formGroup.get('img').touched">请上传封面图片</span>
+            </div>
+          </div>
+
+          <div class="row ui-g-8">
+            <label class="col-sm-2 control-label">
+              <span class="color-red">*</span>视频简介:
+            </label>
+            <div class="col-sm-8 form-group">
+              <label class="hide">视频简介</label>
+              <textarea class="form-control" formControlName="description" maxlength="200"></textarea>
+              <app-string-length class="limit-num" [limitLength]="200" [dataProvider]="formGroup.value['description']"></app-string-length>
+            </div>
+          </div>
+
+          <div class="row ui-g-8">
+            <div class="col-sm-offset-2 checkbox">
+              <label>
+                <input type="checkbox" formControlName="checked"> 我已阅读并同意
+                <a routerLink="/lives/upload-protocol" target="_blank">《云端互联网上传服务器条款》</a>
+              </label>
+            </div>
+          </div>
+
+          <div class="row ui-g-8">
+            <div class="col-sm-offset-2">
+              <button type="submit" class="btn btn-danger">提交审核</button>
+              <button type="button" class="btn btn-default ml-10" [routerLink]="['../video-material']" [queryParams]="{status: 'all-videos'}">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- 创建连载 -->
+<div class="create-serial-dialog">
+  <p-dialog modal="modal" [(visible)]="createBool" width="460">
+    <p-header>
+      创建新连载
+    </p-header>
+    <app-create-serial-form [createBool]="createBool" [media_type]="0" (result)="hideDialog($event)"></app-create-serial-form>
+  </p-dialog>
+</div>

@@ -1,0 +1,57 @@
+<div class="wrap">
+  <h3 class="title" style="color: #333; font-weight: bold;height: 22px;line-height: 22px">投资产品管理</h3>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="mt-30">
+        <app-url-tab [items]="tabItems"></app-url-tab>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="myAdd" [routerLink]="['/main/product/create']">
+              <p><span class="icon-add"></span>新增投资产品</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" method="get">
+            <div class="col-xs-2">
+              <input class="input" type="text" formControlName="name" name="name" placeholder="请输入项目名称"><span class="icon-search"></span>
+            </div>
+            <div class="col-xs-1" style="margin-left: 5px;padding: 0;">
+              <button class="search" type="submit">搜索</button>
+            </div>
+          </form>
+        </div>
+        <div style="margin-top: 26px;">
+          <p-dataTable rowHover="true" [value]="data" styleClass="custom-dataTable" [loading]="!data" loadingIcon="fa-spinner" emptyMessage="暂无数据">
+            <p-column field="indexOf" header="序号" [style]="{'width':'70px'}">
+              <ng-template let-data="rowData" let-i="rowIndex" pTemplate="body">
+                  <span>{{(pagination.currentPage-1)*pagination.perPage+i+1}}</span>
+              </ng-template>
+            </p-column>
+            <p-column field="name" header="项目名称"></p-column>
+            <p-column field="income" header="累计涨幅(%)"></p-column>
+            <p-column field="publish" header="管理规模(万元)"></p-column>
+            <p-column field="create_date" header="发行日期"></p-column>
+            <p-column field="kind_txt" header="产品状态" [style]="{'width':'100px'}"></p-column>
+            <p-column field="percent" header="募集进度" [style]="{'width':'100px'}"></p-column>
+            <p-column styleClass="col-button" field="id" [style]="{'width':'255px'}">
+              <ng-template pTemplate="header">操作</ng-template>
+              <ng-template let-data="rowData" pTemplate="body">
+                <a [routerLink]="['/main/product/import',data.id]">导入数据</a>
+                <a [routerLink]="['/main/product/view',data.id]" [queryParams]="{name:data.name}" style="padding-left:5px;">查看数据详情</a>
+                <a [routerLink]="['/main/product/record',data.id]" [queryParams]="{name:data.name}" style="padding-left:5px;">投资记录</a>
+              </ng-template>
+            </p-column>
+          </p-dataTable>
+          <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                       [first]="pagination.currentPage * pagination.perPage-1"
+                       [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                       (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-model></app-model>
+
+

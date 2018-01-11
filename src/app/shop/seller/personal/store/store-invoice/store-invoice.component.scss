@@ -1,0 +1,58 @@
+.searchBox .input{
+  width: 260px;
+  height: 30px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.searchBox{
+  margin-top: 20px;
+}
+.searchBox .search{
+  background-color: #aa2425;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.invoice-data{
+  margin-top: 20px;
+}
+
+// 弹性布局
+.flex_ {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.commercial-voucher {
+  border:1px solid #ECECEC;
+}
+.Invoice-wrap {
+  width:984px;
+  height:44px;
+  //border:1px solid #EDEDED;
+  border-bottom:1px solid #EDEDED;
+  border-top:none;
+  .marking-line {
+    display: block;
+    width:4px;
+    height:16px;
+    margin-top:13px;
+    background-color: #D63236;
+  }
+  .orders-text {
+    display: block;
+    font-size:16px;
+    color:#2E2E2E;
+    height:44px;
+    line-height:44px;
+    margin-left:15px;
+  }
+}
+.order-list-wrap {
+  width:940px;
+  margin:0 auto
+}

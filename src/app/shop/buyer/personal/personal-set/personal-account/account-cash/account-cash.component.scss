@@ -1,0 +1,55 @@
+@import "../../../../../../../assets/sass/mixin.css";
+@import "../../../../../../../assets/sass/variables";
+
+.layout{
+  padding-bottom: 50px;
+  background-color: nth($gray,1);
+}
+.wallet{
+  position: relative;
+  top: 9px;
+  left: 0;
+  margin-right: 5px;
+  display: inline-block;
+  width: 46px;
+  height: 36px;
+  background: url(../../../../../../../assets/images/webadmin-icon.png) -90px -507px no-repeat;
+}
+.bg-white{
+  background-color: #fff;
+}
+.order{
+  padding:40px 30px;
+}
+.red{
+  color: nth($red,2)
+}
+.crumbs {
+  padding: 15px 0;
+  font-size: 14px;
+  a{
+    padding-right:10px;
+    color: nth($red,2);
+  }
+}
+.title{
+  padding-bottom:15px;
+  //border-bottom:1px solid nth($gray,6);
+  .h3-title{
+    height: 24px;
+    line-height: 24px;
+    font-size: 24px;
+    padding-left:15px;
+    border-left:5px solid nth($red,2);
+  }
+}
+.cash-input{
+  height: 36px;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: none;
+}
+.pt{
+  padding-top: 20px;
+}

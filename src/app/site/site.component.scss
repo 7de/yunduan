@@ -1,0 +1,421 @@
+/*登录导航条*/
+.tops {
+  width: 100%;
+  height: 36px;
+  background-color: #f4f4f4;
+  > .tops-box {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    > .boxs-left {
+      line-height: 36px;
+      color: #333;
+      float: left;
+    }
+    > .boxs-right {
+      float: right;
+      > ul {
+        > li {
+
+          float: left;
+          list-style: none;
+          > a {
+            text-decoration: none;
+            color: #333;
+            height: 14px;
+            display: inline-block;
+            padding-right: 15px;
+            line-height: 14px;
+            margin-top: 12px;
+          }
+          a:hover {
+            color: #971416;
+          }
+          > .audits {
+            border-right: 1px solid #c2c2c2;
+            height: 14px;
+            vertical-align: middle;
+            color: #971416;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*登录导航头部*/
+.header {
+  height: 90px;
+  background-color: #fff;
+}
+
+.header-bigbox {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.header-bigbox .lefts {
+  float: left;
+  height: 100%;
+}
+
+.header-bigbox .rights {
+  float: right;
+}
+
+.rights {
+  height: 100%;
+}
+
+.rights a {
+  display: inline-block;
+  height: 36px;
+  width: 100px;
+  line-height: 36px;
+  margin-top: 27px;
+  border: 1px solid #999999;
+  color: #999999;
+  text-align: center;
+}
+
+.rights a:hover {
+  background-color: #b02022;
+  border: 1px solid #b02022;
+  color: #fff;
+  text-decoration: none;
+}
+
+.rights a:focus {
+  background-color: #b02022;
+  border: 1px solid #b02022;
+  color: #fff;
+}
+
+.rights a:active {
+  background-color: #b02022;
+  border: 1px solid #b02022;
+  color: #fff;
+}
+
+.rights .active {
+  background-color: #b02022;
+  border: 1px solid #b02022;
+  color: #fff;
+}
+
+.register {
+  float: left;
+}
+
+.enroll {
+  float: right;
+}
+
+.header-left {
+  width: 205px;
+  height: 50px;
+  float: left;
+  margin-top: 15px;
+}
+
+.header-left .logo {
+  display: inline-block;
+  width: 205px;
+  height: 38px;
+  background-repeat: no-repeat;
+}
+
+.header .header-right {
+  margin: 0;
+  margin-top: 15px;
+  float: left;
+}
+
+.header .header-right li {
+  list-style: none;
+  float: left;
+  line-height: 66px;
+  margin-left: 50px;
+}
+
+.header-right li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #343434;
+}
+
+.header-right li a:hover {
+  color: #b21c1e;
+}
+
+.header-right li a:focus {
+  color: #b21c1e;
+}
+
+.header-right li a:active {
+  color: #b21c1e;
+}
+
+.header-right li .active {
+  color: #b21c1e;
+}
+
+/*中间部分*/
+.box-center {
+
+}
+
+/*私募底部信息部分*/
+.footer {
+  width: 100%;
+  height: 220px;
+  background-color: #333333;
+}
+
+.footer-bigbox {
+  padding-top: 30px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.navigation ul li {
+  float: left;
+}
+
+.navigation ul li a {
+  color: #fff;
+  font-size: 14px;
+}
+
+.indexs {
+  display: inline-block;
+  padding-right: 15px;
+  height: 14px;
+  line-height: 14px;
+  border-right: 1px solid #777;
+}
+
+.shops {
+  display: inline-block;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 14px;
+  line-height: 14px;
+  border-right: 1px solid #777;
+}
+
+.newed {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 14px;
+  line-height: 14px;
+  border-right: 1px solid #777;
+}
+
+.regardsd {
+  display: inline-block;
+  padding-left: 20px;
+  height: 14px;
+  line-height: 14px;
+}
+
+.navigation {
+  width: 100%;
+  height: 14px;
+}
+
+.bigbox-top {
+  height: 150px;
+  border-bottom: 1px solid #4f4f4f;
+}
+
+.message {
+  float: left;
+}
+
+.message div {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.message div p {
+  color: #fff;
+  display: inline-block;
+  margin-left: 15px;
+  vertical-align: middle;
+  font-size: 14px;
+  font-family: 微软雅黑;
+}
+
+.account {
+  float: right;
+  height: 100%;
+  width: 315px;
+}
+
+.copyright {
+  margin-top: 15px;
+}
+
+.copyright p {
+  color: #fff;
+  text-align: center;
+}
+
+.copyright p a {
+  color: #63A8EB;
+}
+
+.organization {
+  position: relative;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.organization ul {
+  width: 6000px;
+  height: 280px;
+  margin: 0 auto;
+}
+
+.organization ul li {
+  max-width: 1200px;
+  margin-left: 63px;
+  float: left;
+}
+
+.organization ul a {
+  margin-left: 10px;
+  width: 198px;
+  height: 118px;
+  display: inline-block;
+  border: 1px solid #e6e6e6;
+  margin-top: 5px;
+}
+
+.organization ul a img {
+  width: 198px;
+  height: 118px;
+}
+
+.organization .show-left {
+  width: 48px;
+  height: 48px;
+  display: block;
+  border-radius: 50%;
+  background-color: #ccc;
+  position: absolute;
+  top: 40%;
+  font-size: 60px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  left: 0px;
+}
+
+.arrange a:hover {
+  color: #ffffff;
+}
+
+.organization .show-left i {
+  width: 14px;
+  height: 25px;
+  display: block;
+  margin: 22% auto;
+}
+
+.organization .show-right {
+  width: 48px;
+  height: 48px;
+  display: block;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #ccc;
+  position: absolute;
+  top: 40%;
+  font-size: 60px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  right: 0px;
+}
+
+.organization .show-right i {
+  width: 14px;
+  height: 25px;
+  display: block;
+  margin: 22% auto;
+}
+
+.account .phone p {
+  color: #fff;
+  font-size: 14px;
+}
+
+.account .phone {
+  float: left;
+  margin-top: 30px;
+}
+
+.telephone {
+  color: #fff;
+  font-size: 24px;
+  font-family: 微软雅黑;
+  font-weight: normal;
+}
+
+.account .imgbox {
+  float: right;
+}
+
+.imgbox {
+  width: 98px;
+}
+
+.imgbox .img {
+  width: 98px;
+  height: 98px;
+  background-image: url("../../assets/images/account.png");
+  background-repeat: no-repeat;
+}
+
+.texts {
+  color: #ffffff;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.message .navigation ul li a:hover {
+  color: #b21c1e;
+}
+
+.message .navigation ul li a:active {
+  color: #b21c1e;
+}
+
+.message .navigation ul li a:focus {
+  color: #b21c1e;
+}
+
+.more-boxbig .function ul li a:hover {
+  color: #b21c1e;
+}
+
+.more-boxbig .function ul li a:active {
+  color: #b21c1e;
+}
+
+.more-boxbig .function ul li a:focus {
+  color: #b21c1e;
+}
+
+.more-boxbig .function ul li a:hover {
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -transform: scale(1.1, 1.1);
+}
+

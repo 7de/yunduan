@@ -1,0 +1,56 @@
+<div class="wrap-1200 ui-g con bg-white mt-30">
+  <div class="ui-g-1 ui-g-nopad side-box">
+    <ul class="side-menu">
+      <li class="tab-nav" *ngFor="let item of items" routerLinkActive="active">
+        <a routerLink="{{item.url}}" [queryParams]="item.queryParams">{{item.title}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="ui-g-11 ui-g-nopad">
+    <div class="ui-g con-box">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="title">
+          <span>{{mailType==='0' ? '系统动态' : '服务动态'}}</span>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <ul class="list" *ngIf="mailType==='0'">
+          <li *ngFor="let item of mailData">
+            <div class="ui-g">
+              <div class="ui-g-10 ui-g-nopad li-title">{{item.content}}</div>
+              <div class="ui-g-2 ui-g-nopad text-right color-999 fs-12">{{item.created_at_txt}}</div>
+            </div>
+          </li>
+          <li class="text-center no-con" *ngIf="mailData?.length<1">
+            <i class="ico-global ico-nomessage"></i>暂无系统动态...
+          </li>
+        </ul>
+        <ul class="trade-list" *ngIf="mailType==='1'">
+          <li *ngFor="let item of mailData">
+            <div class="ui-g">
+              <div class="ui-g-10 ui-g-nopad li-title">
+                <div class="ui-g">
+                  <div class="ui-g-2 ui-g-nopad">
+                    <img src="{{item?.goods?.first_img | image:90}}" alt="{{item?.goods?.title}}" width="90" height="90">
+                  </div>
+                  <div class="ui-g-10 ui-g-nopad order">
+                    <p>商品名称：{{item?.goods?.title}}</p>
+                    <p>状态：{{item?.company_status_txt}}</p>
+                    <a [routerLink]="['/buyer/personal/order',item?.order_id]" class="blue">去看看&gt;</a>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g-2 ui-g-nopad fs-12 color-999 text-right time">{{item?.created_at_txt}}</div>
+            </div>
+          </li>
+          <li class="text-center no-con" *ngIf="mailData?.length<1"><i class="ico-global ico-nomessage"></i>暂无服务动态...</li>
+        </ul>
+      </div>
+      <div class="ui-g-12 ui-g-nopad mt-10">
+        <p-paginator *ngIf="pagination?.totalCount" [first]="pagination.currentPage * pagination.perPage-1" [rows]="pagination.perPage"
+                     [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                     (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+      </div>
+    </div>
+  </div>
+</div>

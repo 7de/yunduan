@@ -1,0 +1,110 @@
+<div class="ui-g ui-g-nopad">
+  <div class="ui-g-12 ui-g-nopad video-picture-change">
+    <div class="video-status" [class.active]="status === 'all'">
+      <span (click)="changeStatus('all');">
+        全部视频
+        <em>（{{videosCount?.all}}）</em>
+      </span>
+    </div>
+    <div class="video-status" [class.active]="status === 'pass'">
+      <span (click)="changeStatus('pass')">
+        已发布
+        <em>（{{videosCount?.pass}}）</em>
+      </span>
+    </div>
+    <div class="video-status" [class.active]="status === 'pending'">
+      <span (click)="changeStatus('pending')">
+        审核中
+        <em>（{{videosCount?.pending}}）</em>
+      </span>
+    </div>
+    <div class="video-status" [class.active]="status === 'not_pass'">
+      <span (click)="changeStatus('not_pass')">
+        审核未通过
+        <em>（{{videosCount?.not_pass}}）</em>
+      </span>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-g-nopad" style="padding: 20px 0">
+    <div class="search-input float-left">
+      <input type="text" [(ngModel)]="params.title" placeholder="搜索连载名称" />
+      <button class="color-666" (click)="getVideosList()">搜索</button>
+    </div>
+    <div class="create-serial float-left">
+      <a class="color-666" (click)="uploadVideoFiles()" (mouseover)="hoverBool=true" (mouseleave)="hoverBool=false">
+        <i [ngClass]="{'ico-yun-upload-video': hoverBool}" class="ico-global ico-yun-upload-video-normal" style="margin-right: 3px;margin-top: -2px;"></i>上传视频</a>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-g-nopad my-serial">
+    <p-dataTable [value]="serialItem" styleClass="custom-dataTable" emptyMessage="暂无数据">
+      <p-column header="视频" [style]="{'width':'50%'}">
+        <ng-template let-data="rowData" pTemplate="body">
+          <div class="ui-g-4 ui-g-nopad serial-picture padding-16">
+            <img [src]="data?.img | image" />
+          </div>
+          <div class="ui-g-8 ui-g-nopad serial-picture-title padding-16">
+            <p style="font-size: 12px;">{{data?.title}}</p>
+            <span style="font-size: 12px;">{{data?.created_at_txt}}</span>
+          </div>
+        </ng-template>
+      </p-column>
+      <p-column field="business_status_txt" header="状态">
+        <ng-template let-data="rowData" pTemplate="body">
+          <p style="color: #000000;margin-top: 16px;font-size: 12px;">{{data?.status_txt}}</p>
+        </ng-template>
+      </p-column>
+      <p-column header="播放量">
+        <ng-template let-data="rowData" pTemplate="body">
+          <p style="color: #000000;margin-top: 16px;font-size: 12px;">{{data?.pv}}</p>
+        </ng-template>
+      </p-column>
+      <p-column header="连载于">
+        <ng-template let-data="rowData" pTemplate="body">
+          <p style="color: #000000;margin-top: 16px;font-size: 12px;">{{data?.media_info.title}}</p>
+        </ng-template>
+      </p-column>
+      <p-column header="操作">
+        <ng-template pTemplate="body" let-data="rowData">
+          <p *ngIf="data?.status===0" style="color: #000000;margin-top: 16px;font-size: 12px;" class="p-hover" [routerLink]="['/lives/videos-details']"
+            [queryParams]="{id: data?.id}">查看详情</p>
+          <p *ngIf="data?.status===1" style="padding: 16px 0;color: #000000;cursor: not-allowed;font-size: 12px;">不可操作</p>
+          <p *ngIf="data?.status===0 || data?.status===2" style="color: #000000;margin-top: 16px;font-size: 12px;" class="p-hover"
+            (click)="deleteBool=true;deleteId=data?.id">删除</p>
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+    <p-paginator *ngIf="pagination?.totalCount" [rows]="pagination.perPage" [first]="pagination.currentPage * pagination.perPage-1"
+      [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount" (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+  </div>
+</div>
+
+<div class="video-dialog">
+  <p-dialog header="确认操作提示" modal="modal" [(visible)]="deleteBool" width="500">
+    <div class="text-center mt-10">
+      <i class="ico-global ico-tip-yellow" style="margin-right: 10px;"></i>确定删除该视频吗？</div>
+    <p-footer>
+      <p class="text-center">
+        <button type="button" class="cancel-btn-new" (click)="deleteBool=!deleteBool">取消</button>
+        <button type="button" class="submit-btn-new ml-15" (click)="deleteVideos()">确定删除</button>
+      </p>
+    </p-footer>
+  </p-dialog>
+</div>
+
+<div class="video-dialog">
+  <p-dialog header="确认操作提示" modal="modal" [(visible)]="livesBool" width="500">
+    <div class="text-center mt-10">
+      <i class="ico-global ico-tip-yellow" style="margin-right: 10px;"></i>
+      <em *ngIf="authorObj['natural'] && companyType === '0'">完善资料</em>
+      <em *ngIf="authorObj['natural'] && companyType === '1'">资质审核通过</em>
+      <em *ngIf="authorObj['wallet']">钱包开通</em>
+      <em *ngIf="authorObj['lives']">课堂资料完善</em>
+      后才可以上传视频哦
+    </div>
+    <p-footer>
+      <p class="text-center">
+        <a (click)="finishLivesInfo()">立即完善>></a>
+      </p>
+    </p-footer>
+  </p-dialog>
+</div>

@@ -1,0 +1,60 @@
+<div class="ui-g wrap-1200">
+  <div class="pictures__title">
+    <img class="pictures__title__thumb" [src]="serialInfo?.media_author.img | image">
+    <div class="pictures__title__name">{{serialInfo?.media_author.nickname}}</div>
+  </div>
+  <div class="pictures-panel">
+    <div class="pictures-media-box">
+      <div class="pictures-media-box__hd">
+        <div class="pictures-media-box__thumb">
+          <img [src]="serialInfo?.img | image">
+        </div>
+      </div>
+      <div class="pictures-media-box__bd">
+        <div class="pictures-media-box__title">{{serialInfo?.title}}</div>
+        <ul class="pictures-media-box__info clearfix">
+          <li class="pictures-media-box__info__mate">
+            类别：
+            <a [routerLink]="['/lives/pictures-list']" >【{{serialInfo?.info_type_txt}}】</a>
+          </li>
+          <li class="pictures-media-box__info__mate">最近更新：{{serialInfo?.updated_at * 1000 | date:'yyyy-MM-dd'}}</li>
+        </ul>
+        <div class="pictures-media-box__links">
+          <a class="pictures-media-box__links__icon" *ngIf="picturesList" routerLink="/lives/pictures-voice/{{picturesList[0]?.id}}">
+            <i *ngIf="serialInfo?.update_to" class="pictures-icon-voice" title="语音模式"></i>
+            <i *ngIf="!serialInfo?.update_to" class="ico-global ico-yun-forbid-voice" title="该连载没有图文"></i>
+          </a>
+          <a class="pictures-media-box__links__icon" *ngIf="picturesList" routerLink="/lives/pictures-detail/{{picturesList[0]?.id}}">
+            <i *ngIf="serialInfo?.update_to" class="pictures-icon-picture" title="阅读模式"></i>
+            <i *ngIf="!serialInfo?.update_to" class="ico-global ico-yun-forbid-read" title="该连载没有图文"></i>
+          </a>
+          <div class="pictures-media-box__links__extra">
+            <span class="pictures-media-box__links__numb">{{serialInfo?.pv}}</span>
+            次播放
+          </div>
+        </div>
+        <div class="pictures-media-box__desc">{{serialInfo?.description}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="pictures-panel" style="padding-bottom: 30px">
+    <div class="pictures-cells__title">连载中的图文</div>
+    <div class="pictures-cells">
+      <a href="javascript:void(0);" class="pictures-cell pictures-cell_access" *ngFor="let item of picturesList" routerLink="/lives/pictures-detail/{{item.id}}">
+        <div class="pictures-cell__hd">
+          <i class="pictures-icon-play_sm"></i>
+        </div>
+        <div class="pictures-cell__bd">{{item?.title}}</div>
+        <div class="pictures-cell__ft">
+          <span class="pictures-cell__play-numb">{{item?.pv}}</span>
+          <span class="ml-20">{{item?.created_at_txt}}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-g-nopad pagination">
+    <p-paginator [rows]="pagination?.perPage" [first]="pagination?.currentPage * pagination?.perPage-1" [totalRecords]="pagination?.totalCount"
+      [pageLinkSize]="pagination?.pageCount" (onPageChange)="paginate($event)" styleClass="custom-paginator">
+    </p-paginator>
+  </div>
+</div>

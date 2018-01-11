@@ -1,0 +1,12 @@
+<div class="img-show" (mouseover)="hoverBool=true" (mouseleave)="hoverBool=false;">
+  <span *ngIf="imgSrc" class="lives-img-close fa fa-close" (click)="deleteImg()"></span>
+  <img *ngIf="imgSrc" [src]="imgSrc | image:191"/>
+  <input type="file" #myInput (change)="uploadFile($event)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"/>
+  <div class="img-title">
+    <i [ngClass]="{'ico-yun-plus-red':hoverBool}" class="ico-global ico-yun-plus-gray"></i>
+    <p>图片上传</p>
+  </div>
+</div>
+<div [ngClass]="{'has-error': errors}">
+  <span class="help-block" *ngIf="errors">{{errors}}</span>
+</div>

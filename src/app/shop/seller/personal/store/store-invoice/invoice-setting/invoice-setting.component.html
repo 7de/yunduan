@@ -1,0 +1,23 @@
+<div class="commercial-type">
+  <div class="kinds-invoice ui-g">
+    <span class="ui-md-1">发票类型:</span>
+    <div class="radioCenter ui-md-4">
+      <div class="box-radio " (click)="typeCommon()">
+        <span class="ico-global ico-right righted" *ngIf="commoned"></span>
+      </div>
+      <span class="left">增值普通发票</span>
+
+      <div class="box-radio" style="margin-left: 20px" (click)="typeMajor()">
+        <span class="ico-right ico-global righted" *ngIf="major"></span>
+      </div>
+      <span class="left">增值专用发票</span>
+    </div>
+  </div>
+
+  <div class="invoice-type text-center">
+    <div class="box-btn">
+      <button type="submit" class="submit-btn submit-btn-another mt-20" (click)="btned()">{{textbtned === true? '保存' : '修改'}}</button>
+    </div>
+  </div>
+
+</div>

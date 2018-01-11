@@ -1,0 +1,47 @@
+.login-header {
+  margin: 0 auto;
+  width: 1200px;
+  min-width: 1200px;
+  &__icon {
+    display: inline-block;
+    width: 220px;
+    height: 54px;
+    background: url('/assets/images/webadmin-icon.png') no-repeat -195px -598px;
+  }
+  .log {
+    padding: 11px 0;
+    display: flex;
+    align-items: center;
+    .log-title {
+      font-size: 18px;
+      line-height: 1;
+      color: #666666;
+      margin-left: 30px;
+      padding-left: 30px;
+      position: relative;
+    }
+    .log-title:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      display: block;
+      border-left: 2px solid #ccc;
+    }
+    .log-right {
+      flex: 1;
+      text-align: right;
+      color: #4c4c4c;
+      font-size: 16px;
+      .log-right__item {
+        >a {
+          color: #d21c28;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

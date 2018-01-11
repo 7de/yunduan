@@ -1,0 +1,225 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+.con{
+  padding-bottom:40px;
+  background-color: #fafafa;
+}
+
+.help-con{
+  .help-left{
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 10px solid #fafafa;
+    border-right: none;
+    position: relative;
+    &:after{
+      content: '';
+      position: absolute;
+      top:0;
+      bottom:0;
+      right: -10px;
+      border-right:1px solid #e5e5e5;
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      top:0;
+      bottom:0;
+      left: -1px;
+      border-left:1px solid #e5e5e5;
+    }
+  }
+  .help-side{
+    border-top:1px solid #e5e5e5;
+    width:200px;
+    padding-top:15px;
+    padding-bottom:20px;
+    .side-title{
+      position: relative;
+      height:60px;
+      font-size: 16px;
+      color: #fff;
+      &:before{
+        content: '';
+        position: absolute;
+        bottom:10px;
+        left:-10px;
+        z-index: 1;
+        width:12px;
+        height:12px;
+        background-color: nth($newRed,1);
+      }
+      span{
+        position: absolute;
+        top:10px;
+        left:-10px;
+        width:180px;
+        height:40px;
+        line-height: 40px;
+        padding-left:30px;
+        background-color: nth($newRed,1);
+        &:before{
+          content: '';
+          position: absolute;
+          bottom:-9px;
+          left: -9px;
+          border:9px solid #fafafa;
+          border-right-color:#a7131d;
+        }
+        &:after{
+         content: '';
+          position: absolute;
+          top:0;
+          right:-39px;
+          border:20px solid transparent;
+          border-left-color:nth($newRed,1) ;
+        }
+      }
+      .ico-global{
+        position: relative;
+        top:-2px;
+        margin-right:15px;
+      }
+    }
+    .side-list{
+      li{
+        padding:0 10px;
+        outline: none;
+        a{
+          height:40px;
+          line-height:40px;
+          display: block;
+          color: #333;
+          border-bottom: 1px dashed #e5e5e5;
+          padding-left:45px;
+        }
+        &:first-child{
+          a{
+            border-top: 1px dashed #e5e5e5;
+          }
+        }
+        &:hover,&.active{
+          background-color: #fff8f1;
+          a{
+            color: nth($newRed,2);
+          }
+        }
+      }
+    }
+  }
+  .help-content{
+    border:1px solid #e5e5e5;
+    border-left: none;
+    padding:30px 40px;
+  }
+}
+.ico-help-guide{
+  width: 18px;
+  height: 18px;
+  background-position: -219px -120px;
+}
+.ico-help-shop{
+  width: 16px;
+  height: 16px;
+  background-position: -240px -122px;
+}
+.ico-help-classroom{
+  width: 19px;
+  height: 16px;
+  background-position: -260px -122px;
+}
+
+/*.pro-Con{
+  padding-bottom:40px;
+}
+.head-con{
+  margin-top:-90px;
+  position: relative;
+}
+.con{
+  min-height: 302px;
+}
+.crumbs{
+  font-size: 16px;
+  font-family: '宋体';
+  a{
+    font-family: "微软雅黑", "Microsoft YaHei";
+    color: #333;
+    padding:0 5px;
+    &:first-child{
+      padding-left: 0;
+    }
+  }
+  span{
+    font-family: "微软雅黑", "Microsoft YaHei";
+    padding-left:5px;
+  }
+}
+.menu{
+  padding-right:50px;
+  .title{
+    font-size: 20px;
+    padding-bottom:20px;
+    border-bottom:1px solid nth($gray,6)
+  }
+}
+.menu-list{
+  >li{
+    height:65px;
+    line-height: 65px;
+    font-size:16px;
+    border-bottom:1px solid nth($gray,5);
+    a{
+      display: block;
+      width:100%;
+      height:100%;
+      color: #333;
+      text-decoration: none;
+    }
+    &.active a{
+      color: nth($red,1);
+    }
+  }
+}
+.pro-Con{
+  .title{
+    font-size: 24px;
+    padding-bottom:17px;
+    border-bottom:1px solid nth($gray,6);
+    overflow: hidden;
+    span{
+      float: left;
+      height: 24px;
+      line-height: 24px;
+      padding-left:10px;
+      border-left:4px solid nth($red,1);
+    }
+  }
+  .sub-title{
+    font-size: 18px;
+    overflow: hidden;
+    margin-bottom: -1px;
+    h4{
+      float: left;
+      min-width: 100px;
+      height: 36px;
+      line-height: 36px;
+      padding:0 15px;
+      color: #444;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #f5f5f5;
+      @include borderRadius(3px);
+      outline: none;
+      &.active{
+        color: #fff;
+        background-color: #bf0008;
+      }
+    }
+  }
+  .info{
+    padding:30px 20px;
+    border:1px solid nth($gray,5)
+  }
+
+}*/

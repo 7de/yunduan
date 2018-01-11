@@ -1,0 +1,57 @@
+<div class="wrap-all">
+  <div class="ui-g wrap-1200">
+    <div class="ui-g-12 ui-g-nopad video-header-title">
+      <img [src]="videoData?.media_author.img | image" />
+      <span class="fs-22">{{videoData?.media_author.nickname}}</span>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="left-video ui-g-8 ui-g-nopad">
+          <p class="fs-16">{{videoData?.title}}</p>
+          <div class="video-player">
+            <app-player [video]="videoData?.url"></app-player>
+          </div>
+          <p class="video-intro color-999 fs-14">{{videoData?.description}}</p>
+        </div>
+        <div class="right-serial ui-g-4 ui-g-nopad">
+          <div class="ui-g-12 ui-g-nopad other-up-item">
+            <p class="fs-14">收录于连载</p>
+            <div class="ui-g-12 ui-g-nopad up-item" [title]="videoData?.media_info.title">
+              <a [routerLink]="['/lives/videos-index']" [queryParams]="{id: videoData?.media_id}">
+                <div class="float-left">
+                  <div></div>
+                  <div></div>
+                  <img [src]="videoData?.media_info.img | image" />
+                </div>
+                <div class="float-left">
+                  <p class="fs-14">
+                    <a>{{videoData?.media_info.title}}</a>
+                  </p>
+                  <p class="fs-12 color-999">{{videoData?.media_info.update_to}}个视频</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad other-down-item">
+            <p class="fs-14">连载中的其余视频</p>
+            <div class="serial-item ui-g-12 ui-g-nopad" *ngFor="let item of videoList" (click)="refreshData(item?.id)" [title]="item?.title">
+              <div class="float-left">
+                <div></div>
+                <div></div>
+                <img [src]="item?.img | image" />
+              </div>
+              <div class="float-left">
+                <a class="fs-14">{{item?.title}}</a>
+                <p>
+                  <i class="ico-global ico-yun-play"></i>
+                  <span class="fs-12">{{item?.pv}}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-pictures-comments [params]="commentParams"></app-pictures-comments>
+    </div>
+  </div>
+</div>

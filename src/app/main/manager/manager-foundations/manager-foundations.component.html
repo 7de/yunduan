@@ -1,0 +1,88 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;" href="javascript:history.go(-1)">&lt;&nbsp;返回</a>&nbsp;&nbsp;基金经理管理-关联产品查看
+  </div>
+</div>
+<div class="wrap">
+  <div class="row">
+    <div class="col-md-12 mt-10">
+      <p-dataTable rowHover="true" [value]="products" [loading]="!products" loadingIcon="fa-spinner" styleClass="custom-dataTable" emptyMessage="暂无数据">
+        <p-column header="序号">
+          <ng-template let-manager="rowData" let-i="rowIndex" pTemplate="body">
+            <span>{{(pagination.currentPage-1)*pagination.perPage+i+1}}</span>
+          </ng-template>
+        </p-column>
+        <p-column field="name" header="项目名称"></p-column>
+        <p-column field="income" header="累计涨幅（%）"></p-column>
+        <p-column field="publish" header="管理规模（万元）"></p-column>
+        <p-column header="封闭期">
+          <ng-template let-product="rowData" pTemplate="body">
+            <span>{{product.profile.closed_end}}个月</span>
+          </ng-template>
+        </p-column>
+        <p-column field="create_date" header="发行日期"></p-column>
+        <p-column header="产品状态">
+          <ng-template let-product="rowData" pTemplate="body">
+            <span>{{product.kind_txt}}</span>
+          </ng-template>
+        </p-column>
+        <p-column field="percent" header="募集进度"></p-column>
+        <p-column header="操作">
+          <ng-template let-product="rowData" pTemplate="body">
+            <a class="a-color" (click)="disAssociated(product);show=!show">解除关联产品</a>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+      <p-paginator [rows]="pagination.perPage" *ngIf="pagination.totalCount"
+                   [first]="pagination.currentPage * pagination.perPage-1"
+                   [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                   (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+    </div>
+  </div>
+</div>
+<div class="mask" *ngIf="show">
+  <div class="dialogs">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;">
+      <div class="col-md-6 font-16 uploading">解除关联产品</div>
+      <div (click)="show=!show" class="col-md-1 col-md-offset-5">
+        <span class="fa-closes"></span>
+      </div>
+    </div>
+    <div class="row row-margin hiddens">
+      <div class="col-md-12">
+        <form [formGroup]="associationForm" (submit)="onSubmit(associationForm,{})" class="manager-form">
+            <div class="row row-margin">
+              <p class="p-margin">若要解除此关联产品，需为该产品重新匹配新的基金经理</p>
+            </div>
+            <div class="row row-margin">
+              <label class="col-md-3">项目名称:</label>
+              <div class="col-md-9">
+                <p>{{product.name}}</p>
+              </div>
+            </div>
+
+            <div class="row row-margin">
+                <label class="col-md-3 form-label">基金经理:</label>
+                <div class="col-md-9">
+                  <div class="form-group">
+                  <select class="form-control" id="name" formControlName="manager_id">
+                    <option *ngFor="let manager of managers" [value]="manager.id">{{manager.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          <div class="row">
+            <div class="col-md-12 align-center" style="margin-bottom: 30px;text-align: center;">
+              <button type="button" class="cancel-btn" (click)="show=false"
+                      style="margin-top: 20px;">取消
+              </button>
+              <button type="submit" class="submit-btn" style="margin-top: 20px;">重新匹配</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

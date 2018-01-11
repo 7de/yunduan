@@ -1,0 +1,93 @@
+<div class="searchBox mt-20">
+  <form method="get" class="ui-g boxinput" (ngSubmit)="onSubmitType(form.value)" [formGroup]="form">
+    <!-- 发票的状态 -->
+    <div class="ui-g-3 ui-g-nopad clearfix invoice-nav">
+      <div class="pull-left selectAge">
+        <label class='radios' (click)="screenStatus('')"><input name="selectAge" type="radio" value="" />全部申请单</label>
+        <label class='radios' (click)="screenStatus('0')"><input name="selectAge" type="radio" value="0" />待开票申请单</label>
+        <label class='radios' (click)="screenStatus('1')"><input name="selectAge" type="radio" value="1" />已开票申请单</label>
+        <div class='invoices-type'>
+          <span>全部申请单</span>
+          <span>待开票申请单</span>
+          <span>已开票申请单</span>
+        </div>
+        <!-- 选择状态下划线 -->
+        <div class='line-tags'>
+          <span class='tag-status child1' *ngIf="screeningStatus === ''"></span>
+          <span class='tag-status child2' *ngIf="screeningStatus === 0 || screeningStatus === '0'"></span>
+          <span class='tag-status child3' *ngIf="screeningStatus === 1 || screeningStatus === '1'"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g-4 ui-g-nopad form-group mr-20" style="width: 200px;">
+      <input class="form-control search-input" type="text" name="invoiceName" #titles (input)='searchcons(titles.value)' autocomplete="off" formControlName="title"
+             placeholder="请输入服务名称进行搜索"><span class="icon-search"></span>
+    </div>
+    <div class="ui-g-1 ui-g-nopad form-group">
+      <button class="search" type="submit">搜索</button>
+    </div>
+  </form>
+</div>
+
+<!--<p-dataTable rowHover="true" [value]="invoiceList" [loading]="" loadingIcon="fa-spinner" styleClass="custom-dataTable" emptyMessage="暂无数据">
+    <p-column header="服务名称"  [style]="{'width':'86px'}">
+      <ng-template let-goods="rowData" pTemplate="body">
+        <img width="60" height="60" class="headerImg" [src]="goods?.goods.first_img | image: 60"/>
+      </ng-template>
+    </p-column>
+    <p-column field="goods['title']" >
+        <ng-template let-goods="rowData" pTemplate="body">
+            <p style="width: 210px; height:19px; overflow: hidden;text-overflow:ellipsis" title="{{goods['goods'].title}}" [ngClass]="{'been-invoice-tags':invoiceList['status']}">{{goods['goods'].title}}</p>
+        </ng-template>
+    </p-column>
+    <p-column field="recipients" header="收件人姓名" [style]="{'width':'150px'}"></p-column>
+    <p-column field="recipients_mobile" header="收件人联系方式" [style]="{'width':'170px'}"></p-column>
+    <p-column field="title" header="需求方" [style]="{'width':'120px'}"></p-column>
+    <p-column field="" header="发票状态" [style]="{'width':'85px'}">
+      <ng-template let-data="rowData" pTemplate="body">
+        <p>{{data.status === 1 ? '已开发票':'待开发票' }}</p>
+      </ng-template>
+    </p-column>
+    <p-column field="" header="操作" [style]="{'width':'85px'}">
+      <ng-template let-data="rowData" pTemplate="body">
+        <a [routerLink]="['/seller/personal/invoiceDetalis']" [queryParams]="{id: data.id}" [ngClass]="{'been-invoice-tags':invoiceList['status']}">查看详情</a>
+      </ng-template>
+    </p-column>
+  </p-dataTable>-->
+
+<div class="invoice-data invoice-wrap">
+  <div class='list-tbales flex_'>
+    <span class='cols first-cols'>服务名称</span>
+    <span class='cols'>收件人名称</span>
+    <span class='cols'>收件人联系方式</span>
+    <span class='cols'>需求方</span>
+    <span class='cols'>发票状态</span>
+    <span class='cols'>操作</span>
+  </div>
+
+  <div *ngFor="let datas of invoiceList;let i = index;">
+    <div class='orderTime flex_' >
+      <span class='order-txt'>订单创建时间：</span><span class='order-times'>2017-08-09</span>
+    </div>
+    <div class='td-cons flex_'>
+      <span class='cols first-cols flex_ outlines' [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId: invoiceList[i]['businessOrder']['goods_id'],shopId:invoiceList[i]['businessOrder']['shop_id']}">
+        <img class='service-img' width='60' height='60' [src]="datas['goods']['first_img'] | image: 60">
+        <span class='servicename actives'>{{datas.goods.title}}</span>
+      </span>
+      <span class='cols' style='color:#999;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>{{datas.recipients}}</span>
+      <span class='cols' style='color:#999;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>{{datas.recipients_mobile}}</span>
+      <span class='cols demand-side' style='color:#999;text-overflow: ellipsis;white-space: nowrap;'>{{datas.title}}</span>
+      <span class='cols' style='color:#999;'>{{datas.status === 1 ? '已开发票':'待开发票' }}</span>
+      <span class='cols infos actives outlines' [routerLink]="['/seller/personal/invoiceDetalis']" [queryParams]="{id: datas.id}">查看详情</span>
+    </div>
+  </div>
+  <p class="color-999 empty-texts" *ngIf="isData">暂无数据</p>
+</div>
+<div class="pation">
+  <p-paginator *ngIf="pagination?.totalCount" [rows]="pagination?.perPage"
+               [first]="pagination.currentPage * pagination.perPage-1"
+               [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+               (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+</div>
+

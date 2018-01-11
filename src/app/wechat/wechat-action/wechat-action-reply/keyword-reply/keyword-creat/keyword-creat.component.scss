@@ -1,0 +1,152 @@
+@import "../../../../../../assets/sass/mixin";
+@import "../../../../../../assets/sass/variables";
+
+h3.title{
+  width:100%;
+  font-size:16px;
+  border-bottom:1px solid $border-gray;
+  padding:30px;
+  a{
+    padding-right:10px;
+  }
+}
+.create-box{
+  padding:20px 30px;
+}
+.create-form{
+  .form-group{
+    margin-bottom:0;
+  }
+  .form-control{
+    border-radius: 0;
+    border:1px solid $border-gray;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    padding:25px 20px;
+  }
+  .radio-box{
+    border:1px solid $border-gray;
+    border-bottom:none;
+    height:39px;
+    line-height:39px;
+    color:#8c8c8c;
+    padding-left:28px;
+    >label{
+      font-weight:normal;
+      margin-bottom:0;
+      margin-right:25px;
+      margin-left:-15px;
+      cursor: pointer;
+    }
+    input[type='radio']{
+      opacity: 0;
+    }
+    .ico-global{
+      margin-right:5px;
+      margin-bottom:2px;
+    }
+    input:checked ~ span{
+      color:#212121;
+    }
+    input:checked ~ .ico-wechat-edior{
+      background-position:-115px -461px;
+    }
+    input:checked ~ .ico-wechat-img{
+      background-position:-146px -461px;
+    }
+  }
+  .imgUpload-con{
+    padding: 20px;
+    border: 1px solid $border-gray;
+    border-bottom: none;
+  }
+  .form-row{
+    position: relative;
+    em{
+      position: absolute;
+      top:0;
+      left:20px;
+      width: 5%;
+      height: 50px;
+      line-height:50px;
+      font-weight: normal;
+      margin-bottom:0;
+    }
+    .form-control{
+      height:48px;
+      padding: 0 0 0 60px;
+      border-bottom-color: transparent;
+    }
+  }
+
+  .form-control:focus{
+    border-color:#66afe9 !important;
+  }
+
+}
+h5.title{
+  height:38px;
+  line-height:38px;
+  background-color:#f4f5f9;
+  padding:0 20px;
+  border:1px solid $border-gray;
+  border-bottom:none;
+  span.tag{
+    padding:5px 10px;
+    background-color:#fff;
+    position: relative;
+  }
+  .close{
+    position: absolute;
+    top:0;
+    right:0;
+    width:10px;
+    height:10px;
+    line-height:10px;
+    text-align: center;
+    font-size:13px;
+    cursor: pointer;
+  }
+  span.tip{
+    color:#b2b2b2;
+    padding:0 15px;
+  }
+}
+h5.title2{
+  border-top:none;
+  border-bottom:none;
+}
+
+textarea.form-control{
+  padding:20px;
+  border-radius: 0;
+  border-color:$border-gray;
+  resize: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.express-box{
+  height:39px;
+  line-height:39px;
+  color:#8c8c8c;
+  border:1px solid $border-gray;
+  padding-left:20px;
+  margin-bottom:20px;
+}
+.btn{
+  width:105px;
+}
+.btn-orange{
+  color:#fff;
+  background-color:$theme-orange;
+}
+.btn-orange:focus{
+  outline: none;
+}
+.btn-orange:hover{
+  background-color: $btn-orange-hover;
+}
+.btn-orange[disabled]{
+  background-color: $btn-orange-disabled;
+}

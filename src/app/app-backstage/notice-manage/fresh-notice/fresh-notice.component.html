@@ -1,0 +1,41 @@
+<form [formGroup]="noticeForm" (submit)="onSubmit(noticeForm)">
+  <div class="increasedCenter notice-wrap-nav">
+    <p class='naviga-crumbs'><a class="backed" routerLink="/appBackstage/noticeManage">返回</a><span> > {{noticeId? '编辑' : '创建'}}公告</span></p>
+    <div class="itemAdd clearfix">
+      <div class="uploading clearfix">
+        <div class="shop-title ui-g form-group">
+          <div class="titleone ui-md-1"><label class="">标题</label>：</div>
+          <input type="text" class="inputed ui-md-3" name='title' maxlength="32" formControlName="title" placeholder="请输入标题">
+        </div>
+        <div class="shop-type ui-g form-group">
+          <div class="titleone ui-md-1"><label class="">类型</label>：</div>
+          <select class="select" name="noticeType" formControlName="noticeType">
+            <option value="">请选择</option>
+            <option value="{{item.id}}" *ngFor="let item of typeList;let idx = index;">{{item.name}}</option>
+          </select>
+        </div>
+        <div class="shop-img ui-g">
+          <div class="titleone ui-md-1"><label class="">封面图：</label></div>
+          <ul class="ui-md-11">
+            <!-- 新增商品图片 -->
+            <li class="float-left">
+              <div class="shop-step-info-uploadimg">
+                <app-basic-img-upload (imgEvent)="imgMethod($event)" [previewImg]="imgSrc"></app-basic-img-upload>
+                <span class="help-block" style='color:#ee3737;font-size:14px;' *ngIf="error['img']">请上传封面图</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="shop-service clearfix form-group _flex">
+          <div class="titleone affiche-con"><label class="">内容</label>：</div>
+          <div class="textareas">
+            <umeditor [config]="umeditorConfig" formControlName="content" placeholder='请输入内容'></umeditor>
+          </div>
+        </div>
+        <div class="publish">
+          <button type="submit" class="submit-btn submit-btn-another mt-20" >{{noticeId? '确定并保存' :'确定并发布'}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

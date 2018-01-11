@@ -1,0 +1,95 @@
+<!--私募底部信息部分-->
+<footer class="footer" [ngClass]="{'bg-white':bgc===1,'bg-gray':bgc===2}">
+  <div class="wrap-1200">
+    <div class="bigbox-top clearfix">
+      <div class="pull-left top-con info">
+        <a [routerLink]="['/site']">
+          <img src="{{imageDomain}}upload/frontend/20171218/7b232a6b5316135b2ab2824079fcfd88.png" alt="logo" *ngIf="bgc" width="188" height="48">
+          <img src="{{imageDomain}}upload/frontend/20171218/7330dc7cdfdf2a1486b5c41542f084ec.png" alt="logo" *ngIf="!bgc" width="188" height="48">
+        </a>
+        <p class="logo-info">- 专业的私募服务管理平台-</p>
+        <div class="info-con mt-40">
+          <p><i class="ico-global ico-machine"></i>0755-86538457</p>
+          <p><i class="ico-global ico-email"></i>yunduan@51simuhui.com</p>
+          <p><i class="ico-global ico-address"></i>深圳市南山区高新技术产业园区R3-B栋508</p>
+        </div>
+
+      </div>
+      <div class="pull-left top-con nav">
+        <h4>导航</h4>
+        <ul class="nav-list">
+          <li>
+            <a [routerLink]="['/shop']"><span>云集优服</span><i>&gt;</i></a>
+          </li>
+          <li>
+            <a [routerLink]="['/lives/lives-index']"><span>云课堂</span><i>&gt;</i></a>
+          </li>
+          <li>
+            <a [routerLink]="['/site/exhibition']"><span>展业工具</span><i>&gt;</i></a>
+          </li>
+          <li>
+            <a [routerLink]="['/site/news']"><span>私募视界</span><i>&gt;</i></a>
+          </li>
+          <li>
+            <a [routerLink]="['/site/about']"><span>关于我们</span><i>&gt;</i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="pull-left top-con tell">
+        <h4>服务热线</h4>
+        <p><i class="ico-global ico-tell"></i>0755-86538075</p>
+      </div>
+      <div class="pull-left top-con us">
+        <h4>关注我们</h4>
+        <ul class="us-list clearfix">
+          <li>
+            <a target="_blank" href="http://mp.sohu.com/profile?xpt=cHBhZzIzMDE0ZTUzZDNlZUBzb2h1LmNvbQ=="><i class="ico-global ico-sou"></i></a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.toutiao.com/c/user/69346580334/#mid=1578595975851022">
+              <i class="ico-global ico-tou"></i>
+            </a>
+          </li>
+          <li>
+            <i class="ico-global ico-we"></i>
+            <div class="code ui-g">
+              <div class="ui-g-6 ui-g-nopad">
+                <img src="{{imageDomain}}upload/frontend/20171117/3cb3ad0995251a1f99b9044c6a120c54.jpg" width="100" height="100" alt="服务号二维码">
+                <p>服务号</p>
+              </div>
+              <div class="ui-g-6 ui-g-nopad">
+                <img src="{{imageDomain}}upload/frontend/20171117/815a3ecb211f646dfc26e5fa41a22418.jpg" width="100" height="100" alt="订阅号二维码">
+                <p>订阅号</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bigbox-bottm">
+    <p class="color-999">Copyright  云端互联网(深圳)有限公司 版权所有 <a class="linkCheck" target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备16112276号-1</a> <a href="https://ss.knet.cn/verifyseal.dll?sn=e170905440300687955mwv000000&pa=111332"><i class="ico-global ico-icp"></i></a></p>
+  </div>
+</footer>
+
+<!--<div class="copyright" [ngClass]="{'bg-white': bgc}">-->
+  <!--<div class="wrap-1200 copyright-con">-->
+    <!--&lt;!&ndash;可信网站图片LOGO安装开始&ndash;&gt;-->
+    <!--<div class="credible">-->
+      <!--&lt;!&ndash;<a href="https://ss.knet.cn/verifyseal.dll?sn=e170905440300687955mwv000000&pa=111332" tabindex="-1" id="urlknet" target="_blank">&ndash;&gt;-->
+      <!--&lt;!&ndash;<img alt="&#x53EF;&#x4FE1;&#x7F51;&#x7AD9;" name="KNET_seal" border="true" width="130px" height="48px" src="../../../assets/images/credible.png" />&ndash;&gt;-->
+      <!--&lt;!&ndash;</a>&ndash;&gt;-->
+      <!--<a id='___szfw_logo___' href='https://credit.szfw.org/CX20171023036533050139.html' target='_blank'><img-->
+        <!--src='http://icon.szfw.org/cert.png' border='0'/></a>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;可信网站图片LOGO安装结束&ndash;&gt;-->
+    <!--<p class="fs-12 color-666">Copyright 云端互联网(深圳)有限公司 版权所有<a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16112276号-->
+      <!-- -1</a></p>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<script type='text/javascript'>(function () {-->
+  <!--document.getElementById('___szfw_logo___').oncontextmenu = function () {-->
+    <!--return false;-->
+  <!--}-->
+<!--})();-->
+<!--</script>-->

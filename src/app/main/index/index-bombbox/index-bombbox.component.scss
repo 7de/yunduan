@@ -1,0 +1,109 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+.manage-bomb{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:99;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,.5);
+  .manage-bomb-con{
+    width:480px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background:#fff;
+    border-radius: 5px;
+    .custom-bomb-form{
+      padding:20px 45px 10px;
+      .control-label{
+        padding-top:8px;
+        vertical-align: top;
+        font-size:14px;
+        //font-weight:normal;
+        color: #666;
+      }
+      .form-group{
+        margin-bottom:15px;
+        >[class^=col-]{
+          margin:0;
+        }
+      }
+      .form-control{
+        border:1px solid #ccc;
+        outline: none;
+        padding:0 12px;
+        -webkit-box-shadow:none;
+        box-shadow:none;
+        @include borderRadius;
+      }
+      input.form-control{
+        height:36px;
+        line-height:36px;
+        outline: none;
+      }
+      textarea.form-control{
+        resize: none;
+        padding: 8px 12px;
+        outline: none;
+      }
+      .form-control:focus{
+        border-color:#119dee;
+      }
+      input[disabled]{
+        border:none;
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+    h3{
+      font-weight: normal;
+      font-size:16px;
+      text-align: center;
+      margin-top:30px;
+      padding:0 20px;
+
+    }
+    .close{
+      margin-top:-14px;
+      opacity: .5;
+      @include transition(.25s);
+    }
+    .close:hover{
+      opacity: 1;
+    }
+  }
+  .btn{
+    width:120px;
+    height:44px;
+    box-shadow: none;
+    @include borderRadius;
+  }
+  .btn-orange{
+    color:#fff;
+    border-color:#fc8026;
+    background-color:#fc8026;
+    margin-top:20px;
+  }
+  .btn-orange:hover{
+    outline: none;
+    background-color: #d46819;
+  }
+}
+
+.fa-remove:before, .fa-close:before, .fa-times:before {
+  content: "";
+}
+
+.promts {
+  color: #999;
+  font-size: 10px;
+  position: absolute;
+  bottom: -5px;
+  right: 4px;
+}
+.mb-5{
+  margin-bottom: 5px;
+}

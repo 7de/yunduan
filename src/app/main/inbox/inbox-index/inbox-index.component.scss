@@ -1,0 +1,58 @@
+.i-bold {
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+i {
+  font-style: normal;
+}
+
+.not-read span,
+.not-read i {
+  color: #808080;
+}
+
+.a-color {
+  color: #63A8EB !important;
+}
+
+td {
+  cursor: pointer;
+}
+
+td:hover {
+  background: #fefdfb;
+}
+
+.padding-span {
+  cursor: pointer;
+}
+
+.btns {
+  width: 80px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  color: #777777;
+  background-color: #e0e0e0;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+
+.btn-delete:hover,
+.btn-read:hover {
+  cursor: pointer;
+  background-color: #62a8ea;
+  color: #fff;
+}
+
+.row-tips {
+  overflow: hidden;
+  margin-bottom: 20px;
+}

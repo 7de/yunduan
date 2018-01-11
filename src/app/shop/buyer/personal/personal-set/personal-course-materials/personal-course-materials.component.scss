@@ -1,0 +1,50 @@
+.presonal-course-materials {
+  .help-block {
+    color: #d9534f
+  }
+  .title {
+    height: 38px;
+    line-height: 38px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #333333;
+    background-color: #f7f7f7;
+  }
+  .btn {
+    color: #ffffff;
+    width: 90px;
+  }
+  textarea.form-control {
+    padding: 15px 20px;
+    border-radius: 0;
+    resize: none;
+    &+app-string-length {
+      position: absolute;
+      bottom: 5px;
+      right: 25px;
+    }
+  }
+  .form-tips {
+    margin: 10px 0;
+    color: #666666;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  input.form-control {
+    &+app-string-length {
+      position: absolute;
+      top: 8px;
+      right: 20px;
+    }
+  }
+  .has-error {
+    app-lives-img-upload {
+      .img-show {
+        border: 1px solid #a94442;
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+.video-picture-change{
+  border-bottom: 2px solid #EEEEEE;
+  padding-top: 20px;
+  padding-bottom: 12px;
+  .video-status,.picture-status{
+    //width: 112px;
+  }
+  .video-status {
+    padding: 0 8px;
+    float: left;
+    border-right: 1px solid #e6e6e6;
+    color: #333333;
+    font-weight: 900;
+    text-align: left;
+    position: relative;
+    &::after {
+      content: " ";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -14px;
+      border-bottom: 2px solid transparent;
+    }
+    &.active {
+      color: #c71622;
+      &::after {
+        border-color: #c71622;
+      }
+    }
+  }
+  .video-status:first-child {
+    padding-left: 0;
+  }
+  .video-status:last-child {
+    border: 0;
+  }
+  .picture-status{
+    text-align: right;
+    padding-left: 18px;
+  }
+  span{
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .video-picture-color{
+    color: nth($newRed,1);
+  }
+}
+.search-input {
+  input {
+    width: 170px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid #cccccc;
+    border-right: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  button {
+    width: 60px;
+    height: 30px;
+    margin-left: -4px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+    outline: none;
+  }
+  button:hover{
+      color: #333333;
+  }
+}
+.create-serial{
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  margin-left: 22px;
+  a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+  a:hover {
+    color: #333333;
+  }
+}
+.serial-picture > img {
+  width: 120px;
+  height: 80px;
+  display: inline-block;
+}
+.serial-picture-title {
+  margin-left: -14px;
+  p {
+    color: #000000;
+  }
+  p:hover {
+    color: nth($newRed, 1)!important;
+    cursor: pointer;
+  }
+  span {
+    color: #808080;
+    padding-top: 18px;
+    display: inline-block;
+  }
+}
+.padding-16{
+  padding: 16px 0;
+}
+.p-hover:hover {
+  color: nth($newRed, 1)!important;
+  cursor: pointer;
+}
+

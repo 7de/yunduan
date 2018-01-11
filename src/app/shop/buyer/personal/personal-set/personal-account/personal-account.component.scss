@@ -1,0 +1,37 @@
+.tab{
+  height: 38px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background-color: #F7F7F7;
+  ul{
+    padding: 0;
+    margin: 0;
+    line-height: 36px;
+    li{
+      float: left;
+      font-size: 16px;
+      line-height: 16px;
+      &:first-child{
+        margin-left: 10px;
+      }
+      &:nth-child(2){
+        margin: 0 20px;
+        padding: 0 20px;
+        border-left:1px solid #DBDBDB;
+        border-right:1px solid #DBDBDB;
+      }
+      &:hover{
+        color: #EA3A3A;
+        cursor: pointer;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+    .active{
+      color: #EA3A3A;
+    }
+  }
+}

@@ -1,0 +1,210 @@
+<!--个人中心首页顶部-->
+<div class="ui-g ui-g-nopad index-header">
+  <div class="ui-g-2 ui-g-nopad" style="border-right: 1px dashed #ddd;">
+    <div [routerLink]="['/seller/personal/set']" class="ui-g-12 ui-g-nopad ico-seller">
+      <span class='service-tags'></span>
+      <img width="106" height="106" [src]="sellerInfo?.avatar | image:106:106" alt="">
+    </div>
+    <div [routerLink]="['/seller/personal/set']" class="ui-g-12 ui-g-nopad mt-15">
+      <p style="max-width: 109px;">
+        <span class="text-overflow" style="display:inline-block;max-width: 85px;vertical-align: middle">{{sellerInfo?.username}}</span><span [routerLink]="['/seller/personal/set']" class="ico-global edit"></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="ui-g-3 ui-g-nopad index-header-middle text-center">
+    <div class="ui-g-12 ui-g-nopad">
+      <div class="ui-g-6 ui-g-nopad">
+        <div routerLink="/seller/personal/increased" *ngIf="sellerInfo?.wallet != null && sellerInfo?.wallet?.user_verify_type == 1 && sellerInfo?.info_verify_type == 1 && sellerInfo?.shop != null" class="ui-g-12 ui-g-nopad service">
+          <span class="ico-global ico-size ico-service"></span>
+          <div class="ui-g-12 ui-g-nopad mt-5">发布服务</div>
+        </div>
+        <div title="完善资料后可以发布服务哦" *ngIf="sellerInfo?.wallet == null || sellerInfo?.wallet?.user_verify_type !== 1 || sellerInfo?.info_verify_type !== 1 || sellerInfo?.shop == null" class="ui-g-12 ui-g-nopad">
+          <span class="ico-global ico-size ico-un-service"></span>
+          <div class="ui-g-12 ui-g-nopad mt-5">发布服务</div>
+        </div>
+      </div>
+      <div class="ui-g-6 ui-g-nopad">
+        <div [routerLink]="['/seller/personal/index/order']" [queryParams]="{'type' : ''}" *ngIf="sellerInfo?.wallet != null && sellerInfo?.wallet?.user_verify_type == 1 && sellerInfo?.info_verify_type == 1 && sellerInfo?.shop != null" class="ui-g-12 ui-g-nopad order">
+          <span class="ico-global ico-size ico-order"></span>
+          <div class="ui-g-12 ui-g-nopad mt-5">订单管理</div>
+        </div>
+        <div *ngIf="sellerInfo?.wallet == null || sellerInfo?.wallet?.user_verify_type !== 1 || sellerInfo?.info_verify_type !== 1 || sellerInfo?.shop == null" class="ui-g-12 ui-g-nopad">
+          <span class="ico-global ico-size ico-un-order"></span>
+          <div class="ui-g-12 ui-g-nopad mt-5">订单管理</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad mt-10">
+      <div class="ui-g-6 ui-g-nopad">
+        <div routerLink="/seller/personal/index/upload-video" *ngIf="classInfo?.created == true" class="ui-g-12 ui-g-nopad video">
+          <span class="ico-global ico-size ico-video"></span>
+          <div class="ui-g-12 ui-g-nopad mt-5">上传视频</div>
+        </div>
+        <div title="完善资料后可以上传视频哦" *ngIf="classInfo?.created == false" class="ui-g-12 ui-g-nopad mt-5">
+          <span class="ico-global ico-size ico-un-video"></span>
+          <div class="ui-g-12 ui-g-nopad mt-5">上传视频</div></div>
+      </div>
+      <div class="ui-g-6 ui-g-nopad">
+        <div routerLink="/seller/personal/index/upload-pictures" *ngIf="classInfo?.created == true" class="ui-g-12 ui-g-nopad text">
+          <span class="ico-global ico-size ico-text"></span>
+          <div class="ui-g-12 ui-g-nopad mt-5">上传图文</div>
+        </div>
+        <div title="完善资料后可以上传图文哦" *ngIf="classInfo?.created == false" class="ui-g-12 ui-g-nopad mt-5">
+          <span class="ico-global ico-size ico-un-text"></span>
+          <div class="ui-g-12 ui-g-nopad mt-5">上传图文</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-7 ui-g-nopad">
+    <app-wallet></app-wallet>
+  </div>
+</div>
+
+<!-- 认证页 -->
+<div class='auth-wrap' *ngIf="sellerInfo?.is_finish_check == 0">
+  <span class='auth-title'>完成下列认证工作，即可享受更多的功能哦~</span>
+  <div class='auth-container mt-40 flex_'>
+    <div class='aptitude'>
+      <a class='aptitude-auth-wrap'>
+        <span class='aptitude-title'>行业资质认证</span>
+        <span class='aptitude-desc'>给自己服务进行一个定位吧</span>
+        <div class='aptitude-wrap'><i class='aptitude-icon'></i></div>
+        <div class='aptitude-auth flex_' *ngIf="sellerInfo?.info_verify_type === 0"><button class='aptitude-btn' [routerLink]="['/seller/personal/set/realnameauth']">资质认证</button></div>
+        <div class='aptitude-auth flex_' *ngIf="sellerInfo?.info_verify_type === 3"><a class='aptitude-btn' [routerLink]="['/seller/personal/set/realnameauth']" >认证中...</a></div>
+        <div class='aptitude-auth flex_' *ngIf="sellerInfo?.info_verify_type === 2"><a class='aptitude-btn' [routerLink]="['/seller/personal/set/realnameauth']">重新认证</a></div>
+        <div class='aptitude-auth flex_' *ngIf="sellerInfo?.info_verify_type === 1"><a class='aptitude-btn' [routerLink]="['/seller/personal/set/realnameauth']"><i class='auth-success-icon'></i>已认证</a></div>
+      </a>
+      <div class='lines'></div>
+    </div>
+    <div class='wallets'>
+      <a class='wallet-account'>
+        <span class='wallet-title'>钱包开户</span>
+        <span class='wallet-desc'>开通钱包，赚取第一桶金</span>
+        <div class='wallet-wrap'><i class='wallet-icon'></i></div>
+        <div class='wallet-nav flex_' *ngIf="sellerInfo?.wallet === null || sellerInfo?.wallet?.user_verify_type === 0">
+          <a class='wallet-btn' [routerLink]="['/shop/wallet']">开通钱包</a>
+        </div>
+        <div class='aptitude-auth flex_' *ngIf="sellerInfo?.wallet?.user_verify_type === 3"><a class='aptitude-btn' [routerLink]="['/shop/wallet']">认证中...</a></div>
+        <div class='aptitude-auth flex_' *ngIf="sellerInfo?.wallet?.user_verify_type === 2"><a class='aptitude-btn' [routerLink]="['/shop/wallet']">重新认证</a></div>
+        <div class='aptitude-auth flex_' *ngIf="sellerInfo?.wallet?.user_verify_type === 1"><a class='aptitude-btn' [routerLink]="['/shop/wallet']"><i class='auth-success-icon'></i>已认证</a></div>
+      </a>
+      <div class='lines'></div>
+    </div>
+  </div>
+  <button class='finish-auth flex_ juect-content' title='认证仍未完成啊，亲' *ngIf="!(sellerInfo?.info_verify_type === 1 && sellerInfo?.wallet?.user_verify_type === 1)">完成认证</button>
+  <button class='finish-auth flex_ juect-content auth-success-bg' (click)="completes()" *ngIf="sellerInfo?.info_verify_type === 1 && sellerInfo?.wallet?.user_verify_type === 1">完成认证</button>
+</div>
+
+<!--个人中心首页中部最近订单内容-->
+<div class="ui-g ui-g-nopad index-main mt-20" *ngIf="sellerInfo?.is_finish_check == 1">
+  <div class="ui-g-12 ui-g-nopad main-title">
+    <span class="ui-g-12 ui-g-nopad">店铺动态</span>
+  </div>
+  <div class="ui-g-12 ui-g-nopad main-content">
+    <div class="ui-g-12 ui-g-nopad main-content-head">
+      <ul class="ui-g-6 ui-g-nopad">
+        <li style="position: relative;" [routerLink]="['/seller/personal/index/order']" [queryParams]="{'type':1}"><span class="ico-global ico-pay mr-5"></span>待付款订单<span *ngIf="shopInfo?.length != 0 && shopInfo?.num0 != 0" class="num text-center">{{shopInfo?.num0}}</span></li>
+        <li style="position: relative;" [routerLink]="['/seller/personal/index/order']" [queryParams]="{'type':3}"><span class="ico-global ico-going mr-5"></span>进行中订单<span *ngIf="shopInfo?.length != 0 && shopInfo?.num1 != 0" class="num text-center">{{shopInfo?.num1}}</span></li>
+        <li style="position: relative;" [routerLink]="['/seller/personal/index/order']" [queryParams]="{'type':4}"><span class="ico-global ico-finish mr-5"></span>已完成订单<span *ngIf="shopInfo?.length != 0 && shopInfo?.num2 != 0" class="num text-center">{{shopInfo?.num2}}</span></li>
+      </ul>
+      <div *ngIf="sellerInfo?.shop == null" class="ui-g-6 ui-g-nopad text-center cover-guide">
+        <a routerLink="/seller/personal/set/storeset">开通店铺</a>
+        <!--判断是否为ie浏览器遮罩层距离不同,不为ie浏览器时-->
+        <p-dialog *ngIf="sellerInfo?.is_guided == 0 && order == 1 && isIe != true" positionLeft="1249" positionTop="305" [closable]="false" showHeader="false" [(visible)]="display" modal="modal" [width]="310">
+          <div class="text-left" style="color: #fff;font-size: 16px;padding-left: 10px;"><span>点击开通店铺</span></div>
+          <div class="mt-10 already-know" style="width: 120px;height: 36px;border-radius: 20px;background-color: #FF4040;color: #fff;line-height: 36px" (click)="orders()">我知道了</div>
+          <span class="ico-arrow ico-global"></span>
+          <div class="pull-right" style="width: 110px;height: 50px;background-color: #fff;padding: 10px;"><p class="open">开通店铺</p></div>
+        </p-dialog>
+
+        <!--为ie浏览器时-->
+        <p-dialog *ngIf="sellerInfo?.is_guided == 0 && order == 1 && isIe == true" positionLeft="1249" positionTop="380" [closable]="false" showHeader="false" [(visible)]="display" modal="modal" [width]="310">
+          <div class="text-left" style="color: #fff;font-size: 16px;padding-left: 10px;"><span>点击开通店铺</span></div>
+          <div class="mt-10 already-know" style="width: 120px;height: 36px;border-radius: 20px;background-color: #FF4040;color: #fff;line-height: 36px" (click)="orders()">我知道了</div>
+          <span class="ico-arrow ico-global"></span>
+          <div class="pull-right" style="width: 110px;height: 50px;background-color: #fff;padding: 10px;"><p class="open">开通店铺</p></div>
+        </p-dialog>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad mt-20">
+      <div class="ui-g-2 ui-g-nopad" style="color: #333;">
+        我的订单
+      </div>
+      <div class="ui-g-1 ui-g-nopad ui-g-offset-9 text-right color-333 order-more">
+        <span [routerLink]="['/seller/personal/index/order']" [queryParams]="{'type' : ''}">更多&nbsp;></span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad mt-10 main-content-detail">
+      <div class="ui-g order-head">
+        <div class="ui-g-5 ui-g-nopad">服务名称</div>
+        <div class="ui-g-2 ui-g-nopad text-center">订单状态</div>
+        <div class="ui-g-3 ui-g-nopad text-center">需求方</div>
+        <div class="ui-g-2 ui-g-nopad text-center">操作</div>
+      </div>
+      <div  *ngIf="recentOrder == '' || !recentOrder" class="ui-g-12 ui-g-nopad none text-center">暂未查询到订单服务</div>
+      <div *ngIf="recentOrder !== ''">
+        <div class="ui-g order-detail mt-20" *ngFor="let order of recentOrder">
+          <div class="ui-g-12 ui-g-nopad order-detail-head">
+            <div class="ui-g-4 ui-g-nopad"><span class="order-num">订单号：{{order?.order_no}}</span></div>
+            <div class="ui-g-4 ui-g-nopad"><span class="order-time">订单创建时间：{{order?.created_at_txt}}</span></div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad order-content">
+            <div class="ui-g-5 ui-g-nopad goods-name">
+              <div class="ui-g-2 ui-g-nopad mr-10">
+                <img width="60" height="60" [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId:order?.goods_id, shopId:order?.shop_id}" [src]="order?.goods?.first_img | image:60" alt="">
+              </div>
+              <div class="ui-g-9 ui-g-nopad goods-title">
+                <span class=" text-overflow" [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId:order?.goods_id, shopId:order?.shop_id}" >{{order?.goods?.title}}</span>
+              </div>
+            </div>
+            <div class="ui-g-2 ui-g-nopad pdt-25 color-999 text-center">{{order?.business_status_txt}}</div>
+            <div class="ui-g-3 ui-g-nopad pdt-22 text-center">{{order?.company?.username}}</div>
+            <div class="ui-g-2 ui-g-nopad pdt-25 order-detail-check text-center"><a [routerLink]="['/seller/personal/order',order?.id]">查看详情</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--个人中心首页课堂内容-->
+<div *ngIf="sellerInfo?.is_finish_check == 1" class="ui-g ui-g-nopad index-bottom mt-20">
+  <div class="ui-g-12 ui-g-nopad bottom-title">
+    <span>课堂动态</span>
+  </div>
+  <div class="ui-g-12 ui-g-nopad bottom-main">
+    <div [routerLink]="['/seller/personal/index/video-material']" class="ui-g-2 ui-g-nopad mt-10">
+      <div class="ui-g-5 ui-g-nopad video-ico"><span class="ico-global ico-video"></span></div>
+      <div class="ui-g-6 ui-g-nopad video">
+        <p>{{classInfo?.info ? classInfo?.info?.count_video : 0}}</p>
+        <p>视频数量</p>
+      </div>
+    </div>
+    <div [routerLink]="['/seller/personal/index/graphic-material']" class="ui-g-2 ui-g-nopad mt-10">
+      <div class="ui-g-5 ui-g-nopad text-ico" ><span class="ico-global ico-txt"></span></div>
+      <div class="ui-g-6 ui-g-nopad text">
+        <p>{{classInfo?.info ? classInfo?.info?.count_article : 0}}</p>
+        <p>图文数量</p>
+      </div>
+    </div>
+    <div *ngIf="classInfo?.created == false" class="ui-g-8 ui-g-nopad class-info cover-guide text-center">
+      <a routerLink="/seller/personal/set/course-materials">开通课堂</a>
+      <p-dialog *ngIf="sellerInfo?.is_guided == 0 && order == 2 && isIe != true" positionLeft="1249" positionTop="675" [closable]="false" showHeader="false" [(visible)]="display" modal="modal" [width]="310">
+        <div class="text-left" style="color: #fff;font-size: 16px;padding-left: 10px;"><span>点击开通课堂</span></div>
+        <div (click)="closeModal()" class="mt-10 already-know">我知道了</div>
+        <span class="ico-arrow ico-global"></span>
+        <div class="pull-right" style="width: 110px;height: 50px;background-color: #fff;padding: 10px;"><p class="open">开通课堂</p></div>
+      </p-dialog>
+
+      <p-dialog *ngIf="sellerInfo?.is_guided == 0 && order == 2 && isIe == true" positionLeft="1249" positionTop="775" [closable]="false" showHeader="false" [(visible)]="display" modal="modal" [width]="310">
+        <div class="text-left" style="color: #fff;font-size: 16px;padding-left: 10px;"><span>点击开通课堂</span></div>
+        <div (click)="closeModal()" class="mt-10 already-know">我知道了</div>
+        <span class="ico-arrow ico-global"></span>
+        <div class="pull-right" style="width: 110px;height: 50px;background-color: #fff;padding: 10px;"><p class="open">开通课堂</p></div>
+      </p-dialog>
+    </div>
+  </div>
+</div>

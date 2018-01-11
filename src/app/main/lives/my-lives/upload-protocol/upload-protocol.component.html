@@ -1,0 +1,23 @@
+<div class="login-header">
+  <div class="wrap-1200">
+    <div class="log">
+      <a routerLink="/site/home">
+        <i class="ico-global ico-yun-upload-protocol"></i>
+      </a>
+      <div class="log-title">上传协议</div>
+      <!--<div class="log-right">-->
+        <!--<span class="log-right__item">-->
+          <!--已有账号?-->
+          <!--<a [routerLink]="['/login']">直接登录</a>-->
+        <!--</span>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>
+<div class="agreement">
+  <div class="agreement-content">
+    <h2 class="title">{{agreementData?.title}}</h2>
+    <div class="agreement-c" [innerHTML]="agreementData?.content"></div>
+  </div>
+</div>
+<app-footer [bgc]="2"></app-footer>

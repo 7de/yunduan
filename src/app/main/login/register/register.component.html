@@ -1,0 +1,133 @@
+<app-register-header>
+  <ng-container ngProjectAs="log-title">欢迎注册</ng-container>
+  <ng-container ngProjectAs="log-right">
+    已有账号?
+    <a [routerLink]="['/login']" style="color: #d21c28">立即登录</a>
+  </ng-container>
+</app-register-header>
+<div class="login-content app-login-register">
+  <div class="panel" [hidden]="registerStatus">
+    <div class="panel-body">
+      <form [formGroup]="checkForm" (submit)="resetPassword(checkForm)" class="form" novalidate>
+        <div class="company-type-group" style="position: absolute;">
+          <div class="company-type" [ngClass]="{bgBlue:fundIsSelected}">
+            <span>服务商会员注册</span>
+            <input checked (change)="companyChange($event)" name="radio" value="0" type="radio">
+          </div>
+          <div class="company-type" [ngClass]="{bgBlue:companyIsSelected}">
+            <span>企业会员注册</span>
+            <input (change)="companyChange($event)" value="1" name="radio" type="radio">
+          </div>
+        </div>
+        <div class="row">
+          <label class="col-xs-3 form-label">
+            <span class="red">*</span>手机号码</label>
+          <div class="col-xs-9 form-group">
+            <input type="text" class="form-control" placeholder="请填写手机号码" formControlName="phone">
+          </div>
+        </div>
+        <div class="row">
+          <label class="col-xs-3 form-label">
+            <span class="red">*</span>密码</label>
+          <div class="col-xs-9 form-group">
+            <input type="password" class="form-control" placeholder="密码(6-12位字母组合)" formControlName="password">
+          </div>
+        </div>
+
+        <!-- 企业会员注册 Start -->
+        <div class="register-more" [hidden]="companyType !== '1'">
+          <div class="row">
+            <label class="col-xs-3 form-label">
+              <span class="red">*</span>企业名称</label>
+            <div class="col-xs-9 form-group">
+              <label class="hide">企业名称</label>
+              <input type="text" class="form-control" placeholder="请填写企业名称" formControlName="company_name" maxlength="21">
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="col-xs-3 form-label">
+              <span class="red">*</span>企业简称</label>
+            <div class="col-xs-9 form-group">
+              <label class="hide">企业简称</label>
+              <input type="text" class="form-control" placeholder="请填写企业简称" formControlName="name_short">
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="col-xs-3 form-label">
+              <span class="red">*</span>联系人姓名</label>
+            <div class="col-xs-9 form-group">
+              <label class="hide">联系人姓名</label>
+              <input type="text" class="form-control" placeholder="请填写联系人姓名" formControlName="linkman">
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="col-xs-3 form-label">
+              <span class="red">*</span>邮箱地址</label>
+            <div class="col-xs-9 form-group">
+              <label class="hide">邮箱地址</label>
+              <input type="text" class="form-control" placeholder="请填写邮箱地址" formControlName="email">
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="col-xs-3 form-label">
+              <span class="red">*</span>管理类别</label>
+            <div class="col-xs-9 form-group">
+              <label class="hide">管理类别</label>
+              <select class="form-control" placeholder="请选择" formControlName="manage_type">
+                <option value="">请选择</option>
+                <option value="0">私募证券投资基金</option>
+                <option value="1">私募股权、创业投资基金</option>
+                <option value="2">其他私募投资基金</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        <!-- 企业会员注册 End -->
+
+        <div class="row">
+          <label class="col-xs-3 form-label">
+            <span class="red">*</span>图形验证码</label>
+          <div class="col-xs-9 form-group clearfix">
+            <input type="text" class="form-control pull-left" placeholder="请输入图文验证码" formControlName="captchacode" style="width:153px;"
+            />
+            <div (click)="sendCaptchacode()" class="code-btn captcha-code pull-left">
+              <img [src]="sendCaptchaUrl" alt="图形验证码" width="90" height="34" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="col-xs-3 form-label">
+            <span class="red">*</span>短信验证码</label>
+          <div class="col-xs-9 form-group clearfix">
+            <input type="text" class="form-control pull-left" placeholder="请输入动态码" formControlName="code" style="width:153px;">
+            <button (click)="sendCode(checkForm)" type="button" class="code-btn pull-left" [disabled]="(!checkForm.controls['phone'].valid) && !sendCodeDisabled">
+              {{sendCodeButton}}
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" formControlName="agreed">我已阅读并同意
+            </label>
+            <a routerLink="/login/agreement" target="_bank">《云端•私募荟注册协议》</a>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-red">完成注册</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <app-register-success *ngIf="registerStatus" [type]="companyType"></app-register-success>
+</div>
+<app-footer [bgc]="1"></app-footer>

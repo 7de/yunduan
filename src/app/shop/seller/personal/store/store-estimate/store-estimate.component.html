@@ -1,0 +1,99 @@
+<div class='main-nav'>
+  <div class="ui-g main-title">
+    <span class="ui-g-12 ui-g-nopad">评价管理</span>
+  </div>
+  <div class='container-nav'>
+    <div class='store-dynamics flex_'>
+      <span class='store-dynamics-title'>店铺半年动态评分</span>
+    </div>
+    <div class='store-score-wrap'>
+      <div class='service-attitude flex_'>
+        <span class='scoring-item-title'>服务态度：</span>
+        <!--<p-rating [(ngModel)]="val1" [readonly]='true'></p-rating>-->
+        <div class="atar_Show" title="{{val1}}">
+          <p [ngStyle]="{'width':getScores(val1*2*10) + 'px'}"></p>
+        </div>
+        <span class='mark-up'>共{{(sellerInfo?.is_finish_check == 0 || sellerInfo?.shop == null) ? 0 : storeEvaluationStatus?.service[1]}}人打分</span>
+      </div>
+      <div class='work-speed flex_'>
+        <span class='scoring-item-title'>工作速度：</span>
+        <!--<p-rating [(ngModel)]="val2" [readonly]='true'></p-rating>-->
+        <div class="atar_Show" title="{{val2}}">
+          <p [ngStyle]="{'width':getScores(val2*2*10) + 'px'}"></p>
+        </div>
+        <span class='mark-up'>共{{(sellerInfo?.is_finish_check == 0 || sellerInfo?.shop == null)? 0 : storeEvaluationStatus?.work[1]}}人打分</span>
+      </div>
+      <div class='finish-quality flex_'>
+         <span class='scoring-item-title'>完成质量：</span>
+         <!--<p-rating [(ngModel)]="val3" [readonly]='true'></p-rating>-->
+        <div class="atar_Show" title="{{val3}}">
+          <p [ngStyle]="{'width':getScores(val3*2*10) + 'px'}"></p>
+        </div>
+         <span class='mark-up'>共{{(sellerInfo?.is_finish_check == 0 || sellerInfo?.shop == null)? 0 : storeEvaluationStatus?.quality[1]}}人打分</span>
+       </div>
+    </div>
+    <div class='favorable-total flex_'>
+      <div class='favorable-total-nav flex_'>
+        <span class='favorable-total-title'>商家好评率积累</span>
+      </div>
+      <span class='favorable-rate-nav'>好评率：<span class='favorable-number'>{{cal(scoreList?.goodRate*100)}}%</span></span>
+    </div>
+    <div class='business-reviews'>
+      <table>
+        <thead>
+          <tr>
+            <td></td>
+            <td>最近一周</td>
+            <td>最近一个月</td>
+            <td>一个月前</td>
+            <td>总计</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>好评</td>
+            <td>{{scoreList?.goodWeek}}</td>
+            <td>{{scoreList?.goodMonth}}</td>
+            <td>{{scoreList?.goodMonthAgo}}</td>
+            <td>{{scoreList?.goodAll}}</td>
+          </tr>
+          <tr>
+            <td>中评</td>
+            <td>{{scoreList?.mediumWeek}}</td>
+            <td>{{scoreList?.mediumMonth}}</td>
+            <td>{{scoreList?.mediumMonthAgo}}</td>
+            <td>{{scoreList?.medium}}</td>
+          </tr>
+          <tr>
+            <td>差评</td>
+            <td>{{scoreList?.badWeek}}</td>
+            <td>{{scoreList?.badMonth}}</td>
+            <td>{{scoreList?.badMonthAgo}}</td>
+            <td>{{scoreList?.bad}}</td>
+          </tr>
+          <tr>
+            <td>总计</td>
+            <td>{{scoreList?.commentWeek}}</td>
+            <td>{{scoreList?.commentMonth}}</td>
+            <td>{{scoreList?.commentMonthAgo}}</td>
+            <td>{{scoreList?.comment}}</td>
+          </tr>
+          <tr>
+            <td>好评率</td>
+            <td>{{cal(scoreList?.goodRateWeek*100)}}%</td>
+            <td>{{cal(scoreList?.goodRateMonth*100)}}%</td>
+            <td>{{cal(scoreList?.goodRateMonthAgo*100)}}%</td>
+            <td>{{cal(scoreList?.goodRate*100)}}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ui-g ui-g-nopad mt-30">
+      <div class="ui-g-12 ui-g-nopad">
+        <app-url-tab [items]="tabItems" [className]="tabClassName"></app-url-tab>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

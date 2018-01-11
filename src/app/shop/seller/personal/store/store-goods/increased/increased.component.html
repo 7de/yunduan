@@ -1,0 +1,101 @@
+<div class="frame bg-gray">
+  <div class="frame-header">
+    <app-heads-single [bgc]="true"></app-heads-single>
+    <app-head-home [homeTitle]="(goodsId? '修改' : '发布')+'服务'"></app-head-home>
+  </div>
+  <div class="frame-con">
+    <div class="wrap-1200">
+      <div class="ui-g">
+        <div class="ui-g-12 crumbs">
+          <span>您的位置：</span>
+          <a href="javascript:history.go(-1)">我的服务</a>&gt;
+          <span>{{goodsId? '修改' : '发布'}}服务</span>
+        </div>
+      </div>
+      <div class="ui-g bg-white">
+        <form class="ui-g-12 info" [formGroup]="increasedForm" (submit)="onSubmit(increasedForm)">
+          <div class="ui-g info-title">
+            <div class="ui-g-1 ui-g-nopad">步骤1</div>
+            <div class="ui-g-11 ui-g-nopad"><b>选择服务类型</b></div>
+          </div>
+          <div class="ui-g mt-30">
+            <div class="ui-g-1 ui-g-nopad form-label"><em class="red">*</em>服务类型：</div>
+            <div class="ui-g-3 ui-g-nopad form-group">
+              <label class="hide">服务类型</label>
+              <select class="form-control" formControlName="demand_category_id">
+                <option value="" selected="selected">请选择服务类型</option>
+                <option value="{{item.id}}" *ngFor="let item of typeLists">{{item.title}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="ui-g mt-20 info-title">
+            <div class="ui-g-1 ui-g-nopad">步骤2</div>
+            <div class="ui-g-11 ui-g-nopad"><b>服务基本信息</b></div>
+          </div>
+          <div class="ui-g mt-30">
+            <div class="ui-g-1 ui-g-nopad form-label"><em class="red">*</em>服务标题：</div>
+            <div class="ui-g-5 ui-g-nopad form-group limit">
+              <label class="hide">服务标题</label>
+              <input type="text" class="form-control" placeholder="请输入商品标题" maxlength="33" formControlName="title">
+              <app-string-length class="limit-num" [limitLength]="33" [dataProvider]="increasedForm.value.title"></app-string-length>
+            </div>
+          </div>
+          <div class="ui-g mt-10">
+            <div class="ui-g-1 ui-g-nopad form-label"><em class="red">*</em>服务价格：</div>
+            <div class="ui-g-3 ui-g-nopad form-group form-ico-right">
+              <input type="text" class="form-control" placeholder="请输入商品价格" formControlName="price">
+              <span class="tip">元</span>
+            </div>
+          </div>
+          <div class="ui-g mt-10">
+            <div class="ui-g-1 ui-g-nopad form-label"><em class="red">*</em>服务照片：</div>
+            <div class="ui-g-10 ui-g-nopad">
+              <!--<ul class="img-box clearfix">
+                <li class="pull-left" *ngFor="let img of imgAry;let idx = index;">
+                  <div class="img">
+                    <img [src]="img | image:180" width="180" height="180"/>
+                  </div>
+                  <span class="ico-delete" (click)="deleteFile(idx)">&times;</span>
+                </li>
+                <li class="pull-left"  [ngClass] = "(imgAry.length === 5)? 'hide': '' " >
+                  <input type="file" #myInput (change)="uploadImg($event)" class="img-file"/>
+                  <div class="img">
+                    <i class="ico-global ico-plus-gray"></i>
+                  </div>
+                </li>
+              </ul>-->
+              <app-business-upload [fileAry]="imgAry" [fileId]="fileId" [url]="uploadFileUrl" [fileType]="2"></app-business-upload>
+              <p class="help-block mt-5" *ngIf="errors['img']">请至少上传一张图片</p>
+              <p class="fs-12 color-666 mt-5">1、图片大小为350*350像素，文件小于2M；仅支持JPG、PNG、JPEG格式</p>
+              <p class="fs-12 color-666 mt-5">2、图片尽量清晰，并能够体现服务卖点</p>
+              <p class="fs-12 red mt-5">3、最多支持上传五张图片，第一张默认为服务封面</p>
+            </div>
+          </div>
+          <div class="ui-g mt-10">
+            <div class="ui-g-1 ui-g-nopad form-label"><em class="red">*</em>服务详情：</div>
+            <div class="ui-g-10 ui-g-nopad">
+              <p class="fs-12 color-999" style="line-height: 36px;">服务的详情是影响雇主下单的重要因素。丰富的服务详情，成效量比没有案例的服务要高很多哦<em class="color-333">（图片宽度为960像素）</em></p>
+              <!--<p-editor formControlName="content"-->
+                        <!--(onInit)="editorInit($event)"-->
+                        <!--[style]="{'height':'400px'}"></p-editor>-->
+              <div class="form-group">
+                <label class="hide">服务详情</label>
+                <umeditor [config]="umeditorConfig" formControlName="content"></umeditor>
+              </div>
+
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad text-center btn-box">
+            <button type="submit" class="submit-btn-new" [disabled]="!increasedForm.valid || imgAry.length < 1">{{goodsId?'保存':'发布'}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="frame-footer">
+    <app-footer [bgc]="1"></app-footer>
+  </div>
+</div>
+
+
+

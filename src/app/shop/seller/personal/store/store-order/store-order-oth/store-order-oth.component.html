@@ -1,0 +1,98 @@
+<div class="frame bg-gray">
+  <div class="frame-header">
+    <app-heads-single [bgc]="true"></app-heads-single>
+    <app-head-home [homeTitle]="['订单详情']"></app-head-home>
+  </div>
+  <div class="frame-con">
+    <div class="wrap-1200">
+      <div class="ui-g">
+        <div class="ui-g-12 crumbs">
+          <span>您的位置：</span>
+          <a [routerLink]="['/seller/personal/index/order']" [queryParams] ="{type:''}">交易订单管理</a>&gt;
+          <span>
+            <ng-container *ngIf="data?.status===1">上传方案</ng-container>
+            <ng-container *ngIf="data?.status===4">修改方案</ng-container>
+            <ng-container *ngIf="data?.status===5">上传提交服务</ng-container>
+            <ng-container *ngIf="data?.status===6">修改提交服务</ng-container>
+          </span>
+        </div>
+      </div>
+      <div class="ui-g bg-white order-content">
+        <div class="ui-g-12 ui-g-nopad order-content-top">
+          <h3>
+            <ng-container *ngIf="data?.status===1">上传方案</ng-container>
+            <ng-container *ngIf="data?.status===4">修改方案</ng-container>
+            <ng-container *ngIf="data?.status===5">上传提交服务</ng-container>
+            <ng-container *ngIf="data?.status===6">修改提交服务</ng-container>
+          </h3>
+          <div class="color-999 mt-10">
+            <ng-container *ngIf="data?.status===1 || data?.status===4">
+              温馨提示：请与需求方沟通确认具体的需求要求及明细、并确认最终的交付时间后，上传至平台。买家提出的要求务必尽量详细，以免后续发生不可预估变化时作为平台仲裁依据
+            </ng-container>
+            <ng-container *ngIf="data?.status===5 || data?.status===6">
+              温馨提示：请按照双方已确认的具体的需求要求及明细、最终的交付时间提交，以免出现争议。
+            </ng-container>
+
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad order-content-con">
+          <!-- 上传/修改方案 //start -->
+          <div class="ui-g" *ngIf="data?.status===1 || data?.status===4">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-1 ui-g-nopad fs-16" style="line-height: 34px;">服务方案：</div>
+              <div class="ui-g-9 ui-g-nopad">
+                <textarea class="form-control" rows="8" placeholder="请详细描述需求内容，文件过大请上传附件。" [(ngModel)]="finalDemand"></textarea>
+                <p class="err-red" *ngIf="finalDemandError">请输入需求内容</p>
+                <app-business-upload [fileAry]="fileAry" [fileId]="fileId" [url]="uploadFileUrl" (processEvent)="processMethod($event)"></app-business-upload>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad mt-20">
+              <div class="ui-g-1 ui-g-nopad fs-16" style="line-height: 34px;">交付时间：</div>
+              <div class="ui-g-9 ui-g-nopad">
+                <div class="order-date" style="width: 238px;">
+                  <p-calendar [(ngModel)]="date" placeholder="请选择交易时间"
+                              dateFormat="yy-mm-dd"
+                              [monthNavigator]="true"
+                              [yearNavigator]="true"
+                              yearRange="2017:2030"
+                              [locale]="cn"
+                              styleClass="form-calendar border"></p-calendar>
+                </div>
+                <p class="err-red" *ngIf="dateError">请选择交易时间</p>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad text-center btn-box">
+              <button type="button" class="submit-btn-new" (click)="finalOrder(data.id)" *ngIf="data?.status===1" [disabled]="(!finalDemand) || (!date) || fileProcess">提交方案</button>
+              <button type="button" class="submit-btn-new" (click)="finalOrder(data.id,1)" [disabled]="(!finalDemand) || (!date) || fileProcess" *ngIf="data?.status===4">修改方案</button>
+            </div>
+          </div>
+          <!-- 上传/修改方案 //end -->
+
+          <!-- 交付服务 //start -->
+          <div class="ui-g" *ngIf="data?.status===5 || data?.status===6">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-1 ui-g-nopad fs-16" style="line-height: 34px;">服务内容：</div>
+              <div class="ui-g-9 ui-g-nopad">
+                <textarea class="form-control" rows="8" placeholder="请详细描述需求内容，文件过大请上传附件。" [(ngModel)]="serverDemand"></textarea>
+                <p class="err-red" *ngIf="serverDemandError">请输入需求内容</p>
+                <app-business-upload [fileAry]="serverfileAry" [fileId]="serverfileId" [url]="uploadFileUrl" (processEvent)="processMethod($event)"></app-business-upload>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad text-center btn-box">
+              <button type="button" class="submit-btn-new" (click)="serverOrder(data.id)" *ngIf="data?.status===5" [disabled]="!serverDemand || fileProcess">确认交付</button>
+              <button type="button" class="submit-btn-new" (click)="serverOrder(data.id,1)" [disabled]="!serverDemand || fileProcess" *ngIf="data?.status===6">修改交付</button>
+            </div>
+
+          </div>
+          <!-- 交付服务 //end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="frame-footer">
+    <app-footer [bgc]="1"></app-footer>
+  </div>
+</div>
+
+
+

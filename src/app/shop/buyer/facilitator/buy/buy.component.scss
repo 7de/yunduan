@@ -1,0 +1,229 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+
+.mt-5{
+  margin-top:5px;
+}
+
+.order{
+  .order-header{
+    border-bottom:1px solid #e5e5e5;
+  }
+  .order-con{
+    padding-bottom:40px;
+  }
+}
+.crumbs {
+  padding:17px 0;
+  font-size: 12px;
+  a{
+    padding-right:5px;
+    color: #666;
+    @include transition(.25s);
+    &:hover{
+      color: nth($newRed,2);
+    }
+  }
+}
+.order-process{
+  li{
+    float: left;
+    width:160px;
+    height:23px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top:8px;
+      width:100%;
+      height:5px;
+      background-color: #ccc;
+    }
+    span{
+      display: inline-block;
+      width:23px;
+      height:23px;
+      line-height: 23px;
+      border-radius: 50%;
+      color: #fff;
+      background-color: #ccc;
+      position: relative;
+      margin-bottom:3px;
+    }
+    &:first-child{
+      &:before{
+        border-top-left-radius:5px;
+        border-bottom-left-radius:5px;
+      }
+    }
+    &:last-child{
+      &:before{
+        border-top-right-radius:5px;
+        border-bottom-right-radius:5px;
+      }
+    }
+  }
+  li.active{
+    color: #7bbd53;
+    &:before{
+      background-color: #7bbd53;
+    }
+    span{
+      background-color: #7bbd53;
+    }
+  }
+  li.visited{
+    color: #bddea9;
+    &:before{
+      background-color: #bddea9;
+    }
+    span{
+      background-color: #bddea9;
+    }
+  }
+}
+.order-box{
+  padding:30px;
+  min-height: 428px;
+  .form-title{
+    color: nth($newRed,2);
+    i{
+      margin-right:10px;
+      font-size: 16px;
+    }
+    b{
+      color: #333;
+    }
+  }
+  .dashed{
+    border-top:1px dashed #ccc;
+    padding-top:30px;
+    margin-top:30px;
+  }
+  .form-label{
+    line-height: 36px;
+  }
+  .form-control{
+    box-shadow: none;
+    border-color: #c7c7c7;
+    &:focus{
+      border-color: nth($blue,1);
+    }
+  }
+  .form-tip{
+    line-height: 36px;
+  }
+  textarea.form-control{
+    resize: none;
+    border-color: #eee;
+    @include borderRadius(0)
+  }
+  input.form-control{
+    height:36px;
+    line-height: 36px;
+  }
+  .has-success .form-control{
+    border-color: #ccc;
+  }
+  .has-error .form-control{
+    border-color: nth($newRed,2);
+  }
+  .order-bottom{
+    .order-price{
+      padding:20px;
+      border-top:1px dashed #ccc;
+      background-color: #fff9e7;
+    }
+  }
+}
+
+.wrap-law{
+  padding:30px;
+  p{
+    line-height: 20px;
+  }
+}
+
+.table{
+  table-layout: fixed;
+  font-size: 12px;
+  border:1px solid #eee;
+  thead>tr>th{
+    background-color: #f7f7f7;
+    border-bottom: none;
+    font-weight: normal;
+    padding:8px 20px;
+  }
+  tbody>tr>td{
+    border-top:none;
+    vertical-align: middle;
+    padding:20px;
+  }
+}
+
+.check-box{
+  overflow: hidden;
+  font-weight: normal;
+  @include transition(.25s);
+  input{
+    opacity: 0;
+  }
+  .checkbox{
+    float: left;
+    width:16px;
+    height:16px;
+    border:1px solid #ccc;
+    position: relative;
+    background:linear-gradient(#eee, #fcfcfc);
+    margin-left: -13px;
+    @include borderRadius;
+    @include transition(.25s);
+    &:before{
+      content: '';
+      position: absolute;
+      top:4px;
+      left:4px;
+      width:6px;
+      height:4px;
+      border-bottom:2px solid transparent;
+      border-left:2px solid transparent;
+      transform: rotate(-45deg);
+    }
+  }
+  .checkcon{
+    margin-top:8px;
+    margin-left:5px;
+  }
+  .checkico{
+    padding:6px 10px;
+    border:1px solid #fff;
+    margin-left:10px;
+    @include borderRadius;
+    @include transition(.25s);
+  }
+  input:checked + .checkbox{
+    &:before{
+      border-color: nth($newRed,2);
+    }
+  }
+  input:checked ~ .checkico{
+    border-color: #b0c2e1;
+  }
+}
+
+.red{
+  color: nth($newRed,2);
+}
+.blue{
+  color: nth($blue,1);
+}
+
+.submit-btn-new,.cancel-btn-new{
+  width:140px;
+  height:36px;
+  font-size: 14px;
+}

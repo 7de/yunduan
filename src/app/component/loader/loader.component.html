@@ -1,0 +1,17 @@
+<!--<div class="preloader-full"
+     *ngIf="loaderService.getLoaderCount() > 0">
+  &lt;!&ndash;<div class="preloader-full__spinner">💩</div>&ndash;&gt;
+  <div class="preloader-full__spinner"><img src="../../../assets/images/loading.png" /></div>
+</div>-->
+<div class="free-loading main-loading free-yellow" *ngIf="loaderService.getLoaderCount() > 0">
+  <div class="loader circle-round-fade small">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>

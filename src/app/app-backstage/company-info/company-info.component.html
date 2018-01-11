@@ -1,0 +1,179 @@
+<div class="wrap infoset-wrap">
+  <div class="row">
+    <div class="col-md-2" style="margin-bottom: 4px;">
+      <p class="font-16 color-333 font-16 font-weight margin-bottom10 _flex"><i class='tag-line'></i>公司简介</p>
+    </div>
+  </div>
+  <div class="row" style="height: 36px;">
+    <div class="col-md-12">
+      <div class='company-introduce _flex'><div class='col-md-2 introduce-title'>公司介绍</div><div class='col-md-9 introduce-text'>{{companyData?.description ? companyData?.description : '暂无介绍'}}</div><div class='col-md-1 content-edit'><a (click)="introduce=!introduce">编辑</a></div></div>
+      <div class='business-range _flex'>
+        <div class='col-md-2 business-title'>业务范围</div>
+        <div class='col-md-9 business-text'>{{companyData?.business_scope ? companyData?.business_scope : '暂无业务范围'}}</div>
+        <div class='col-md-1 content-edit'><a (click)="business=!business">编辑</a></div>
+      </div>
+      <div class='business-range _flex' style='margin-top:-60px;'><div class='col-md-2 business-title'>咨询电话</div><div class='col-md-9 business-text'>{{companyData?.app_tel ? companyData?.app_tel : '暂无咨询电话'}}</div><div class='col-md-1 content-edit'><a (click)="consult=!consult">编辑</a></div></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2" style="margin-bottom: 4px;">
+      <p class="font-16 color-333 font-16 font-weight _flex"><i class='tag-line'></i>Banner图管理</p>
+    </div>
+  </div>
+  <div class="row" style="height: 36px;" *ngIf="BannerNum < 5">
+    <div class="col-md-12">
+      <div class="myAdd" (click)="seeBanner({},'')">
+        <p><span class="icon-add"></span>添加Banner</p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 26px;">
+    <div class="col-md-12">
+      <p-dataTable rowHover="true" [value]="Banner" [loading]="!Banner" loadingIcon="fa-spinner" styleClass="custom-dataTable" emptyMessage="暂无数据">
+        <p-column header="序号">
+          <ng-template let-manager="rowData" let-i="rowIndex" pTemplate="body">
+            <span>{{i+1}}</span>
+          </ng-template>
+        </p-column>
+        <p-column header="缩略图">
+          <ng-template let-manager="rowData" let-i="rowIndex" pTemplate="body">
+            <img style="width: 152px;height: 64px;" class="headerImg" [src]="Banner[i]['img_path'] | image: 64" />
+          </ng-template>
+        </p-column>
+        <p-column field="img_title" header="标题"></p-column>
+        <!--<p-column field="img_url" header="链接"></p-column>-->
+        <p-column header="操作" styleClass="col-button">
+          <ng-template let-manager="rowData" let-i="rowIndex" pTemplate="body">
+            <a class="a-padding a-color" (click)="seeBanner(Banner[i] , Banner[i]['id'])">编辑</a>
+            <a class="a-color" (click)="delete(Banner[i]['id'] , Banner[i]['img_title'])">删除</a>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+    </div>
+  </div>
+</div>
+
+<!-- 编辑公司介绍 -->
+<div class="mask" *ngIf="introduce">
+  <div class="dialog">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;">
+      <div class="col-md-6 font-16 uploading">编辑公司介绍</div>
+      <div (click)="changeValue('introduce')" class="col-md-1 col-md-offset-5">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row row-margin hiddens">
+      <div class="col-md-12" style="padding: 0px">
+        <div class="introducebox introducenav row">
+          <label class="col-md-2 form-label" style="padding: 0px;margin-top:22px;">内容:</label>
+          <div class="col-md-10 introduce" style="padding-left: 20px">
+            <textarea class="form-control referral" rows="5" placeholder="请简单介绍一下公司，字数限制在150字内" maxlength=150 (keyup)="onKeyup($event)" [(ngModel)]="editeIntroduceInfo"></textarea>
+            <span class='error-info' *ngIf="errorText">请输入介绍公司内容</span>
+          </div>
+          <span class="introduce-promts">{{descriptionLength}}/<i style="color: #B3B3B3;font-style:normal;">150</i></span>
+        </div>
+        <div class="col-md-12 align-center" style='margin-top:-15px;'>
+          <button type="submit" class="submit-btn" (click)="editIntroduce(editeIntroduceInfo)" style="margin-top: 40px; margin-left: 0px;">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 编辑业务范围 -->
+<div class="mask" *ngIf="business">
+  <div class="dialog">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;">
+      <div class="col-md-6 font-16 uploading">编辑业务范围</div>
+      <div (click)="changeValue('business')" class="col-md-1 col-md-offset-5">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row row-margin hiddens">
+      <div class="col-md-12" style="padding: 0px">
+        <div class="introducebox businessnav row">
+          <label class="col-md-2 form-label" style="padding: 0px;margin-top:22px;">内容:</label>
+          <div class="col-md-10 introduce" style="padding-left: 20px">
+            <textarea class="form-control referral" rows="5" placeholder="请介绍一下公司业务范围，字数限制在150字内" maxlength=150 (keyup)="onKeyup($event)" [(ngModel)]="editeBusinessInfo"></textarea>
+            <span class='error-info' *ngIf="errorText">请输入公司业务范围</span>
+          </div>
+          <span class="business-promts">{{descriptionLength}}/<i style="color: #B3B3B3;font-style:normal;">150</i></span>
+        </div>
+        <div class="col-md-12 align-center" style='margin-top:-15px;'>
+          <button type="submit" class="submit-btn" (click)="editBusiness(editeBusinessInfo)" style="margin-top: 40px; margin-left: 0px;">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 编辑咨询电话 -->
+<div class="mask" *ngIf="consult">
+  <div class="dialog consultTel-wrap">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;">
+      <div class="col-md-6 font-16 uploading">编辑App咨询电话</div>
+      <div (click)="changeValue('consult')" class="col-md-1 col-md-offset-5">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row row-margin hiddens">
+      <div class="col-md-12" style="padding: 0px">
+        <div class="row" style='padding-top: 36px;'>
+          <label class="col-md-2 form-label" style="padding: 0px;">咨询电话:</label>
+          <div class="col-md-10 form-group banner-title" style="padding: 0px;padding-left: 20px;position:relative;">
+            <input type="text" name="tel" minlength="7" maxlength="13" class="form-control" (keyup)="TelonKeyup($event)" placeholder="请输入咨询电话" [(ngModel)]="editeConsultInfo"/>
+          </div>
+          <span class='error-info' *ngIf="errorText">请输入长度7到13位之间咨询电话</span>
+        </div>
+        <div class="col-md-12 align-center" style='margin-top:-15px;'>
+          <button type="submit" class="submit-btn" (click)="editConsult(editeConsultInfo)" style="margin-top: 40px; margin-left: 0px;">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mask companyinfo-wrap" *ngIf="show">
+  <div class="dialog">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;">
+      <div class="col-md-6 font-16 uploading">{{Banner.id ? '编辑' : '添加'}}Banner</div>
+      <div (click)="show=!show" class="col-md-1 col-md-offset-5">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row row-margin hiddens">
+      <div class="col-md-12" style="padding: 0px;">
+        <form [formGroup]="bannerForm" (submit)="onSubmit(bannerForm)" class="manager-form">
+          <div class="row">
+            <label class="col-md-2 form-label" style="padding: 0px;">标题:</label>
+            <div class="col-md-10 form-group banner-title" style="padding: 0px;padding-left: 20px;position:relative;">
+              <input type="text" formControlName="title" name="title" minlength="1" maxlength="15" (keyup)="onKeyup($event , 15)" class="form-control" placeholder="请输入标题"/>
+              <span class="promts">{{descriptionLength}}/<i style="color: #B3B3B3;font-style:normal;">15</i></span>
+            </div>
+          </div>
+
+          <div class="row" style="margin-left:-1px;padding-right: 15px;">
+            <div class="col-md-12" style="padding: 0px;">
+              上传图片:
+              <span class="font-12 color-999">（图片格式为750px*320px，支持JPG、PNG，大小不超过2M）</span>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="col-md-6 col-md-offset-3 heads">
+              <div class="imgUpload-cons">
+                <app-basic-img-upload (imgEvent)="imgMethod($event)" [previewImg]="imgSrc"></app-basic-img-upload>
+                <!--<span class="help-block" style='color:#ee3737;font-size:14px;' *ngIf="tmpVar && imgSrc===''">请上传图片</span>-->
+                <span class="help-block" style='color:#ee3737;font-size:14px;' *ngIf="tmpVar && imgSrc===''">请上传封面图</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 align-center" style='margin-top:-15px;'>
+            <button type="submit" class="submit-btn" style="margin-top: 20px; margin-left: 0px;">确定</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-model></app-model>

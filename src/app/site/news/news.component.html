@@ -1,0 +1,56 @@
+<div class="news-main">
+  <div class="main-top">
+    <img src="{{imageDomain}}/upload/frontend/20171116/59c44d6ba565e4c435a85bb8f73e9f5f.jpg" alt="">
+  </div>
+  <div class="wrap-1200 main mt-30 mb-40 clearfix">
+    <div class="main-left pull-left">
+      <div class="ui-g">
+        <div class="ui-g-12 left-title ui-g-nopad">
+          <div class="ui-g-3 ui-g-nopad left-titles">
+            <span>私募视界&nbsp;•&nbsp;NEWS</span>
+          </div>
+          <div class="ui-g-7 ui-g-nopad left-title-menu">
+            <ul class="clearfix">
+              <li routerLinkActive="active"  [routerLink]="['/site/news']" [queryParams]="{'category_id':4}">行业动态</li>
+              <li routerLinkActive="active" [routerLink]="['/site/news']" [queryParams]="{'category_id':3}">合规指引</li>
+              <li routerLinkActive="active" [routerLink]="['/site/news']" [queryParams]="{'category_id':1}">私募干货</li>
+              <li routerLinkActive="active" [routerLink]="['/site/news']" [queryParams]="{'category_id':2}">私募教程</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12 left-content ui-g-nopad">
+          <div class="news-list ui-g-nopad mt-20 pdb-20 clearfix" *ngFor="let news of newsList">
+            <div [routerLink]="['/site/news/details' , news?.id]" class="news-list-left pull-left">
+              <img width="230" height="140" [src]="news?.thumb" alt="">
+            </div>
+            <div class="news-list-right pull-right">
+              <div [routerLink]="['/site/news/details' , news?.id]" class="ui-g-12 ui-g-nopad news-list-title">
+                {{news?.title}}
+              </div>
+              <div [routerLink]="['/site/news/details' , news?.id]" class="ui-g-12 ui-g-nopad news-list-content color-666">
+                {{news?.description}}
+              </div>
+              <div class="ui-g-12 ui-g-nopad mt-20 color-666 fs-14">
+                {{news?.created_at | datetime: 'time'}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pdr-20" style="height: 64px;padding-top: 8px ;">
+        <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                     [first]="pagination.currentPage * pagination.perPage-1"
+                     [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                     (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+      </div>
+    </div>
+    <div class="main-right pull-right">
+      <app-hot></app-hot>
+    </div>
+  </div>
+</div>
+
+
+

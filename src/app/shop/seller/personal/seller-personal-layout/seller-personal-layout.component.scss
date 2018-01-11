@@ -1,0 +1,152 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+
+/*个人中心导航头部*/
+.header{
+  height: 80px;
+  background-color: #C71622;
+  .header-con{
+    width: 620px;
+    height: 100%;
+    float: left;
+    .header-left{
+      padding: 17px 0;
+      .head-title{
+        height: 24px;
+        line-height: 20px;
+        font-size: 24px;
+        color: #fff;
+        margin-top:13px;
+        padding-left: 15px;
+        border-left: 1px solid #fff;
+      }
+    }
+    .side-menu-list{
+      padding: 13px 0;
+      >ul{
+        padding-left: 50px;
+        >li{
+          float: left;
+          height: 54px;
+          color: #fff;
+          line-height: 54px;
+          text-align: left;
+          cursor: pointer;
+          outline: none;
+          margin-right: 20px;
+          &.active,&:hover{
+            text-decoration: underline;
+          }
+        }
+        >li.set{
+          position: relative;
+          width: 84px;
+          text-align: center;
+          &.active{
+            text-decoration: underline;
+          }
+          .set-menu{
+            position: relative;
+            &:focus{
+              outline: none;
+            }
+            &:hover{
+              background-color: #fff;
+              border-left: 1px solid #eee;
+              border-right: 1px solid #eee;
+            }
+          }
+          .drop-down{
+            position: absolute;
+            top: 53px;
+            left: 0;
+            z-index: 200;
+            width: 250px;
+            height: 158px;
+            padding: 20px;
+            background-color: #fff;
+            border-left: 1px solid #eee;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            ul{
+              li{
+                text-align: left;
+                font-size: 12px!important;
+                height: 24px!important;
+                color: #666!important;
+                line-height: 24px!important;
+                margin-right:0!important;
+                clear: both;
+                outline: none;
+                &.active,&:hover{
+                  color: #EA3A3A!important;
+                  text-decoration: none;
+                }
+              }
+              .menu-header{
+                font-size: 14px!important;
+                line-height: 14px!important;
+                font-weight: 600;
+                &.active,&:hover{
+                  color: #666!important;
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+        >li.set:hover{
+          width: 84px;
+          background-color: #fff;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+.search-box{
+  width: 360px;
+  height: 80px;
+  padding: 25px 0;
+  float: right;
+}
+.goods-search{
+  height: 30px;
+  font-size: 12px;
+  select{
+    height: 30px;
+    width: 100%;
+    border: 0;
+    padding-left: 8px;
+    &:focus{
+      outline: none;
+    }
+  }
+  .keyword{
+    height: 30px;
+    border: 0;
+    width: 100%;
+    border-left: 1px solid #eee;
+    padding: 0 10px;
+    &:focus{
+      outline: none;
+    }
+  }
+  .search-button{
+    height: 30px;
+    width: 100%;
+    border:none;
+    background-color: #EAEAEA;
+    outline: none;
+  }
+}
+
+.caret{
+  color: #fff;
+}
+.rotate{
+  transform: rotate(-180deg);
+  color: #666666;
+}
+

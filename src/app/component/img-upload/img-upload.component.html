@@ -1,0 +1,6 @@
+<p-fileUpload styleClass="imgUpload" name="file" url="{{url}}" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+              maxFileSize="2048000" invalidFileSizeMessageSummary="{0}: 超过文件大小" invalidFileSizeMessageDetail="最大上传尺寸为 {0}"
+              (onUpload)="onBasicUpload($event)" (onBeforeSend)="onBeforeSend($event)" auto="auto" [chooseLabel]="chooseLabel"
+              (onSelect)="onSelect($event)"></p-fileUpload>
+<img *ngIf="img" [src]="img"  width="140" height="140"/>
+<img *ngIf="!img" src="../../../assets/images/default_weixin.jpg"  width="140" height="140"/>

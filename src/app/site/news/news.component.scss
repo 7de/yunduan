@@ -1,0 +1,98 @@
+.main-left{
+  width: 880px;
+  border: 1px solid #e8e8e8;
+  min-height: 588px;
+  .left-title{
+    height: 44px;
+    line-height: 44px;
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #e8e8e8;
+    .left-titles{
+      font-size: 20px;
+      font-weight: 500;
+      padding-left: 20px;
+      color: #333;
+    }
+    .left-title-menu{
+      height: 44px;
+      ul{
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      li{
+        float: left;
+        width: 120px;
+        height: 44px;
+        font-size: 16px;
+        text-align: center;
+        border-right: 1px solid #e8e8e8;
+        &:first-child{
+          border-left: 1px solid #e8e8e8;
+        }
+        &:focus{
+          outline: none;
+        }
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      li.active{
+        background-color: #fff;
+        color: #c71521;
+      }
+    }
+  }
+  .left-content{
+    padding: 10px 20px 0;
+    .news-list{
+      border-bottom: 1px solid #e8e8e8;
+      .news-list-left{
+        width: 230px;
+        height: 140px;
+        margin-right: 20px;
+        &:focus{
+          outline: none;
+        }
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      .news-list-right{
+        width: 588px;
+        .news-list-title{
+          font-size: 22px;
+          font-weight: 500;
+          margin-bottom: 30px;
+          &:focus{
+            outline: none;
+          }
+          &:hover{
+            color: #c71521;
+            cursor: pointer;
+          }
+        }
+        .news-list-content{
+          font-size: 16px;
+          height: 45px;
+          overflow : hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          &:focus{
+            outline: none;
+          }
+          &:hover{
+            color: #c71521;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+.main-right{
+  width: 294px;
+  min-height: 350px;
+}

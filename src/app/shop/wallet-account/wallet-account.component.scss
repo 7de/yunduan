@@ -1,0 +1,737 @@
+// 弹性布局
+._flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  align-items: baseline;
+}
+
+.flex_ {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.wallet-Account-Wrap {
+  width: 100%;
+  background-color: #F2F2F2;
+  .main-Wrap {
+    padding-bottom: 50px;
+    // 导航的面包屑
+    .naviga-Crumbs {
+      height: 14px;
+      line-height: 14px;
+      font-size: 14px;
+      /*margin: 20px 0;*/
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-bottom:20px;
+      .goBack {
+        display: inline-block;
+        color: #D63236;
+      }
+      .crumbsText {
+        display: inline-block;
+        margin-left: 10px;
+        color: #2E2E2E;
+      }
+    }
+    // 主体的内容
+    .content-Wrap {
+      padding-bottom: 88px;
+      background-color: #FFFFFF;
+      position: relative;
+      .wallet-Title {
+        width: 1142px;
+        height: 66px;
+        margin-left: -22px;
+        border-bottom: 1px solid #E3E3E3;
+        padding-top: 38px;
+        .wallet-Title-Wrap {
+          height: 24px;
+          line-height: 24px;
+          -webkit-align-items: center;
+          align-items: center;
+          .headline-tags {
+            display: block;
+            width: 100px;
+            height: 30px;
+            background-color: #D63236;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            color: #fff;
+          }
+          .title-Text {
+            font-size: 16px;
+            color: #2E2E2E;
+            margin-left: 12px;
+            font-weight: bold;
+          }
+          .Tips-text {
+            font-size: 14px;
+            color: #909090;
+            margin-left: 12px;
+            line-height: 2;
+          }
+        }
+      }
+      /*.corporateInfo-Wrap {
+        .min-title {
+          height: 16px;
+          line-height: 16px;
+          font-size: 16px;
+          font-weight: bold;
+          margin-top: 30px;
+          margin-left: 48px;
+          color: #2E2E2E;
+        }
+      }*/
+
+      .IdentityInfo-Wrap {
+        width: 1142px;
+        margin: 0 auto;
+        .usernameNav, .idCardNav, .idNumberNav {
+          width:630px;
+          flex-wrap:wrap;
+          -ms-flex-wrap:wrap;
+          -moz-flex-wrap:wrap;
+          -webkit-flex-wrap:wrap;
+          .left-Alignment {
+            width: 152px;
+            height: 36px;
+            line-height: 36px;
+            text-align: right;
+          }
+          .must-Icon {
+            width: 6px;
+            height: 6px;
+            color: #AA2423;
+            margin-top: -18px;
+            //margin-right: 6px;
+            display: inline-block;
+          }
+          label {
+            font-size: 14px;
+            color: #2E2E2E;
+          }
+          input {
+            width: 260px;
+            height: 36px;
+            //text-indent: 10px;
+            margin-left: 14px;
+            border: 1px solid #C1C1C1;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+          }
+        }
+      }
+      .usernameNav {
+        margin-top: 30px;
+      }
+      .idCardNav {
+        position: relative;
+        margin-top: 10px;
+        margin-bottom:10px;
+        .calendar {
+          position: absolute;
+          width: 16px;
+          height: 15px;
+          left: 390px;
+          top: 10px;
+          background:url('../../../assets/images/calendar-icon.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          z-index: 1;
+        }
+      }
+      .idNumberNav {
+        margin-top: 5px;
+      }
+
+      .upload-card-title {
+        margin-left: 30px;
+        margin-top: 22px;
+        height: 14px;
+        line-height: 14px;
+        .left-Alignment {
+          width: 160px;
+          height: 14px;
+          line-height: 14px;
+          text-align: right;
+          padding-right: 9px;
+          .must-Icon {
+            width: 6px;
+            height: 6px;
+            color: #AA2423;
+            margin-top: -8px;
+            display: inline-block;
+          }
+          .idCardPhone {
+            font-weight: bold;
+            font-size: 14px;
+            color: #2E2E2E;
+          }
+        }
+        .prompt-Text {
+          font-size: 14px;
+          color: #909090;
+          .demand {
+            color: #D63236;
+            font-size: 14px;
+          }
+        }
+      }
+
+      // 法人身份信息
+      .upload-data-wrap {
+        margin-top: 30px;
+        margin-left: 52px;
+        //border-bottom: 1px dashed #DDDDDD;
+        .left-block {
+          //height:370px;
+          width: 424px;
+          margin-bottom: 30px;
+          .upload-data-left, .upload-data-right {
+            .min-tips {
+              margin-top: 10px;
+              font-size: 14px;
+              color: #5D5D5D;
+              margin-left:-1px;
+              .left-Alignment {
+                width: 130px;
+                height: 14px;
+                font-size: 14px;
+                line-height: 14px;
+                color: #666666;
+                text-align: right;
+              }
+            }
+            .upload-nav {
+              display: block;
+              width: 246px;
+              height: 155px;
+              position: relative;
+              left: 13px;
+              -webkit-border-radius: 10px;
+              -moz-border-radius: 10px;
+              border-radius: 10px;
+              .idcard-positive-icon {
+                display: block;
+                width: 244px;
+                height: 154px;
+                background: url('../../../assets/images/id-positive.png');
+                background-rpeat: no-repeat;
+                background-size: cover;
+                position: absolute;
+                left: 6px;
+                top: 0;
+              }
+            }
+          }
+          .upload-data-right {
+            //margin-bottom:40px;
+            padding-top: 58px;
+          }
+          .upload-data-right .idcard-positive-icon {
+            width: 244px !important;
+            height: 154px !important;
+            background: url('../../../assets/images/id-opposite.png') !important;
+            background-repeat: no-repeat;
+            background-size: contain !important;
+          }
+        }
+        .right-block {
+          width: 678px;
+          height: 370px;
+          border-left: 1px dashed #E1E1E1;
+          .example-data-right {
+            width: 630px;
+            height: 110px;
+            .example-text {
+              width: 75px;
+              height: 38px;
+              line-height: 38px;
+              color: #D63236;
+              font-size: 14px;
+              margin-left: 40px;
+            }
+            .example-idcard-positive {
+              display: block;
+              width: 172px;
+              height: 108px;
+              background: url('../../../assets/images/idcard-positive.png');
+              background-size: cover;
+              background-repeat: no-repeat;
+              margin-left: -32px;
+            }
+            .instance-item {
+              width: 370px;
+              height: 110px;
+              padding-left: 16px;
+              li {
+                height: 12px;
+                line-height: 12px;
+                font-size: 12px;
+                color: #5D5D5D;
+              }
+              li:before {
+                content: "● ";
+                color: #C6C6C6;
+              }
+            }
+            .instance-item li:nth-child(1) {
+              margin-top: 7px;
+            }
+            .instance-item li:nth-child(2), .instance-item li:nth-child(3) {
+              margin-top: 9px;
+            }
+            .instance-item li:nth-child(4) {
+              margin-top: 8px;
+              color: #D63236;
+            }
+            .instance-item li:nth-child(5) {
+              margin-top: 10px;
+              margin-bottom: 6px;
+            }
+          }
+          .example-data-right:nth-child(2) {
+            margin-top: 105px;
+          }
+          .example-data-right:nth-child(2) .example-idcard-positive {
+            background: url('../../../assets/images/idcard-opposite.png');
+          }
+          .example-data-right:nth-child(2) .instance-item li:nth-child(1) {
+            margin-top: 18px;
+          }
+          .example-data-right:nth-child(2) li:nth-child(3) {
+            color: #D63236;
+          }
+          .example-data-right:nth-child(2) li:nth-child(4) {
+            color: #5D5D5D !important;
+          }
+        }
+      }
+
+      // 企业信息
+      .enterpriseInfo-left {
+        width: 444px;
+      }
+      .enterpriseInfo-right {
+        width: 656px;
+      }
+      .enterpriseInfo-Wrap {
+        width: 1140px;
+        //margin-left: 30px;
+        margin-left: 52px;
+        margin-top: 30px;
+        .enterpriseInfo-title {
+          font-size: 16px;
+          font-weight: bold;
+          color: #2E2E2E;
+        }
+        .companyInfo-Wrap {
+          .companyNameNav, .cityNav, .licenseNav, .effectiveTimeNav, .organizationNav {
+            //height: 36px;
+            line-height: 36px;
+            margin-top: 5px;
+            width:444px;
+            flex-wrap:wrap;
+            -ms-flex-wrap:wrap;
+            -moz-flex-wrap:wrap;
+            -webkit-flex-wrap:wrap;
+          }
+          .cityNav {
+            position: relative;
+          }
+          .companyNameNav {
+            margin-top: 10px;
+            position: relative;
+          }
+          .effectiveTimeNav {
+            position: relative;
+            .calendar {
+              position: absolute;
+              width: 16px;
+              height: 15px;
+              left: 370px;
+              top: 10px;
+              background:url('../../../assets/images/calendar-icon.png');
+              background-size: contain;
+              background-repeat: no-repeat;
+              z-index: 1;
+            }
+          }
+          .licenseNav {
+            width:600px;
+            position: relative;
+            .data-mask {
+              height:42px;
+              left:183px;
+            }
+          }
+          .organizationNav {
+            margin-bottom: 18px;
+          }
+          .AddressNav {
+            //height: 93px;
+            margin-top: 5px;
+            width:600px;
+            flex-wrap:wrap;
+            -ms-flex-wrap:wrap;
+            -moz-flex-wrap:wrap;
+            -webkit-flex-wrap:wrap;
+          }
+          .detailedAddress {
+            width: 260px;
+            height: 93px;
+            border: 1px solid #D2D2D2;
+            //text-indent:10px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-left: 13px;
+            resize: none;
+          }
+          .left-Alignment {
+            width: 130px;
+            text-align: right;
+          }
+          input[type=text] {
+            width: 260px;
+            height: 35px;
+            border: 1px solid #D2D2D2;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-left: 13px;
+          }
+          .enterpriseInfo-right {
+            .left-Alignment {
+              width: 170px;
+            }
+          }
+          .must-Icon {
+            width: 6px;
+            height: 6px;
+            color: #AA2423;
+            margin-top: -8px;
+            display: inline-block;
+          }
+        }
+        .accountInfo {
+          margin-top: 16px;
+        }
+        .uploadHints {
+          padding: 10px 0px 20px 16px;
+          font-size: 14px;
+          color: #ABABAB;
+        }
+        .licenseFile-Wrap {
+          //padding-bottom: 40px;
+          //border-bottom: 1px dashed #DFDFDF;
+        }
+        .licenseFile-Left {
+          //width: 444px;
+        }
+        .licenseFile-Left, .licenseFile-Right {
+          .min-tips {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #5D5D5D;
+            margin-left:-1px;
+            .left-Alignment, .right-Alignment {
+              width: 136px;
+              height: 14px;
+              font-size: 14px;
+              line-height: 14px;
+              color: #666666;
+              text-align: right;
+              justify-content: flex-end;
+              -webkit-justify-content: flex-end;
+              align-items: center;
+              -webkit-align-items: center;
+              .must-Icon {
+                width: 6px;
+                height: 6px;
+                color: #AA2423;
+                margin-top: -8px;
+                display: inline-block;
+              }
+            }
+            .left-Alignment, .right-Alignment {
+              width: 176px;
+              padding-right: 5px;
+            }
+            .business-File {
+              width: 136px !important;
+            }
+          }
+          .upload-nav {
+            display: block;
+            width: 246px;
+            height: 155px;
+            position: relative;
+            left: 8px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            .idcard-positive-icon {
+              display: block;
+              width: 244px;
+              height: 154px;
+              background: url('../../../assets/images/id-opposite.png');
+              background-rpeat: no-repeat;
+              background-size: cover;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+        }
+      }
+
+      // 点击遮罩层
+      .click-mask {
+        position: absolute;
+        width:100%;
+        height:100%;
+        left:0;
+        top:0;
+        z-index:1111;
+        opacity:0;
+      }
+    }
+  }
+}
+
+// 返回顶部
+.go-back {
+  width:40px;
+  height:35px;
+  position: fixed;
+  right:16%;
+  top:50%;
+  background: url('../../../assets/images/go-back.png') no-repeat center;
+  background-color: #909090;
+  -webkit-background-size:18px 20px;
+  background-size:18px 20px;
+}
+.go-back:hover {
+  cursor: pointer;
+}
+
+.username {
+  border-radius: 3px;
+}
+
+// 城市选择报错
+.error-city {
+  margin-left: 32%;
+  color: #ee3737;
+}
+
+.sub-btn {
+  margin: 0 auto;
+  text-align: center;
+  //height: 150px;
+  //line-height: 150px;
+}
+.verification-Code {
+  margin-left: 0px !important;
+}
+
+.businessLicenses {
+  width: 136px !important;
+}
+
+.pay-Info {
+  padding-bottom: 27px;
+}
+
+.payInfo-Nav {
+  //border-bottom: 1px dashed #C6C6C6;
+}
+
+.verification-Code {
+  width: 140px !important;
+  margin-right: 10px;
+}
+
+.tips-info {
+  color:#909090;
+  font-size:12px;
+  line-height:32px;
+}
+.registered-Phone {
+  //width: 260px;
+  height: 35px;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.getCode {
+  display: inline-block;
+  width: 112px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  background-color: #699FE9;
+  color: #FFFFFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.data-mask {
+  width: 260px;
+  height: 36px;
+  position: absolute;
+  left: 142px;
+  z-index: 16;
+  opacity: 0;
+}
+.cityNav .data-mask {
+  left:142px !important;
+}
+.enterpriseInfo-right .effectiveTimeNav .calendar {
+  left:412px !important;
+}
+.dashed-line {
+  border-bottom: 1px dashed #C6C6C6;
+  width: 1142px;
+  margin: 0 auto;
+}
+
+// 提交按钮
+.submit-Btn {
+  display: block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #D63236;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 0 auto;
+  margin-top: 30px;
+  position: relative;
+}
+
+.shop-submit {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color:#fff;
+}
+/*.btn-mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 111;
+  opacity: 0;
+}*/
+.audit {
+  background-color: #DDDDDD !important;
+}
+
+// 营业执照提示信息
+.tips-text {
+  font-size: 14px;
+  color: #ABABAB;
+  margin-left: 138px;
+}
+
+/**
+* 卓鹏飞
+ */
+.img-error {
+  width: 100%;
+  margin-top: 154px;
+}
+
+.img-error > span {
+  color: #ee3737;
+}
+
+.bank-items {
+  position: absolute;
+  top: 37px;
+  left: 182px;
+  border: 1px solid #e7e7e7;
+  border-top: 0;
+  background-color: #ccc;
+  z-index: 100;
+}
+
+.select-bank {
+  cursor: pointer;
+}
+
+/* 修改的一些样式 */
+p-calendar.ng-tns-c7-2.ng-invalid.ng-touched.ng-dirty {
+  margin-left: 4px;
+}
+input.ng-tns-c7-2.ui-inputtext.ui-widget.ui-state-default.ui-corner-all {
+  margin-left: 4px;
+}
+
+.business-files {
+  position:relative;
+}
+.error-msgs {
+  position:absolute;
+  margin-left:140px;
+}
+
+
+/* ie样式的调整 */
+.w296 {
+  width:296px !important;
+}
+.w305 {
+  width:305px !important;
+}
+.w350 {
+  width:350px !important;
+}
+.mr-60 {
+  margin-right:60px;
+  width: 250px !important;
+}
+.boxs-left {
+  position: relative;
+}
+.boxs-right {
+  position: relative;
+}
+.business-boxs {
+  margin-left:0px;
+  position:absolute;
+  left:0px;
+  padding-left:140px;
+}
+.organization-boxs {
+  position:absolute;
+  left:180px;
+  padding-left:240px;
+  width:150px;
+}
+.f124 {
+  left:-124px !important;
+}

@@ -1,0 +1,237 @@
+<div class="wrap">
+  <h5 class="title" style="">展业应用工具</h5>
+  <div class="tab-content">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="manage-nav">
+          <li>
+            <a [routerLink]="['/wechat','wechat-index']" class="nav-wechat">
+              <span class="img"><i class="ico-global ico-wechat"></i></span>
+              <span class="text">
+								<b>公众号助手</b>
+								<em>基于管理系统的私募基金公司一站式管理微信公众号后台的工具。</em>
+							</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-wechat" [routerLink]="['/appBackstage/companyInfo']">
+              <span class="img_other" style='background:#62A8EA;'><i class="ico-global ico-index-app"></i></span>
+              <span class="text">
+								<b>Android/iOS APP 管理</b>
+                <em>为私募基金公司量身打造专属的手机APP管理系统。</em>
+								<!--<em>正在开发，敬请期待...</em>-->
+							</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-wechat">
+              <span class="img_other"><i class="ico-global ico-plane"></i></span>
+              <span class="text">
+								<b>H5微传单</b>
+								<em>正在开发，敬请期待...</em>
+							</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-wechat">
+              <span class="img_other"><i class="ico-global ico-index-applet"></i></span>
+              <span class="text">
+								<b>微信小程序管理</b>
+								<em>正在开发，敬请期待...</em>
+							</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h5 class="title">私募管理平台</h5>
+        <ul class="manage-nav">
+          <li>
+            <a [routerLink]="['/shop/index']" [queryParams]="{'demand_category_id': ''}" class="nav-demand">
+              <span class="img" style='background:#F2A654;'><i class="ico-global ico-demand"></i></span>
+              <span class="text">
+								<b>需求发布系统</b>
+								<em>轻松发布各类需求</em>
+							</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-demand">
+              <span class="img_other"><i class="ico-global ico-index-staff"></i></span>
+              <span class="text">
+          <b>员工高效管理系统</b>
+          <em>正在开发，敬请期待...</em>
+          </span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-demand">
+              <span class="img_other"><i class="ico-global ico-index-amac"></i></span>
+              <span class="text">
+          <b>中基协后台运营托管</b>
+          <em>正在开发，敬请期待...</em>
+          </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h5 class="title">VIP客户服务</h5>
+        <ul class="manage-nav">
+          <li>
+            <a [routerLink]="['/lives/lives-index']" class="nav-demand">
+              <span class="img_other" style='background:#62A8EA;'><i class="ico-global ico-index-video"></i></span>
+              <span class="text">
+          <b>云课堂</b>
+          <em>为私募基金公司提供的一个在线教学与展示的平台。</em>
+          </span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-demand">
+              <span class="img_other"><i class="ico-global ico-index-data"></i></span>
+              <span class="text">
+          <b>行业大数据VIP共享</b>
+          <em>正在开发，敬请期待...</em>
+          </span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-demand">
+              <span class="img_other"><i class="ico-global ico-index-risk"></i></span>
+              <span class="text">
+          <b>私募合规风控系统</b>
+          <em>正在开发，敬请期待...</em>
+          </span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-demand">
+              <span class="img_other"><i class="ico-global ico-index-investment"></i></span>
+              <span class="text">
+          <b>私募合规投研中心</b>
+          <em>正在开发，敬请期待...</em>
+          </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h5 class="title">快捷功能</h5>
+        <ul class="quick-nav">
+          <li>
+            <a routerLink="/main/product/import">
+              <i class="ico-global ico-data"></i>
+              <span>数据导入</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="getData()">
+              <i class="ico-global ico-link-s"></i>
+              <span>浏览云端私募荟</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="callPhone=!callPhone">
+              <i class="ico-global ico-index-customer"></i>
+              <span>在线客服</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h5 class="title">近期预约用户</h5>
+        <div class="table-box mt-20">
+          <p-dataTable rowHover="true" [value]="data" [loading]="!data" loadingIcon="fa-spinner"
+                       styleClass="custom-dataTable" emptyMessage="暂无数据">
+            <p-column header="序号">
+              <ng-template let-data="rowData" pTemplate="body" let-i="rowIndex">
+                {{i+1}}
+              </ng-template>
+            </p-column>
+            <p-column field="appointment_date" header="预约时间"></p-column>
+            <p-column field="name" header="姓名"></p-column>
+            <p-column field="phone" header="手机号码"></p-column>
+            <p-column field="profile.id_num" header="身份证号码"></p-column>
+            <p-column field="foundation.name" header="预约投资产品"></p-column>
+          </p-dataTable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--二维码扫描-->
+<div class="mask" *ngIf="wechat">
+  <div class="dialog">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;">
+      <div class="col-md-6" style="height: 60px;font-size: 16px;padding: 0;">
+        扫码进入云端私募荟H5
+      </div>
+      <div (click)="wechat=!wechat" class="col-md-1 col-md-offset-5">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row" style="margin: 0;text-align: center;">
+      <qr-code [value]="''+ doMain + '?company_id=' + localStorage.getObject('currentCompany').id+''"
+               [size]="320" [padding]="40" level="M">
+      </qr-code>
+      <img class="logo-img" [src]="logoUrl"/>
+      <div class="wexin"><span>微信扫一扫</span></div>
+    </div>
+  </div>
+</div>
+
+<!--没有授权-》引导去授权-->
+<div class="mask" *ngIf="authorize">
+  <div class="dialog">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;background-color: #fff;">
+      <div class="col-md-6" style="height: 60px;font-size: 16px;padding: 0;">
+
+      </div>
+      <div (click)="authorize=!authorize" class="col-md-1 col-md-offset-5">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row" style="margin-left: 0;margin-right: 0;padding: 0 50px;">
+      <div class="col-md-12">
+        <p class="p-style">您的公众号仍未授权，无法浏览云端私募荟H5</p>
+      </div>
+    </div>
+    <div class="row" style="text-align: center;padding: 50px 0">
+      <a class="btn-cancel a-border" (click)="authorize=!authorize">取消</a>
+      <a class="btn-sure a-color a-border" [routerLink]="['/wechat/wechat-set/empower']">前往授权</a>
+    </div>
+  </div>
+</div>
+
+<!--拨打客服电话-->
+<div class="mask" *ngIf="callPhone">
+  <div class="dialog">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;background-color: #fff;">
+      <div class="col-md-6" style="height: 60px;font-size: 16px;padding: 0;">
+
+      </div>
+      <div (click)="callPhone=!callPhone" class="col-md-1 col-md-offset-5">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row" style="margin-left: 0;margin-right: 0;padding: 0 50px;">
+      <div class="col-md-12">
+        <p class="p-style">咨询电话:0755-86538075</p>
+      </div>
+    </div>
+    <div class="row" style="text-align: center;padding: 50px 0">
+      <a class="btn-sure a-border a-color" (click)="callPhone=!callPhone">好的</a>
+    </div>
+  </div>
+</div>
+<app-model></app-model>

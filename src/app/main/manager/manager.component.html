@@ -1,0 +1,108 @@
+<div class="wrap">
+  <div class="row">
+    <div class="col-md-2" style="margin-bottom: 4px;">
+      <p class="font-16 color-333 font-16 font-weight">基金经理管理</p>
+    </div>
+  </div>
+  <div class="row" style="height: 36px;">
+    <div class="col-md-12">
+      <div class="myAdd" (click)="updateManager({})">
+        <p><span class="icon-add"></span>新增基金经理</p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 18px">
+    <form (ngSubmit)="submit(form.value)" [formGroup]="form" method="get">
+      <div class="col-md-2">
+        <input class="input" type="text" formControlName="search" name="search" placeholder="请输入基金经理姓名"><span
+        class="icon-search"></span>
+      </div>
+      <div class="col-md-1" style="margin-left: 5px;padding: 0;">
+        <button class="search" type="submit">搜索</button>
+      </div>
+    </form>
+  </div>
+  <div class="row" style="margin-top: 26px;">
+    <div class="col-md-12">
+      <p-dataTable rowHover="true" [value]="managers" [loading]="!managers" loadingIcon="fa-spinner" styleClass="custom-dataTable" emptyMessage="暂无数据">
+        <p-column header="序号">
+          <ng-template let-manager="rowData" let-i="rowIndex" pTemplate="body">
+            <span>{{(pagination.currentPage-1)*pagination.perPage+i+1}}</span>
+          </ng-template>
+        </p-column>
+        <p-column header="头像">
+          <ng-template let-manager="rowData" pTemplate="body">
+            <img style="width: 40px;height: 40px;" class="headerImg" [src]="manager.img | image:40"/>
+          </ng-template>
+        </p-column>
+        <p-column field="name" header="姓名"></p-column>
+        <p-column field="work_year" header="工作年限"></p-column>
+        <p-column header="操作" styleClass="col-button">
+          <ng-template let-manager="rowData" pTemplate="body">
+            <a [routerLink]="['/main/manager/foundations']" [queryParams]="{id:manager.id}">关联产品查看</a>
+            <a class="a-padding a-color" (click)="updateManager(manager)">修改资料</a>
+            <a class="a-color" (click)="delete(manager)">删除</a>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+      <p-paginator [rows]="pagination.perPage"
+                   [first]="pagination.currentPage * pagination.perPage-1"
+                   [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                   (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+    </div>
+  </div>
+</div>
+
+<div class="mask" *ngIf="show">
+  <div class="dialog">
+    <div class="row modal-head" style="margin-left: 0;margin-right: 0;">
+      <div class="col-md-6 font-16 uploading">{{manager.id ? '修改' : '新建'}}基金经理资料</div>
+      <div (click)="show=!show" class="col-md-1 col-md-offset-5">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row row-margin hiddens">
+      <div class="col-md-12" style="padding: 0px">
+        <form [formGroup]="managerForm" (submit)="onSubmit(managerForm)" class="manager-form">
+          <div class="row">
+            <label class="col-md-2 form-label" style="padding: 0px;"><span style="color: #f96868;">{{manager.id ? '' : '*'}}</span>名称:</label>
+            <div class="col-md-10 form-group" style="padding: 0px;padding-left: 20px">
+              <input type="text" formControlName="name" name="name" minlength="1" maxlength="15" class="form-control" placeholder="请输入名称"/>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-md-2 form-label" style="padding: 0px;"> <span style="color: #f96868;">{{manager.id ? '' : '*'}}</span>工作年限:</label>
+            <div class="col-md-10 form-group" style="padding: 0px;padding-left: 20px">
+              <input type="text" formControlName="work_year" minlength="1" maxlength="2" name="work_year" class="form-control"
+                     placeholder="请输入工作年限"/>
+            </div>
+          </div>
+          <div class="introducebox row">
+            <label class="col-md-2 form-label" style="padding: 0px;">简单介绍:</label>
+            <div class="col-md-10 introduce" style="padding-left: 20px">
+              <textarea class="form-control referral" rows="5" placeholder="简单介绍一下自己，文本字数限制在150字内" maxlength=150
+                        formControlName="description" (keyup)="onKeyup($event)"></textarea>
+            </div>
+            <span class="promts">{{descriptionLength}}/<i style="color: #B3B3B3;font-style:normal;">150</i></span>
+          </div>
+          <div class="row" style="margin-left:-1px;padding-right: 15px; margin-top: 20px">
+            <div class="col-md-12" style="padding: 0px;">
+              上传头像:
+              <span class="font-12 color-999">（图片格式为600*600，支持JPG，大小不超过2M）</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-offset-3 heads">
+            <div class="imgUpload-cons" [ngClass]="{'has-error': errors['img']}">
+              <span class="help-block" *ngIf="errors['img']">请上传图片</span>
+              <app-basic-img-upload (imgEvent)="imgMethod($event)" [previewImg]="imgSrc"></app-basic-img-upload>
+            </div>
+          </div>
+          <div class="col-md-12 align-center">
+            <button type="submit" class="submit-btn" style="margin-top: 20px; margin-left: 0px;">保存</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-model></app-model>

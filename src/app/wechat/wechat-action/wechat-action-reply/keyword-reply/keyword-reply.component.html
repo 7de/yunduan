@@ -1,0 +1,52 @@
+<div class="top clearfix">
+
+  <div class="search-box pull-left">
+    <form action="" [formGroup]="formGroup"
+          (ngSubmit)="keywordSubmit(formGroup.value)">
+      <div class="form-group">
+        <input type="text"
+               class="form-control"
+               id="search"
+               placeholder="请输入关键词"
+               formControlName="search">
+        <button type="submit" class="btn"><i class="ico-global ico-search"></i></button>
+      </div>
+    </form>
+  </div>
+
+  <button type="button" class="btn btn-orange pull-right" [routerLink]="['/wechat/wechat-action/reply/create/:id']" [disabled]="pageErr">
+    <i>+</i>添加关键词回复
+  </button>
+</div>
+<ul class="list">
+  <li *ngFor="let item of data?.items">
+    <h3 class="clearfix">
+      <span>组名：{{item.group_name}}</span>
+    </h3>
+    <h5 class="clearfix">
+      <span class="pull-left">关键词：<em>{{item.keywords}}</em></span>
+      <span class="pull-right"><a href="javascript:;" *ngIf="item.message?.msg_type>1"
+                                  [routerLink]="['/wechat/wechat-action/reply/create',item.id]">修改</a><a
+        href="javascript:;" (click)="delItem(item.id)">删除</a></span>
+    </h5>
+    <div class="list-con">
+      <span class="title">回复内容：</span>
+      <ng-container [ngSwitch]="item.message?.msg_type">
+        <span *ngSwitchCase="1">图文消息</span>
+        <span *ngSwitchCase="2">{{item.message?.msg_content}}</span>
+        <span *ngSwitchDefault><img src="{{item.message?.msg_content | image:100}}" alt="回复图片" width="100" height="100"></span>
+      </ng-container>
+    </div>
+  </li>
+</ul>
+<div class="row" *ngIf="pagination">
+  <div class="col-md-12" style="text-align: right;margin-top:15px;">
+    <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                 [first]="pagination.currentPage * pagination.perPage-1"
+                 [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                 (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+  </div>
+</div>
+
+
+

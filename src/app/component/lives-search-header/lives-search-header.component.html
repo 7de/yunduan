@@ -1,0 +1,53 @@
+<div class="ui-g">
+  <div class="ui-g-12 ui-g-nopad lives-header-search">
+    <div class="wrap-950">
+      <div class="header-search-left ui-g-4 ui-g-nopad float-left">
+        <i class="ico-global ico-yun-logo-word" style="margin-left: -125px;margin-top: 4px;cursor: pointer;" (click)="linkToHome()"></i>
+      </div>
+      <div class="header-search-right ui-g-6 ui-g-nopad float-right">
+        <div class="lives-search-upload float-right">
+          <div (mouseover)="uploadBool=true;" (mouseleave)="uploadBool=false" style="height: 100px;">
+            <a>上传<i class="ico-global ico-yun-upload-red"></i>
+              <div class="pic-video-upload" *ngIf="uploadBool">
+                <em></em>
+                <div class="video-left float-left" (click)="checkUpload('videos')">
+                  <i class="ico-global ico-yun-video-upload video-ico"></i>
+                  <p class="fs-12">上传视频</p>
+                </div>
+                <div class="picture-right float-left" (click)="checkUpload('pictures')">
+                  <i class="ico-global ico-yun-pic-upload"></i>
+                  <p class="fs-12">上传图文</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="lives-search-input float-right">
+          <input type="text" [(ngModel)]="searchKey" placeholder="搜索视频、图文语音、连载、课堂" />
+          <i class="ico-global ico-search" (click)="searchNow()"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="video-dialog">
+  <p-dialog header="提示" modal="modal" [(visible)]="visible" width="500">
+    <div class="text-center mt-10"><i class="ico-global ico-tip-yellow" style="margin-right: 10px;"></i>
+      <em *ngIf="authorObj['natural'] && companyType === '0'">完善资料</em>
+      <em *ngIf="authorObj['natural'] && companyType === '1'">资质审核通过</em>
+      <em *ngIf="authorObj['wallet']">钱包开通</em>
+      <em *ngIf="authorObj['lives']">课堂资料完善</em>
+      后才可以上传视频或者图文哦
+    </div>
+    <p-footer>
+      <p class="text-center">
+        <a (click)="linkToAuthen()">立即完善>></a>
+      </p>
+    </p-footer>
+  </p-dialog>
+</div>
+<div class="login-dialog">
+  <p-dialog header="会员账号登录" modal="modal" [(visible)]="loginBool" width="421">
+    <app-login-modal (display)="getDialog($event)"></app-login-modal>
+  </p-dialog>
+</div>

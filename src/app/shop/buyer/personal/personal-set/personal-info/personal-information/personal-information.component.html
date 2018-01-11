@@ -1,0 +1,36 @@
+<form action="" style="margin-top: 20px" [formGroup]="form" (ngSubmit)="onSubmit(form,{})">
+  <div class="ui-g">
+    <div class="ui-g-1">
+      <p class="info-left text_r">当前头像：</p>
+    </div>
+    <div class="ui-g-4">
+      <img width="106px" height="106px" src="{{baseInfo?.avatar | image: 106}}" alt="" />
+    </div>
+  </div>
+  <div class="ui-g" style='margin-top:-5px;'>
+    <div class="ui-g-1">
+      <p class="info-left text_r" style="padding-left: 10px;">账号：</p>
+    </div>
+    <div class="ui-g-4">
+      <p class="info-left" style='padding-left:10px;'>{{phone}} <span class='tips-text'>用于登陆，请牢记哦~</span></p>
+    </div>
+  </div>
+  <div class="ui-g" style='margin-top:-10px;'>
+    <div class="ui-g-1">
+      <p class="info-left text_r">昵称：</p>
+    </div>
+    <div class="ui-g-4">
+      <div class="form-group" style='position:relative;'>
+        <label class="hidden">昵称</label>
+        <input formControlName="nickname" type="text" class="inputs"  maxlength="15" style='width:260px;height:36px;border:1px solid #C7C7C7;'>
+        <div class='warm-tips'>建议填写官方/正式的昵称，方便更好地沟通</div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g" style="margin-top:-10px">
+    <div class="ui-g-1"></div>
+    <div class="ui-g-5">
+      <button class="submit-btn submit-btn-another" type="submit" style='width:90px;height:30px;background:#EA3D3D;margin-left:0px;'>保存</button>
+    </div>
+  </div>
+</form>

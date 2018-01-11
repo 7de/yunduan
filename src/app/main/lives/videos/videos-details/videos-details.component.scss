@@ -1,0 +1,205 @@
+@import "../../../../../assets/sass/variables";
+@import "../../../../../assets/sass/mixin";
+.wrap-all {
+  background-color: #fafafc;
+  width: 100%;
+  height: 100%;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.video-header-title {
+  padding: 20px 0;
+  img {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+  }
+  span {
+    font-weight: 500;
+    color: #404040;
+    padding-left: 20px;
+  }
+}
+
+.left-video {
+  width: 941px;
+  background-color: #FFFFFF;
+  p {
+    color: #404040;
+    text-indent: 20px;
+    padding: 17px 0;
+  }
+  .video-player {
+    width: 100%;
+    height: 526px;
+    app-player {
+      width: 100%;
+    }
+  }
+  .video-intro {
+    padding: 20px 17px 30px 17px;
+    text-indent: 0;
+    line-height: 24px;
+    color: #999999;
+  }
+}
+
+.right-serial {
+  width: 240px;
+  margin-left: 19px;
+  .other-up-item {
+    padding: 16px 20px 22px 20px;
+    background-color: #FFFFFF;
+    p {
+      border-bottom: 1px solid #e6e6e6;
+      padding-bottom: 15px;
+      color: #3f3f40;
+      font-weight: 600;
+    }
+    .up-item {
+      padding-top: 19px;
+      cursor: pointer;
+      div:first-child {
+        position: relative;
+        width: 105px;
+        height: 105px;
+        div {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          border: 1px solid #e6e6e6;
+          box-sizing: border-box;
+        }
+        div:first-child {
+          top: 0;
+          right: 0;
+        }
+        div:nth-child(2) {
+          top: 3px;
+          right: 3px;
+        }
+        img {
+          position: absolute;
+          top: 6px;
+          right: 6px;
+          width: 100px;
+          height: 100px;
+          border: 1px solid #e6e6e6;
+          display: inline-block;
+        }
+      }
+      div:nth-child(2) {
+        padding-left: 10px;
+        p {
+          border: 0;
+        }
+        p:first-child {
+          color: #518acb;
+          font-weight: 600;
+          padding-top: 16px;
+          width: 85px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        p:nth-child(2) {
+          color: #999999;
+          font-weight: 400;
+        }
+      }
+    }
+    .up-item:hover {
+      div:nth-child(2) {
+        p:first-child {
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .other-down-item {
+    padding: 16px 20px 30px 20px;
+    background-color: #FFFFFF;
+    margin-top: 18px;
+    p {
+      border-bottom: 1px solid #e6e6e6;
+      padding-bottom: 15px;
+      color: #3f3f40;
+      font-weight: 600;
+    }
+    .serial-item {
+      padding-top: 18px; //border-bottom: 1px dashed #e6e6e6;
+      cursor: pointer;
+      div:first-child {
+        position: relative;
+        width: 65px;
+        height: 65px;
+        div {
+          width: 60px;
+          height: 60px;
+          border: 1px solid #e6e6e6;
+          position: absolute;
+        }
+        div:first-child {
+          top: 0;
+          right: 0;
+        }
+        div:nth-child(2) {
+          top: 3px;
+          right: 3px;
+        }
+        img {
+          width: 60px;
+          height: 60px;
+          border: 1px solid #e6e6e6;
+          display: inline-block;
+          position: absolute;
+          top: 6px;
+          right: 6px;
+        }
+      }
+      div:nth-child(2) {
+        padding-left: 12px;
+        width: 112px;
+        a {
+          color: #518acb;
+          font-weight: 600;
+          width: 100%;
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+        p {
+          padding-top: 9px;
+          border: 0;
+          span {
+            color: #999999;
+            font-weight: 400;
+          }
+          img {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+          }
+        }
+      }
+    }
+    .serial-item:hover {
+      div:nth-child(2){
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+    .serial-item:hover div a {
+      text-decoration: underline;
+    }
+  }
+}

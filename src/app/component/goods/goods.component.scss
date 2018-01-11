@@ -1,0 +1,80 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+.list{
+  li{
+    float: left;
+    width: 240px;
+    padding:10px 10px 15px;
+    border:1px solid #fff;
+    margin-bottom:5px;
+    margin-right:0;
+    position: relative;
+    @include transition(.25s);
+    a{
+    display: block;
+    }
+    &:nth-child(4n){
+      margin-right:0;
+    }
+    &:hover{
+      border-color:#ebebeb;
+      box-shadow: 0 2px 10px #dbdbdb;
+      z-index: 1;
+    }
+  }
+  .info{
+    font-size: 12px;
+    color: #999;
+    .moneys{
+      font-size: 16px;
+      color: nth($newRed,2);
+    }
+    .goods-title{
+      height:40px;
+      overflow: hidden;
+      font-size: 12px;
+      color: #666;
+      line-height: 20px;
+      &:hover{
+        color: nth($newRed,2);
+        text-decoration: underline !important;
+      }
+    }
+    .shop-name{
+      overflow: hidden;
+      a{
+        float: left;
+        color: #999;
+        &:hover{
+          color: nth($newRed,2);
+          text-decoration: underline !important;
+        }
+      }
+    }
+    .addr{
+      margin-top:3px;
+    }
+    .privately{
+      display: inline-block;
+      width:52px;
+      height:22px;
+      line-height: 22px;
+      text-align: center;
+      color: #fff;
+      background-color: nth($red,1);
+      @include borderRadius(3px)
+    }
+  }
+}
+
+.ico-noGoods{
+  width:98px;
+  height:88px;
+  background-position: -479px -325px;
+  margin-left: -20px;
+}
+
+.gray{
+  color: #b2b2b2;
+}

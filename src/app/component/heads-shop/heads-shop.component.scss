@@ -1,0 +1,79 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+.ico-yjyfLogo {
+  width: 183px;
+  height: 39px;
+  background-position: -1px -599px;
+}
+
+.ico-yjyfLogo-small {
+  width:152px;
+  height:32px;
+  background-position: -1px -644px;
+}
+
+.header-bigbox {
+  width: 100%;
+  height: 90px;
+}
+
+.header-left {
+  padding: 25px 0;
+  width: 29%;
+  overflow: hidden;
+  .logo{
+    float: left;
+  }
+}
+
+.header-middle {
+  padding: 25px 0;
+  width: 45%;
+}
+
+.header-right{
+  padding: 20px 0;
+  span{
+    margin-left: 20px;
+  }
+}
+
+.search-box {
+  overflow: hidden;
+  input {
+    float: left;
+    width: 415px;
+    padding-left: 15px;
+    border: 2px solid nth($newRed, 1);
+    height: 36px;
+    outline: none;
+  }
+  button {
+    float: left;
+    width: 110px;
+    height: 36px;
+    border: 1px solid nth($newRed, 1);
+    font-size: 16px;
+    color: #fff;
+    background-color: nth($newRed, 1);
+    cursor: pointer;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
+
+.ico-size{
+  width: 48px;
+  height: 51px;
+}
+.ico-guarantee{
+  background-position: -587px -421px;
+}
+.ico-safe{
+  background-position: -529px -421px;
+}
+.ico-aptitude{
+  background-position: -473px -421px;
+}
+

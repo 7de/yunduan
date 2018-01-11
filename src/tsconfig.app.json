@@ -1,0 +1,24 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "baseUrl": "",
+    "paths": {
+      "#{config}/*": ["app/config/*"],
+      "#{service}/*": ["app/service/*"],
+      "#{component}/*": ["app/component/*"],
+      "#{pipe}/*": ["app/pipe/*"],
+      "#{common}/*": ["app/common/*"],
+      "#{assets}/*": ["assets/*"]
+    },
+    "types": [
+//      "qq-wechat-emotion-parser"
+    ],
+    "noStrictGenericChecks": true
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

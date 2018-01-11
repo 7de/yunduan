@@ -1,0 +1,37 @@
+.detail-main{
+  background-color: #FAFAFA;
+}
+.main{
+  background-color: #fafafa;
+  padding-bottom: 40px;
+}
+.main-left{
+  width: 880px;
+  border: 1px solid #e8e8e8;
+  min-height: 588px;
+  padding: 30px 20px;
+  background-color: #fff;
+  .main-left-title{
+    height: 84px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #FBFBFB;
+    .title{
+      font-size: 22px;
+      font-weight: 500;
+    }
+    .time,.author,.source{
+      margin-left: 20px;
+      color: #999;
+    }
+  }
+  .main-left-content{
+    font-size: 16px;
+    line-height: 28px;
+    padding: 20px 10px;
+  }
+}
+.main-right{
+  width: 294px;
+  min-height: 350px;
+}

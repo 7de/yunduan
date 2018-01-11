@@ -1,0 +1,58 @@
+<app-heads-single [bgc]="true"></app-heads-single>
+<div class="wrap-1200">
+  <app-head-wallet [panelTitle]="['充值']" [users]="users"></app-head-wallet>
+</div>
+
+<div class="layout">
+  <div class="wrap-1200">
+    <div class="ui-g">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="head-title">
+          您的位置：<span class="pdr-10" [routerLink]="['/buyer/personal/index/indexs']">个人中心</span>&gt;<span class="pdr-10 pdl-10" [routerLink]="['/buyer/personal/set']">设置</span>&gt;<span class="pdr-10 pdl-10" [routerLink]="['/buyer/personal/set/account']">支付账号管理</span>&gt;<span class="pdl-10" [routerLink]="['/buyer/personal/set/account']">我的钱包</span>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+      <div class="order bg-white ui-g">
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="title pdl-20 ui-g-12 ui-g-nopad">
+            <p class="p-title">钱包充值<span class="fs-12">（单次充值金额需大于1000元）</span></p>
+          </div>
+          <div class="ui-g-12 cash-pay">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-1 ui-g-nopad">钱包余额：</div>
+              <div class="ui-g-1 ui-g-nopad"><b style="color: #FF0000;">{{data?.wallet?.balance/100}}</b>元</div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad mt-30">
+              <div class="ui-g-1 ui-g-nopad" style="height: 44px;line-height: 44px">充值金额：</div>
+              <div class="ui-g-3 ui-g-nopad form-group" style="margin: 0;">
+                <label for="" class="hidden">充值金额</label>
+                <input autocomplete="off" (keyup)="pay($event)" formControlName="money" class="cash-input" type="text"> 元
+              </div>
+              <div *ngIf="errMessage" style="color: #EE3737;" class="ui-g-11 ui-g-offset-1 ui-g-nopad mt-5">
+                单次充值金额需大于1000元
+              </div>
+            </div>
+            <div *ngIf="!confirm" class="ui-g-12 ui-g-nopad pdt-20">
+              <div class="ui-g-2 ui-g-nopad text-right">
+                <button class="submit-btn submit-btn-another class-button" type="submit">充值</button>
+              </div>
+            </div>
+            <div *ngIf="confirm" class="ui-g-12 ui-g-nopad pdt-20 mt-30 after-pay">
+              <div class="tips"><span style="color: #EA3A3A;">说明：</span>1、若充值失败，请点击"充值"按钮重新充值；</div>
+              <div style="text-indent: 36px">2、若充值成功，可前往查看收支明细。</div>
+              <div class="ui-g-4 ui-g-offset-1 ui-g-nopad mt-20">
+                <button class="submit-btn submit-btn-another after-pay-button" type="submit">充值</button>
+                <button [routerLink]="['/buyer/detail']" [queryParams]="{'pay_type':''}" class="submit-btn submit-btn-another class-button cash-detail-button">查看收支明细</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer [bgc]="1"></app-footer>
+
+
+

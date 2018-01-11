@@ -1,0 +1,82 @@
+<div class="wechat-box">
+  <header class="wechat-head">
+    <div class="wrap-1200 clearfix">
+      <div class="log pull-left" [routerLink]="['./wechat-index']"><img src="../../assets/images/wechat_log.png" alt="log"></div>
+      <div class="nav-menu pull-right">
+        <ul>
+          <li class="tel"><span>(0755-86538075)</span>客服电话</li>
+          <li>
+            <div *ngIf="authIf" class="use-box">
+              <img *ngIf="authIf"
+                   src="{{accounts?.logo_url==='-'?'../../../../assets/images/default_weixin.jpg':accounts?.logo_url}}"
+                   alt="" width="38"
+                   height="38"> <!--判断有没有头像-->
+              <img *ngIf="!authIf" width="38" height="38"
+                   src="../../../../assets/images/default_weixin.jpg"/>
+              <div class="use-box-info">
+                <p>{{accounts?.nickname}}</p>
+                <span class="green">{{types}}</span>
+                <span [ngClass]="{'green': greens, 'gray': grays}">{{authentication}}</span>
+              </div>
+            </div>
+            <div *ngIf="!authIf" class="use-box" style="margin-top: 0;">
+              <i class="fa fa-user-circle fa-2x"></i>
+              <a href="{{dataGet}}">前往授权</a>
+            </div>
+          </li>
+          <li [routerLink]="['/main/index']" class="back-home">返回</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="wechat-con clearfix">
+    <aside class="wechat-aside pull-left">
+      <ul class="left-menu-item">
+        <li>
+          <a [routerLink]="['./wechat-index']" routerLinkActive="active">
+            <i class="ico-global ico-wechat-home"></i>
+            <span class="accordion-toggle-title">首页</span>
+          </a>
+        </li>
+        <li>
+          <span class="function">
+            <i class="ico-global ico-wechat-action" style="margin-bottom: 4px;"></i>
+            <span class="accordion-toggle-title" style="margin-left: 12px;color: #8c8c8c;">功能</span>
+          </span>
+          <ul class="submen">
+            <li><a [routerLink]="['./wechat-action','reply']" routerLinkActive="active">自动回复</a></li>
+            <li><a [routerLink]="['./wechat-action','menu']" routerLinkActive="active">自定义菜单配置</a></li>
+          </ul>
+        </li>
+        <li>
+          <span class="user-marger">
+            <i class="ico-global ico-wechat-manage" style="margin-bottom: 4px;"></i>
+            <span class="accordion-toggle-title" style="margin-left: 12px;color: #8c8c8c;">管理</span>
+          </span>
+          <ul class="submen">
+            <li><a [routerLink]="['./wechat-manage']" routerLinkActive="active">用户信息管理</a></li>
+          </ul>
+        </li>
+        <li>
+          <span class="systems">
+            <i class="ico-global ico-wechat-set" style="margin-bottom: 4px;"></i>
+            <span class="accordion-toggle-title" style="margin-left: 12px;color: #8c8c8c;">设置</span>
+          </span>
+          <ul class="submen">
+            <li><a [routerLink]="['./wechat-set','empower']" routerLinkActive="active">微信公众号授权</a></li>
+            <li><a [routerLink]="['./wechat-set','info']" routerLinkActive="active">公众号基本信息</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+    <main class="wechat-main pull-left">
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </main>
+  </div>
+  <footer class="wechat-footer">
+    <!--<p class="footer-tel">联系电话：0755-86536770</p>-->
+    <p>Copyright 云端互联网(深圳)有限公司 版权所有
+      <a class="linkCheck" target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备16112276号-1</a>
+    </p>
+  </footer>
+</div>

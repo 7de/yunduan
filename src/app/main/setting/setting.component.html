@@ -1,0 +1,23 @@
+<div class="container wrap">
+  <h3 class="myTitle">设置</h3>
+  <div class="system-setting">
+    <ul id="customer-tab-nav" class="nav nav-tabs custom-tabs clearfix">
+      <li [class.active]="isActive()">
+        <a [routerLink]="['./account']" data-toggle="tab" >账号信息</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['./amend']"  data-toggle="tab">风险测评</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['./review']"  data-toggle="tab">修改密码</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['./template']" data-toggle="tab">合规模板下载</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="" id="rating-evaluation">
+  <table class="table table-bordered custom-table table-hover">
+    <thead>
+    </thead>
+    <tbody class="boxs" align="center"
+           *ngFor="let modals of modal  let idx=index;">
+    <tr class="left-backgroudcolor titletext"> {{idx+1}}、{{modals.content}}
+    </tr>
+    <tr class="modalstext" *ngFor="let amser of modal[idx].answers let idxs= index ">
+      <p>{{selectOption(idxs+1)}} {{amser.content}} <span class="score">({{amser.score}}分)</span></p>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<app-model></app-model>
+

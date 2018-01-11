@@ -1,0 +1,219 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+
+.title{
+  font-size:14px;
+  a{
+    color:#119dee;
+    padding-right:10px;
+  }
+}
+.top{
+  padding:30px;
+  //margin-top:20px;
+  margin-bottom:10px;
+  height:180px;
+  background-color: #fff;
+  >h4{
+    font-size: 20px;
+    font-weight:bold;
+    padding-bottom:25px;
+    border-bottom:1px dashed  $border-gray;
+  }
+  ul {
+    margin-top:28px;
+    li{
+      display: inline-block;
+      color:#999;
+      padding-right:4%;
+      padding-left:4%;
+      text-align: center;
+      border-right:1px solid #EAEAEB;
+      >b{
+        color:#444;
+        display: block;
+        margin-bottom:4px;
+      }
+      >b.red{
+        color:#fe1929;
+      }
+      >b.green{
+        color:#2ba245;
+      }
+    }
+    :first-child{
+      padding-left:0;
+    }
+    :last-child{
+      border:0;
+    }
+  }
+}
+.part{
+  padding:30px;
+  background-color: #fff;
+  h4{
+    border-bottom:1px solid  $border-gray;
+    overflow: hidden;
+    span{
+      float: left;
+      min-width:80px;
+      height:44px;
+      line-height:44px;
+      text-align: center;
+      font-size:14px;
+      color:#fff;
+      padding:0 23px;
+      background-color: nth($red,1);
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+  }
+  h5{
+    height:16px;
+    line-height: 16px;
+    font-size: 16px;
+    color: #444;
+    font-weight: bold;
+    margin-top:30px;
+    padding-left:15px;
+    position: relative;
+    border-left:3px solid nth($red,1);
+  }
+  .subtitle{
+    font-size:16px;
+    font-weight: bold;
+    color: #971416;
+    margin-top:20px;
+  }
+  .view-div{
+    margin-top:20px;
+    .view-title{
+      height: 46px;
+      line-height:46px;
+      padding-left:10%;
+      color: #777;
+      border:1px solid $border-gray;
+      background-color: #fafafa;
+    }
+    .col-xs-4,.col-md-4{
+      padding:0;
+    }
+    .view-ul{
+      padding:0;
+      border-top:1px solid $border-gray;
+      li{
+        border-bottom:1px solid $border-gray;
+        overflow: hidden;
+        span,b{
+          float: left;
+          width: 50%;
+          height:44px;
+          line-height: 44px;
+          border-right:1px solid $border-gray;
+          padding-left:5%;
+        }
+      }
+    }
+  }
+  .nav-tabs{
+    border-bottom:none;
+    padding-right:4%;
+    margin-top:15px;
+    >li{
+      float: left;
+      width:24%;
+      text-align: center;
+      font-size:14px;
+      border:1px solid  $border-gray;
+      border-right:none;
+      >a{
+        display: block;
+        padding:0;
+        height:44px;
+        line-height:44px;
+        margin-right:0;
+        border:none;
+        color:#333;
+      }
+      >a:hover{
+        color:#666;
+        background-color:#fcfcfe;
+      }
+    }
+    >li:last-child{
+      border-right:1px solid  $border-gray;
+    }
+  }
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+    color:#666;
+    background-color:#fcfcfe;
+    border:none;
+  }
+  .tab-content{
+    padding:4%;
+  }
+}
+.custom-table{
+  margin-top:20px;
+  tbody{
+    th,td{
+      padding-left:2%;
+    }
+    th{
+      width: 200px;
+      font-weight:normal;
+      background-color:#fafafa;
+      color: #777;
+    }
+    td{
+      color:#333;
+    }
+  }
+}
+/* tab切换 */
+body .view-tab .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active, body .view-tab .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active, body .view-tab .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active, body .view-tab .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active{
+  background-color: #fff;
+}
+
+.btn{
+  width:120px;
+  height:44px;
+  box-shadow: none;
+  border-radius: 5px;
+}
+.btn-red{
+  color:#fff;
+  border-color:nth($red,1);
+  background-color:nth($red,1);
+}
+.btn-red:hover{
+  outline: none;
+  opacity: .8;
+}
+.btn-red:focus{
+  outline: none;
+  border-color:#971416;
+  background-color: #971416;
+}
+.btn-blue{
+  color:#fff;
+  border-color:$input-focus;
+  background-color:$input-focus;
+}
+.btn-blue:hover{
+  outline: none;
+  opacity: .8;
+}
+.display{
+  height:26px;
+  padding-top:2px;
+  margin-top:5px;
+  display: inline-block;
+}
+.modify{
+  height:26px;
+  margin-top:5px;
+  vertical-align: bottom;
+}
+

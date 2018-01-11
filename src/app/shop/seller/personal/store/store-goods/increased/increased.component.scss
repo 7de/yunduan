@@ -1,0 +1,169 @@
+@import "../../../../../../../assets/sass/mixin";
+@import "../../../../../../../assets/sass/variables";
+@import "../../../../../../../assets/sass/public";
+
+.mt-5{
+  margin-top:5px;
+}
+
+.frame{
+  padding-bottom:40px;
+  .frame-header{
+    border-bottom:1px solid #e5e5e5;
+  }
+  .frame-con{
+    border-top:1px solid #e5e5e5;
+    padding-top:10px;
+  }
+}
+
+.crumbs {
+  padding:17px 0;
+  font-size: 12px;
+  a{
+    padding-right:5px;
+    color: #666;
+    @include transition(.25s);
+    &:hover{
+      color: nth($newRed,2);
+    }
+  }
+}
+
+.info{
+  padding: 30px 20px;
+  .info-title{
+    .ui-g-1{
+      color: #fff;
+      height:30px;
+      line-height: 30px;
+      text-align: center;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      background-color: nth($newRed,2);
+    }
+    .ui-g-11{
+      line-height: 30px;
+      font-size: 16px;
+      border-bottom:1px solid #ddd;
+      padding-left:10px;
+    }
+  }
+  .form-label{
+    height:36px;
+    line-height: 36px;
+    text-align: right;
+    margin-right:5px;
+    em{
+      padding-right:2px;
+    }
+  }
+  .form-control{
+    box-shadow: none;
+    height:36px;
+    line-height: 36px;
+    //&.ng-dirty.ng-invalid{
+    //  border-color: nth($newRed,2);
+    //}
+  }
+  .has-success .form-control{
+    border-color: #bbb;
+  }
+  .form-ico-right{
+    overflow: hidden;
+    .form-control{
+      width:91%;
+      float: left;
+    }
+    .tip{
+      float: left;
+      line-height: 36px;
+      padding-left:10px;
+    }
+  }
+  .btn-box{
+    margin-top:30px;
+    padding-top:20px;
+    border-top:1px dashed #ccc;
+    button{
+      width:140px;
+      height:36px;
+      font-size: 14px;
+      &:disabled{
+        border-color: #d9d9d9;
+        background-color: #d9d9d9;
+        cursor: default;
+      }
+    }
+  }
+}
+.img-box{
+  overflow: hidden;
+  @include transition(.25s);
+  li{
+    position: relative;
+    width:180px;
+    height:180px;
+    margin-right:10px;
+    .img{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      line-height: 170px;
+      text-align: center;
+      background-color: #f5f5f5;
+    }
+    .img-file{
+      position: absolute;
+      top:0;
+      left:0;
+      z-index: 1;
+      width:180px;
+      height:180px;
+      outline: none;
+      opacity: 0;
+      cursor: pointer;
+      @include transition(.25s);
+    }
+    .ico-delete{
+      position: absolute;
+      top:0;
+      right:0;
+      width:26px;
+      height:26px;
+      line-height: 26px;
+      text-align: center;
+      font-size: 22px;
+      color: #6c6c6c;
+      background-color: rgba(255,255,255,.5);
+      @include transition(.25s);
+      &:hover{
+        cursor: pointer;
+        background-color: rgba(255,255,255,.6);
+      }
+    }
+  }
+}
+
+// 字数显示
+.limit{
+  position: relative;
+  input{
+    padding-right:40px;
+  }
+  .limit-num{
+    position: absolute;
+    bottom:9px;
+    right: 7px;
+  }
+}
+
+.help-block {
+  color: nth($newRed,2);
+}
+
+.red{
+  color: nth($newRed,2);
+}

@@ -1,0 +1,237 @@
+<app-heads-single></app-heads-single>
+<app-heads-shop  [shopId]="shopId" [shopTitle]="['云集优服']"></app-heads-shop>
+<div style="border-top: 1px solid #D2D2D2">
+<div class="wrap-1200 ui-g pdb-30">
+  <div class="head-title ui-g-12 ui-g-nopad">
+    您的位置：<span class="pdr-10" [routerLink]="['/shop/index']" [queryParams]="{demand_category_id: goodsData?.service_type?.id}">{{goodsData?.service_type?.title}}</span>&gt;<span class="pdl-10 pdr-10" [routerLink]="['/buyer/facilitator/store']" [queryParams]="{shopId: shopData?.id}">{{shopData?.name}}</span>&gt;<span class="pdl-10">{{goodsData?.title}}</span>
+  </div>
+  <div class="main-left pull-left">
+    <div class="ui-g-12 ui-g-nopad clearfix">
+      <div class="shop-show pull-left">
+        <p-galleria [images]="images" [panelWidth]="350" [panelHeight]="350" [frameWidth]="58" [frameHeight]="58"
+                    [showCaption]="true" [autoPlay]="false">
+        </p-galleria>
+      </div>
+      <div class="shop-produce pull-right">
+        <h3 class="goods-title">{{goodsData?.title}}</h3>
+        <div class="ui-g goods-info">
+          <div class="ui-g-1 ui-g-nopad info-title fs-12">价格</div>
+          <div class="ui-g-11 ui-g-nopad">
+            <p class="info-price color-red">￥{{goodsData?.price}}</p>
+          </div>
+          <div class="ui-g-12 ui-g-nopad mt-20 buy-now">
+            <button class="submit-btn" (click)="buyNow()">预约服务</button>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-g-nopad info-title mt-10 fs-12">评分</div>
+          <div class="ui-g-10 ui-g-nopad">
+            <div class="ui-g score">
+              <div class="ui-g-4 ui-g-nopad color-red" style="font-weight: 600">
+                <div class="atar_Show" title="{{goodsData?.score / 100}}">
+                  <p [ngStyle]="{'width':getScores(goodsData?.score/100)*2*10 + 'px'}" ></p>
+                </div>
+                {{goodsData?.score/100}}分
+              </div>
+            </div>
+            <div class="ui-g-10 ui-g-nopad fs-12 color-999">
+              ( {{goodsData?.commentNum}}人评价 )
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad fs-12">
+          <div class="ui-g-2 ui-g-nopad mt-10 color-999">服务数量</div>
+          <div class="ui-g-10 ui-g-nopad mt-10 color-666">{{goodsData?.sales_num}}</div>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]=" fix == true ? 'fixed' : 'relaxed' " class="ui-g-12 ui-g-nopad mt-30">
+      <ul [ngClass]=" fix == true ? 'fixed-ul' : 'relaxed-ul'" class="about-goods clearfix">
+        <li [ngClass]=" description ? 'active' : ' '"  (click)="test('description')">服务描述</li>
+        <li [ngClass]=" estimate ? 'active' : '' " (click)="test('estimate')">累计评价</li>
+        <li [ngClass]=" guarantee ? 'active' : '' " (click)="test('guarantee')">交易保障</li>
+        <li style="margin-left: 404px;" (click)="buyNow()" class="active" *ngIf="fix == true">预约服务</li>
+        <li class="text-center shop-name" (mouseenter)="onOff = true" (mouseleave)="onOff = false" *ngIf="fix == true">{{shopData?.name}}<span [ngClass]="(onOff == true) ? 'caret rotate' : 'caret'"></span>
+          <div *ngIf="onOff" class="drop-down ui-g">
+            <div [routerLink]="['/buyer/facilitator/store']" [queryParams]="{'shopId': shopId}" class="ui-g-12 ui-g-nopad text-left shop-logo">
+              <img width="180" height="180" [src]="shopData?.logo_url | image:180" alt="">
+            </div>
+            <div [routerLink]="['/buyer/facilitator/store']" [queryParams]="{'shopId': shopId}" class="ui-g-12 ui-g-nopad text-left mt-10 mb-10" style="line-height: 16px">
+              <span>{{shopData?.name}}</span>
+            </div>
+            <p>
+              <a class="qq-chat" [href]="(qqFirst+ shopData?.qq+qqLast) | safeUrl"><i class="ico-global ico-qq"></i>联系商家</a>
+            </p>
+            <div class="shop-score mt-10 pdb-20" style="line-height: 16px">
+              <span style="padding-right: 8px;">
+                <em class="color-999" style="margin-bottom: 2px;">服务态度</em>
+                <em class="red">{{(shopData?.service_star)/10}}</em>
+              </span>
+              <span>
+                <em class="color-999" style="margin-bottom: 2px;">工作速度</em>
+                <em class="red">{{(shopData?.work_star)/10}}</em>
+              </span>
+                    <span style="padding-left: 8px;">
+                <em class="color-999" style="margin-bottom: 2px;">完成质量</em>
+                <em class="red">{{(shopData?.quality_star)/10}}</em>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="description" class="service-img ui-g-12 ui-g-nopad" [innerHTML]="goodsData?.content">
+    </div>
+
+    <div class="ui-g-12 ui-g-nopad evaluate" id="estimate">
+      <h4 class="goods-titles">累计评价</h4>
+    </div>
+
+    <div class="ui-g-12 total-evaluation">
+      <div class="feedback-rate ui-g-1">
+        <div class="rate-title fs-12">
+          <span>好评度</span>
+        </div>
+        <div class="rate">
+          <span>{{goodsData?.rate}}</span>%
+        </div>
+      </div>
+      <div class="commit ui-g-2">
+        <div class="fs-12 color-666" style="padding-top: 38px">点评人数<span>（{{goodsData?.commentNum}}）</span></div>
+      </div>
+
+
+      <div class="star-score ui-g-offset-5 ui-g-4 padding-0">
+        <div class="ui-g-12 ui-g-nopad">
+          <span class="ui-g-7 text-right fs-12 color-999">服务态度:</span>
+          <div class="ui-g-5 ui-g-nopad mt-7">
+            <div class="atar_Show ui-g-10 ui-g-nopad" title="{{goodsData?.service_star / 10}}">
+              <p [ngStyle]="{'width':getScores(goodsData?.service_star/10)*2*10 + 'px'}" ></p>
+            </div>
+            <div class="ui-g-2 ml-5 ui-g-nopad color-red star-score">{{goodsData?.service_star / 10}}</div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad">
+          <span class="ui-g-7 text-right fs-12 color-999">工作速度:</span>
+          <div class="ui-g-5 ui-g-nopad mt-7">
+            <div class="atar_Show ui-g-10 ui-g-nopad" title="{{goodsData?.work_star / 10}}">
+              <p [ngStyle]="{'width':getScores(goodsData?.work_star/10)*2*10 + 'px'}" ></p>
+            </div>
+            <div class="color-red ui-g-2 ui-g-nopad ml-5 star-score">{{goodsData?.work_star / 10}}</div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad">
+          <span class="ui-g-7 text-right fs-12 color-999">完成质量:</span>
+          <div class="ui-g-5 ui-g-nopad mt-7">
+            <div class="atar_Show ui-g-10 ui-g-nopad" title="{{goodsData?.quality_star / 10}}">
+              <p [ngStyle]="{'width':getScores(goodsData?.quality_star/10)*2*10 + 'px'}" ></p>
+            </div>
+            <div class="color-red ui-g-2 ui-g-nopad ml-5 star-score">{{goodsData?.quality_star / 10}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="height: 50px" class="ui-g-12 ui-g-nopad text-center mt-20 fs-16 color-666" *ngIf="commentsData?.length == 0">暂无评价</div>
+    <div class="ui-g-12 ui-g-nopad estimate-list" *ngFor="let comment of commentsData">
+      <div class="ui-g-1 buyer ui-g-nopad">
+        <div>
+          <img class="header-img" width="50" height="50"
+             [src]="comment?.base.avatar | image:50"
+             alt="头像"/>
+        </div>
+        <div class="company-name fs-12 color-666 text-center">
+          <span>{{handle(comment?.base.username)}}</span>
+        </div>
+      </div>
+      <div class="ui-g-9 provider">
+        <div class="ui-g-12 ui-g-nopad">
+            <p class="buyers-review" *ngIf="comment?.is_sys">系统自动评价</p>
+            <p class="buyers-review" *ngIf="!comment?.is_sys && comment?.content">{{comment?.content}}</p>
+        </div>
+        <div class="ui-g-12 ui-g-nopad">
+          <p class="seller-comments" *ngIf="comment?.reply">[ 商家回复 ]：{{comment?.reply.content}}</p>
+        </div>
+      </div>
+      <div class="ui-g-2 ui-g-nopad text-right color-999 fs-12">
+        <span>{{comment?.created_at | datetime: 'datetime'}}</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+      <p-paginator *ngIf="pagination?.totalCount" [rows]="pagination?.perPage"
+                   [first]="pagination.currentPage * pagination.perPage-1"
+                   [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+                   (onPageChange)="paginate($event)" styleClass="custom-paginator">
+      </p-paginator>
+    </div>
+
+
+    <!--交易保障-->
+    <div class="ui-g-12 ui-g-nopad trade" id="guarantee">
+      <p class="transaction-security">交易保障</p>
+      <div class="promise">
+        <b>我们的承诺</b>
+        <p class="color-666 mt-20">关于服务质量的反馈，我们会第一时间专人处理。保证及时解决您的问题。</p>
+      </div>
+      <div class="safe">
+        <b class="safety">担保交易，交易全程护航</b>
+        <div class="text-center" style="margin-top: 88px;">
+          <div class="ui-g-1 serve" style="color: #EA3A3A;">预约服务</div>
+          <div class="ui-g-2 fund color-666" style="margin-left: 22px;">
+            <p>资金托管到平台</p>
+            <p style="width: 140px;">资金担保，满意后付款</p>
+          </div>
+          <div class="ui-g-2 project color-666" style="width: 129px;">服务商跟进需求 提交服务方案</div>
+          <div class="ui-g-1 work color-666" style="width: 129px;">服务商开始工作</div>
+          <div class="ui-g-2 check color-666" style="width: 129px;">需求方验收交付 服务并确认订单</div>
+          <div class="ui-g-1 end" style="margin-left: 30px;color: #EA3A3A;">交易结束
+            双方评价</div>
+        </div>
+      </div>
+      <div class="transaction-content pdt-20 pdb-30">
+        <div style="color: #333;">内容声明：</div>
+        云集优服为互联网信息服务提供者，云集优服（含网站、客户端等）所展示服务的标题、价格、详情等信息内容由店铺经营者发布，其真实性、准确性和合法性均由店铺经营者负责。云集优服提醒用户购买服务前注意谨慎核实。如用户对服务的标题、价格、详情等信息有任何疑问的，请在购买前与店铺经营者沟通确认；如用户发现店铺内有任何违法/侵权信息，请立即向云集优服举报并提供有效线索
+      </div>
+    </div>
+  </div>
+
+  <!--右侧商品栏-->
+  <div class="main-right pull-right">
+    <div class="ui-g main-right-top">
+      <div [routerLink]="['/buyer/facilitator/store']" [queryParams]="{'shopId': shopId}" class="ui-g-12 ui-g-nopad shop-logo">
+        <img width="180" height="180" [src]="shopData?.logo_url | image:180" alt="">
+      </div>
+      <div [routerLink]="['/buyer/facilitator/store']" [queryParams]="{'shopId': shopId}" class="ui-g-12 ui-g-nopad color-666 mt-10">
+        <span>{{shopData?.name}}</span>
+      </div>
+      <p style="margin-top: 10px;">
+        <a class="qq-chat" [href]="(qqFirst+ shopData?.qq+qqLast) | safeUrl"><i class="ico-global ico-qq"></i>联系商家</a>
+      </p>
+      <div class="shop-score mt-10 pdb-30" style="line-height: 16px!important;">
+        <span style="padding-right: 8px;">
+          <em style="height: 16px!important;margin-bottom: 2px;" class="color-999">服务态度</em>
+          <em class="red">{{(shopData?.service_star)/10}}</em>
+        </span>
+        <span>
+          <em class="color-999" style="margin-bottom: 2px;">工作速度</em>
+          <em class="red">{{(shopData?.work_star)/10}}</em>
+        </span>
+        <span style="padding-left: 8px;">
+          <em class="color-999" style="margin-bottom: 2px;">完成质量</em>
+          <em class="red">{{(shopData?.quality_star)/10}}</em>
+        </span>
+      </div>
+      <div class="ui-g-12 ui-g-nopad pdt-20 color-666" style="border-top: 1px solid #eee;">
+        热门服务
+      </div>
+      <div *ngFor="let goods of goodsList" class="mt-20 other-goods">
+        <a [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{'goodsId':goods?.id , 'shopId':goods?.shop_id}" target="_blank"><img width="180" height="180"  [src]="goods?.first_img | image:180" alt=""></a>
+        <div class="mt-10 fs-12 color-666">
+          <a [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{'goodsId':goods?.id , 'shopId':goods?.shop_id}"  target="_blank">{{goods?.title}}</a></div>
+        <div class="fs-14 mt-10" style="color: #EA3A3A;">￥{{goods?.price}}</div>
+      </div>
+    </div>
+  </div>
+  <app-back-to-top *ngIf="show"></app-back-to-top>
+</div>
+</div>
+<app-footer [bgc]="2"></app-footer>

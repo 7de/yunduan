@@ -1,0 +1,75 @@
+.create-content {
+  padding: 20px 80px 30px 20px;
+  form {
+    .label-div {
+      label {}
+    }
+    .input-div {
+      text-align: left;
+      position: relative;
+      input {
+        width: 280px;
+        height: 36px;
+        padding-left: 10px;
+        padding-right: 30px;
+        display: inline-block;
+        border-radius: 3px;
+        border: 1px solid #e6e6e6;
+      }
+      .limit-num {
+        position: absolute;
+        top: 10px;
+        right: -5px;
+      }
+    }
+    .serial-select {
+      select {
+        width: 102px;
+        height: 36px;
+        padding-left: 10px;
+        border-radius: 3px;
+        border: 1px solid #e6e6e6;
+      }
+    }
+    .serial-textarea {
+      position: relative;
+      textarea {
+        width: 280px;
+        height: 120px;
+        border: 1px solid #e6e6e6;
+        border-radius: 3px;
+        resize: none;
+        padding: 10px;
+      }
+      .limit-num {
+        position: absolute;
+        top: 98px;
+        right: -5px;
+      }
+    }
+    .create-serial-btn {
+      text-align: center;
+      padding-top: 20px;
+      button {
+        width: 100px;
+        height: 36px;
+        background-color: #ea3a3a;
+        margin-left: 94px;
+      }
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.help-block {
+  color: #ee3737;
+}
+
+.btn.focus,
+.btn:focus,
+.btn:hover {
+  color: #FFFFFF;
+}

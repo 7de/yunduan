@@ -1,0 +1,54 @@
+<div class="wrap">
+  <p class="title" *ngIf="dataDetail" style="margin-bottom: 10px;"><a style="margin-right: 5px;" href="javascript:history.go(-1)">返回</a>与{{dataDetail.fans.nickname}}的聊天</p>
+  <form action=""  [formGroup]="form"
+        (ngSubmit)="onSubmit(form.value)">
+    <div class="form-group" style="margin-bottom: 10px;">
+        <textarea placeholder="请填写内容，为空则不发送消息" formControlName="reply" name="" id="" cols="129" rows="5" maxlength='200'  class="text" (keyup)="onKeyup($event)">
+        </textarea>
+      <p class="text-right text-tip">还可以输入{{descriptionLength}}字，按下Enter键换行</p>
+    </div>
+    <button class="btn btn-orange" type="submit">发送</button>
+  </form>
+  <div *ngFor="let item of dataList?.items" >
+    <div class="users-info clearfix pd-15 mt-10">
+      <div *ngIf="item.isBackendReply===0" class="img pull-left">
+        <img src="{{item?.fans?.logo_url}}" width="48" height="48" alt="">
+      </div>
+      <div *ngIf="item.isBackendReply===1" class="img pull-left">
+        <img src="{{data?.logo_url}}" width="48" height="48" alt="">
+      </div>
+      <div class="info pull-left">
+        <h5  *ngIf="item.isBackendReply===0">{{item.fans?.nickname}}</h5>
+        <h5  *ngIf="item.isBackendReply===1">{{data?.nickname}}</h5>
+        <p class="content" *ngIf="item.msg_type===2" [innerHTML]="item.msg_content | html:'emoji'"></p>
+        <p class="content" *ngIf="item.msg_type===3"><img src="{{item.msg_content | image:100:100}}"></p>
+      </div>
+      <p class="pull-left time">{{item.created_at | datetime:'time'}}</p>
+      <p *ngIf="item.has_reply===0&&item.isBackendReply===0" class="pull-right" style="width: 10%;"><a href="javascript:void(0)" (click)="showReply(item.id)">回复</a></p>
+      <p *ngIf="item.has_reply===1&&item.isBackendReply===0" class="pull-right" style="width: 10%;"><a href="javascript:void(0)" style="color:gray;">已回复</a></p>
+    </div>
+
+    <!--回复区域-->
+    <div class="reply"  *ngIf="onOff&&item.id==currentReplying">
+      <div class="reply-info">
+        <form [formGroup]="formContent"
+              (ngSubmit)="contentSubmit(formContent.value)">
+          <div class="form-group">
+              <textarea class="form-control"
+                        rows="3"
+                        formControlName="content" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-orange">发送</button>
+          <button type="button" class="btn" (click)="hideReply()">收起</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: right;margin-top: 10px;" *ngIf="pagination">
+    <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                 [first]="pagination.currentPage * pagination.perPage-1"
+                 [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                 (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+  </div>
+</div>

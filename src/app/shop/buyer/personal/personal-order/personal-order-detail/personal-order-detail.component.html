@@ -1,0 +1,314 @@
+<div class="frame bg-gray" >
+  <div class="frame-header">
+    <app-heads-single [bgc]="true"></app-heads-single>
+    <app-head-home [homeTitle]="['订单详情']"></app-head-home>
+  </div>
+  <div class="frame-con">
+    <div class="wrap-1200">
+      <div class="ui-g">
+        <div class="ui-g-12 crumbs">
+          <span>您的位置：</span>
+          <a [routerLink]="['/buyer/personal/index/order']" [queryParams] ="{type:''}">我的订单</a>&gt;
+          <span>订单详情</span>
+        </div>
+      </div>
+      <div class="ui-g bg-white order-content">
+        <div class="ui-g-12 order-top">
+          <span class="title">订单状态：<em>{{data?.company_status_txt}}</em></span>
+          <!-- 状态信息 //start -->
+          <div class="order-top-state mt-10" [ngSwitch]="data?.status">
+            <!-- 未付款 -->
+            <ng-container *ngSwitchCase="0">
+              <p  class="gray">若您3天内没有付款，系统将默认交易关闭，剩<app-countdown [timestamp]="data.remaining_time" (timesResult)="countEven($event)"></app-countdown>订单自动关闭
+              </p>
+              <div class="btn-box mt-15">
+                <button type="button" class="cancel-btn-new"
+                        (click)="cancelShow = true">取消订单
+                </button>
+                <button type="button" class="submit-btn-new ml-15" [routerLink]="['/buyer/facilitator/pay']"
+                        [queryParams]="{id:data.id}">去付款
+                </button>
+              </div>
+            </ng-container>
+
+            <!-- 已付款 -->
+            <ng-container *ngSwitchCase="1">
+              <p class="gray">等待服务商提供服务方案中···</p>
+              <div class="btn-box mt-15">
+                <button type="button" class="submit-btn-new" (click)="applicationCancel(data.id)">
+                  申请取消订单
+                </button>
+              </div>
+            </ng-container>
+
+            <!-- 申请取消订单 //卖家 -->
+            <div *ngSwitchCase="2">
+              <p class="gray">服务商申请了取消订单，若双方不能达成一致意见点击客服介入</p>
+              <div class="mt-10"><b>申请取消原因：{{data?.cancelOrder?.reason}}</b></div>
+              <div class="btn-box mt-15">
+                <button type="button" class="submit-btn-new-border" (click)="platformShow=true">客服介入
+                </button>
+                <button type="button" class="submit-btn-new ml-15" (click)="agreeShow = true">同意取消</button>
+              </div>
+            </div>
+
+            <!-- 交易关闭 -->
+            <p class="gray" *ngSwitchCase="3">原因：手动关闭</p>
+
+            <!-- 待买家确认 -->
+            <ng-container *ngSwitchCase="4">
+              <p class="gray">请与服务商沟通确认具体的需求要求及明细、并确认最终的交付时间后，然后待卖家上传一份最终方案到平台确认无误后点击确认键，以免后续发生不可预估变化时作为平台仲裁依据。
+              </p>
+              <div class="btn-box mt-15">
+                <button type="button" class="cancel-btn-new" (click)="applicationCancel(data.id)">
+                  申请取消订单
+                </button>
+                <button type="button" class="submit-btn-new ml-15" (click)="confirmShow = true">确认方案
+                </button>
+              </div>
+            </ng-container>
+
+            <!-- 卖家交付 -->
+            <ng-container *ngSwitchCase="5">
+              <p class="gray">服务商正在跟进服务订单中···</p>
+              <div class="btn-box mt-15">
+                <button type="button" class="submit-btn-new-border" (click)="customerShow = true">联系客服</button>
+              </div>
+            </ng-container>
+
+            <!-- 待买家验收 -->
+            <ng-container *ngSwitchCase="6">
+              <p class="gray">服务商已提交服务<app-countdown [timestamp]="data.finish_count" (timesResult)="countEven($event)"></app-countdown>，若您7天内未验收，系统将默认验收，若服务商交付内容没有依照方案，可私聊服务商或联系平台客服。</p>
+              <div class="btn-box mt-15">
+                <button type="button" class="submit-btn-new-border" (click)="customerShow = true">联系客服</button>
+                <button type="button" class="submit-btn-new ml-15" (click)="checkShow = true">确认验收
+                </button>
+              </div>
+            </ng-container>
+
+            <!--  交易成功 -->
+            <ng-container *ngSwitchCase="7">
+              <p class="gray" *ngIf="data?.comment_type!==1">订单交易成功，可以去评价服务商喔~</p>
+              <p class="gray" *ngIf="data?.comment_type===1 && data?.invoice_id===0">订单交易成功，可以开发票了喔~</p>
+              <div class="btn-box mt-15">
+                <button type="button" class="submit-btn-new"
+                        [routerLink]="['/buyer/personal/order-invoice',data.id]" *ngIf="data?.invoice_id===0">开发票
+                </button>
+                <button type="button" class="submit-btn-new"
+                        [routerLink]="['/buyer/personal/order-estimate',data.id]" *ngIf="data?.comment_type!==1">去评价
+                </button>
+              </div>
+            </ng-container>
+
+            <!-- 双方已评价 -->
+            <ng-container *ngSwitchCase="8">
+              <div *ngIf="data?.invoice_id===0">
+                <p class="gray">订单已评价，可以开发票了喔~</p>
+                <button type="button" class="submit-btn-new mt-15" [routerLink]="['/buyer/personal/order-invoice',data.id]">开发票
+                </button>
+              </div>
+              <div class="btn-box mt-15" *ngIf="data?.invoice_id!==0">
+                <button type="button" class="submit-btn-new"
+                        [routerLink]="['/buyer/personal/order-invoice',data.id]">查看发票详情
+                </button>
+              </div>
+            </ng-container>
+
+            <!-- 交易关闭 -->
+            <p class="gray" *ngSwitchCase="9">原因：手动关闭</p>
+            <p class="gray" *ngSwitchCase="10">原因：超时关闭</p>
+
+            <!-- 申请取消订单 //买家 -->
+            <ng-container *ngSwitchCase="11">
+              <p class="gray">已提交申请取消订单，等待卖家同意，若双方不能达成一致意见点击客服介入</p>
+              <div class="mt-10"><b>申请取消原因：{{data?.cancelOrder?.reason}}</b></div>
+              <div class="btn-box mt-15">
+                <button type="button" class="submit-btn-new-border" (click)="platformShow=true">客服介入
+                </button>
+                <button type="button" class="submit-btn-new" (click)="revokeShow = true">取消申请</button>
+              </div>
+            </ng-container>
+
+          </div>
+          <!-- 状态信息 //end -->
+        </div>
+
+        <ul class="ui-g-12 order-bottom" [ngClass]="{'order-bottom-rate':(data?.status>3&&data?.status!==9&&data?.status!==10)}">
+          <li class="ui-g" *ngIf="data?.status>5&&data?.status!==9&&data?.status!==10&&data?.status!==11">
+            <div class="ui-g-1 ui-g-nopad fs-16 text-center mt-5">
+              交付服务
+              <div class="fs-12 color-666 mt-5">{{data?.final_date_txt}}</div>
+            </div>
+            <div class="ui-g-9 order-detail-info ml-10">
+              <span class="ui-g-1 ui-g-nopad">交付描述：</span>
+              <div class="ui-g-10 ui-g-nopad">
+                <p>{{data?.finalPlan?.content}}</p>
+                <div class="ui-g-12 ui-g-nopad mt-10" *ngIf="data?.finalPlan?.file.length>0">
+                  <span class="ui-g-1 ui-g-nopad">附件：</span>
+                  <div class="ui-g-10 ui-g-nopad">
+                    <div *ngFor="let file of data?.finalPlan?.file;index as i" class="mb-5">
+                      附件{{i+1}} <a href="{{file.url | image}}" download="{{file.url | image}}" class="ml-5 blue">{{file.file_name}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="ui-g" *ngIf="data?.status>3&&data?.status!==9&&data?.status!==10&&data?.status!==11">
+            <div class="ui-g-1 ui-g-nopad fs-16 text-center mt-5">
+              方案详情
+              <div class="fs-12 color-666 mt-5">{{data?.give_final_at_txt}}</div>
+            </div>
+            <div class="ui-g-9 order-detail-info ml-10">
+              <span class="ui-g-1 ui-g-nopad">方案描述：</span>
+              <div class="ui-g-10 ui-g-nopad">
+                <p>{{data?.businessPlan?.content}}</p>
+                <div class="ui-g-12 ui-g-nopad mt-10" *ngIf="data?.businessPlan?.file.length>0">
+                  <span class="ui-g-1 ui-g-nopad">附件：</span>
+                  <div class="ui-g-10 ui-g-nopad">
+                    <div *ngFor="let file of data?.businessPlan?.file;index as i" class="mb-5">
+                      附件{{i+1}} <a href="{{file.url | image}}" download="{{file.url | image}}" class="ml-5 blue">{{file.file_name}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="ui-g-2 ui-g-nopad">协定交付时间：</span>
+              <span class="ui-g-9 ui-g-nopad" style="margin-left: -36px;">{{data?.final_date_txt}}</span>
+            </div>
+          </li>
+          <li class="ui-g">
+            <div class="ui-g-1 ui-g-nopad fs-16 text-center mt-5">
+              订单信息
+              <div class="fs-12 color-666 mt-5">{{data?.created_at_txt}}</div>
+            </div>
+            <div class="ui-g-9 order-detail-info ml-10">
+              <span class="ui-g-1 ui-g-nopad">服务名称：</span>
+              <span class="ui-g-10 ui-g-nopad">{{data?.goods.title}}</span>
+              <span class="ui-g-1 ui-g-nopad">服务商：</span>
+              <span class="ui-g-10 ui-g-nopad">{{data?.shop.name}} <a [href]="(qqFirst+data?.shop?.qq+qqLast) | safeUrl" class="blue fs-12">私聊</a></span>
+              <span class="ui-g-1 ui-g-nopad">交易金额：</span>
+              <span class="ui-g-10 ui-g-nopad">{{data?.money}}元</span>
+              <span class="ui-g-1 ui-g-nopad">联系方式：</span>
+              <span class="ui-g-10 ui-g-nopad">{{data?.shop?.phone}}</span>
+              <span class="ui-g-1 ui-g-nopad">订单编号：</span>
+              <span class="ui-g-10 ui-g-nopad">{{data?.order_no}}</span>
+              <span class="ui-g-1 ui-g-nopad">创建时间：</span>
+              <span class="ui-g-10 ui-g-nopad">{{data?.created_at_txt}}</span>
+              <span class="ui-g-1 ui-g-nopad">付款时间：</span>
+              <span class="ui-g-10 ui-g-nopad">{{data?.pay_at?data?.pay_at_txt:'--'}}</span>
+              <span class="ui-g-1 ui-g-nopad">交易流水号：</span>
+              <span class="ui-g-10 ui-g-nopad">{{data?.pay_no?data?.pay_no:'--'}}</span>
+              <span class="ui-g-1 ui-g-nopad">需求描述：</span>
+              <div class="ui-g-10 ui-g-nopad">
+                <p style="line-height: 20px;">{{data?.demand_content}}</p>
+                <div class="ui-g-12 ui-g-nopad mt-10" *ngIf="data?.file.length>0">
+                  <span class="ui-g-1 ui-g-nopad">附件：</span>
+                  <div class="ui-g-10 ui-g-nopad">
+                    <div *ngFor="let file of data?.file;index as i" class="mb-5">
+                      附件{{i+1}} <a href="{{file.url | image}}" download="{{file.url | image}}" class="ml-5 blue">{{file.file_name}}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <div class="frame-footer">
+    <app-footer [bgc]="1"></app-footer>
+  </div>
+</div>
+
+<!-- 联系客服 -->
+<p-dialog header="联系客服" modal="modal" [(visible)]="customerShow" [responsive]="true" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-customer mb-10"></i><p>0755-86538075</p></div>
+  <p-footer></p-footer>
+</p-dialog>
+
+<!-- 取消订单 -->
+<p-dialog header="提示" modal="modal" [(visible)]="cancelShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>确定取消"{{data?.goods.title}}"该服务订单吗？</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="cancelShow=false">取消</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="cancelEven(orderId)">确定</button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<!-- 申请取消订单 -->
+<p-dialog header="申请取消订单" modal="modal" [(visible)]="applicationShow" [width]="500" [styleClass]="shopDialog">
+  <div class="ui-g application mb-10">
+    <div class="ui-g-3 ui-g-nopad">申请取消原因：</div>
+    <div class="ui-g-9 ui-g-nopad clearfix">
+      <textarea class="form-control" rows="8" placeholder="请在此阐述申请取消订单的原因，文本字数限制在200字内" maxlength="200" [(ngModel)]="applicationReason"></textarea>
+      <p class="pull-right"><app-string-length class="limit-num" [limitLength]="200" [dataProvider]="applicationReason"></app-string-length></p>
+      <p class="err-red" [hidden]="!applicationError || applicationReason">请输入取消订单原因</p>
+    </div>
+  </div>
+  <p-footer>
+    <p class="text-center">
+      <button type="button" class="cancel-btn-new" (click)="applicationShow=false">取消</button>
+      <button type="button" class="submit-btn-new ml-15"
+              (click)="applicationEven(applicationId,applicationReason)">提交申请
+      </button>
+    </p>
+  </p-footer>
+</p-dialog>
+
+<!-- 撤销取消订单 -->
+<p-dialog header="提示" modal="modal" [(visible)]="revokeShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>确认放弃对该笔订单的取消申请吗？</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="revokeShow=false">取消</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="revokeEven(orderId)">确定</button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<!-- 同意取消订单 -->
+<p-dialog header="提示" modal="modal" [(visible)]="agreeShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>确认同意对该笔订单的取消申请吗?</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="agreeShow=false">再想想</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="agreeEven(orderId)">是的</button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<!-- 申请仲裁(客服介入) -->
+<p-dialog header="客服介入" modal="modal" [(visible)]="platformShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center mt-10 mb-30">已申请客服介入，客服将在一个工作日内联系您</div>
+  <p-footer>
+    <p class="text-center">
+      <button type="button" class="submit-btn-new" (click)="platformEven(orderId)">好的</button>
+    </p>
+  </p-footer>
+</p-dialog>
+
+<!-- 确认方案 -->
+<p-dialog header="提示" modal="modal" [(visible)]="confirmShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>确认"{{data?.goods.title}}"该服务订单方案吗？</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="confirmShow=false">返回</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="confirmEven(orderId)">确认</button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<!-- 验收交付 -->
+<p-dialog header="提示" modal="modal" [(visible)]="checkShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>确认验收"{{data?.goods.title}}"该服务订单吗？</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="checkShow=false">返回</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="checkEven(orderId)">确认</button>
+    </div>
+  </p-footer>
+</p-dialog>

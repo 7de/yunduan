@@ -1,0 +1,60 @@
+@import "../../../../../../../assets/sass/mixin";
+@import "../../../../../../../assets/sass/variables";
+
+.layout{
+  padding-bottom: 50px;
+  background-color: nth($gray,1);
+}
+.wallet{
+  position: relative;
+  top: 9px;
+  left: 0;
+  margin-right: 5px;
+  display: inline-block;
+  width: 46px;
+  height: 36px;
+  background: url(../../../../../../../assets/images/webadmin-icon.png) -90px -507px no-repeat;
+}
+
+.search-my{
+  width: 60px;
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  background-color: #F5F5F5;
+  border: 1px solid #CCCCCC;
+  color: #333;
+  &:hover{
+    border-color: #EA3A3A;
+    color: #EA3A3A;
+    background-color: #fff;
+  }
+}
+.bg-white{
+  padding:30px;
+  background-color: #fff;
+}
+.ico-calendar{
+  display: inline-block;
+  width: 16px;
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  height: 15px;
+  background-image:url('../../../../../../../assets/images/calendar.png')
+}
+
+.detail-sort{
+  color: #666;
+  em{
+    margin:0 15px;
+    color: #BBBBBB;
+  }
+  a{
+    color: #666;
+    &.active,&:hover{
+      color: #EA3A3A;
+    }
+  }
+}
+

@@ -1,0 +1,43 @@
+<div class="wrap-all">
+  <div class="ui-g wrap-1200">
+    <div class="type-tab ui-g-12 ui-g-nopad">
+      <span class="fs-14" (click)="tabChange('hot')" [ngClass]="{'tab-click-style': tabBool['hot']}">最火</span>
+      <span class="fs-14" (click)="tabChange('new')" [ngClass]="{'tab-click-style': tabBool['new']}">最近更新</span>
+    </div>
+
+    <div class="left-menu float-left">
+      <div class="ui-g-12 ui-g-nopad text-shadow">
+        <div class="tab-item fs-14" (click)="itemSelect('hot')" [ngClass]="{'item-click-style': itemBool['hot']}">热门</div>
+        <div class="tab-item fs-14" (click)="itemSelect('raw')" [ngClass]="{'item-click-style': itemBool['raw']}">法律</div>
+        <div class="tab-item fs-14" (click)="itemSelect('finance')" [ngClass]="{'item-click-style': itemBool['finance']}">财税</div>
+        <div class="tab-item fs-14" (click)="itemSelect('invest')" [ngClass]="{'item-click-style': itemBool['invest']}">投研</div>
+        <div class="tab-item fs-14" (click)="itemSelect('other')" [ngClass]="{'item-click-style': itemBool['other']}">其他</div>
+      </div>
+    </div>
+    <div class="right-list float-left">
+      <div class="ui-g-12 ui-g-nopad" *ngIf="listData?.length">
+        <a class="picture-item float-left" *ngFor="let item of listData;let idx = index;" (mouseover)="hoverObj[idx]=true" (mouseleave)="hoverObj[idx]=false" [routerLink]="['/lives/videos-details']" [queryParams]="{id: item?.id}" [title]="item?.title">
+          <img class="cover-img" [src]="item?.img | image" />
+          <p class="fs-14 font-bold" [ngClass]="{'p-after': item?.title.length > 15}" [title]="item?.title">
+            <i class="ico-global ico-yun-play-s-gray" style="margin-right: 8px;"></i>{{item?.title}}
+          </p>
+          <div>
+            <span class="fs-14" style="margin-left: -25px;" (click)="linkToIndex(item?.media_id)">
+              <i>连载于：</i>{{item?.media_info.title}}
+            </span>
+          </div>
+          <i [ngClass]="{'ico-yun-hover-play': hoverObj[idx]}" class="ico-global hover-play"></i>
+        </a>
+      </div>
+      <div class="ui-g-12 ui-g-nopad" *ngIf="!listData?.length">
+        <p style="text-align: center;padding-top: 100px;">暂无数据</p>
+      </div>
+    </div>
+
+    <div class="ui-g-12 ui-g-nopad paginator">
+      <p-paginator [rows]="pagination?.perPage" [first]="pagination?.currentPage * pagination?.perPage-1" [totalRecords]="pagination?.totalCount"
+                   [pageLinkSize]="pagination?.pageCount" (onPageChange)="paginate($event)" styleClass="custom-paginator">
+      </p-paginator>
+    </div>
+  </div>
+</div>

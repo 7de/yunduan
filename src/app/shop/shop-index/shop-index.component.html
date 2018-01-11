@@ -1,0 +1,59 @@
+<div class="frame">
+  <app-heads-shop ></app-heads-shop>
+  <section class="exhibition clearfix mt-10">
+    <div class="exhibition-top">
+      <div class="wrap-1200">
+        <ul class="top-ul">
+          <li class="first">
+            <a [routerLink]="['/shop/index']" [queryParams]="{demand_category_id: ''}" routerLinkActive="actives">全部</a>
+          </li>
+          <li *ngFor="let type of typeItems, let idx = index">
+            <a [routerLink]="['/shop/index']" [queryParams]="{demand_category_id: type.id}" routerLinkActive="actives">
+              <span>{{Array[idx]}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap-1200 exhibition-con mt-20">
+      <p class="fs-12 color-666">您已选择：{{titleId?Array[titleId-1]:'全部'}}</p>
+      <div class="rank mt-20 clearfix">
+        <div class="rank-sort pull-left">
+          <span [routerLink]="['/shop/index']" [queryParams]="{demand_category_id: (titleId || '')}" [ngClass]="{'red':!sortParam}" class="first">默认</span>
+          <!--<a (click)="score?grade():gradeUp()" [ngClass] = "(grades == true)? 'sort': ''">评分   <span class="ico-global" [ngClass]="(grades ==true)?['ico-up-arrow','ico-up-arrow-red']:'ico-jiantou-normal'"></span></a>-->
+          <a (click)="priced?price():priceUp()" [ngClass] = "(prices == true)? 'active': ''">价格<em class="arrow"></em></a>
+          <a (click)="serviced?service():serviceUp()" [ngClass] = "(services == true)? 'active': ''">成交量<em class="arrow"></em></a>
+        </div>
+        <div class="price-search pull-left">
+            <input type="text" class="form-control pull-left" placeholder="￥" autocomplete="off" [(ngModel)]="priceMin">
+          <span class="pull-left">-</span>
+          <input type="text" class="form-control pull-left" placeholder="￥" autocomplete="off" [(ngModel)]="priceMax">
+          <button class="pull-left" type="button" (click)="clearPrice()" *ngIf="priceMin || priceMax">清空</button>
+          <button class="pull-left mr-5" type="button" (click)="submitPrice()">确定</button>
+          <span class="pull-left red ml-5" *ngIf="priceError">请输入最多7位整数且小数点后两位</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="wrap-1200 exhibition-box">
+      <div class="tabulation">
+        <div class="lation mt-20">
+          <app-goods [goodsData]="goodsList"></app-goods>
+        </div>
+        <div class="pagation">
+          <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage" [totalRecords]="pagination.totalCount"
+                       [first]="pagination.currentPage * pagination.perPage-1" [pageLinkSize]="pagination.pageCount"
+                       (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+        </div>
+
+      </div>
+    </div>
+    <app-back-to-top *ngIf="show"></app-back-to-top>
+  </section>
+  <div class="frame-footer">
+    <app-footer [bgc]="2"></app-footer>
+  </div>
+</div>
+
+
+

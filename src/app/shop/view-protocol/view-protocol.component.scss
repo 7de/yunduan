@@ -1,0 +1,94 @@
+.login-header {
+  .log {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    .log-title {
+      font-size: 18px;
+      line-height: 1;
+      color: #4c4c4c;
+      margin-left: 30px;
+      padding-left: 30px;
+      position: relative;
+    }
+    .log-title:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      display: block;
+      border-left: 2px solid #ccc;
+    }
+    .log-right {
+      flex: 1;
+      text-align: right;
+      &__item {
+        font-size: 16px;
+      }
+      a {
+        color: #d21c28;
+      }
+    }
+  }
+}
+.agreement {
+  margin: 0 auto 60px;
+  width: 1180px;
+  position: relative;
+  z-index: 2;
+  &::before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    z-index: 1;
+    border: 1px solid #bfbfbf;
+    background: #ffffff;
+  }
+  &::after {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    z-index: 0;
+    border: 1px solid #bfbfbf;
+    background: #ffffff;
+  }
+  .agreement-content {
+    min-height: 500px;
+    padding: 0 20px 5px;
+    background: #ffffff;
+    border: 1px solid #a6a6a6;
+    position: relative;
+    z-index: 2
+  }
+  .title {
+    margin: 0 auto 20px;
+    font-size: 22px;
+    font-weight: 900;
+    color: #404040;
+    text-align: center;
+    line-height: 76px;
+    border-bottom: 1px solid #e0e0e0
+  }
+  h6 {
+    font-weight: bold;
+    color: #333;
+  }
+  p {
+    font-size: 12px;
+    color: #666;
+    line-height: 24px;
+  }
+}
+.login-header__icon{
+  display: inline-block;
+  width: 186px;
+  height: 46px;
+  background-position: -1px -549px!important;
+}

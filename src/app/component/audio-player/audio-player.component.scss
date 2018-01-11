@@ -1,0 +1,33 @@
+app-audio-player {
+  display: block;
+  height: 50px;
+  margin-bottom: 10px;
+  vg-play-pause .icon {
+    margin: 6px;
+    width: 38px;
+    height: 38px;
+    background-color: #ff5a08;
+    border: 2px solid #fefefe;
+    border-radius: 50%;
+    box-shadow: inset 0 0 2px;
+  }
+  vg-controls {
+    background-color: #f6f6f6!important;
+    border: 1px solid #e0e0e0;
+    vg-scrub-bar-buffering-time .background {
+      background-color: #cccccc;
+      width: 100%!important;
+    }
+    vg-scrub-bar-current-time .background {
+      background-color: #ff5a08;
+      border: 1px solid #ff5a08!important;
+    }
+  }
+  vg-time-display {
+    color: #999999!important;
+  }
+  vg-scrub-bar .scrubBar {
+    height: 100%;
+    outline: 0;
+  }
+}

@@ -1,0 +1,73 @@
+<div class="ui-g reply-header mt-20">
+  <div class="ui-g-2 grade pdl-10">
+    <form [formGroup]="estimateForm">
+      <select (change)="onChange(estimateForm.value)"
+              formControlName="grade">
+        <option value="">全部评价</option>
+        <option value="0">好评</option>
+        <option value="1">中评</option>
+        <option value="2">差评</option>
+      </select>
+    </form>
+  </div>
+  <div class="ui-g-4 mt-5">评价内容</div>
+  <div class="ui-g-2 mt-5">需求方</div>
+  <div class="ui-g-3 mt-5">商品信息</div>
+  <div class="ui-g-1 mt-5">操作</div>
+</div>
+<div style="height: 78px;border-bottom: 1px solid #ebebec;" class="ui-g ui-g-nopad" *ngIf="sellerInfo?.is_finish_check == 0 || sellerInfo?.shop == null || buyerBossList?.length === 0">
+  <div style="line-height: 78px;color: #666;" class="ui-g-12 ui-g-nopad pl-20">暂无数据</div>
+</div>
+<div style="min-height: 78px;" class="ui-g estimate-container fs-12" *ngFor="let sellerCompany of buyerBossList">
+  <div class="ui-g-2 contentCenter flex_ pl-20" *ngIf="sellerCompany.grade === 0"><span class="ico-global ico-estimate-good"></span></div>
+  <div class="ui-g-2 contentCenter flex_ pl-20" *ngIf="sellerCompany.grade === 1"><span class="ico-global ico-estimate-middle"></span></div>
+  <div class="ui-g-2 contentCenter flex_ pl-20" *ngIf="sellerCompany.grade === 2"><span class="ico-global ico-estimate-bad"></span></div>
+  <div class="ui-g-4" style="position: relative">
+    <div style="opacity: 0;" *ngIf="!sellerCompany?.is_sys && sellerCompany.content">{{sellerCompany.content}}</div>
+    <div style="opacity: 0;" class="estimate-reply" *ngIf="sellerCompany.reply">
+      [ 我的回复 ]：{{sellerCompany.reply.content}}
+    </div>
+    <div class="estimate-info">
+      <div *ngIf="sellerCompany?.is_sys">系统自动评价</div>
+      <div *ngIf="!sellerCompany?.is_sys && sellerCompany.content">{{sellerCompany.content}}</div>
+      <div class="estimate-reply" *ngIf="sellerCompany.reply">
+        [ 我的回复 ]：{{sellerCompany.reply.content}}
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-2 contentCenter flex_">
+    {{sellerCompany?.company_name}}
+  </div>
+  <div class="ui-g-3 contentCenter flex_">
+    {{sellerCompany?.goods.title}}
+  </div>
+  <div class="ui-g-1 contentCenter flex_">
+    <a class="reply-btn" *ngIf="sellerCompany.status === 0" (click)="showReply(sellerCompany.id)" href="javascript:void(0)">回复</a>
+    <span *ngIf="sellerCompany.status === 1">已关闭回复</span>
+  </div>
+  <div class="reply-box ui-g-12 replyNav" *ngIf="onOff&&sellerCompany.id===currentReplying">
+    <form class='replyNav' action="" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+      <div class="form-group">
+              <textarea formControlName="reply"
+                        class="reply-box-top"
+                        name=""
+                        id=""
+                        cols=""
+                        rows=""
+                        placeholder="请输入回复内容" maxlength="200" (keyup)="onKeyup($event)"></textarea>
+      </div>
+      <div class="reply-box-bottom clearfix">
+        <button type="submit" class="pull-right submit-btn">提交回复</button>
+        <span class="pull-right promts mr-10" style="height: 36px;line-height: 36px;">还可以输入{{descriptionLength}}字</span>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="ui-g">
+  <div class="ui-g-12 pull-right">
+    <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                 [first]="pagination.currentPage * pagination.perPage-1"
+                 [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                 (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+  </div>
+</div>

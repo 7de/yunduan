@@ -1,0 +1,206 @@
+.increasedCenter {
+  //max-width: 1200px;
+  height: 100%;
+  margin: -20px auto 0;
+}
+
+.itemAdd {
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  //padding: 30px 55px 0 55px;
+  padding: 30px 55px 0 30px;
+}
+
+.increasedCenter .itemAdd .title {
+  font-size: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-indent: 20px;
+  color: #333;
+  font-weight: 400;
+  border-left: 5px solid #aa2426;
+}
+.naviga-crumbs {
+  margin-top: 20px;
+}
+
+.uploading {
+  margin-left: -20px;
+}
+
+.inputed {
+  width: 240px;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+  height: 34px;
+}
+
+.shop-type {
+  margin-top: 15px;
+}
+
+.shop-type .select {
+  width: 240px;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+  height: 34px;
+}
+
+.titleone .right {
+  margin-left: 28px;
+}
+
+.titleone {
+  width: 5%;
+  text-align: right;
+}
+.affiche-con {
+  padding-right: 6px;
+}
+
+.shop-price {
+  margin-top: 15px;
+}
+
+.shop-img {
+  margin-top: 15px;
+}
+
+.imgUpload-coneds {
+  width: 156px;
+  height: 110px;
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+  z-index: 3;
+  float: left;
+  position: relative;
+}
+
+.imgTwo {
+  margin-left: 10px;
+}
+
+.shop-service {
+  margin-top: 20px;
+  position: relative;
+}
+
+.textareas {
+  padding-left: 75px;
+}
+
+.textareas {
+  width: 700px;
+  padding: 0px;
+  border-radius: 5px;
+}
+
+.wrap-nav {
+  width: 0;
+  height: 0;
+}
+
+.textarea-top {
+  width: 100%;
+  height: 34px;
+  border-top: 1px solid #c7c7c7;
+  border-right: 1px solid #c7c7c7;
+  border-left: 1px solid #c7c7c7;
+  background-color: #fafafa;
+}
+
+.referral {
+  height: 256px;
+  width: 100%;
+  padding-top: 10px;
+  resize: none;
+  padding-left: 12px;
+  outline: none;
+  border: 1px solid #c7c7c7;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  position: relative;
+}
+
+.backed {
+  color: #77B2EA;
+}
+
+.publish {
+  width: 100%;
+  margin-bottom: 26px;
+}
+.submit-btn {
+  margin-left: 22%;
+}
+
+input::-webkit-input-placeholder {
+  　　color: #b2b2b2;
+}
+
+input:-moz-placeholder {
+  　　color: #b2b2b2;
+}
+
+input::-moz-placeholder {
+  　　color: #b2b2b2;
+}
+
+input:-ms-input-placeholder {
+  　　color: #b2b2b2;
+}
+
+.imgOne {
+  position: relative;
+}
+
+.help-block {
+  position: absolute;
+  left: 5%;
+  bottom: -9%;
+  color: #ee3737;
+  font-size: 14px
+}
+
+.shop-step-info-uploadimg {
+  width: 240px;
+  height: 145px;
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+  z-index: 3;
+  position: relative;
+}
+
+.addImg {
+  top: -23%;
+  left: 0%;
+}
+
+.arrowd {
+  cursor: pointer;
+}
+
+.delete {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right:11px;
+  cursor: pointer;
+}
+
+.float-left {
+  position: relative;
+  padding: 0;
+  margin-left: -6px;
+}
+
+._flex {
+  display: -webkit-box;   /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;      /* Firefox 17- */
+  display: -webkit-flex;  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;     /* Firefox 18+ */
+  display: -ms-flexbox;   /* IE 10 */
+  display: flex;          /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+}

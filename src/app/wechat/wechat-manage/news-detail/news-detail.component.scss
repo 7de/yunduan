@@ -1,0 +1,146 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+
+.wrap{
+  padding: 30px;
+}
+.title {
+  width: 100%;
+  font-size: 16px;
+}
+
+//信息回复
+.reply-info {
+  padding-top: 15px;
+  textarea.form-control {
+    border: 1px solid $border-gray;
+    outline: none;
+    resize: none;
+    margin-bottom: 15px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  textarea.form-control:focus {
+    border-color: #119dee
+  }
+  .btn {
+    width: 106px;
+    background-color: $link-color;
+    border: 1px solid $border-gray;
+    margin-bottom: 8px;
+    outline: none;
+    padding: 5px 12px;
+  }
+  .btn-orange {
+    color: $link-color;
+    border-color: $theme-orange;
+    background-color: $theme-orange;
+    margin-right: 15px;
+  }
+  .btn:focus {
+    outline: none;
+  }
+  .btn:hover {
+    border-color: #dadbe0;
+    background-color: #e7e7eb;
+  }
+  .btn-orange:hover {
+    border-color: $btn-orange-hover;
+    background-color: $btn-orange-hover;
+  }
+  .btn-orange[disabled] {
+    border-color: $btn-orange-disabled;
+    background-color: $btn-orange-disabled;
+  }
+}
+
+.btn {
+  width: 106px;
+  background-color: $link-color;
+  border: 1px solid $border-gray;
+  margin-bottom: 8px;
+  outline: none;
+  padding: 5px 12px;
+}
+.btn-orange {
+  color: $link-color;
+  border-color: $theme-orange;
+  background-color: $theme-orange;
+  margin-right: 15px;
+}
+.btn:focus {
+  outline: none;
+}
+.btn:hover {
+  border-color: #dadbe0;
+  background-color: #e7e7eb;
+}
+.btn-orange:hover {
+  border-color: $btn-orange-hover;
+  background-color: $btn-orange-hover;
+}
+.btn-orange[disabled] {
+  border-color: $btn-orange-disabled;
+  background-color: $btn-orange-disabled;
+}
+
+//时间
+.time {
+  width: 10%;
+  margin-left: 100px;
+}
+
+.content {
+  font-size: 12px;
+  margin-top: 10px;
+  word-break: break-all;
+}
+
+.info {
+  width: 40%;
+  margin-left: 10px;
+}
+
+.users-info {
+  border: 1px solid #e7e7eb;
+  border-radius: 5px;
+}
+
+.pd-15 {
+  padding: 15px;
+}
+h5{
+  padding:0;
+  margin:0;
+}
+
+.text{
+  resize: none;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  outline:none;
+  width:100%;/*自动适应父布局宽度*/
+  overflow:auto;
+  word-break:break-all;/*在ie中解决断行问题(防止自动变为在一行显示，主要解决ie兼容问题，ie8中当设宽度为100%时，文本域类容超过一行时，当我们双击文本内容就会自动变为一行显示，所以只能用ie的专有断行属性“word-break或word-wrap”控制其断行)*/
+}
+
+.text:focus{
+    border-color: #119dee;
+}
+
+.text-tip{
+  border:1px solid #ccc;
+  border-top:0;
+  height: 36px;
+  line-height: 36px;
+  margin-top: -5px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding-right: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #d0d0d0;
+}

@@ -1,0 +1,71 @@
+<app-heads-single [bgc]="true"></app-heads-single>
+<div class="wrap-1200">
+  <div class="ui-g ui-g-nopad">
+    <app-head-wallet [panelTitle]="['收支明细']" [users]="users"></app-head-wallet>
+  </div>
+</div>
+<div class="layout">
+  <div class="wrap-1200">
+    <div class="ui-g ui-g-nopad" style="height: 50px;line-height: 50px">
+      <div class="ui-g-12 ui-g-nopad fs-12 color-666 head-title">
+        您的位置：<span class="pdr-10" [routerLink]="['/buyer/personal']">个人中心</span>&gt;<span class="pdl-10 pdr-10" [routerLink]="['/buyer/personal/set']">设置</span>&gt;<span class="pdl-10 pdr-10" [routerLink]="['/buyer/personal/set/account']">支付账号管理</span>&gt;<span [routerLink]="['/buyer/personal/set/account']" class="pdl-10">我的钱包</span>
+      </div>
+    </div>
+    <div class="bg-white" style="min-height: 790px;">
+      <div class="ui-g ui-g-nopad">
+        <div class="ui-g-6 ui-g-nopad">
+          <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" method="get">
+            <div class="ui-g-4 ui-g-nopad" style="padding-left: 0;position: relative;">
+              <p-calendar [readonlyInput]="true" formControlName="start" placeholder="起始时间"
+                          dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                          yearRange="1990:2030" [locale]="cn" styleClass="form-calendar form-calendar-my" [maxDate]="form.value.end" >
+              </p-calendar><span class="ico-calendar"></span>
+
+            </div>
+            <div class="ui-g-1 ui-g-nopad" style="height: 36px;line-height: 36px;color: #B3B3B3;text-align: center"><em>--</em></div>
+            <div class="ui-g-4 ui-g-nopad" style="position: relative;">
+              <p-calendar [readonlyInput]="true" formControlName="end" placeholder="结束时间"
+                          dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                          yearRange="1990:2030" [locale]="cn" styleClass="form-calendar border form-calendar-my" [minDate]="form.value.start"></p-calendar><span class="ico-calendar"></span>
+            </div>
+            <div class="ui-g-1 ui-g-nopad" style="margin-left: 20px;width: 100px;">
+              <button  class="search search-my" type="submit">搜索</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="ui-g mt-20 mb-20">
+        <div class="ui-g-12 detail-sort ui-g-nopad">
+          类别：<a [routerLink]="['/buyer/detail']" [queryParams]="{'pay_type': ''}" routerLinkActive="active">全部</a><em>|</em><a [routerLink]="['/buyer/detail']" [queryParams]="{'pay_type':3}" routerLinkActive="active" >充值</a><em>|</em><a [routerLink]="['/buyer/detail']" [queryParams]="{'pay_type':1}" routerLinkActive="active">支出</a><em>|</em><a [routerLink]="['/buyer/detail']" [queryParams]="{'pay_type':5}" routerLinkActive="active">退款</a><em>|</em><a [routerLink]="['/buyer/detail']" [queryParams]="{'pay_type':4}" routerLinkActive="active">提现</a>
+        </div>
+      </div>
+      <div class="ui-g wallet-detail">
+        <p-dataTable [value]="detailList" styleClass="custom-dataTable wallet-detail-table" emptyMessage="暂无数据">
+          <p-column header="时间">
+            <ng-template pTemplate="body" let-data="rowData">
+              <span>{{data.created_at | datetime:'time'}}</span>
+            </ng-template>
+          </p-column>
+          <p-column>
+            <ng-template pTemplate="header"><span>服务名称</span></ng-template>
+            <ng-template let-data="rowData" pTemplate="body">
+              <span *ngIf="data.goods !== null">{{data.goods.title}}</span>
+              <span *ngIf="data.goods === null">-</span>
+            </ng-template>
+          </p-column>
+          <p-column field="money" header="金额(元)"></p-column>
+          <p-column field="pay_type_txt" header="类别"></p-column>
+        </p-dataTable>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                       [first]="pagination.currentPage * pagination.perPage-1"
+                       [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                       (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer [bgc]="1"></app-footer>

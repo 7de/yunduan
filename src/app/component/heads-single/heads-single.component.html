@@ -1,0 +1,69 @@
+<header class="tops" [ngClass]="bgc?'bg-white':'bg-gray'">
+  <div class="wrap-1200 clearfix tops-box">
+    <div class="boxs-left">
+      <span>欢迎来到云端·私募荟</span>
+      <span [routerLink]="['/site/home']" class="head-home"><span class="ico-global ico-home mr-5"></span>官网首页</span>
+    </div>
+    <div class="boxs-right">
+      <ul>
+        <li (click)="typeCompany()" *ngIf="companyType === '0'">
+          <a>管理后台</a><em  class="border">|</em>
+        </li>
+          <!-- 基金公司 -->
+          <li (mouseenter)="onOff = true" (mouseleave)="onOff = false" *ngIf="companyType==='0'" class="login-name">
+            <span [routerLink]="['/buyer/personal/index/indexs']">
+              <img style="border-radius: 50%" width="20" height="20" src="{{buyerInfo?.avatar | image:20}}" alt="">
+            </span>
+            <a [routerLink]="['/buyer/personal/index/indexs']" class="text-center">{{buyerInfo?.username}}</a>
+            <span [ngClass] = "(onOff == true)? 'caret rotate': 'caret'"></span><em style="position: relative;top: 2px;" class="border">|</em>
+            <ul class="dropDown-box" *ngIf="onOff">
+              <li><a (click)="personal()"><i class="ico-global ico-info"></i>个人中心</a></li>
+              <li [routerLink]="['/buyer/personal/index/order']" [queryParams]="{'type':''}"><a><i class="ico-global ico-order"></i>我的订单</a></li>
+              <li [routerLink]="['/buyer/personal/index/video-material']"><a><i class="ico-global ico-class"></i>我的课堂</a></li>
+              <li><a (click)="logout()"><i class="ico-global ico-loginOut"></i>退出登录</a></li>
+            </ul>
+          </li>
+          <!-- 服务商有设置店铺名称时，显示店铺名称 -->
+          <li (mouseenter)="onOff = true" (mouseleave)="onOff = false" *ngIf="companyType==='1'" class="login-name">
+            <span [routerLink]="['/seller/personal/index/indexs']">
+              <img style="border-radius: 50%" width="20" height="20" src="{{(sellerBaseInfo?.logo_url?sellerBaseInfo?.logo_url:sellerInfo?.avatar) | image:20}}" alt="">
+            </span>
+            <a [routerLink]="['/seller/personal/index/indexs']" class="text-center">{{sellerInfo?.username}}</a>
+            <span [ngClass] = "(onOff == true)? 'caret rotate': 'caret'"></span><em style="position: relative;top: 2px;" class="border">|</em>
+            <ul class="dropDown-box" *ngIf="onOff">
+              <li><a (click)="personal()"><i class="ico-global ico-info"></i>个人中心</a></li>
+              <li [routerLink]="['/seller/personal/index/goods']" [queryParams]="{'is_down': ''}"><a><i class="ico-global ico-store"></i>我的店铺</a></li>
+              <li [routerLink]="['/seller/personal/index/video-material']"><a><i class="ico-global ico-class"></i>我的课堂</a></li>
+              <li><a (click)="logout()"><i class="ico-global ico-loginOut"></i>退出登录</a></li>
+            </ul>
+          </li>
+          <li *ngIf="!companyType">
+            <a [routerLink]="['/login/user-login']" class="audits active">登录</a><em style="padding-left: 7px;" class="border">/</em>
+          </li>
+          <li *ngIf="!companyType">
+            <a style="padding-left: 2px;" [routerLink]="['/login/register']" class="">免费注册</a><em class="border"> |</em>
+          </li>
+          <li>
+            <a (click)="message()"><i class="ico-global ico-message"></i>信息&nbsp;(<span class="color-red">{{mailNum?mailNum:0}}</span>)</a><em class="border">|</em>
+          </li>
+        <li style="position: relative;color: #777;" (mouseenter)="upDown = true" (mouseleave)="upDown = false">
+          <a>帮助中心</a><span [ngClass] = "(upDown == true)? 'caret rotate': 'caret'"></span><em class="border"> |</em>
+          <ul class="help-center" *ngIf="upDown">
+            <li><a [routerLink]="['/site/help']">新手指南</a></li>
+            <li><a [routerLink]="['/site/help/synopsis']">关于云集优服</a></li>
+            <li><a [routerLink]="['/site/help/classroom-synopsis']">关于云课堂</a></li>
+          </ul>
+        </li>
+        <li style="position: relative;color: #777;" (mouseenter)="appUpDown = true" (mouseleave)="appUpDown = false">
+          <a>手机APP</a><span [ngClass] = "(appUpDown == true)? 'caret rotate': 'caret'"></span>
+          <div *ngIf="appUpDown" class="app-code">
+            <div>
+              <img src="../../../assets/images/app-code.png" alt="">
+            </div>
+            <p style="height: 12px;line-height: 12px;" class="fs-12 text-center mr-10">APP下载</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

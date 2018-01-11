@@ -1,0 +1,81 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;" href="javascript:history.go(-1)">&lt;&nbsp;返回</a>&nbsp;&nbsp;投资产品管理-导入数据
+  </div>
+</div>
+
+
+<div class="wrap">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs custom-tabs">
+        <li [ngClass]="{'active':action !== 1}"><a (click)="currAction(0)">现业绩数据导入</a></li>
+        <li [ngClass]="{'active':action === 1}"><a (click)="currAction(1)">过往业绩数据导入</a></li>
+      </ul>
+      <div class="mt-30">
+        <form class="form-horizontal form custom-form" [formGroup]="formGroup" (submit)="importData(formGroup)">
+          <div class="clearfix">
+            <div class="row">
+              <label class="col-sm-4 control-label">托管机构：</label>
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <select class="form-control" formControlName="type">
+                    <option value="0">银行</option>
+                    <option value="1">证券公司</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-4 control-label">时间跨度：</label>
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <select class="form-control" formControlName="date">
+                    <option value="1">天</option>
+                    <option value="2">周</option>
+                    <option value="3">月</option>
+                    <option value="4">年</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="row">
+              <label class="col-sm-4 control-label">上传文件：</label>
+              <div class="col-sm-8">
+                <div class="form-group">
+                    <span class="uploadbox">
+                      <input type="text" class="form-control" [placeholder]="excelFileName || '只能上传 Excel 文件'" *ngIf="action !== 1">
+                      <input type="text" class="form-control" [placeholder]="zipFileName || '只能上传 Zip 文件'" *ngIf="action === 1">
+                      <input type="hidden" [ngModel]="excelFileId" formControlName="file_id" *ngIf="action !== 1">
+                      <input type="hidden" [ngModel]="zipFileId" formControlName="file_id" *ngIf="action === 1">
+                      <input type="file" (change)="uploadFile($event)" *ngIf="action !== 1"
+                             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                      <input type="file" (change)="uploadFile($event)" *ngIf="action === 1"
+                             accept=".zip,application/octet-stream,application/zip,application/x-zip,application/x-zip-compressed">
+                      <span class="form-ico"><i class="ico-global ico-file-gray"></i></span>
+                    </span>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="!foundationId">
+              <label class="col-sm-4 control-label">产品名称：</label>
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <select class="form-control" formControlName="foundation_id">
+                    <option *ngFor="let product of products.items" [value]="product.id">{{product.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center mt-30">
+            <button type="submit" class="submit-btn">导入数据</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

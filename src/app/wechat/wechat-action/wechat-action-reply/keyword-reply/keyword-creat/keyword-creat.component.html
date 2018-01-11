@@ -1,0 +1,97 @@
+<h3 class="title"><a href="javascript:history.go(-1)">&lt;返回</a>关键词回复-<span *ngIf="!keywordId">添加</span><span *ngIf="keywordId">修改</span>关键词回复</h3>
+<div class="create-box">
+  <form *ngIf="!keywordId" class="create-form" [formGroup]="formModel" (submit)="onSubmit(formModel)">
+    <div class="form-row">
+      <div class="form-group">
+        <em>组名：</em>
+        <input type="text" class="form-control" placeholder="请输入组名" formControlName="group_name"/>
+      </div>
+    </div>
+    <h5 class="title">关键词：(支持多个关键词，Enter键确认)</h5>
+    <div class="form-group">
+      <p-chips formControlName="keyword"></p-chips>
+    </div>
+    <h5 class="title title2">回复内容 </h5>
+    <div class="form-group">
+      <div class="radio-box">
+        <label>
+          <input type="radio" formControlName="msg_type" value="2">
+          <i class="ico-global ico-wechat-edior"></i>
+          <span>文本</span>
+        </label>
+        <label>
+          <input type="radio" formControlName="msg_type" value="3">
+          <i class="ico-global ico-wechat-img"></i>
+          <span>图片</span>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <ng-container [ngSwitch]="this.formModel.get('msg_type').value">
+        <div *ngSwitchCase="2">
+          <textarea class="form-control" rows="8" placeholder="请填写内容，为空则不发送消息" formControlName="msg_content"></textarea>
+        </div>
+        <div class="imgUpload" *ngSwitchCase="3" >
+          <div class="imgUpload-con">
+            <app-img-upload (imgEvent)="imgMethod($event)" [previewImg]="imgSrc"></app-img-upload>
+            <input type="hidden" name="msg_content" formControlName="msg_content" ngModel="{{imgSrc}}" >
+          </div>
+          <p class="express-box">图片文件大小不大于2M</p>
+        </div>
+        <div class="clearfix" [ngClass]="{'has-error': errorsAdd}">
+          <span class="help-block" *ngIf="errorsAdd">{{errorsAdd}}</span>
+        </div>
+      </ng-container>
+    </div>
+     <div class="form-group mt-20">
+       <button type="submit" class="btn btn-orange">保存</button>
+     </div>
+  </form>
+  <form *ngIf="keywordId>0" class="create-form" [formGroup]="formDataModel" (submit)="onSubmitData(formDataModel)">
+    <div class="form-row">
+      <div class="form-group">
+        <em>组名：</em>
+        <input type="text" class="form-control" placeholder="请输入组名" formControlName="group_name" ngModel="{{dataKey?.group_name}}"/>
+      </div>
+    </div>
+    <h5 class="title">关键词：(支持多个关键词，Enter键确认)</h5>
+    <div class="form-group">
+      <p-chips formControlName="keyword" [(ngModel)]="keywords"></p-chips>
+    </div>
+    <h5 class="title title2">回复内容</h5>
+    <div class="form-group">
+      <div class="radio-box">
+        <label>
+          <input type="radio" value="2" name="type" (change)="radioChange($event)"
+                 [checked]="dataKey?.message.msg_type === 2">
+          <i class="ico-global ico-wechat-edior"></i>
+          <span>文本</span>
+        </label>
+        <label>
+          <input type="radio" value="3" name="type" (change)="radioChange($event)"
+                 [checked]="dataKey?.message.msg_type === 3">
+          <i class="ico-global ico-wechat-img"></i>
+          <span>图片</span>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div *ngIf="dataKey?.message.msg_type === 2">
+        <textarea class="form-control" rows="7" placeholder="请填写回复的内容" [(ngModel)]="dataKey?.message.msg_content" formControlName="msg_content">{{dataKey?.message.msg_content}}</textarea>
+      </div>
+      <div class="imgUpload" *ngIf="dataKey?.message.msg_type === 3">
+        <div class="imgUpload-con">
+          <app-img-upload (imgEvent)="imgMethod($event)" [previewImg]="dataKey?.message.msg_content"></app-img-upload>
+          <input type="hidden" formControlName="msg_content" ngModel="{{dataKey?.message.msg_content}}">
+        </div>
+        <p class="express-box">图片文件大小不大于2M</p>
+      </div>
+      <div class="clearfix" [ngClass]="{'has-error': errors}">
+        <span class="help-block" *ngIf="errors">{{errors}}</span>
+      </div>
+    </div>
+    <div class="form-group mt-20">
+      <button type="submit" class="btn btn-orange" [disabled]="!dataKey">保存</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,175 @@
+@import "../../../../../../../assets/sass/mixin";
+@import "../../../../../../../assets/sass/variables";
+@import "../../../../../../../assets/sass/public";
+
+.frame{
+  padding-bottom:40px;
+  .frame-header{
+    border-bottom:1px solid #e5e5e5;
+  }
+  .frame-con{
+    border-top:1px solid #e5e5e5;
+    padding-top:10px;
+  }
+}
+
+.crumbs {
+  padding:17px 0;
+  font-size: 12px;
+  a{
+    padding-right:5px;
+    color: #666;
+    @include transition(.25s);
+    &:hover{
+      color: nth($newRed,2);
+    }
+  }
+}
+
+.order-content{
+  padding:20px;
+}
+
+.order-top{
+  padding:20px 40px 30px;
+  border-bottom:1px dashed #ccc;
+  .title{
+    font-size:16px;
+    color: #333;
+    em{
+      font-size:24px;
+      color: nth($newRed,2);
+    }
+  }
+  .order-top-state{
+    button{
+      width: 100px;
+    }
+  }
+}
+.order-bottom{
+  padding:30px 40px 0;
+  &.order-bottom-rate{
+    li{
+      position: relative;
+      border-left: 1px solid #eee;
+      &:before{
+        content: '';
+        position: absolute;
+        top:12px;
+        left:-5px;
+        width:9px;
+        height:9px;
+        background-color: #fff;
+        border:2px solid nth($newRed,2);
+        border-radius: 50%;
+        z-index: 2;
+      }
+      &:last-child{
+        border-left:none;
+        &:after{
+          content: '';
+          position: absolute;
+          top:0;
+          left:0;
+          width: 10px;
+          height:20px;
+          border-left: 1px solid #eee;
+        }
+      }
+    }
+  }
+  li{
+    padding-bottom:20px;
+  }
+  .order-detail-info{
+    padding:20px 30px;
+    font-size: 12px;
+    border:1px solid #eee;
+    background-color: #fafafa;
+    >.ui-g-nopad{
+      padding-bottom:10px;
+    }
+    >.ui-g-1{
+      width:10%;
+    }
+    >.ui-g-10{
+      margin-left:15px;
+    }
+  }
+}
+
+/* 修改价格--弹框 */
+.table{
+  font-size: 12px;
+  border:1px solid #eee;
+  th{
+    background-color: #f7f7f7;
+    color: #666;
+    font-weight: normal;
+    border-bottom: none;
+    padding: 7px 15px;
+  }
+  td{
+    border-top:none;
+    padding:15px;
+    color: #333;
+  }
+}
+.table>tbody>tr>td,.table>thead>tr>th{
+  vertical-align: middle;
+}
+.price-box{
+  line-height: 34px;
+  label{
+    font-weight: normal;
+  }
+  .form-control{
+    width:200px;
+    box-shadow: none;
+    &:focus{
+      border-color: nth($blue,1);
+    }
+    &.error{
+      border-color: nth($newRed,2);
+    }
+  }
+  .err-red{
+    margin-top:2px;
+  }
+}
+
+/* 申请取消订单--弹窗 */
+
+.application{
+  position: relative;
+  >.ui-g-3{
+    line-height: 34px;
+  }
+  textarea{
+    box-shadow: none;
+    resize: none;
+    padding:5px 10px 10px;
+  }
+  .limit{
+    position: relative;
+    .limit-num{
+      position: absolute;
+      bottom:3px;
+      right: 7px;
+    }
+  }
+}
+
+.red{
+  color: nth($red,2)
+}
+.gray{
+  color: nth($gray,7)
+}
+.err-red{
+  color: nth($red,3);
+}
+.blue{
+  color: nth($blue,1);
+}

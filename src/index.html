@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>云端私募荟-云集优服</title>
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="云集优服">
+  <meta name="description" content="云集优服是云端互联网（深圳）有限公司倾力打造的一个开放式私募基金资源整合错配平台。平台依托互联网+技术为私募基金提供基于PC端、微信端、H5微传单技术后台管理系统支持，致力于规范私募合格运营、合规展业、品牌传播、线下路演、投资引导、资源错配、渠道管理等与私募基金运营相关的一揽子专业、贴心技术咨询服务。">
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://libs.baidu.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/loading.css">
+  <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://libs.baidu.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .full-compatable {
+      margin: 20px 0;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      color: #444;
+      font-size: 14px;
+      display: none;
+    }
+
+    .full-compatable > p {
+      display: inline-block;
+      background-color: #f8d291;
+      padding: 0 20px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+    }
+
+    em {
+      font-style: normal;
+    }
+  </style>
+
+</head>
+<body>
+<div id="tip" class="full-compatable">
+  <p>你可以正常使用<em>云端私募服务管理系统</em>，但是为了获得更好的体验，我们推荐你使用
+    <a href="http://chrome.360.cn/" target="_blank">360极速浏览器</a>/
+    <a
+      href="https://oss.aliyuncs.com/towerfiles/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%20%E7%A8%B3%E5%AE%9A%E7%89%88_23.0.1271.64.exe"
+      target="_blank">谷歌浏览器</a>
+    等更棒的浏览器
+  </p>
+</div>
+<script type="text/javascript">
+
+  /**
+   * 判断浏览器版本
+   */
+//  function myBrowser() {
+//    var userAgent = navigator.userAgent;
+//    var isOpera = userAgent.indexOf('Opera') > -1;
+//    var isIE = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1 && !isOpera;
+//    var isFF = userAgent.indexOf('FireFox') > -1;
+//    var isSafari = userAgent.indexOf('Safari') > -1;
+//
+//    if (isIE) {
+//      var reIE = new RegExp('MSIE (\\d+\\.\\d+);');
+//      reIE.test(userAgent);
+//      var fIEVersion = parseFloat(RegExp['$1']);
+//      if (fIEVersion <= 10) {
+//        var tipsHTML = document.getElementsByClassName('full-compatable')[0];
+//        tipsHTML.style.display = "block";
+//      }
+//    }
+//  }
+
+  //  myBrowser();
+
+  function isIe() {
+    if (("ActiveXObject" in window)) {
+      var tipsHTML = document.getElementsByClassName('full-compatable')[0];
+      tipsHTML.style.display = "block";
+    }
+//    console.log(("ActiveXObject" in window));
+  }
+  isIe();
+</script>
+<app-root>
+  <div class="free-loading main-loading free-yellow">
+    <div class="loader circle-round-fade small">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</app-root>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<div class="hot">
+  <div class="hot-title">
+    热门推荐
+  </div>
+  <div class="hot-list" *ngFor="let hot of hotList, let idx = index">
+    <div class="hot-list-item"><span *ngIf="idx === 0" class="ico-global ico-1 ico-size mr-10"></span><span *ngIf="idx === 1" class="ico-global ico-2 mr-10 ico-size"></span><span *ngIf="idx === 2" class="ico-global ico-3 ico-size mr-10"></span><span *ngIf="idx === 3" class="ico-global ico-4 mr-10"></span><span *ngIf="idx === 4" class="ico-global ico-5 mr-10"></span><a target="_blank" [routerLink]="['/site/news/details', hot?.id]">{{hot?.title}}</a></div>
+  </div>
+</div>

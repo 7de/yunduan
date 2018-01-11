@@ -1,0 +1,76 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+
+h3.title {
+  width: 100%;
+  font-size: 16px;
+  padding: 30px;
+}
+
+.list {
+  padding: 0 30px;
+  overflow: hidden;
+  li {
+    float: left;
+    width: 352px;
+    border: 1px solid $border-gray;
+    margin-right: 30px;
+    h5 {
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background-color: #f4f5f9;
+    }
+    .list-con {
+      padding: 35px 30px 30px;
+      text-align: center;
+      p {
+        text-align: left;
+        margin-bottom: 25px;
+        span {
+          padding-left: 10px;
+        }
+        em {
+          font-style: normal;
+        }
+      }
+      .gray {
+        color: #999;
+      }
+      .blue {
+        color: #459ae9;
+      }
+      .black {
+        color: #222;
+      }
+      .btn-orange {
+        width: 120px;
+        height: 32px;
+        color: $link-color;
+        background-color: $theme-orange;
+        outline: none;
+        padding: 0;
+        a {
+          display: block;
+          color: #fff;
+          width: 120px;
+          height: 32px;
+          line-height: 32px;
+        }
+        a:hover {
+          text-decoration: none;
+        }
+      }
+      .btn-orange:hover {
+        border-color: $btn-orange-hover;
+        background-color: $btn-orange-hover;
+      }
+      .btn-orange[disabled] {
+        border-color: $btn-orange-disabled;
+        background-color: $btn-orange-disabled;
+      }
+    }
+  }
+
+}
+

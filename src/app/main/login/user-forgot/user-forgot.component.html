@@ -1,0 +1,110 @@
+<app-register-header>
+  <ng-container ngProjectAs="log-title">用户密码</ng-container>
+  <ng-container ngProjectAs="log-right">
+    还不是会员?
+    <a routerLink="/login/register" style="color: #d21c28">立即注册</a>
+  </ng-container>
+</app-register-header>
+<div class="login-content">
+  <div class="wrap-1200 panel">
+    <div class="panel-body">
+      <ul class="progress-box">
+        <li [ngClass]="{'active': !checkFormHidden }">
+          <div class="tip">
+            <span>
+              <em>1</em>
+            </span>
+            <b>身份验证</b>
+          </div>
+        </li>
+        <li [ngClass]="{'active': !forgotFormHidden }">
+          <div class="tip">
+            <span>
+              <em>2</em>
+            </span>
+            <b>重置密码</b>
+          </div>
+        </li>
+        <li [ngClass]="{'active': !completeHidden }">
+          <div class="tip">
+            <span>
+              <em>3</em>
+            </span>
+            <b>完成</b>
+          </div>
+        </li>
+      </ul>
+      <!-- 获取验证码 -->
+      <form [formGroup]="checkForm" class="form form-forgot" (submit)="checkCode(checkForm)" *ngIf="!checkFormHidden">
+        <div class="row">
+          <label class="col-xs-3 col-md-3 form-label">
+            <span class="red">*</span>手机号码：</label>
+          <div class="col-xs-9 col-md-9 form-group">
+            <input type="text" placeholder="请输入手机号码" name="phone" autocomplete="off" formControlName="phone">
+          </div>
+        </div>
+        <div class="row">
+          <label class="col-xs-3 col-md-3 form-label">
+            <span class="red">*</span>图形验证码：</label>
+          <div class="col-xs-9 col-md-9 form-group clearfix">
+            <input type="text" placeholder="图形验证码" name="code" formControlName="captchacode" autocomplete="off" class="pull-left" style="width:118px;"
+            />
+            <div (click)="sendCaptchacode()" class="code-btn captcha-code pull-left" style="width:100px;">
+              <img style="width: 100%;height: 100%;" [src]="sendCaptchaUrl" alt="图形验证码" />
+            </div>
+            <span (click)="sendCaptchacode()" class="code-tip pull-left">看不清，换一张</span>
+          </div>
+        </div>
+        <div class="row">
+          <label class="col-xs-3 col-md-3 form-label">
+            <span class="red">*</span>短信验证码：</label>
+          <div class="col-xs-9 col-md-9 form-group clearfix">
+            <input type="text" placeholder="请输入短信验证码" name="code" autocomplete="off" formControlName="code" style="width:206px;">
+            <button (click)="sendCode(checkForm.value)" type="button" class="code-btn" style="width:117px;" [disabled]="(!checkForm.controls['phone'].valid) && !sendCodeDisabled">{{sendCodeButton}}
+            </button>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-xs-9 col-md-9 col-md-offset-3 col-xs-offset-3">
+            <button type="submit" class="btn btn-red">下一步</button>
+          </div>
+        </div>
+      </form>
+      <!-- 设置密码 -->
+      <form [formGroup]="forgotForm" class="form form-forgot" (submit)="resetPassword(forgotForm)" *ngIf="!forgotFormHidden">
+        <div class="row">
+          <label class="col-xs-3 col-md-3 form-label">
+            <span class="red">*</span>设置密码：</label>
+          <div class="col-xs-9 col-md-9 form-group">
+            <input type="password" placeholder="请输入新密码" name="password" autocomplete="off" formControlName="password">
+          </div>
+        </div>
+        <div class="row">
+          <label class="col-xs-3 col-md-3 form-label">
+            <span class="red">*</span>确认密码：</label>
+          <div class="col-xs-9 col-md-9 form-group">
+            <input type="password" placeholder="请再输入一次" name="repeat_password" autocomplete="off" formControlName="repeat_password">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-xs-9 col-md-9 col-md-offset-3 col-xs-offset-3">
+            <button type="submit" class="btn btn-red">下一步</button>
+          </div>
+        </div>
+      </form>
+      <!-- 完成 -->
+      <div class="end" *ngIf="!completeHidden">
+        <p>
+          <span>您的密码已重置成功！</span>
+        </p>
+        <button type="button" class="btn btn-red" [routerLink]="['/login']">登录</button>
+      </div>
+      <p class="logintip">
+        <a [routerLink]="['/login']">返回登录</a>
+      </p>
+
+
+    </div>
+  </div>
+</div>
+<app-footer [bgc]="1"></app-footer>

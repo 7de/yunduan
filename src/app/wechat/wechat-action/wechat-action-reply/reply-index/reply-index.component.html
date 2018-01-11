@@ -1,0 +1,26 @@
+<h3 class="title">自动回复</h3>
+<div class="action-box">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="reply clearfix">
+        <li>
+          <a [routerLink]="['/wechat/wechat-action/reply/reply-index','attention']" routerLinkActive="active">关注自动回复</a>
+        </li>
+        <li>
+          <a [routerLink]="['/wechat/wechat-action/reply/reply-index/info']" routerLinkActive="active">消息自动回复</a>
+        </li>
+        <li>
+          <a [routerLink]="['/wechat/wechat-action/reply/reply-index/keyword']" routerLinkActive="active">关键字自动回复</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+

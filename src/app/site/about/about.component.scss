@@ -1,0 +1,140 @@
+.about-box{
+  width: 100%;
+}
+.ourselves{
+  width: 100%;
+  min-height: 500px;
+  padding-bottom: 90px;
+}
+.newimg {
+  width: 100%;
+  height: 200px;
+}
+.ourselves .ourselves-bigbox{
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 30px;
+
+}
+.ourselves .ourselves-bigbox h3{
+  border-left: 4px #b02022 solid;
+  height: 22px;
+  color: #333;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.ourselves .ourselves-bigbox p{
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 22px;
+}
+.ourselves .ourselves-bigbox .target{
+  max-width: 880px;
+  height: 170px;
+  margin: 0 auto;
+
+}
+.ourselves .ourselves-bigbox .target{
+  margin-top: 50px;
+}
+.target .target-top{
+  height: 72px;
+  margin-left: 45px;
+}
+.target .target-top .idea{
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  float: left;
+}
+.target .target-top .thread{
+  border-top: 1px solid #ccc;
+  width: 34%;
+  float: left;
+  margin-top: 35px;
+}
+.target .target-top .objective{
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  float: left;
+}
+.target .target-top .advantage{
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  float: left;
+}
+.target .target-centre{
+  width: 100%;
+  height: 42px;
+}
+.target .target-centre .company-idea{
+  width: 72px;
+  font-size: 18px;
+  color: #333;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-left: 46px;
+  float: left;
+}
+.target .target-centre .company-object{
+  float: left;
+  font-size: 18px;
+  color: #333;
+  margin-left: 32%;
+  font-weight: 400;
+  margin-top: 20px;
+}
+.target .target-centre .company-advantage{
+  float: right;
+  font-size: 18px;
+  color: #333;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+.target .target-bottom{
+  width: 100%;
+  margin-top: 20px;
+  height: 40px;
+}
+.target .target-bottom .resource{
+  width: 136px;
+  margin-left: 20px;
+  float: left;
+}
+.target .target-bottom .resource p{
+  color: #666;
+  font-size: 14px;
+  margin: 0px;
+}
+.target .target-bottom .creation{
+  width: 255px;
+  margin-left:18%;
+  float: left;
+}
+.target .target-bottom .creation p{
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  margin: 0px;
+}
+.target .target-bottom .industrys{
+  width: 160px;
+  float: right;
+}
+.target .target-bottom .industrys p{
+  color: #666;
+  font-size: 14px;
+  margin: 0px;
+}
+.margins{
+  margin-top: 19px;
+  margin-left: 19px;
+}

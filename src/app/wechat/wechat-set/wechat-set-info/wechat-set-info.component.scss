@@ -1,0 +1,37 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+
+ul,li{
+  list-style: none;
+  padding: 0;
+}
+h3,h5{
+  margin:0;
+}
+h3.title{
+  width:100%;
+  font-size:16px;
+  padding:30px;
+}
+.info-con{
+  padding:0 30px;
+  .table{
+    border:1px solid #e7e7eb;
+    border-top:none;
+  }
+  table>tbody>tr>td, .table>tbody>tr>th{
+    padding:15px;
+    border-color:#e7e7eb;
+  }
+  .table>tbody>tr>th{
+    color:#8d8d8d;
+    font-weight:normal;
+  }
+  .table>tbody>tr>th.black{
+    color: #222;
+  }
+  em{
+    font-style: normal;
+  }
+
+}

@@ -1,0 +1,485 @@
+// 弹性布局
+._flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display:-webkit-flex;
+  display: -ms-flexbox;
+  display:flex;
+  align-items: baseline;
+}
+.flex_ {
+  display: -webkit-box;
+  display: -moz-box;
+  display:-webkit-flex;
+  display: -ms-flexbox;
+  display:flex;
+}
+// 公用代码
+.hides {display: none;}
+.shows {display: block;}
+
+// 成为服务商最外层div
+.data-certificate-wrap {
+  width: 100%;
+  background-color: #fff;
+  justify-content: center;
+  padding-bottom: 52px;
+  .naviga-Nav {
+    width: 1050px;
+    min-width: 1050px;
+    height:52px;
+    margin:0 auto;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    -moz-align-items: center;
+    .goBack {
+      font-size: 14px;
+      color: #9B1C22;
+    }
+    .naviga-Text {
+      color: #2E2E2E;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+  // 内容的容器-1200
+  .main-wrap {
+    width: 100%;
+    background-color: #FFFFFF;
+    // 主体的内容
+    .Content-container {
+      padding-bottom: 40px;
+      .realname-auth-wrap {
+        width:100%;
+        // 主体的内容
+        .Content-container-warp {
+          width:100%;
+          .subject-title-nav {
+            width:100%;
+            height: 51px;
+            border-bottom:1px solid #EFEFEF;
+            align-items: center;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            -moz-align-items: center;
+            .title-Tag {
+              width:5px;
+              height:24px;
+              margin-right:15px;
+              background-color: #9B1C21;
+            }
+            .subject-title {
+              width: 273px;
+              height: 24px;
+              display: inline-block;
+              font-size: 24px;
+              line-height: 24px;
+              color:#2E2E2E;
+            }
+          }
+          .shop-type-wrap {
+            width:100%;
+            .shop-type-title {
+              width:100%;
+              height:14px;
+              font-size:14px;
+              font-width:bold;
+              color:#020202;
+              margin-top:30px;
+              margin-bottom:20px;
+              align-items: center;
+              -webkit-align-items: center;
+              -ms-align-items: center;
+              -moz-align-items: center;
+              .min-Title {
+                font-size:16px;
+                color:#2E2E2E;
+              }
+            }
+            .aptitude-Nav {
+              margin-bottom:30px;
+            }
+            .shop-type-list {
+              width:100%;
+              padding:0;
+              li {
+                list-style:none;
+                margin-left:34px;
+                margin-top:14px;
+                display: inline-block;
+                width: 400px;
+                label {
+                  margin-bottom:0px;
+                  position:relative;
+                  font-size:14px;
+                  color: #5D5D5D;
+                  color: #5D5D5D;
+                  font-size: 14px;
+                }
+                input[type=checkbox] {
+                  vertical-align:text-bottom;
+                  margin-bottom:2px;
+                  margin-bottom:-2px\9;
+                  margin-right:6px;
+                }
+              }
+              li:nth-child(even) {
+                margin-left:50px;
+                width:560px;
+              }
+            }
+          }
+        }
+      }
+      .require-Term {
+        display: block;
+        width: 7px;
+        height: 6px;
+        margin-left: 20px;
+        margin-right: 5px;
+        color: #AA2423;
+        margin-top: -8px;
+      }
+    }
+  }
+}
+
+// 错误的提示信息
+.error-Info {
+  color: #ee3737;
+}
+.aptitude-Nav .error-Info {
+  margin-left: 20px;
+}
+
+// 审核未通过的哪几项和原因
+.failText {
+  display: block;
+  font-size: 14px;
+  color: #ff0000;
+  margin-top: 15px;
+  margin-right: 30px;
+}
+
+// 验证状态的遮罩
+.auth-status-mask {
+  position:fixed;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  background-color: #000;
+  opacity: 0.5;
+  z-index:6;
+}
+.auth-status-wrap {
+  position: fixed;
+  width:506px;
+  height:200px;
+  left:50%;
+  top:50%;
+  background-color: #fff;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  transform:translate(-50%, -50%);
+  -ms-transform:translate(-50%, -50%);
+  -moz-transform:translate(-50%, -50%);
+  -webkit-transform:translate(-50%, -50%);
+  -o-transform:translate(-50%, -50%);
+  z-index:8;
+  .close-popup-nav {
+    width:38px;
+    height:38px;
+    position: absolute;
+    right:0;
+    top:0;
+    .close-popup {
+      width:18px;
+      height:18px;
+      position: absolute;
+      right:50%;
+      top:50%;
+      background: url('../../../assets/images/webadmin-icon.png') no-repeat -169px -154px;
+      transform:translate(50%, -50%);
+      -ms-transform:translate(50%, -50%);
+      -moz-transform:translate(50%, -50%);
+      -webkit-transform:translate(50%, -50%);
+      -o-transform:translate(50%, 50%);
+    }
+  }
+  .popup-title {
+    display: block;
+    margin-top:56px;
+    height:20px;
+    line-height:20px;
+    font-size:18px;
+    font-weight:bold;
+    color:#3D3D3D;
+    text-align: center;
+  }
+  .status-sub-bnt {
+    margin:0 auto;
+    margin-top:37px;
+    height:45px;
+    justify-content: center;
+    div:nth-child(1) {
+      width:120px;
+      height:45px;
+      background-color: #DCDCDC;
+      -webkit-border-radius:3px;
+      -moz-border-radius:3px;
+      border-radius:3px;
+      font-size:14px;
+      color:#6E6E6E;
+      line-height:45px;
+      text-align: center;
+      margin-right:30px;
+    }
+    div:nth-child(2) {
+      width:120px;
+      height:45px;
+      background-color: #952024;
+      -webkit-border-radius:3px;
+      -moz-border-radius:3px;
+      border-radius:3px;
+      font-size:14px;
+      color:#ffffff;
+      line-height:45px;
+      text-align: center;
+    }
+  }
+}
+
+// 上传合法经营资格文件标题
+.manage-qualification-title {
+  width:100%;
+  font-size:14px;
+  margin-bottom:30px;
+  .manage-qualification-subtitle {
+    height:15px;
+    color:#020202;
+    font-weight:bold;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    -moz-align-items: center;
+  }
+  .manage-qualification-tips {
+    color:#5D5D5D;
+  }
+}
+
+// 上传合法经营的相关文件和资料
+.qualification-file-wrap {
+  margin-top:8px;
+  .service-agreement , .qualification-certificate {
+    width:100%;
+    height:155px;
+    //margin-bottom:60px;
+    margin-left:34px;
+    label {
+      width:170px;
+      margin-left:23px;
+      margin-bottom:0px;
+      position:relative;
+      input[type=checkbox] {
+        vertical-align: text-bottom;
+        margin-bottom: 20px;
+        margin-bottom: -2px \9;
+        margin-right: 9px;
+      }
+    }
+    .operating-information-nav {
+      display: inline-block;
+      width:245px;
+      height:155px;
+    }
+    .lawful-operation-icon {
+      display: block;
+      width:245px;
+      height:155px;
+      /*background:url('../../../assets/images/lawful-operation-icon.png');*/
+      background:url('../../../assets/images/id-opposite.png');
+      background-size:100%;
+      background-repeat:no-repeat;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .data-pictures {
+      position:relative;
+      width: 245px;
+      height: 155px;
+      margin-right:30px;
+    }
+  }
+  .qualification-certificate {
+    margin-bottom:60px;
+  }
+}
+// 提交按钮的颜色
+.sub-color {
+  background:#AA2527 !important;
+}
+
+// 提交的按钮
+.sub-Btn {
+  //text-align:center;
+  margin-top:40px;
+  .submit-btn{
+    width: 90px;
+    height: 30px;
+    line-height: 20px;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-align: center;
+    background-color: #C1C1C1;
+    margin-left: 20px;
+    border-radius: 3px;
+  }
+  .submit-btn[disabled]{
+    background-color:#dda7a8;
+    color: rgba(255,255,255,.4);
+  }
+}
+
+// 遮罩层
+.wrap-mask {
+  position: absolute;
+  width:100%;
+  height: 1025px;
+  opacity: 0;
+  z-index: 66;
+}
+
+/* 1.4.1版本的样式修改 */
+.nav-menus {
+  width:100%;
+  height:38px;
+  line-height:38px;
+  border-top:1px solid #ECECEC;
+  border-bottom:1px solid #ECECEC;
+  font-size:16px;
+  color:black;
+  padding-left:10px;
+  background-color: #F6F6F6;
+}
+.company-nav {
+  width:100%;
+  height:38px;
+  margin-top:30px;
+  margin-bottom:10px;
+}
+.left-nav {
+  //width:80px;
+  height:36px;
+  line-height:36px;
+  margin-left:10px;
+  color:#2E2E2E;
+  font-size:14px;
+  .require-Terms {
+    color: #EA3A3A;
+  }
+  .min-Title {
+    display: inline-block;
+    font-size: 14px;
+    color: #2E2E2E;
+    text-align: left;
+    margin-left: 2px;
+  }
+}
+.right-nav {
+  position: relative;
+  input {
+    margin-left:15px;
+    width:340px;
+    height:36px;
+    line-height:36px;
+    line-height:36px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    font-size:14px;
+    color:#909090;
+    background-color: #FFFFFF;
+    border:1px solid #E6E6E6;
+    padding-left:12px;
+    outline:none;
+    padding-right: 45px;
+  }
+  .company-cons {
+    margin-left:15px;
+    //width:340px;
+    height:36px;
+    line-height:36px;
+    line-height:36px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    font-size:14px;
+    color:#333;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 930px;
+  }
+  .char-leng {
+    position: absolute;
+    right: 3%;
+    top: 0%;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    color: #909090;
+  }
+}
+.main-wrap .realname-auth-wrap .store-navs {
+  .require-Term {
+    color: #AA2423;
+  }
+  .min-Title {
+    display: inline-block;
+    font-size: 14px;
+    color: #2E2E2E;
+    text-align: left;
+    margin-left: 2px;
+    font-weight: normal;
+  }
+  .store-types {
+    font-size:12px;
+    color:#909090;
+  }
+  .mt-18 {
+    margin-top:18px;
+  }
+}
+.company-error {
+  margin-top: -15px;
+  margin-left: 102px;
+}
+.err-border {
+  border: 1px solid #EE3737 !important;
+}
+.service-agreement img {
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  border: 1px solid #C7C7C7;
+}
+.shop-type-lists {
+  .itmess {
+    margin-top: 8px;
+  }
+  .succes-bgs {
+    font-size:14px;
+    color:#EA3A3A;
+  }
+  .content-texts {
+    margin-left:6px;
+    font-size:14px;
+    color:#666;
+  }
+}

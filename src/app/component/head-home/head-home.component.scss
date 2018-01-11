@@ -1,0 +1,23 @@
+/*登录导航头部*/
+.header{
+  height: 90px;
+  background-color: #fff;
+}
+
+.header-left{
+  width:100%;
+  height: 100%;
+  margin-top:21px;
+  .head-title{
+    height: 24px;
+    line-height: 20px;
+    font-size: 24px;
+    color: #666;
+    margin-top:13px;
+    padding-left: 15px;
+    border-left: 1px solid #b3b3b3;
+  }
+  .logo{
+    margin-right:17px;
+  }
+}

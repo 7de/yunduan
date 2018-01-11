@@ -1,0 +1,117 @@
+.left-backgroudcolor{
+  background-color:#fcfcfe;
+}
+.table-bordered tr td{
+  padding-left: 25px;
+}
+.table-bordered{
+  width: 100%;
+}
+.table-bordered tr .td-content{
+  padding-left: 0px;
+  text-align: center;
+}
+
+a{
+  cursor:pointer;
+}
+.confirm-modification{
+  margin-top: 40px;
+}
+.sunmint{
+  width: 130px;
+  height: 45px;
+  margin: 0 auto;
+}
+.confirm-modification .nameoneleft button{
+  width: 130px;
+  height: 45px;
+  display: inline-block;
+  line-height: 45px;
+  text-align: center;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  background-color: #aa2425;
+  color: #fff;
+  font-family: "微软雅黑";
+  border-radius: 5px;
+}
+.confirm-modification .nameoneleft button:hover{
+  background-color: #bb5051;
+}
+.confirm-modification .nameoneleft button:active{
+  background-color: #971416;
+}
+.nameoneleft{
+  padding-left: 20px;
+  color: #444444;
+}
+input::-webkit-input-placeholder {
+  　　color:#b2b2b2;
+}
+input:-moz-placeholder {
+  　　color:#b2b2b2;
+}
+input::-moz-placeholder {
+  　　color:#b2b2b2;
+}
+input:-ms-input-placeholder {
+  　　color:#b2b2b2;
+}
+
+input:active{
+  border: none;
+  outline: none;
+  border-bottom:1px solid #62a8ea;
+}
+input:focus{
+  outline: none;
+  border-bottom:1px solid #62a8ea;
+}
+.inputed{
+  width: 100%;
+  border: none;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  position: relative;
+  border-bottom: 1px solid #ebebec;
+}
+.passwords{
+   padding: 0px;
+   margin-left: -20px;
+   margin-top: 45px;
+}
+.nameone{
+  height: 72px;
+  padding: 0px;
+  margin: 0px;
+}
+.nametwo{
+  height: 72px;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 75px;
+}
+.namethree{
+  height: 72px;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 75px;
+}
+.nameoneleft{
+  padding: 0px;
+  margin: 0px;
+}
+.lefts{
+  float: left;
+}
+.hint{
+  color: #ee3737;
+}
+.hitned{
+  border-bottom: 1px solid #ee3737;
+}
+.boxbig{
+  padding-left: 20px;
+}

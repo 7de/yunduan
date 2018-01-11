@@ -1,0 +1,258 @@
+@import "../../../../../../assets/sass/mixin";
+@import "../../../../../../assets/sass/variables";
+
+.con{
+  border:1px solid #eee;
+}
+.order-title {
+  border-bottom: 1px solid #eee;
+  padding: 13px 0 14px;
+  span {
+    display: block;
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    border-left: 4px solid nth($newRed, 2);
+    padding-left: 15px;
+  }
+}
+.order-con{
+  padding:20px;
+}
+.mt-5{
+  margin-top:5px;
+}
+.search-box{
+  font-size: 12px;
+  .search-select{
+    height: 30px;
+    padding: 0 0 0 5px;
+    background-color: #fcfcfc;
+    border:1px solid #dcdcdc;
+    border-right:none;
+    outline: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  .form-group{
+    margin-bottom: 0;
+    margin-right:13px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  .form-ico{
+    position: relative;
+    >input{
+      padding-right:20px;
+    }
+    >.fa{
+      color: #b3b3b3;
+      font-size: 14px;
+      position: absolute;
+      top:28%;
+      right:5px;
+    }
+  }
+  .search-input,.search-time,.search-selectOth{
+    display: inline-block;
+    height: 30px;
+    width: 200px;
+    font-size: 12px;
+    padding: 0 10px;
+    border:1px solid #dcdcdc;
+    outline: none;
+    &:focus{
+      border-color:nth($blue,1)
+    }
+  }
+  .search-input{
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  .search-label{
+    font-weight: normal;
+    height:30px;
+    line-height: 30px;
+    font-size: 12px;
+    margin-bottom:0;
+  }
+  .delimiter{
+    height: 30px;
+    line-height: 30px;
+    padding: 0 8px;
+  }
+  .search-selectOth{
+    width: 147px;
+    padding:0 0 0 10px;
+    @include borderRadius;
+  }
+  button{
+    width: 60px;
+    height: 30px;
+    color: #333;
+    font-size: 12px;
+    border:1px solid #ccc;
+    background-color:#f5f5f5;
+    outline: none;
+    @include borderRadius;
+    @include transition(.25s);
+    &:hover{
+      color: nth($newRed,2);
+      border-color: nth($newRed,2);
+      background-color: #fff;
+    }
+  }
+}
+
+.order-list{
+  li{
+    overflow: hidden;
+    font-size: 12px;
+    margin-bottom:20px;
+    color: #999;
+  }
+  .border{
+    border:1px solid #eee;
+  }
+  .header{
+    height:34px;
+    line-height: 34px;
+    background-color: #f7f7f7;
+    padding:0 20px;
+  }
+  .content{
+    padding:10px 20px;
+    @include flexBox;
+    @include alignItems;
+    a{
+      color: #333;
+      &:hover{
+        color: nth($newRed,2);
+      }
+    }
+    .shop-name{
+      outline: none;
+      @include flexBox;
+      @include alignItems;
+      >.ui-g-9{
+        @include transition(.25s);
+      }
+      a:hover{
+        color: nth($newRed,2);
+      }
+    }
+  }
+  .oper-btn{
+    display: inline-block;
+    width:80px;
+    height:30px;
+    color: #333;
+    border:1px solid #ccc;
+    background-color: #f5f5f5;
+    padding:0;
+    outline: none;
+    @include borderRadius;
+    @include transition(.25s);
+    &:hover{
+      color: nth($newRed,2);
+      border-color: nth($newRed,2);
+      background-color: #fff;
+    }
+  }
+
+  .no-shelf{
+    position: relative;
+    .no-shelf-dialog{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 60px;
+      background-color: rgba(255,255,255,.6);
+    }
+    .ico-noShelf{
+      width:48px;
+      height:23px;
+      background-position: -150px -423px;
+    }
+  }
+
+}
+
+/* 修改价格--弹框 */
+.table{
+  table-layout:fixed;
+  font-size: 12px;
+  border:1px solid #eee;
+  th{
+    background-color: #f7f7f7;
+    color: #666;
+    font-weight: normal;
+    border-bottom: none;
+    padding: 7px 15px;
+  }
+  td{
+    border-top:none;
+    padding:15px;
+    color: #333;
+  }
+}
+.table>tbody>tr>td,.table>thead>tr>th{
+  vertical-align: middle;
+}
+.price-box{
+  line-height: 34px;
+  label{
+    font-weight: normal;
+  }
+  .form-control{
+    width:200px;
+    box-shadow: none;
+    &:focus{
+      border-color: nth($blue,1);
+    }
+    &.error{
+      border-color: nth($newRed,2);
+    }
+  }
+  .err-red{
+    margin-top:2px;
+  }
+}
+
+/* 申请取消订单--弹窗 */
+
+.application{
+  position: relative;
+  >.ui-g-3{
+    line-height: 34px;
+  }
+  textarea{
+    box-shadow: none;
+    resize: none;
+    padding:5px 10px 10px;
+  }
+}
+.red{
+  color: nth($red,1);
+}
+.err-red{
+  color: nth($red,3);
+}
+.gray{
+  color: nth($gray,7);
+}
+.blue{
+  color: nth($blue,1);
+}
+.btn-red{
+  display: inline-block;
+  font-size: 12px;
+  margin-top:5px;
+  padding: 2px 4px;
+  color: #fff;
+  border:1px solid nth($red,1);
+  background-color: nth($red,1);
+}
+

@@ -1,0 +1,25 @@
+<ul class="list clearfix">
+  <li *ngFor="let goods of goodsData">
+    <a  target="_blank" [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId:(goods.goods?goods.goods?.id:goods.id), shopId:goods.shop?.id}">
+      <img src="{{(goods.goods?goods.goods?.first_img:goods.first_img) | image:220}}" alt="" width="220" height="220">
+    </a>
+    <div class="info mt-10">
+      <a class="goods-title" [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{'shopId': goods.shop?.id,goodsId:(goods.goods?goods.goods?.id:goods.id)}" target="_blank">{{goods.goods?goods.goods?.title:goods.title}}</a>
+      <div class="ui-g mt-5">
+        <div class="ui-g-6 ui-g-nopad">
+          <b class="moneys">￥{{goods.goods?goods.goods?.price:goods.price}}</b>
+        </div>
+        <div class="ui-g-6 ui-g-nopad text-right">
+          成交量：<span class="numbers">{{goods.goods?goods.goods?.sales_num:goods.sales_num}}</span>
+        </div>
+      </div>
+      <div class="shop-name mt-10" *ngIf="!shopId">
+        <a [routerLink]="['/buyer/facilitator/store']" [queryParams]="{shopId: goods.shop?.id}" target="_blank">{{goods.shop['name']}}</a>
+      </div>
+    </div>
+  </li>
+</ul >
+<div class="text-center mt-20" *ngIf="!goodsData?.length">
+  <i class="ico-global ico-noGoods"></i>
+  <p class="gray">暂无服务...</p>
+</div>

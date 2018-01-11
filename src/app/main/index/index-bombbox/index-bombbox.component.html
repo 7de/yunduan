@@ -1,0 +1,54 @@
+<div class="manage-bomb" [hidden]="!onOff">
+  <div class="manage-bomb-con">
+    <div class="row modal-head">
+      <div class="col-md-4" style="height: 60px;font-size: 16px;padding-left: 0;">
+        发布您的需求
+      </div>
+      <div  (click)="closeBomb(1)" style="padding: 0;" class="col-md-1 col-md-offset-7">
+        <span style="margin-left: 20px;" class="fa fa-close"></span>
+      </div>
+    </div>
+    <form [formGroup]="formModel" (submit)="onSubmit()" class="form-horizontal custom-bomb-form">
+      <div class="row" style="margin-bottom: 23px;">
+        <label class="col-sm-3 control-label">需求类型：</label>
+        <div style="padding-left: 0;" class="col-sm-8">
+          <input type="hidden" class="form-control" formControlName="demand_category_id" value="{{demandId}}">
+          <input style="padding-left: 0;font-weight: 600" type="text" class="form-control" disabled value="{{demandTitle}}">
+        </div>
+      </div>
+      <div class="row mb-5" style="margin-top:-15px;">
+        <label class="col-sm-3 control-label">姓名：</label>
+        <div class="col-sm-8">
+          <div class="form-group custom-group">
+            <input type="text" class="form-control" formControlName="username" placeholder="请输入名字">
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <label class="col-sm-3 control-label">手机号码：</label>
+        <div class="col-sm-8">
+          <div class="form-group custom-group">
+            <input type="text" class="form-control" name="tel" formControlName="tel" placeholder="请输入手机号码">
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <label class="col-sm-3 control-label">需求：</label>
+        <div class="col-sm-8">
+          <div class="form-group custom-group">
+            <textarea class="form-control" formControlName="demand" maxlength="300" rows="3"
+                      placeholder="请输入需求内容，300字符以内" (keyup)="onKeyup($event)"></textarea>
+          </div>
+          <span class="promts">{{descriptionLength}}/<i style="color: #B3B3B3;font-style:normal;">300</i></span>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 11px;margin-top: 20px;">
+        <div class="col-sm-12 text-center">
+          <button type="submit" class="submit-btn">发布</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+

@@ -1,0 +1,52 @@
+<div class="create-content mt-10 color-666 ui-g-12 ui-g-nopad">
+  <form [formGroup]="serialForm" (submit)="onSubmit(serialForm)">
+    <div class="ui-g-12 ui-g-nopad">
+      <div class="ui-g-3 ui-g-nopad label-div">
+        <label class="fs-14">
+          <span class="color-red">*</span>连载标题：</label>
+      </div>
+      <div class="ui-g-9 ui-g-nopad form-group input-div">
+        <label class="hide">连载标题</label>
+        <input type="text" formControlName="serialTitle" maxlength="30" class="form-control" />
+        <app-string-length class="limit-num" [limitLength]="30" [dataProvider]="serialForm.get('serialTitle').value || ''"></app-string-length>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad" style="padding: 20px 0;">
+      <div class="ui-g-3 ui-g-nopad label-div">
+        <label class="fs-14">
+          <span class="color-red">*</span>设置封面：</label>
+      </div>
+      <div class="ui-g-9 ui-g-nopad">
+        <app-lives-img-upload [previewImg]="imgSrc" (result)="returnRes($event);errors['img']=false;"></app-lives-img-upload>
+        <span class="help-block help-padding" *ngIf="errors['img']">请上传封面图片</span>
+        <span class="fs-12 color-999" style="padding-top: 10px;display: inline-block;">文件大小≤2M，格式支持：JPEG、PNG</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad" style="padding-bottom: 20px;">
+      <div class="ui-g-3 ui-g-nopad label-div" style="text-align: right; padding-right: 14px;">
+        <label class="fs-14">
+          <span class="color-red">*</span>类型：</label>
+      </div>
+      <div class="ui-g-9 ui-g-nopad serial-select form-group">
+        <label class="hide">类型</label>
+        <p-dropdown [options]="options" formControlName="selectSerialName" [(ngModel)]="serialForm.selectSerialName" [style]="{'width':'280px', 'border-radius': '3px', 'border': '1px solid #e6e6e6'}"
+          placeholder="请选择"></p-dropdown>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+      <div class="ui-g-3 ui-g-nopad label-div">
+        <label class="fs-14">
+          <span class="color-red">*</span>连载简介：</label>
+      </div>
+      <div class="ui-g-9 ui-g-nopad serial-textarea form-group">
+        <label class="hide">连载简介</label>
+        <textarea formControlName="serialDes" maxlength="200" class="form-control"></textarea>
+        <app-string-length class="limit-num" [limitLength]="200" [dataProvider]="serialForm.get('serialDes').value || ''"></app-string-length>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad create-serial-btn">
+      <button *ngIf="!mediaId" type="submit" class="btn btn-defaults color-white">创建新连载</button>
+      <button *ngIf="mediaId" type="submit" class="btn btn-defaults color-white">保存</button>
+    </div>
+  </form>
+</div>

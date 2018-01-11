@@ -1,0 +1,62 @@
+input,select{
+  height:36px;
+  box-shadow: none;
+  border:1px solid #ebebec;
+}
+
+input{
+  outline: none;
+}
+input:focus{
+  border-color: #119dee;
+}
+.form-control:focus{
+  box-shadow: none;
+}
+.mb-5{
+  margin-bottom: 5px;
+}
+
+
+
+//运行状态样式
+.tips{
+  display: inline-block;
+  width:14px;
+  height:14px;
+  background: url('../../../../assets/images/tips.png');
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.tip{
+  color: #b3b3b3;
+  padding-left: 0;
+  position: relative;
+  top: -8px;
+}
+
+//弹框内容样式
+.modal-title{
+  height: 60px;
+  line-height:60px;
+  font-size: 16px;
+  padding-left: 0;
+}
+
+.modal-body{
+  padding:30px 50px;
+}
+
+.fa-remove:before, .fa-close:before, .fa-times:before{
+  content: '';
+}
+.my-btn{
+  margin-top: 24px;
+  height: 44px;
+}
+
+//当项目是已清盘时,禁止提交
+.submit-btn[disabled]{
+  background-color:#dda7a8;
+  color: rgba(255,255,255,.4);
+}

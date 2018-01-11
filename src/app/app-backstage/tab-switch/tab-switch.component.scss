@@ -1,0 +1,386 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+body {
+  background: #f2f2f2;
+}
+
+:host /deep/ {
+  .left-menu {
+    //@include position(absolute, $topMenuHeight, '', 0, 0);
+    width: $leftMenuWidth;
+    .ripple {
+      background: rgba(0, 0, 0, .3);
+    }
+  }
+
+  .left-menu {
+    background: $link-color;
+  }
+  .footer {
+    padding: 10px 0;
+    text-align: center;
+    color: #ccc;
+    background-color: #FAFAFA;
+    @include transition(.25s);
+    p {
+      width: 100%;
+    }
+  }
+
+  .main-layout-container {
+    //@include position(absolute,$topMenuHeight,0,$footerHeight, $leftMenuWidth: 0, $right: 0);
+    background: $backgroundGray;
+    padding: 20px;
+    border-left: 1px solid #e6e6e6;
+    margin-left: 220px;
+    min-height: 830px;
+  }
+
+  .left-menu,
+  .main-layout-container {
+    @include transition(.25s);
+  }
+
+  .page-title {
+    padding: .75rem .75rem .75rem 0;
+  }
+
+  .page-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 .75rem;
+
+    .page-tab {
+      display: flex;
+    }
+
+    & > div {
+      padding-left: 0;
+      padding-right: 0;
+      align-items: center;
+      .page-tab {
+        display: inline-block;
+      }
+    }
+  }
+
+  .page-current-title {
+    font-size: .9rem;
+  }
+
+  .page-current-icon {
+    font-size: 1rem;
+    padding-right: .25rem;
+  }
+
+  .left-menu {
+    .accordion-item {
+      width: 100%;
+      position: relative;
+    }
+
+    .accordion-toggle,
+    .accordion-item {
+      background: transparent;
+      border: none;
+    }
+
+    .accordion-toggle {
+      border: none;
+      padding: .5rem 0 .5rem .8rem;
+      @include transition(.25s);
+      cursor: pointer;
+    }
+
+    .accordion-toggle i,
+    .left-menu-item li i {
+      font-size: .8rem;
+    }
+
+    .accordion-toggle .accordion-toggle-title,
+    .left-menu-item li .accordion-toggle-title {
+      padding-left: 1rem;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .left-menu-item li a {
+      color: #fff;
+    }
+
+    .accordion-content {
+      color: $link-color;
+      background: rgba(0, 0, 0, 0.03);
+
+      .accordion-inner {
+        padding: 0 !important;
+      }
+    }
+
+    .accordion-toggle:hover {
+      > a {
+        background-color: $theme-orange;
+      }
+    }
+
+    .accordion-inner ul li {
+      list-style: none;
+
+      & > a {
+        padding-left: 2.5rem;
+        transition: all .25s;
+      }
+
+      &:hover > a {
+        background-color: rgba(0, 0, 0, .2);
+      }
+    }
+
+    .accordion-inner ul li > a,
+    .left-menu-item li > a {
+      display: block;
+      padding: .5rem 0 .5rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .left-menu-item li > a {
+      padding: 20px 0 15px 30px;
+      white-space: nowrap;
+      font-size: 16px;
+      color: #666;
+      border-left: 4px solid #3A3747;
+      //border-bottom: 1px solid $borderColorGray;
+      > .ico-global {
+        top: -2px;
+      }
+
+    }
+    /* manage-logo */
+    .foundation-logo {
+      padding: 10px 0;
+      text-align: center;
+      border-bottom: 1px solid $borderColorGray;
+    }
+    li a.active, li a:hover {
+      background-color: #494755;
+      border-left-color: nth($red, 1);
+    }
+
+    li a cite,
+    li a em {
+      font-style: normal;
+    }
+
+    li a em {
+      padding-left: .25rem;
+      font-size: .6rem;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .left-scroll {
+      width: 100%;
+      @include position(absolute, 0, '', 0, 0);
+    }
+    .scroll-box {
+      @include position(absolute, 0, 0, 0, 0);
+    }
+  }
+
+  .free-table-cell-inner {
+    font-size: .7rem;
+  }
+
+  .code-clone {
+    position: absolute;
+    right: 1rem;
+    top: .2rem;
+    opacity: 0;
+    z-index: 100;
+    transition: opacity .3s;
+  }
+
+  .free-code {
+    position: relative;
+    code {
+      max-height: 22.5rem;
+      overflow-y: auto;
+    }
+  }
+
+  .free-tab:hover .code-clone {
+    opacity: .7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  [ng-reflect-lang]:after {
+    position: absolute;
+    top: 1.15rem;
+    right: 2rem;
+    color: rgba(255, 255, 255, .5);
+    opacity: .8;
+    font-size: .65rem;
+  }
+  code:not(.hljs) {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 2px;
+  }
+
+  .main-container .accordion-toggle {
+    background: nth($red, 1);
+  }
+
+  .toggle-btn free-hamburge {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    span {
+      background: $link-color;
+    }
+  }
+
+  @media (max-width: 900px) {
+    :host /deep/ {
+      .left-menu {
+        left: -#{$leftMenuWidth};
+      }
+      .main-layout-container {
+        left: 0;
+      }
+    }
+    :host-context(.free-mini) {
+      .left-menu,
+      .aside-header,
+      .main-layout-container {
+        left: 0;
+      }
+    }
+  }
+
+  .left-menu-item > li:hover {
+    background: #fff;
+    border-left-color: nth($red, 1);
+  }
+  .left-menu-item {
+    padding-left: 0;
+  }
+}
+
+.users {
+  float: left;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.userleft {
+  float: left;
+  display: block;
+  font-size: 18px;
+  margin-right: 10px;
+  margin-top: 13px;
+}
+
+.moblies {
+  display: block;
+  font-size: 14px !important;
+  margin-top: 0 !important;
+}
+
+.apps {
+  display: inline-block;
+  background-image: url("../../../assets/images/right.png");
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-top: 0px !important;
+}
+
+.green {
+  background-color: #70c03b;
+}
+
+.gray {
+  background-color: #5c5c5c;
+}
+
+.upapp {
+  border-radius: 2px;
+  height: 16px;
+  width: 55px;
+  line-height: 16px;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.panyname {
+  width: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+.companys {
+  margin-bottom: 10px;
+}
+
+.userone {
+  text-align: left;
+  width: 68px;
+  float: left;
+}
+
+.nocompany {
+  width: 130px;
+  margin-bottom: 6px;
+  .upapp {
+    margin-left: 4px;
+  }
+}
+
+.panylogo {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-top: 0 !important;
+  vertical-align: middle;
+}
+
+.linkCheck {
+  cursor: pointer;
+  text-decoration: none;
+  color: #999;
+}
+
+.exits a {
+  line-height: 35px;
+}
+
+
+// 改动的样式
+.ico-companyinfo {
+  width:16px;
+  height:15px;
+  background-position: -101px -56px;
+}
+.ico-notice {
+  width:16px;
+  height:17px;
+  background-position: -142px -55px;
+}
+.ico-feedback {
+  width:16px;
+  height:16px;
+  background-position: -122px -55px;
+}

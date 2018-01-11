@@ -1,0 +1,29 @@
+<form [formGroup]="formLogin" (ngSubmit)="onLogin(formLogin)" class="form-login">
+  <div class="row" style="margin-bottom: 30px;">
+    <label class="form-label">
+      <i class="ico-global ico-user-white"></i>
+    </label>
+    <div class="col-xs-12 col-md-12 form-group">
+      <input type="text" placeholder="请输入手机号码" name="account" formControlName="account">
+    </div>
+  </div>
+  <div class="row">
+    <label class="form-label">
+      <i class="ico-global ico-lock-white"></i>
+    </label>
+    <div class="col-xs-12 col-md-12 form-group">
+      <input type="password" placeholder="请输入密码" name="password" (focus)="errorString=false" onkeydown="boolError=false;" formControlName="password"
+        autocomplete="off">
+      <span style="color: #ee3737;display:inline-block;padding-top: 8px;" *ngIf="errorString && formLogin.value.password.length !== 0">{{errorString}}</span>
+    </div>
+  </div>
+  <div class="row form-group mt-30">
+    <button type="submit" class="btn btn-red">立即登录</button>
+  </div>
+  <p class="clearfix" style="text-align: center;">
+    <span style="margin-right: 0;">没有账号？</span>
+    <a class="register-a" [routerLink]="['/login/register']">注册</a>
+    <span>|</span>
+    <a [routerLink]="['/login/user-forgot']">忘记密码</a>
+  </p>
+</form>

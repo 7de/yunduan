@@ -1,0 +1,66 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;" (click)="toInvestedUser()">&lt;&nbsp;返回</a>&nbsp;&nbsp;查看-用户信息
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="row mt-10">
+    <div class="col-md-12">
+       <app-url-tab [items]="tabItems"></app-url-tab>
+    </div>
+  </div>
+
+  <div class="row mt-10">
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover custom-table">
+          <caption class="text-left f-weight">基本资料</caption>
+          <tbody>
+            <tr>
+              <th width="200px">姓名</th>
+              <td>{{data?.profile?.real_name}}</td>
+              <th width="200px">学历</th>
+              <td>{{data?.answer?.education}}</td>
+            </tr>
+            <tr>
+              <th width="200px">绑定手机</th>
+              <td>{{data?.phone}}</td>
+              <th width="200px">职业</th>
+              <td>{{data?.answer?.trade}}</td>
+            </tr>
+            <tr>
+              <th width="200px">身份证号码</th>
+              <td>{{data?.profile?.id_num}}</td>
+              <th width="200px">财务状况</th>
+              <td>{{data?.answer?.investment}}</td>
+            </tr>
+            <tr>
+              <th width="200px">合格投资人测评分数</th>
+              <td width="20%">{{data?.profile?.score}}</td>
+              <th width="200px">投资经验</th>
+              <td width="20%">{{data?.answer?.experience}}</td>
+            </tr>
+            <tr>
+              <th width="200px">最近投资时间</th>
+              <td>{{data?.orderNew?.order_time}}</td>
+              <th width="200px">计划投资期限</th>
+              <td>{{data?.answer?.time}}</td>
+            </tr>
+            <tr>
+              <th width="200px">历史累计投资金额(万元)</th>
+              <td>{{data?.orderMoney}}</td>
+              <th width="200px">投资目的</th>
+              <td>{{data?.answer?.aim}}</td>
+            </tr>
+            <tr>
+              <th width="200px">历史累计投资项目(个)</th>
+              <td>{{data?.orderNumber}}</td>
+              <th width="200px">承受最大投资损失</th>
+              <td>{{data?.answer?.allow}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+.mit-city-select {
+  background: #FFF;
+  position: relative;
+  //margin: -0.5rem -0.75rem;
+  .select {
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: #55595c; opacity:1;
+    }
+
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: #55595c;opacity:1;
+    }
+
+    input:-ms-input-placeholder{
+      color: #55595c;opacity:1;
+    }
+
+    input::-webkit-input-placeholder{
+      color: #55595c;opacity:1;
+    }
+    input {
+      //width: 176px !important;
+      height: 35px;
+      font-family: "微软雅黑", "Microsoft YaHei",  SimSun, "宋体", sans-serif;
+      background: transparent;
+      border: 1px solid #ebebec;
+      //padding: 0.5em 1.65em;
+      padding: 0.5em 0.835em;
+      border-radius: 0.25em;
+      display: block;
+      width: 100%;
+      font-size: 1.3rem;
+      line-height: 1.25;
+      color: #333;
+      &:disabled {
+        cursor: pointer;
+      }
+    }
+    .errorClass{
+      border-color: #EE3737;
+    }
+    .cgClass{
+      border-color: #ebebec;
+    }
+  }
+  .list-menu {
+    display: -webkit-flex;
+    display: flex;
+    position: absolute;
+    background: #FFF;
+    z-index: 9999;
+    border: 1px solid #CCC;
+    width: 400px;
+    .sub-list {
+      &:last-child {
+        ul {
+          li {
+            &:after {
+              content: '';
+            }
+          }
+        }
+      }
+      -webkit-flex: 1;
+      flex: 1;
+      max-height: 300px;
+      overflow-y: auto;
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+          position: relative;
+          cursor: pointer;
+          padding: 10px;
+          width: 100%;
+          &:after {
+            font-family: 'anticon';
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: ">";
+            display: inline-block;
+            font-size: 12px;
+            font-size: 8px \9
+          ;
+            -webkit-transform: scale(0.66666667) rotate(0deg);
+            -ms-transform: scale(0.66666667) rotate(0deg);
+            transform: scale(0.66666667) rotate(0deg);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+            zoom: 1;
+            color: rgba(0, 0, 0, 0.43);
+            position: absolute;
+            right: 15px;
+          }
+          &.active,
+          &:active,
+          &:focus,
+          &:hover {
+            background-color: #f7f7f7;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

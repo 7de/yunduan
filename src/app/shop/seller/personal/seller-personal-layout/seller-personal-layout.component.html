@@ -1,0 +1,69 @@
+<app-heads-single></app-heads-single>
+<section class="header bg-white">
+  <div class="wrap-1200 clearfix">
+    <div class="header-con clearfix">
+      <div class="ui-g ui-g-nopad">
+        <div class="header-left ui-g-6 ui-g-nopad">
+          <a routerLink="/site/home" class="logo pull-left">
+            <i class="ico-global ico-whiteLogo"></i>
+          </a>
+          <span class="pull-left head-title">个人中心</span>
+        </div>
+        <div class="ui-g-6 side-menu-list ui-g-nopad">
+          <ul class="clearfix">
+            <li routerLink="./index" routerLinkActive="active">首页</li>
+            <li routerLinkActive="active" class="set" (mouseenter)="onOff = true" (mouseleave)="onOff = false">
+              <div class="set-menu" routerLink="./set" routerLinkActive="active">设置<span class="ml-5" [ngClass] = "(onOff == true)? 'caret rotate': 'caret'"></span>
+              </div>
+              <div *ngIf="onOff" class="drop-down" style="color: #666;">
+                <div class="ui-g ui-g-nopad">
+                  <div class="ui-g-6 ui-g-nopad">
+                    <ul>
+                      <li class="menu-header">基本信息资料</li>
+                      <li [routerLink]="['/seller/personal/set/info/information']">个人信息</li>
+                      <li [routerLink]="['/seller/personal/set/realnameauth']">行业资质</li>
+                      <li [routerLink]="['/seller/personal/set/storeset']">店铺资料设置</li>
+                      <li routerLink="/seller/personal/set/course-materials">课堂资料设置</li>
+                    </ul>
+                  </div>
+                  <div class="ui-g-6 ui-g-nopad">
+                    <ul>
+                      <li class="menu-header" [routerLink]="['/seller/personal/set']">账号安全</li>
+                      <li [routerLink]="['/seller/personal/set/login-modify']">修改登录密码</li>
+                      <li [routerLink]="['/seller/personal/set/account/']">支付账号管理</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li routerLink="./message" routerLinkActive="active" (click)="mailEven()">消息中心</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="search-box">
+      <div class="ui-g ui-g-nopad goods-search">
+        <div class="ui-g-12 ui-g-nopad">
+          <form [formGroup]="form" (ngSubmit)=onSubmit(form.value)>
+            <div class="ui-g-3 ui-g-nopad" style="width: 94px;">
+              <select formControlName="type">
+                <option [value]="0">云集优服</option>
+                <option [value]="1">云课堂</option>
+              </select>
+            </div>
+            <div class="ui-g-6 ui-g-nopad" style="width: 200px;">
+              <input class="keyword" type="text" formControlName="keyword" placeholder="搜索关键词" autocomplete="off">
+            </div>
+            <div class="ui-g-3 ui-g-nopad" style="width:64px">
+              <button class="search-button" type="submit">搜索</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="main">
+  <router-outlet></router-outlet>
+</div>
+<app-footer [bgc]="2"></app-footer>

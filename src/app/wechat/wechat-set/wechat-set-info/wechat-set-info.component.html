@@ -1,0 +1,43 @@
+<h3 class="title">公众号基本信息</h3>
+<div class="info-con">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table" *ngIf="data">
+        <tr>
+          <th width="180">头像</th>
+          <td>
+            <img src="{{data?.logo_url}}" *ngIf="data.logo_url !== '-'" width="80" height="80"
+                 alt="{{data?.nickname}}log"/>
+            <img style="width: 80px;height: 80px;" *ngIf="data.logo_url === '-'"
+                 src="../../../../assets/images/default_weixin.jpg"/>
+          </td>
+        </tr>
+        <tr>
+          <th>二维码</th>
+          <td><img src="{{imageDomain}}{{data?.qrcode_url}}" width="80" height="80" alt="{{data?.nickname}}二维码"></td>
+        </tr>
+        <tr>
+          <th>名称</th>
+          <td>{{data?.nickname}}</td>
+        </tr>
+        <tr>
+          <th>类型</th>
+          <td>
+            <ng-container [ngSwitch]="data?.service_type">
+              <em *ngSwitchCase="0">订阅号</em>
+              <em *ngSwitchCase="1">由历史老帐号升级后的订阅号</em>
+              <em *ngSwitchDefault>服务号</em>
+            </ng-container>
+          </td>
+        </tr>
+        <!--<tr><th>介绍</th><td>互联网、服务</td></tr>-->
+        <tr>
+          <th class="black">微信公众平台官方管理</th>
+          <td><a href="https://mp.weixin.qq.com/" target="_blank">点击管理</a></td>
+        </tr>
+      </table>
+      <p *ngIf="!data">当前账号未授权公众号！<a [routerLink]="['/wechat/wechat-set/empower']">&nbsp;添加授权</a></p>
+    </div>
+  </div>
+</div>
+

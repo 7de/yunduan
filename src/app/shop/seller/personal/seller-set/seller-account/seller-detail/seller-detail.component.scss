@@ -1,0 +1,61 @@
+@import "../../../../../../../assets/sass/mixin";
+@import "../../../../../../../assets/sass/variables";
+
+.layout{
+  padding-bottom: 50px;
+  background-color: nth($gray,1);
+}
+.bg-white{
+  padding:30px;
+  background-color: #fff;
+}
+.ico-calendar{
+  display: inline-block;
+  width: 16px;
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  height: 15px;
+  background-image:url('../../../../../../../assets/images/calendar.png')
+}
+
+.search-my{
+  width: 60px;
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  background-color: #F5F5F5;
+  border: 1px solid #CCCCCC;
+  color: #333;
+  &:hover{
+    border-color: #EA3A3A;
+    color: #EA3A3A;
+    background-color: #fff;
+  }
+}
+
+.detail-sort{
+  color: #666;
+  em{
+    margin:0 15px;
+    color: #BBBBBB;
+  }
+  a{
+    color: #666;
+    &.active,&:hover{
+      color: #EA3A3A;
+    }
+  }
+}
+//.head-title{
+//  span{
+//    &:hover{
+//      color: #EA3A3A;
+//      cursor: pointer;
+//    }
+//    &:focus{
+//      outline: none;
+//    }
+//  }
+//}
+

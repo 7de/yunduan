@@ -1,0 +1,97 @@
+.app-video-upload-progress {
+  margin-bottom: 15px;
+  position: relative;
+  .app-video-upload-progress-detail {
+    white-space: nowrap;
+    line-height: 1.6;
+    .app-video-upload-progress-title {
+      display: inline-block;
+      width: 165px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 16px;
+    }
+  }
+  .app-video-upload-progressbar {
+    height: 25px;
+    overflow: hidden;
+    position: relative;
+    color: #ffffff;
+    .ui-progressbar-value {
+      background-color: #d21c28;
+      height: 100%;
+    }
+    .fa-remove {
+      font-size: 25px;
+      position: absolute;
+      right: 7px;
+      top: 0;
+    }
+    .app-video-upload-progress-value {
+      color: #ffffff;
+      font-size: 13px;
+      vertical-align: super;
+      position: absolute;
+      top: 0;
+      left: 7px;
+      line-height: 25px;
+    }
+  }
+}
+
+.video-con {
+  position: relative;
+  .video-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 191px;
+    height: 191px;
+    cursor: wait;
+    background-color: (0, 0, 0, .2);
+  }
+}
+
+.app-video-upload .ui-button {
+  padding: 14px 37px;
+  width: 180px;
+  height: 55px;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #d21c28!important;
+  border-radius: 6px;
+  white-space: nowrap;
+  &:hover {
+    background-color: #f44336!important;
+  }
+}
+
+.app-video-upload .ui-fileupload-choose:not(.ui-state-disabled):hover,
+.app-video-upload .ui-fileupload-choose.ui-state-focus {
+  background-color: #EEE;
+}
+
+.app-video-upload .ui-button-text-icon-left .ui-button-text {
+  padding: 0;
+  display: inline;
+}
+
+// .app-video-upload .fa-plus {
+//   width: 26px;
+//   height: 26px;
+//   background: url('/assets/images/webadmin-icon.png') no-repeat;
+//   background-position: -1px -422px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   margin-top: -26px;
+//   margin-left: -13px;
+// }
+.app-video-upload .fa-plus {
+  margin: 0;
+  position: static;
+  &::before {
+    content: "\F093"
+  }
+}

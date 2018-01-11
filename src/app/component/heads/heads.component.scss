@@ -1,0 +1,106 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+/*登录导航头部*/
+.header{
+  border-bottom: 1px solid #C71521;
+}
+.header-bigbox{
+  width:100%;
+  height: 90px;
+}
+.header-left{
+  margin-top:21px;
+}
+.header-left .logo a{
+  display:block;
+  width: 201px;
+  height: 50px;
+}
+.header .header-right{
+  line-height: 90px;
+  height: 90px;
+}
+.header .header-right li{
+  box-sizing: border-box;
+  float: left;
+  margin-left: 40px;
+  height: 100%;
+  //border-bottom: 4px solid transparent;
+}
+.header-right li a{
+  text-decoration: none;
+  font-size: 16px;
+  color:#343434;
+  height:100%;
+  display: inline-block;
+  box-sizing: border-box;
+  border-bottom: 4px solid transparent;
+}
+.header-right li a:hover{
+  color: #C71521;
+}
+.header-right li a:focus{
+  color: #C71521;
+}
+.header-right li a:active{
+  color: #C71521;
+}
+.header-right li a.active{
+  border-color: #C71521;
+}
+.header-right li .active {
+  color: #C71521;
+  border-color: #C71521!important;
+}
+.exit{
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-image: url("../../../assets/images/exit.png");
+  vertical-align: middle;
+  line-height: 14px;
+  margin-bottom: 2px;
+}
+
+
+.loginExit{
+  font-size: 14px;
+  margin-top: 1px;
+  height: 14px;
+  position:relative;
+  border-left: 1px solid #bbb;
+  padding-right: 0 !important;
+}
+.drop-down,.up-down{
+  position: absolute;
+  top: 68px;
+  left: -22px;
+  z-index:100;
+  width: 120px;
+  line-height: 44px;
+  border: 1px solid #eee;
+  border-bottom: none;
+  background-color: #FFFFFF;
+  li{
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    border-bottom:1px solid #eee;
+    &:hover{
+      cursor: pointer;
+      background-color: #F4F4F4;
+      color: #C71521;
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+.caret{
+  color: #777;
+}
+.rotate{
+  transform: rotate(-180deg);
+}

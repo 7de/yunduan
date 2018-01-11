@@ -1,0 +1,227 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+$color-primary: #fc8026;
+$color-primary-color: #333;
+$color-gray: #ccc;
+a {
+  color: #777777;
+}
+
+/* 自助系统 */
+.manage-nav {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.manage-nav li {
+  float: left;
+  width: 348px;
+  height: 178px;
+  border: 1px solid #f5f5f5;
+  margin-right: 25px;
+  margin-bottom: 30px;
+  box-shadow: 5px 5px #f5f5f5;
+  position: relative;
+}
+
+.manage-nav li a {
+  display: block;
+  padding: 19px;
+  overflow: hidden;
+}
+
+.manage-nav li a > span {
+  float: left;
+}
+
+.manage-nav li a > .img,
+.manage-nav li a > .img_other{
+  width: 140px;
+  height:140px;
+  text-align: center;
+  padding-top: 39px;
+}
+
+.manage-nav .nav-wechat > .img {
+  background-color: #46be8a;
+}
+.manage-nav .nav-wechat > .img_other {
+  background-color: #d0e5f9;
+}
+
+.manage-nav .nav-demand > .img {
+  background-color: #f2a654;
+}
+.manage-nav .nav-demand > .img_other{
+  background-color: #d0e5f9;
+}
+
+.manage-nav .nav-plane > .img {
+  background-color: #41d9d9;
+}
+
+.manage-nav li a > .text {
+  width: 45%;
+  margin-left: 7%;
+  font-size: 14px;
+  line-height: 22px;
+  color: #666;
+}
+
+.manage-nav li a > .text b {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  font-weight: normal;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.manage-nav li a > .text em {
+  font-style: normal;
+}
+
+.manage-nav li a:hover .ico-global {
+  transform: scale(1.1);
+}
+
+.manage-nav li a:hover > .text b {
+  color: #fc8026;
+}
+
+.manage-nav li:hover {
+  box-shadow: 5px 5px #ebebeb;
+}
+
+.manage-nav li a:hover .text {
+  text-decoration: none;
+}
+
+.manage-nav li.disabled a:hover .ico-global {
+  transform: scale(1);
+}
+
+.manage-nav li a:hover > .text b {
+  color: $color-primary-color;
+}
+
+.manage-nav li.disabled:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '敬请期待  即将上线';
+  width: 100%;
+  height: 100%;
+  line-height: 178px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .5)
+}
+
+/* 快捷功能 */
+.title {
+  font-size: 16px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #333;
+  padding-left: 10px;
+  border-left: 3px solid #aa2426;
+}
+
+.quick-nav {
+  overflow: hidden;
+  padding-bottom: 50px;
+  padding-left: 0;
+}
+
+.quick-nav li {
+  float: left;
+}
+
+.quick-nav li a {
+  display: block;
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  @include borderRadius;
+  background-color: #aa2426 !important;
+  margin-right: 30px;
+  text-decoration: none;
+}
+
+.quick-nav li .ico-global {
+  margin-right: 13px;
+  margin-top: -3px;
+}
+
+.quick-nav li:last-child a {
+  background-color: #7d78d9;
+}
+
+.quick-nav li a:hover {
+  opacity: .9;
+}
+
+.fa-remove:before, .fa-close:before, .fa-times:before {
+  content: '';
+}
+
+.Qcode {
+  text-align: center;
+}
+
+.Qcode > img {
+  width: 280px;
+  height: 280px;
+}
+
+.wexin {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/**
+** 没有授权btn
+ */
+.p-style {
+  color: #444444;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 32px;
+  //margin-bottom: 50px;
+}
+
+.btn-sure {
+  padding: 16px 33px;
+  background-color: #aa2425;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.btn-cancel {
+  padding: 16px 45px;
+  background-color: #e0e0e0;
+  text-decoration: none;
+}
+
+.a-color {
+  color: #fffdfe;
+}
+
+.a-border {
+  border-radius: 3px;
+}
+
+.logo-img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

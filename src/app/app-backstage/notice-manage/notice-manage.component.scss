@@ -1,0 +1,20 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+$font-title-size: 16px;
+$color-gray: #999;
+
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: $font-title-size;
+}
+
+.p-add {
+  display: inline;
+  padding-left: 10px;
+}
+

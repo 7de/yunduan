@@ -1,0 +1,72 @@
+$theme-blue: #3949ab;
+$theme-green: #138265;
+$theme-orange: #fc8026;
+$defaultFontColor: #115d8e;
+
+$backgroundBlack: #333;
+$backgroundGray: #f2f2f2;
+$borderColorGray: #e6e6e6;
+
+/* input-focus */
+$input-focus: #62a8ea;
+
+/* input-disabled */
+$input-disabled: #f7f7f7;
+$input-disabled-label: #644;
+$input-disabled-color: #66b2b2;
+
+/* btn-orange */
+$btn-orange-hover: #d46819;
+$btn-orange-disabled: #fcb37e;
+
+/* border-color gray */
+$border-gray: #ebebec;
+
+/* 星号 red */
+$theme-red: #f96868;
+
+/* red  1-暗红色，2-login红色，3-星号红色，4-1.4.0改版红*/
+$red: #aa2425 #b02022 #f96868 #c71521;
+
+/* gray 1-背景 2-背景色深点 3-input边框 4-字体灰 5-背景灰 6-边框 7-字体灰浅*/
+$gray: #f2f2f2 #f4f4f4 #ebebec #666 #ededed #dbdbdb #999;
+
+/* blue 1-主题蓝 */
+$blue: #5b9fe2;
+
+/* 1.4.1 red  1-主题红 2-字体红*/
+$newRed: #c71622 #e93b39;
+
+$leftMenuWidth: 220px;
+$leftMenuWidthOfMini: 2.5rem;
+$topMenuHeight: 68px;
+$footerHeight: 44px;
+
+$theme: (
+  green: #46be8a,
+  deepblue: #115d8e,
+  blue: #677ae4,
+  lightblue: #169e9f,
+  yellow: #fa9e0c,
+  red: #f96868,
+  purple: #6633B9,
+  orange: #f2a654,
+  brown: #8d6658,
+  cyan: #57c7d4,
+  pink: #f96197,
+  teal: #3aa99e,
+  dark: #393D49);
+
+/* reset */
+ul, li {
+  list-style: none;
+}
+
+ul, li, h2, h3, h4, h5, p {
+  margin: 0;
+  padding: 0;
+}
+
+em {
+  font-style: normal;
+}

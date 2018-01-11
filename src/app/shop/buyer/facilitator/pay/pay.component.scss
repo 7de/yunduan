@@ -1,0 +1,31 @@
+@import "../buy/buy.component";
+
+.order-box{
+  box-shadow:0 -6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-box-tip{
+  padding:20px;
+  background-color: #fff9e7;
+  @include flexBox;
+  @include alignItems;
+}
+
+.order-wallet{
+  min-height: 190px;
+  padding:30px;
+  border:1px solid #eee;
+  .no-wallet{
+    line-height: 190px;
+  }
+  .ico-wallet{
+    width: 83px;
+    height: 18px;
+    background-size: 500px 500px;
+    background-position: -227px -96px;
+  }
+}
+
+.submit-btn-new{
+  width:90px;
+}

@@ -1,0 +1,126 @@
+<div class="memubox .container">
+  <h3 class="title">自定义菜单</h3>
+  <div class="menu-hint">
+    <div class="danger">!</div>
+    <div class="redact">
+      <p>菜单编辑中</p>
+      <p style="color: #8c8c8c">菜单未发布，请确认菜单编辑完成后点击“保存并发布”同步到手机。菜单编辑中</p>
+    </div>
+  </div>
+  <div class="custom-menu row">
+    <div class="custom-phone col-md-4">
+      <div class="phone-top clearfix">
+        <div class="phone-title">
+          <!--<span class="found">云端私募荟</span>-->
+          <span class="found">{{localStorage.get('nickname')}}</span>
+        </div>
+      </div>
+
+      <div class="phone-bottom">
+        <ul class="bottom-redact row">
+          <li class="keypad col-md-2"><span class="keyword"></span></li>
+          <li class="col-md-10">
+            <ul class="row main-menue" style="height:100%;">
+              <li class="col-md-4" *ngFor="let mainMenu of mainMenus; let i=index">
+                <ul class="children_box">
+                  <li *ngFor="let child of mainMenu.children" (click)="editMenu(mainMenu, child)"
+                      [ngClass]="{'subActive': child.active}">
+                    {{child.name}}<!--子菜单-->
+                  </li>
+                  <li *ngIf="mainMenu.canChange && mainMenu.children.length < 5" (click)="addMenu(mainMenu)"
+                      class="addLi">
+                    <span class="add"></span>
+                  </li>
+                  <li (click)="editMenu(mainMenu)" [ngClass]="{'menuActive': mainMenu.active}">
+                    {{mainMenu.name}}
+                  </li>  <!--主菜单-->
+                </ul>
+              </li>
+              <li class="col-md-4" *ngIf="mainMenus && mainMenus.length < 3" (click)="addMainMenu()"><span
+                class="add"></span></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="custom-redact col-md-7" *ngIf="showRight">
+      <div class="redact-title">
+        <h3 class="text">自定义菜单编辑</h3>
+        <a *ngIf="rightData.master && rightData.canChange" class="delect" (click)="deleteMenu('main')">删除主菜单</a>
+        <a *ngIf="!rightData.master && rightData.canChange" class="delect" (click)="deleteMenu('children')">删除子菜单</a>
+        <a *ngIf="!rightData.canChange" class="delect">不可编辑</a>
+      </div>
+      <div class="menu-designation clearfix">
+        <div class="left col-md-3">{{rightData.master > 0 ? '主菜单名称' : '子菜单名称'}}</div>
+        <div class="right col-md-7" [ngClass]="{'subActive': errors.name}">
+          <input type="text" class="form-control" [disabled]="!rightData.canChange" [(ngModel)]="rightData.name"/>
+          <span class="help-block red" *ngIf="errors.name">{{errors.name}}</span>
+          <span class="hint">{{rightData.master ? '主菜单字数不超过4个汉字或8个字母' : '子菜单字数不超过7个汉字或14个字母'}}</span>
+        </div>
+      </div>
+      <div class="menu-content">
+        <div class="content-top">
+          <span class="left">{{rightData.master ? '主菜单内容' : '子菜单内容'}}</span>
+          <div class="right">
+            <label class="label-color" style="padding:0 4px 0 0;">发送消息</label>
+            <input name="authorize-true-false"
+                   [checked]="[0,2,3].includes(rightData.type)"
+                   (change)="radioChange($event)" value="2" type="radio" [disabled]="!rightData.canChange"/>
+            <label class="label-color" style="padding:0 4px 0 24px;">跳转链接</label>
+            <input name="authorize-true-false" [checked]="rightData.type === 4"
+                   (change)="radioChange($event)" value="4" type="radio" [disabled]="!rightData.canChange"/>
+          </div>
+        </div>
+
+        <div *ngIf="rightData.type !== 4" class="content-redact">
+          <div class="form-group">
+            <div class="radio-box">
+              <label>
+                <input type="radio" value="2" name="type" (change)="radioChange($event)"
+                       [checked]="rightData.type === 2">
+                <i class="ico-global ico-wechat-edior"></i>
+                <span>文本</span>
+              </label>
+              <label>
+                <input type="radio" value="3" name="type" (change)="radioChange($event)"
+                       [checked]="rightData.type === 3">
+                <i class="ico-global ico-wechat-img"></i>
+                <span>图片</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <div *ngIf="rightData.type === 2">
+                <textarea class="form-control" rows="7" placeholder="请填写回复的内容" [disabled]="!rightData.canChange"
+                          [(ngModel)]="rightData.content">{{rightData.content}}</textarea>
+              </div>
+              <div class="imgUpload-con" *ngIf="rightData.type === 3">
+                <app-img-upload (imgEvent)="imgMethod($event)" [previewImg]="rightData.content"></app-img-upload>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix" [ngClass]="{'has-error': errors.content}">
+            <span class="help-block" *ngIf="errors.content">{{errors.content}}</span>
+          </div>
+        </div>
+
+        <div *ngIf="rightData.type === 4" class="col-md-10 col-md-offset-1">
+          <input class="form-control" style="margin-top:15px; " type="url"
+                 [disabled]="!rightData.canChange" [(ngModel)]="rightData.content"/>
+          <div style="margin-top: 12px;" class="clearfix" [ngClass]="{'has-error': errors.content}">
+            <span class="help-block" *ngIf="errors.content">{{errors.content}}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="!showRight" class="col-md-7 menu-start">点击左侧菜单进行编辑操作</div>
+  </div>
+  <div class="menu-preservation">
+    <div class="presercation-left">
+      <button (click)="onSubmit()" class="btn btn-orange" [disabled]="pageErr">保存并发布</button>
+    </div>
+  </div>
+</div>
+
+

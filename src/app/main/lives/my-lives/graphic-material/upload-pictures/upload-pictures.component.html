@@ -1,0 +1,113 @@
+<p class="pictures-bread">
+  <span class="color-999 fs-12">你的位置：</span>
+  <a class="fs-12" [routerLink]="['../graphic-material']" [queryParams]="{status: 'all-pictures'}">图文素材 ></a>
+  <span class="color-999 fs-12">上传图文</span>
+</p>
+<div class="ui-g ui-g-nopad pictures-upload-content">
+  <form class="form-horizontal ui-g-12 ui-g-nopad" [formGroup]="picturesForm" (submit)="onSubmit(picturesForm)">
+    <div class="step-1 clearfix">
+      <div class="step-header">
+        <p class="fs-14">步骤1：添加至专辑</p>
+      </div>
+      <div class="step-content ui-g-9">
+        <label class="col-sm-2 control-label">
+          <span class="color-red">*</span>添加至连载:
+        </label>
+        <div class="col-sm-9 form-group" style="margin-bottom: 0;">
+          <label class="hide">连载</label>
+          <div class="serial-select">
+            <div class="select-zoom">
+              <input formControlName="media_id" (focus)="getPicturesList()" (blur)="hideList()" type="text" />
+              <img *ngIf="selectObj" [src]="selectObj?.img | image" />
+              <span class="select-zoom-title">{{selectObj?selectObj.title:'请选择连载'}}</span>
+              <span class="caret"></span>
+              <div class="select-down" *ngIf="selectZoom">
+                <div class="select-item" *ngFor="let item of serialItem">
+                  <input [value]="item?.id" (click)="onClick(item)" type="text" /> {{item?.title}}
+                </div>
+              </div>
+            </div>
+            <a class="create-serial" (click)="getMySerialList()">创建连载</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step-2">
+      <div class="step-header">
+        <p class="fs-14">步骤2：完成基本信息</p>
+      </div>
+      <div class="step-content clearfix">
+        <div class="row ui-g-8">
+          <label class="col-sm-2 control-label">
+            <span class="color-red">*</span>图文标题:
+          </label>
+          <div class="col-sm-8 form-group">
+            <label class="hide">图文标题</label>
+            <input class="form-control" pInputText formControlName="title" maxlength="30" type="text" />
+            <app-string-length class="limit-num" [limitLength]="30" [dataProvider]="picturesForm.value['title']">
+            </app-string-length>
+            <p class="form-tips">建议使用简洁明了的标题，请不要包含任何多余信息，如连载标题、日期等。</p>
+          </div>
+        </div>
+
+        <div class="row ui-g-8">
+          <label class="col-sm-2 control-label">
+            <span class="color-red">*</span>封面图片:
+          </label>
+          <div class="col-sm-8 form-group" [class.has-error]="picturesForm.get('img').invalid && picturesForm.get('img').touched">
+            <app-lives-img-upload (result)="returnRes($event)"></app-lives-img-upload>
+            <span class="help-block" *ngIf="picturesForm.get('img').invalid && picturesForm.get('img').touched">请上传封面图片</span>
+          </div>
+        </div>
+
+        <div class="row ui-g-8">
+          <label class="col-sm-2 control-label">
+            <span class="color-red">*</span>图文简介:
+          </label>
+          <div class="col-sm-8 form-group">
+            <label class="hide">图文简介</label>
+            <textarea class="form-control" formControlName="description" maxlength="200"></textarea>
+            <app-string-length class="limit-num" [limitLength]="200" [dataProvider]="picturesForm.value['description']">
+            </app-string-length>
+          </div>
+        </div>
+
+        <div class="row ui-g-12">
+          <label class="col-sm-1 control-label text-nowrap">
+            <span class="color-red">*</span>图文文件:
+          </label>
+          <div class="col-sm-10">
+            <umeditor [config]="umeditorConfig" formControlName="content"></umeditor>
+          </div>
+        </div>
+
+        <div class="row ui-g-8">
+          <div class="col-sm-offset-2 checkbox">
+            <label>
+              <input type="checkbox" formControlName="checked"> 我已阅读并同意
+              <a routerLink="/lives/upload-protocol" target="_blank">《云端互联网上传服务器条款》</a>
+            </label>
+          </div>
+        </div>
+
+        <div class="row ui-g-8">
+          <div class="col-sm-offset-2">
+            <button type="submit" class="btn btn-danger">提交审核</button>
+            <button type="button" class="btn btn-default ml-10" [routerLink]="['../video-material']" [queryParams]="{status: 'all-videos'}">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<!-- 创建连载 -->
+<div class="create-serial-dialog">
+  <p-dialog modal="modal" [(visible)]="createBool" width="460">
+    <p-header>
+      创建新连载
+    </p-header>
+    <app-create-serial-form [createBool]="createBool" [media_type]="1" (result)="hideDialog($event)"></app-create-serial-form>
+  </p-dialog>
+</div>

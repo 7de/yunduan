@@ -1,0 +1,20 @@
+.bg-white{
+  background-color: #fff;
+  border: 1px solid #eee;
+  .main-title{
+    height: 44px;
+    border-bottom: 1px solid #eee;
+    >span{
+      display: inline-block;
+      height: 16px;
+      margin-top: 13px;
+      font-size: 16px;
+      line-height: 16px;
+      padding-left: 15px;
+      border-left: 4px solid #EA3A3A;
+    }
+  }
+  .main{
+    padding: 30px 20px;
+  }
+}

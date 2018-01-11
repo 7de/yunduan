@@ -1,0 +1,14 @@
+<app-register-header>
+  <ng-container ngProjectAs="log-title">欢迎注册</ng-container>
+  <ng-container ngProjectAs="log-right">
+    已有账号?
+    <a [routerLink]="['/login']" style="color: #d21c28">立即登录</a>
+  </ng-container>
+</app-register-header>
+<div class="agreement">
+  <div class="agreement-content">
+    <h2 class="title">{{agreementData?.title}}</h2>
+    <div class="agreement-c" [innerHTML]="agreementData?.content"></div>
+  </div>
+</div>
+<app-footer [bgc]="1"></app-footer>

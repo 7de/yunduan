@@ -1,0 +1,70 @@
+@import "../../../../../../../assets/sass/mixin";
+@import "../../../../../../../assets/sass/variables";
+@import "../../../../../../../assets/sass/public";
+
+.mt-5{
+  margin-top:5px;
+}
+
+.frame{
+  padding-bottom:40px;
+  .frame-header{
+    border-bottom:1px solid #e5e5e5;
+  }
+  .frame-con{
+    border-top:1px solid #e5e5e5;
+    padding-top:10px;
+  }
+}
+
+.crumbs {
+  padding:17px 0;
+  font-size: 12px;
+  a{
+    padding-right:5px;
+    color: #666;
+    @include transition(.25s);
+    &:hover{
+      color: nth($blue,1);
+    }
+  }
+}
+.order-content{
+  padding:20px;
+  .order-content-top{
+    padding:20px 25px;
+  }
+  .order-content-con{
+    padding:10px 25px 25px;
+  }
+}
+
+.form-control{
+  box-shadow: none;
+  resize: none;
+  border-color: #eee;
+  &:focus{
+    border-color: nth($blue,1);
+  }
+}
+textarea.form-control{
+  @include borderRadius(0);
+}
+
+.btn-box{
+  border-top:1px dashed #ccc;
+  padding-top:30px;
+  margin-top:30px;
+}
+.submit-btn-new{
+  width:140px;
+  height:36px;
+  &:disabled{
+    border-color: #d9d9d9;
+    background-color: #d9d9d9;
+  }
+}
+
+.err-red{
+  color: nth($red,3);
+}

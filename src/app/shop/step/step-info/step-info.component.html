@@ -1,0 +1,312 @@
+<!--<app-head-home [homeTitle]="['基本资料']"></app-head-home>
+<div class="containers">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+    <div class="tabbox">
+      <div class="title">店铺基本信息<span></span></div>
+      <div class="ui-g">
+        <div class="ui-g-6 flexrow">
+          <label class="td_l top5"><span>*</span>店铺名称：</label>
+          <div class="td_r form-group">
+            <label class="hide">店铺名称</label>
+            <input class="long300" pInputText type="text" formControlName="shop_name" maxlength="18" placeholder="请输入店铺名称"/>
+          </div>
+        </div>
+        <div class="ui-g-6 flexrow">
+          <label class="td_l top5"><span>*</span>公司名称：</label>
+          <div class="td_r form-group">
+            <label class="hide">公司名称</label>
+            <input class="long300" pInputText type="text" formControlName="company_name" maxlength="30" placeholder="请输入公司名称"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g">
+        <div class="ui-g-6 flexrow">
+          <label class="td_l top5"><span>*</span>公司地址：</label>
+          <div class="td_r form-group">
+            <label class="hide">公司地址</label>
+            <input class="long300" maxlength="30" pInputText type="text" formControlName="company_address"
+                   placeholder="请输入公司地址"/>
+          </div>
+        </div>
+        <div class="ui-g-6 flexrow" style="position: relative;">
+          <label class="td_l top5"><span>*</span>所在城市：</label>
+          <div class="td_r chooseselect form-group">
+            <app-city-select [defaultSelect]="cityValue" (result)="citySelect($event)" [errorClass]="errorsAdd === '请选择所在地区'"></app-city-select>
+          </div>
+          <div class="clearfix" style="position: absolute;top: 42px;left: 98px;" [ngClass]="{'has-error': errorsAdd}">
+            <span class="help-block" *ngIf="!slectedCity">{{errorsAdd}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g">
+        <div class="ui-g-6 flexrow">
+          <label class="td_l top5"><span>*</span>联系电话：</label>
+          <div class="td_r form-group">
+            <label class="hide">联系电话</label>
+            <input class="long300" pInputText type="text" formControlName="phone" maxlength="15" placeholder="请填写联系电话"/>
+          </div>
+        </div>
+        <div class="ui-g-6 flexrow">
+          <label class="td_l top5"><span>*</span>联系 Q Q：</label>
+          <div class="td_r form-group">
+            <label class="hide">联系 Q Q</label>
+            <input class="long300" pInputText type="text" formControlName="qq" maxlength="15" placeholder="请填写联系 Q Q"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g pl-7">
+        <label class="td_l top5"><span>*</span>店铺简介：</label>
+        <div class="td_r" style="position: relative">
+          <div class="td_row ui-g">
+            <div class="td_r form-group">
+              <label class="hide">店铺简介</label>
+              <textarea #textarea class="textareas" maxlength="200" (keyup)="textareatext(textarea)"
+                        [value]="textareaobj.val" formControlName="introduction"></textarea>
+              <span class="fontx">{{textareaobj.num}}/200</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g pl-7">
+        <label class="td_l"><span></span>店铺图片：</label>
+        <div class="td_r">
+          <div class="prompt">请点击以下相应区域上传店铺图片（扫描格式JPG，建议文件大小不超过2M）</div>
+          <ul class="ui-g max3">
+            <li class="float-left" *ngFor="let img of imgAry;let idx = index;">
+              <div class="shop-step-info-uploadimg">
+                <img [src]="img | image"/>
+              </div>
+              <span class="ico-global ico-close delete" (click)="deleteFile(idx)"></span>
+            </li>
+            <li class="float-left" *ngIf="imgAry.length < 6">
+              <div class="shop-step-info-uploadimg">
+                <input type="file" (change)="uploadImg($event)"/>
+                <p class="line1 isline"></p>
+                <p class="line2 isline"></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bottom30 ui-g pl-7">
+        <div class="td_l"><span></span>店铺视频：</div>
+        <div class="td_r">
+          <div class="prompt ui-g">请点击以下相应区域上传介绍视频(仅限MP4格式,最大为100M)</div>
+          <div class="addmovebox">
+            <app-video-upload (imgEvent)="videoMethod($event)" (imgProgress)="videoProgress($event)"></app-video-upload>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g pl-7">
+        <div class="serve"><span></span>服务特点/保证:</div>
+        <div class="ui-g-12 flexrow">
+          <div class="td_l"></div>
+          <div class="td_r" style="position: relative;">
+            <div class="ui-g">
+              <p-checkbox class="ui-g-1_5" name="group2" (onChange)="selectFeatures($event)"
+                          *ngFor="let feature of featuresData;"
+                          [value]="feature?.id" [label]="feature?.name" [(ngModel)]="selectedValues"
+                          [disabled]="feature.disabled"
+                          formControlName="selectedValues">
+              </p-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g" style="border-top: 1px dashed #ccc">
+        <div class="ui-g-12 text-center bottom30 mt-20">
+          <button type="submit" class="submit-btn submit-btn-another">保存</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>-->
+
+
+<!--<app-head-home [homeTitle]="['基本资料']"></app-head-home>-->
+<div class="containers stormeset-wrap">
+  <span class='store-titles'>店铺资料设置</span>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+    <div class="tabbox">
+      <div class="ui-g">
+        <div clas='flex_'>
+          <div class='flex_'>
+            <div class="td_l box-left"><span>*</span>店铺封面：</div>
+            <div class="upimg box-right">
+              <div class='flex_'>
+                <div class='img-boxs'>
+                  <div class="imgbox">
+                    <input type="file" (change)="uploadLogo($event)"/>
+                    <i class='addimg-icon'></i>
+                    <img *ngIf="logoUrl != ''" [src]="logoUrl" width='180' height='180'/>
+                    <!--<div *ngIf="logoUrl != ''" class='clear-box' (click)='clearbtn()'><i class='clear-btn'></i></div>-->
+                    <div *ngIf="logoUrl != ''" class='clear-box' (click)='clearbtn()'>×</div>
+                  </div>
+                  <div class='tips-box'>
+                    <!--<span>1、支持图片格式为：JPEG、PNG、JPG；大小不超过2M </span>-->
+                    <span>1、图片大小为180*180像素，文件小于2M；支持JPG、PNG、JPEG格式</span>
+                    <span>2、图片尽量清晰，并能够体现服务卖点</span>
+                  </div>
+                </div>
+                <!-- 示例图片 -->
+                <div>
+                  <div class='example-box'>
+                    <span>示例：</span>
+                    <div class='example-img-box'>
+                      <img src="../../../../assets/images/example-imgs.png" width='180' height='180'>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class='err-infos' *ngIf="isstatus === true && logoUrl === ''">请上传一张店铺封面</span>
+      <div class="ui-g">
+        <!--<label class="td_l top5"><span>*</span>店铺名称：</label>-->
+        <div class='flex_ mt-25'>
+          <div class="td_l box-left h-36"><span>*</span>店铺名称：</div>
+          <div class='box-right'>
+            <div class="form-group">
+              <label class="hide">店铺名称</label>
+              <div class='inputs'><input class="long300 h-36 inputbox border-radius h-36" pInputText type="text"
+                                         formControlName="shop_name" maxlength="18" #storenames (input)='storeleng(storenames)'placeholder="请输入店铺名称" /><span
+                class='word-count'><span class='tags-lengs'>{{storeLengs}}</span>/18</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='ui-g mt15t'>
+        <!--<div class="box-right"><span>*</span>店铺名称：</div>-->
+        <div class='flex_ mt-5'>
+          <div class="td_l box-left h-36"><span>*</span>客服QQ号：</div>
+          <div class='box-right'>
+            <div class="form-group">
+              <label class="hide">客服QQ号</label>
+              <div class='inputs'><input class="long300 h-36 inputbox border-radius h-36"
+                                         type="text" formControlName="qq" (input)='inputChage($event)' maxlength="15" placeholder="请输入QQ号"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g mt15t">
+        <div class='flex_ mt-5'>
+          <div class="td_l box-left h-36"><span>*</span>客服电话：</div>
+          <div class='box-right'>
+            <div class="form-group">
+              <label class="hide">客服电话</label>
+              <div class='inputs'><input class="long300 h-36 inputbox border-radius h-36" type="text"
+                                         formControlName="phone" (input)='inputChage($event)' maxlength="15" placeholder="请输入电话号码"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g mt15t">
+        <div class='flex_ mt-5'>
+          <div class="td_l box-left h-36">店铺图片：</div>
+          <div class='box-right flex_'>
+            <div class='store-imgs'>
+              <div class="ui-g store-img-nav max3 w500 ml15">
+                <div class="float-left shop-step-info-uploadimg" *ngFor="let img of imgAry;let idx = index;">
+                  <div class="shop-step-info-uploadimg">
+                    <img [src]="img | image" width='234' height='70'/>
+                  </div>
+                  <!--<span class="ico-global ico-close delete" (click)="deleteFile(idx)"></span>-->
+                  <span class="delete" (click)="deleteFile(idx)">×</span>
+                </div>
+                <div class="float-left shop-step-info-uploadimg clear-boxss" *ngIf="imgAry.length < 4">
+                  <div class="shop-step-info-uploadimg">
+                    <input type="file" (change)="uploadImg($event)"/>
+                    <i class='addimg-icon'></i>
+                    <!-- 根据条件显示 -->
+                    <!--<div class='clear-box'><i class='clear-btn'></i></div>-->
+                  </div>
+                  <!--<span class='err-info' *ngIf="isstatus === true && imgAry.length < 1">请上传一张店铺图片</span>-->
+                </div>
+                <div class='tips-txts'>
+                  <!--<div>1、支持图片格式为：JPEG、PNG、JPG；大小不超过2M</div>-->
+                  <div>1、图片大小为1200*360像素，文件小于2M；支持JPG、PNG、JPEG格式</div>
+                  <div>2、图片尽量清晰，并能够体现服务卖点</div>
+                  <div style='color:#ea3a3a;'>3、最多支持上传四张图片</div>
+                </div>
+              </div>
+            </div>
+            <div class='sample-navs'>
+              <span>示例：</span>
+              <img src="../../../../assets/images/example-imgs2.png" width='409' height='123' alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g mt15t">
+        <div class='flex_ mt-20'>
+          <div class="td_l box-left h-36">店铺简介：</div>
+          <div class='box-right'>
+            <div class="form-group abstract">
+              <label class="hide">店铺简介</label>
+              <textarea #textarea class="textareas" maxlength="200" (keyup)="textareatext(textarea)"
+                        [value]="textareaobj.val" formControlName="introduction" placeholder='请输入您的店铺简介'></textarea>
+              <span class="fontx">{{textareaobj.num}}/200</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g mt15t">
+        <div class='flex_ mt-20'>
+          <div class="td_l box-left h-36">服务特点：</div>
+          <div class='box-right'>
+            <div class="service-points-bar">
+              <!-- 复选框组件 -->
+              <!--<p-checkbox class="ui-g-1_5" name="group2" (onChange)="selectFeatures($event)"
+                          *ngFor="let feature of featuresData;"
+                          [value]="feature?.id" [label]="feature?.name" [(ngModel)]="selai ectedValues"
+                          [disabled]="feature.disabled"
+                          formControlName="selectedValues">
+              </p-checkbox>-->
+              <div class='checkboxs flex_' *ngFor="let datas of selectService;let i = index;"
+                   [ngClass]="selectService[i] === true ? 'actives' : 'notactives'">
+                <i></i><input class='checks' name="points" type="checkbox" (click)='checked(i)' [disabled]="notSelect[i]"/>{{selectVal[i]}}
+                <!--{{selectService[i]}}-->
+                {{selectCount}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<span class='err-infos' *ngIf="isstatus === true && selectedValues.length < 1">请选择一个服务特点</span>-->
+      </div>
+      <div class="bottom40 mt-15">
+        <!--<button type="submit" class="submit-btns" [ngClass]="isstatus === true && formGroup.valid ? 'success-bg':'fail-bg'">保存</button>-->
+        <button type="submit" class="submit-btns success-bg" [disabled]="isdisabled">保存</button>
+      </div>
+    </div>
+  </form>
+  <div class='mask-bars'></div>
+</div>
+
+<!-- 资质未认证和钱包审核未通过提示弹框 -->
+<p-dialog header="提示" modal="modal" [(visible)]="noReleaseShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center fs-16 mt-20 mb-20">
+    <p class="color-666">
+      <i class="ico-global ico-tip-yellow mr-10"></i>
+      <span *ngIf="this.serviceInfoData?.info_verify_type!==1">认证完成</span><span *ngIf="this.serviceInfoData?.info_verify_type===1"><em *ngIf="this.serviceInfoData?.wallet?.user_verify_type!==1">开通钱包</em><em *ngIf="this.serviceInfoData?.wallet?.user_verify_type===1 && !this.serviceInfoData?.shop">完善资料</em></span>后，才能设置店铺信息哦
+    </p>
+
+    <p *ngIf="this.serviceInfoData?.info_verify_type!==1">
+      <a class="blue" [routerLink]="['/seller/personal/set/realnameauth']" >前往认证&gt;&gt;</a>
+    </p>
+    <p *ngIf="this.serviceInfoData?.info_verify_type===1">
+      <a class="blue" [routerLink]="['/shop/wallet']" *ngIf="this.serviceInfoData?.wallet?.user_verify_type!==1">前往开通&gt;&gt;</a>
+    </p>
+  </div>
+</p-dialog>

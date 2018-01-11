@@ -1,0 +1,130 @@
+<div class="con">
+  <div class="order-title"><span>我的服务</span></div>
+  <div class="order-con">
+    <app-url-tab [items]="tabItems" [className]="tabClassName"></app-url-tab>
+    <div class="ui-g mt-10">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="search-box clearfix">
+          <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
+            <div class="form-group pull-left form-ico">
+              <input type="text" class="search-input" placeholder="请输入服务名称" formControlName="keyword" />
+              <i class="fa fa-search"></i>
+            </div>
+            <div class="form-group pull-left clearfix">
+              <label class="search-label pull-left">发布时间：</label>
+              <div class="search-timebox pull-left clearfix">
+                <div class="pull-left" style="width:130px;">
+                  <p-calendar [readonlyInput]="true" [showButtonBar]="true" [showIcon]="true" formControlName="begin_time" placeholder="起始时间"
+                              dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                              yearRange="1990:2030" [locale]="cn" styleClass="form-calendar form-calendar-small" [maxDate]="form.value.end_time" >
+                  </p-calendar>
+                </div>
+                <span class="delimiter pull-left">--</span>
+                <div class="pull-left" style="width:130px;">
+                  <p-calendar [readonlyInput]="true" [showButtonBar]="true" [showIcon]="true" formControlName="end_time" placeholder="结束时间"
+                              dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                              yearRange="1990:2030" [locale]="cn" styleClass="form-calendar form-calendar-small" [minDate]="form.value.begin_time"></p-calendar>
+                </div>
+              </div>
+            </div>
+            <div class="form-group pull-left">
+              <label class="search-label">服务类型：</label>
+              <select class="search-selectOth" formControlName="demand_category_id">
+                <option value="">全部</option>
+                <option *ngFor="let data of serviceData" [value]="data?.id">{{data.title}}</option>
+              </select>
+            </div>
+            <div class="form-group"><button type="submit">搜索</button></div>
+          </form>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad mt-10">
+        <button class="submit-btn-new-border" (click)="releaseFn()"><i style="font-size: 15px;" >+</i>发布服务</button>
+      </div>
+    </div>
+    <div class="ui-g mt-10">
+      <ul class="ui-g-12 ui-g-nopad order-list">
+        <li class="ui-g header">
+          <span class="ui-g-5 ui-g-nopad">服务名称</span>
+          <span class="ui-g-2 ui-g-nopad text-center">费用（元）</span>
+          <span class="ui-g-2 ui-g-nopad text-center">类型</span>
+          <span class="ui-g-2 ui-g-nopad text-center">状态</span>
+          <span class="ui-g-1 ui-g-nopad text-center">操作</span>
+        </li>
+        <li class="ui-g border" *ngFor="let goodsData of data">
+          <div class="ui-g-12 ui-g-nopad header">
+            <span><em class="color-999">发布时间：</em>{{goodsData.created_at_txt}}</span>
+          </div>
+          <div class="ui-g-12 ui-g-nopad content">
+            <div class="ui-g-5 ui-g-nopad shop-name">
+              <div class="ui-g-2 ui-g-nopad mr-15">
+                <a [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId:goodsData?.id, shopId:goodsData?.shop_id}" *ngIf="!goodsData?.deleted_at">
+                  <img [src]="goodsData?.first_img | image:60" alt="" width="60" height="60">
+                </a>
+                <img [src]="goodsData?.first_img | image:60" alt="" width="60" height="60" *ngIf="goodsData?.deleted_at">
+              </div>
+              <div class="ui-g-9 ui-g-nopad">
+                <a [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId:goodsData?.id, shopId:goodsData?.shop_id}" *ngIf="!goodsData?.deleted_at">
+                  <span class="text-overflow">{{goodsData?.title}}</span>
+                </a>
+                <span class="text-overflow" *ngIf="goodsData?.deleted_at">{{goodsData?.title}}</span>
+              </div>
+            </div>
+            <div class="ui-g-2 ui-g-nopad text-center">{{goodsData?.price}}</div>
+            <div class="ui-g-2 ui-g-nopad text-center">
+              {{goodsData?.service_type?.title}}
+            </div>
+            <div class="ui-g-2 ui-g-nopad text-center">
+              {{goodsData?.deleted_at?'已下架':'已上架'}}
+            </div>
+            <div class="ui-g-1 ui-g-nopad text-center">
+              <a (click)="serviceDialog(goodsData?.id,goodsData?.title,goodsData?.deleted_at)">{{goodsData?.deleted_at?'上架':'下架'}}服务</a>
+              <p class="mt-5"><button [routerLink]="['/seller/personal/increased']" [queryParams]="{id: goodsData?.id}" class="oper-btn">编辑</button></p>
+            </div>
+          </div>
+        </li>
+        <li class="ui-g-12 ui-g-nopad text-center" *ngIf="data?.length<1 && typeParam!=='0'">暂无服务，<a (click)="releaseFn()">马上发布服务</a></li>
+        <li class="ui-g-12 ui-g-nopad text-center" *ngIf="data?.length<1 && typeParam==='0'">暂无下架服务</li>
+      </ul>
+      <div class="ui-g-12 ui-g-nopad" *ngIf="pagination.totalCount">
+        <p-paginator  [rows]="pagination.perPage"
+                      [first]="pagination.currentPage * pagination.perPage-1"
+                      [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                      (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 未发布弹框 -->
+<p-dialog header="提示" modal="modal" [(visible)]="noReleaseShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center fs-16 mt-20 mb-20">
+    <p class="color-666">
+      <i class="ico-global ico-tip-yellow mr-10"></i>
+      <span *ngIf="!this.serviceInfoData?.info_verify_type||this.serviceInfoData?.info_verify_type!==1">认证完成</span><span *ngIf="this.serviceInfoData?.info_verify_type===1"><em *ngIf="this.serviceInfoData?.wallet?.user_verify_type!==1"><em *ngIf="!this.serviceInfoData?.wallet||this.serviceInfoData?.wallet?.user_verify_type===0">开通钱包</em><em *ngIf="this.serviceInfoData?.wallet?.user_verify_type===2">未通过审核，钱包通过</em><em *ngIf="this.serviceInfoData?.wallet?.user_verify_type===3">正在审核中，钱包通过</em></em><em *ngIf="this.serviceInfoData?.wallet?.user_verify_type===1 && !this.serviceInfoData?.shop">完善资料</em></span>后，才能发布服务哦
+    </p>
+    <p *ngIf="!this.serviceInfoData?.info_verify_type || this.serviceInfoData?.info_verify_type!==1">
+      <a class="blue" [routerLink]="['/seller/personal/set/realnameauth']" >前往认证&gt;&gt;</a>
+    </p>
+    <p *ngIf="this.serviceInfoData?.info_verify_type===1">
+      <a class="blue" [routerLink]="['/shop/wallet']" *ngIf="!this.serviceInfoData?.wallet ||this.serviceInfoData?.wallet?.user_verify_type!==1">前往开通&gt;&gt;</a>
+      <a class="blue" [routerLink]="['/seller/personal/set/storeset']" *ngIf="this.serviceInfoData?.wallet?.user_verify_type===1 && !this.serviceInfoData?.shop">前往完善&gt;&gt;</a>
+    </p>
+
+
+  </div>
+  <p-footer>
+  </p-footer>
+</p-dialog>
+
+<!-- 取消订单 -->
+<p-dialog header="提示" modal="modal" [(visible)]="goodsDialogShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>确定{{goodsDialogType?'上架':'下架'}}"{{goodsDialogTitle}}"该服务吗？</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="goodsDialogShow=false">取消</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="serviceDialogEven()">确定{{goodsDialogType?'上架':'下架'}}</button>
+    </div>
+  </p-footer>
+</p-dialog>
+

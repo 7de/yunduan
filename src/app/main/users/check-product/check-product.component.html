@@ -1,0 +1,55 @@
+<!--预约投资产品查看-->
+<div class="mask">
+  <div class="dialog">
+    <div class="row modal-head">
+      <div class="col-md-4 modal-title">
+        预约投资产品
+      </div>
+      <div (click)="cancel()" class="col-md-1 col-md-offset-7">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <div class="row appointment-product modal-body">
+      <table class="table table-bordered" style="margin-bottom: 0">
+        <tbody>
+        <tr>
+          <th width="150px">所属基金公司</th>
+          <td>{{dataProduct?.company?.company_name}}</td>
+        </tr>
+        <tr>
+          <th width="150px">项目名称</th>
+          <td>{{dataProduct?.name}}</td>
+        </tr>
+        <tr>
+          <th width="150px">累计涨幅</th>
+          <td>{{dataProduct?.income | percent:'1.2-2'}} </td>
+        </tr>
+        <tr>
+          <th width="150px">发行规模</th>
+          <td>{{dataProduct?.fund_size}}</td>
+        </tr>
+        <tr>
+          <th width="150px">封闭期</th>
+          <td>{{dataProduct?.profile?.closed_end}}</td>
+        </tr>
+        <tr>
+          <th width="150px">发行日期</th>
+          <td>{{dataProduct?.profile?.sell_start | datetime : 'datetime'}}</td>
+        </tr>
+        <tr>
+          <th width="150px">产品状态</th>
+          <td>{{dataProduct?.kind_txt}}</td>
+        </tr>
+        <tr>
+          <th width="150px">募集进度</th>
+          <td>{{dataProduct?.percent}}</td>
+        </tr>
+        <!--<tr>-->
+          <!--<th width="150px">是否存在资金流</th>-->
+          <!--<td>/</td>-->
+        <!--</tr>-->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="top-menu clearfix">
+  <div class="aside-header pull-left">
+    <div class="aside-header-inner">
+      <span class="log-subname">{{title}}</span>
+    </div>
+  </div>
+  <nav class="navbar-header pull-right">
+    <ul class="navbar-header-right">
+      <li class="companys" *ngIf="company?.flag === 1">
+        <a routerLink="/main/setting/account" class="system">
+          <span class="panylogo">
+            <img src="{{company['extinfo']?.company_logo | image: 40}}" alt="" width="40" height="40">
+          </span>
+          <div class="users">
+            <p class="panyname">{{company['company_name']}}</p>
+            <div class="upapp green" *ngIf="company?.flag"><span class="apps">&radic;</span>已认证</div>
+          </div>
+        </a>
+      </li>
+      <li *ngIf="company?.flag === 0 || company?.flag === 3" class="companys">
+        <a routerLink="/main/setting/account" class="system clearfix">
+          <i class="fa fa-user-o userleft pull-left"></i>
+          <div class="users">
+            <span class="moblies">{{company['account_mobile']}}</span>
+            <div class="upapp gray" *ngIf="company?.flag !== 1"><span class="apps">&radic;</span>未认证</div>
+          </div>
+        </a>
+      </li>
+      <li *ngIf="company?.flag === 2" class="companys">
+        <a routerLink="/main/setting/account" class="system clearfix">
+          <i class="fa fa-user-o userleft pull-left"></i>
+          <div class="users">
+            <span class="moblies">{{company['account_mobile']}}</span>
+            <div class="upapp gray" *ngIf="company?.flag !== 1"><span class="apps"></span>未认证</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/buyer/personal/message" [queryParams]="{'notice_type' : 0}" class="nav-mail">
+          <i class="ico-global ico-mail"></i>
+          <span class="tip" *ngIf="unread > 0">{{unread}}</span>站内信
+        </a>
+      </li>
+
+      <li class="exits" routerLink="/main/index/index" *ngIf="goBackTag === '1'">
+        <a class='backs'>
+          <i class="ico-global ico-goback"></i>
+          <span>返回</span>
+        </a>
+      </li>
+      <li class="exits" routerLink="/site/home" *ngIf="goBackTag === '2'">
+        <a class='backs'>
+          <i class='ico-global ico-home homepage-icon'></i>
+          <span>返回</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

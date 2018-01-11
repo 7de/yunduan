@@ -1,0 +1,52 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;" (click)="toInvestedUser()">返回</a> > 查看详情
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="row mt-10">
+    <div class="col-md-12">
+      <table class="table table-bordered table-hover custom-table">
+        <tbody>
+        <tr>
+          <th width="200px">用户名</th>
+          <td>{{data?.userProfile.real_name}}</td>
+        </tr>
+        <tr>
+          <th width="200px">绑定手机</th>
+          <td>{{data?.user.phone}}</td>
+        </tr>
+        <tr>
+          <th width="200px">反馈内容</th>
+          <td class='feedback-text'>{{data?.content}}</td>
+        </tr>
+        <tr>
+          <th width="200px">反馈图片</th>
+          <td>
+            <div class='feedback-img _flex' *ngIf="prevImgArr">
+              <div *ngFor="let item of prevImgArr;let idx = index" class='preview-imgbox' (mouseenter)="pictureReminder($event,'focus',idx)" (mouseleave)="pictureReminder($event,'blur',idx)">
+                <img [src]="item | image: 125" alt="" />
+                <div class='prev-mask' *ngIf="prevIcon && tmpNums === idx" (click)="picPrev($event,item,item)">
+                  <i class='preview-icon' (click)="picPrev($event , item , idx)"></i>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <button class='goback' (click)="toInvestedUser()">返回</button>
+    </div>
+  </div>
+</div>
+
+<!-- 图片的预览 -->
+<div>
+  <div class='preview-mask' *ngIf="picPreview"></div>
+  <div class='preview-wrap' *ngIf="picPreview">
+    <img [src]="prevUrl | image" alt="" />
+    <a (click)="picPreview =! picPreview"><i class='close-prev'></i></a>
+  </div>
+</div>

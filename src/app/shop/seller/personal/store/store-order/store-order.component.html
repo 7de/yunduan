@@ -1,0 +1,293 @@
+<div class="con">
+  <div class="order-title"><span>交易订单管理</span></div>
+  <div class="order-con">
+    <app-url-tab [items]="tabItems" [className]="tabClassName"></app-url-tab>
+    <div class="ui-g mt-10">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="search-box clearfix">
+          <select class="pull-left search-select" [(ngModel)]="selectedValue" (change)="onChange($event.target.value)">
+            <option value="0">订单号</option>
+            <option value="1">商品名称</option>
+            <option value="2">需求方</option>
+          </select>
+          <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
+            <div class="form-group pull-left form-ico" [ngSwitch]="selectedValue">
+              <ng-container *ngSwitchCase="1">
+                <input type="text" class="search-input" placeholder="请输入商品名称" formControlName="goods_title" />
+                <i class="fa fa-search"></i>
+              </ng-container>
+              <ng-container *ngSwitchCase="2">
+                <input type="text" class="search-input" placeholder="请输入需求方昵称" formControlName="company_nickname" />
+                <i class="fa fa-search"></i>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                <input type="text" class="search-input" placeholder="请输入订单号" formControlName="order_no" />
+                <i class="fa fa-search"></i>
+              </ng-container>
+            </div>
+            <div class="form-group pull-left clearfix">
+              <label class="search-label pull-left">创建时间：</label>
+              <div class="search-timebox pull-left clearfix">
+                <div class="pull-left" style="width:130px;">
+                  <p-calendar [readonlyInput]="true" [showButtonBar]="true" [showIcon]="true" formControlName="from" placeholder="起始时间"
+                              dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                              yearRange="1990:2030" [locale]="cn" styleClass="form-calendar form-calendar-small" [maxDate]="form.value.to" >
+                  </p-calendar>
+                </div>
+                <span class="delimiter pull-left">--</span>
+                <div class="pull-left" style="width:130px;">
+                  <p-calendar [readonlyInput]="true" [showButtonBar]="true" [showIcon]="true" formControlName="to" placeholder="结束时间"
+                              dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                              yearRange="1990:2030" [locale]="cn" styleClass="form-calendar form-calendar-small" [minDate]="form.value.from"></p-calendar>
+                </div>
+              </div>
+            </div>
+            <div class="form-group pull-left">
+              <label class="search-label">订单状态：</label>
+              <select class="search-selectOth" formControlName="status" *ngIf="orderType==='1'">
+                <option value="">全部</option>
+                <option value="0">待付款</option>
+              </select>
+              <select class="search-selectOth" formControlName="status" *ngIf="orderType==='2'">
+                <option value="">全部</option>
+                <option value="1">已付款</option>
+                <option value="4">待确认</option>
+                <option value="2,11">申请取消订单</option>
+              </select>
+              <select class="search-selectOth" formControlName="status" *ngIf="orderType==='3'">
+                <option value="">全部</option>
+                <option value="5">待交付</option>
+                <option value="6">待验收</option>
+                <!-- 支付接口再确认
+                <option value="">待平台打款</option>
+                -->
+              </select>
+              <select class="search-selectOth" formControlName="status" *ngIf="orderType==='4'">
+                <option value="">全部</option>
+                <option value="7,8">交易成功</option>
+                <option value="3,9,10">交易关闭</option>
+              </select>
+              <select class="search-selectOth" formControlName="status" *ngIf="orderType==''">
+                <option value="">全部</option>
+                <option value="0">待付款</option>
+                <option value="1">已付款</option>
+                <option value="4">待确认</option>
+                <option value="2,11">申请取消订单</option>
+                <option value="5">待交付</option>
+                <option value="6">待验收</option>
+                <option value="7,8">交易成功</option>
+                <option value="3,9,10">交易关闭</option>
+              </select>
+            </div>
+            <div class="form-group"><button type="submit">搜索</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g mt-10">
+      <ul class="ui-g-12 ui-g-nopad order-list">
+        <li class="ui-g header">
+          <span class="ui-g-5 ui-g-nopad">服务名称</span>
+          <span class="ui-g-2 ui-g-nopad text-center">费用（元）</span>
+          <span class="ui-g-2 ui-g-nopad text-center">订单状态</span>
+          <span class="ui-g-2 ui-g-nopad text-center">需求方</span>
+          <span class="ui-g-1 ui-g-nopad text-center">操作</span>
+        </li>
+        <li class="ui-g border" *ngFor="let orderData of data">
+          <div class="ui-g-12 ui-g-nopad header">
+            <span>订单号：{{orderData?.order_no}}</span>
+            <span class="pl-20">订单创建时间：{{orderData.created_at_txt}}</span>
+          </div>
+          <div class="ui-g-12 ui-g-nopad content">
+            <div class="ui-g-5 ui-g-nopad shop-name">
+              <div class="ui-g-2 ui-g-nopad mr-15">
+                <a [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId:orderData?.goods_id, shopId:orderData?.shop_id}" *ngIf="!orderData?.goods?.deleted_at"><img [src]="orderData?.goods?.first_img | image:60" alt="" width="60" height="60"></a>
+                <div class="no-shelf" *ngIf="orderData?.goods?.deleted_at">
+                  <div class="no-shelf-dialog">
+                    <i class="ico-global ico-noShelf"></i>
+                  </div>
+                  <img [src]="orderData?.goods?.first_img | image:60" alt="" width="60" height="60" >
+                </div>
+              </div>
+              <div class="ui-g-9 ui-g-nopad">
+                <a [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId:orderData?.goods_id, shopId:orderData?.shop_id}" *ngIf="!orderData?.goods?.deleted_at"><span class="text-overflow">{{orderData?.goods?.title}}</span></a>
+                <span class="text-overflow" *ngIf="orderData?.goods?.deleted_at">{{orderData?.goods?.title}}</span>
+              </div>
+            </div>
+            <div class="ui-g-2 ui-g-nopad text-center">{{orderData?.money}}</div>
+            <div class="ui-g-2 ui-g-nopad text-center">
+              <p *ngIf="orderData.status!== 7">{{orderData?.business_status_txt}}</p>
+              <p *ngIf="orderData.status === 7">{{orderData?.platform_pay_id ? orderData?.business_status_txt : '待平台打款'}}</p>
+              <p class="mt-5"><a [routerLink]="['/seller/personal/order',orderData.id]">查看详情</a></p>
+            </div>
+            <div class="ui-g-2 ui-g-nopad text-center">
+              {{orderData?.company?.username}}
+              <!--<p class="mt-5">
+                <a [href]="(qqFirst+orderData?.companyProfile?.qq+qqLast) | safeUrl">私聊</a>
+              </p>-->
+            </div>
+            <div class="ui-g-1 ui-g-nopad text-center">
+              <div [ngSwitch]="orderData?.status" class="oper-info">
+                <div *ngSwitchCase="0">
+                  <p><a (click)="cancelOrder(orderData?.goods?.title,orderData?.id)">取消订单</a></p>
+                  <p class="mt-5"><button (click)="modifyPrice(orderData)" class="oper-btn">修改订单价格</button></p>
+                </div>
+                <div *ngSwitchCase="1">
+                  <p><a (click)="applicationCancel(orderData.id)">申请取消订单</a></p>
+                  <p class="mt-5"><button [routerLink]="['/seller/personal/order-oth',orderData.id]" class="oper-btn">上传方案</button></p>
+                </div>
+                <div  *ngSwitchCase="2">
+                  <p><a (click)="platformOrder(orderData.id)">客服介入</a></p>
+                  <p class="mt-5"><button (click)="revokeOrder(orderData.id)" class="oper-btn">取消申请</button></p>
+                </div>
+                <p *ngSwitchCase="3" class="color-333">/</p>
+                <div *ngSwitchCase="4">
+                  <p><a (click)="applicationCancel(orderData.id)">申请取消订单</a></p>
+                  <p class="mt-5"><button [routerLink]="['/seller/personal/order-oth',orderData.id]" class="oper-btn">修改方案</button></p>
+                </div>
+                <div *ngSwitchCase="5">
+                  <p><a (click)="CustomerEven()">联系客服</a></p>
+                  <p class="mt-5"><button [routerLink]="['/seller/personal/order-oth',orderData.id]" class="oper-btn">交付服务</button></p>
+                </div>
+                <div *ngSwitchCase="6">
+                  <p><a (click)="CustomerEven()">联系客服</a></p>
+                  <p class="mt-5"><button [routerLink]="['/seller/personal/order-oth',orderData.id]" class="oper-btn">修改交付内容</button></p>
+                </div>
+                <div *ngSwitchCase="7">
+                  <div *ngIf="orderData?.platform_pay_id">
+                    <p *ngIf="orderData?.comment_type!==2"><button class="oper-btn" [routerLink]="['/seller/personal/order-estimate']" [queryParams] ="{id:orderData.id}">去评价</button></p>
+                    <span class="color-333" *ngIf="orderData?.comment_type===2">/</span>
+                  </div>
+                  <p class="mt-5"><button (click)="CustomerEven()" class="oper-btn" *ngIf="!orderData?.platform_pay_id">联系客服</button></p>
+                </div>
+                <p *ngSwitchCase="8" class="color-333">/</p>
+                <p *ngSwitchCase="9" class="color-333">/</p>
+                <p *ngSwitchCase="10" class="color-333">/</p>
+                <div *ngSwitchCase="11">
+                  <p><a (click)="platformOrder(orderData.id)">客服介入</a></p>
+                  <p class="mt-5"><button (click)="agreeOrder(orderData.id)" class="oper-btn">同意申请</button></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="ui-g-12 ui-g-nopad text-center" *ngIf="data?.length<1"> 暂无数据</li>
+
+      </ul>
+      <div class="ui-g-12 ui-g-nopad" *ngIf="pagination?.totalCount">
+        <p-paginator  [rows]="pagination.perPage"
+                      [first]="pagination.currentPage * pagination.perPage-1"
+                      [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                      (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 联系客服 -->
+<p-dialog header="联系客服" modal="modal" [(visible)]="customerShow" [responsive]="true" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-customer mb-10"></i><p>0755-86538075</p></div>
+  <p-footer></p-footer>
+</p-dialog>
+
+<!-- 取消订单 -->
+<p-dialog header="提示" modal="modal" [(visible)]="cancelShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>确定取消"{{cancelTitle}}"该服务订单吗？</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="cancelShow=false">取消</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="cancelEven(cancelId)">确定</button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<!-- 撤销申请订单 -->
+<p-dialog header="提示" modal="modal" [(visible)]="revokeShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>确认放弃对该笔订单的取消申请吗？</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="revokeShow=false">取消</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="revokeEven(revokeId)">确定</button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<!-- 申请取消订单 -->
+<p-dialog header="申请取消订单" modal="modal" [(visible)]="applicationShow" [width]="500" [styleClass]="shopDialog">
+  <div class="ui-g application mb-10">
+    <div class="ui-g-3 ui-g-nopad">申请取消原因：</div>
+    <div class="ui-g-9 ui-g-nopad clearfix">
+      <textarea class="form-control" rows="8" placeholder="请在此阐述申请取消订单的原因，文本字数限制在200字内" maxlength="200" [(ngModel)]="applicationReason"></textarea>
+      <p class="text-right pull-right"><app-string-length class="limit-num" [limitLength]="200" [dataProvider]="applicationReason"></app-string-length></p>
+      <p class="err-red" [hidden]="!applicationError || applicationReason">请输入取消订单原因</p>
+    </div>
+  </div>
+  <p-footer>
+    <p class="text-center">
+      <button type="button" class="cancel-btn-new" (click)="applicationShow=false">取消</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="applicationEven(applicationId,applicationReason)">提交申请</button>
+    </p>
+  </p-footer>
+</p-dialog>
+
+<!-- 同意取消订单 -->
+<p-dialog header="提示" modal="modal" [(visible)]="agreeShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center mt-10 mb-30">确认同意对该笔订单的取消申请吗?</div>
+  <p-footer>
+    <p class="text-center">
+      <button type="button" class="cancel-btn-new" (click)="agreeShow=false">再想想</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="agreeEven(agreeId)">是的</button>
+    </p>
+  </p-footer>
+</p-dialog>
+
+<!-- 申请仲裁(客服介入) -->
+<p-dialog header="客服介入" modal="modal" [(visible)]="platformShow" [width]="500" [styleClass]="shopDialog">
+  <div class="text-center mt-10 mb-30">已申请客服介入，客服将在一个工作日内联系您</div>
+  <p-footer>
+    <p class="text-center">
+      <button type="button" class="submit-btn-new" (click)="platformEven(platformId)">好的</button>
+    </p>
+  </p-footer>
+</p-dialog>
+
+<!-- 修改价格 -->
+<p-dialog header="修改订单价格" modal="modal" [(visible)]="priceShow" [width]="500" [styleClass]="shopDialog">
+  <div class="ui-g">
+    <div class="ui-g-12 ui-g-nopad">
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="65%">商品信息</th>
+            <th width="30%">总额</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p class="text-overflow">{{priceData?.goods?.title}}</p>
+            </td>
+            <td><span>￥{{priceData?.money}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="ui-g mt-20">
+    <div class="ui-g-12 ui-g-nopad">
+      <div class="form-group clearfix price-box">
+        <label class="pull-left">修改价格：</label>
+        <input type="text" placeholder="请输入修改价格" class="form-control pull-left mr-5" [(ngModel)]="priceNum"> <span>元</span>
+        <p class="err-red" [hidden]="!priceError">请输入价格</p>
+        <p class="err-red" [hidden]="!priceNumError">价格不能为负且价格最大额为百万,小数点保留两位</p>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <p class="text-center">
+      <button type="button" class="cancel-btn-new" (click)="priceShow=false">取消</button>
+      <button type="button" class="submit-btn-new ml-15" (click)="priceEven(priceData.id,priceNum)">确定</button>
+    </p>
+  </p-footer>
+</p-dialog>
+
+

@@ -1,0 +1,136 @@
+.custom-table tbody th,.custom-table tbody td:nth-child(1) {
+  padding-left:2%;
+}
+.custom-table tbody th {
+  font-weight:normal;
+  background-color:#FAFAFA;
+}
+.custom-table tbody tr:nth-child(3) {
+  height:200px;
+}
+.custom-table tbody tr:nth-child(4) {
+  height:300px;
+}
+.custom-table tbody td{
+  color:#333;
+}
+.feedback-text {
+  vertical-align: top;
+  padding-top: 6px;
+}
+.feedback-img {
+  height: 300px;
+  line-height: 300px;height: 300px;
+  line-height: 300px;
+  -webkit-align-items: center;
+  align-items: center;
+  position: relative;
+  img {
+    width: 125px;
+    height: 224px;
+    border: 1px solid #D9D9D9;
+  }
+}
+.goback {
+  width:120px;
+  height:45px;
+  line-height:45px;
+  text-align: center;
+  background-color: #952024;
+  font-size:14px;
+  color:#F0F3F4;
+  margin-top:20px;
+  margin-left:50%;
+  border:none;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.preview-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 1111;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.preview-wrap {
+  position: fixed;
+  width:450px;
+  height:800px;
+  z-index: 1111;
+  left: 50%;
+  top: 50%;
+  margin-left:-225px;
+  margin-top:-400px;
+  img {
+    width:450px;
+    height:800px;
+  }
+  .close-prev {
+    position: absolute;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background:url('../../../../assets/images/close-up.png');
+    right: -14%;
+    top: -3%;
+    z-index: 1112;
+  }
+}
+
+.preview-imgbox {
+  width: 125px;
+  height: 224px;
+  position: relative;
+  margin-left: 36px;
+  line-height: 224px;
+}
+.prev-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index:1112;
+  opacity: 0.5;
+  left: 0;
+  top: 0;
+}
+.preview-icon {
+  display: block;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  left: 50%;
+  top: 50%;
+  z-index:1112;
+  margin-left: -16px;
+  margin-top: -16px;
+  background:url('../../../../assets/images/preview-icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+._flex {
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box; /* Firefox 17- */
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex; /* Firefox 18+ */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-align-items:center;
+  -moz-align-items:center;
+  -ms-align-items:center;
+  -o-align-items:center;
+  align-items:center;
+}
+
+.f-weight{
+  color: #333;
+  font-weight:600;
+  font-size:16px;
+}

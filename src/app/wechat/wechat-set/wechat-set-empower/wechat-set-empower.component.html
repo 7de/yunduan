@@ -1,0 +1,27 @@
+<h3 class="title">微信公众号授权</h3>
+<ul class="list">
+  <li>
+    <h5 *ngIf="!data">暂未授权公众号</h5>
+    <h5 *ngIf="data">您已授权公众号</h5>
+    <div class="list-con">
+      <p>
+        公众号名称：<span class="gray" *ngIf="!data">未绑定</span>
+        <a href="https://mp.weixin.qq.com/" target="_blank" *ngIf="data">{{data.nickname}}</a>
+      </p>
+      <p>公众号类型：
+        <span class="gray" *ngIf="!data">未绑定</span>
+        <span class="black" *ngIf="data">
+          <ng-container [ngSwitch]="data.service_type">
+            <em *ngSwitchCase="0">订阅号</em>
+            <em *ngSwitchCase="1">由历史老帐号升级后的订阅号</em>
+            <em *ngSwitchDefault>服务号</em>
+          </ng-container>
+        </span>
+      </p>
+      <a style="line-height: 32px;" class="btn btn-orange" *ngIf="!data" href="{{dataGet}}">授权</a>
+      <a style="line-height: 32px;" class="btn btn-orange" *ngIf="data" href="https://mp.weixin.qq.com/"
+         target="_blank">取消授权</a>
+    </div>
+  </li>
+</ul>
+

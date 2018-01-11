@@ -1,0 +1,5 @@
+<ul id="customer-tab-nav" class="nav nav-tabs custom-tabs clearfix" [ngClass]="className">
+  <li class="tab-nav" *ngFor="let item of items" routerLinkActive="active">
+    <a routerLink="{{item.url}}" [queryParams]="item.queryParams">{{item.title}}</a>
+  </li>
+</ul>

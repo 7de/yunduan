@@ -1,0 +1,192 @@
+// 弹性布局
+._flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display:-webkit-flex;
+  display: -ms-flexbox;
+  display:flex;
+  align-items: baseline;
+}
+.flex_ {
+  display: -webkit-box;
+  display: -moz-box;
+  display:-webkit-flex;
+  display: -ms-flexbox;
+  display:flex;
+}
+// 公用样式
+.marginleft82 {
+  margin-left:82px;
+}
+.h40 {
+  width:100%;
+  height:40px;
+}
+.hides {
+  display: none;
+}
+
+// 成为服务商最外层div
+.data-certificate-wrap {
+  width: 100%;
+  padding-bottom: 50px;
+  background-color: #F2F2F2;
+  justify-content: center;
+  // 页头导航部分
+  .header-wrap {
+    width: 100%;
+    height: 300px;
+    background: url('../../../assets/images/auditing-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    .header-Become-service {
+      width: 319px;
+      height: 147px;
+      background: url('../../../assets/images/serviceProvider-text.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform:translate(-50%, -50%);
+      -ms-transform:translate(-50%, -50%);
+      -moz-transform:translate(-50%, -50%);
+      -webkit-transform:translate(-50%, -50%);
+      -o-transform:translate(-50%, -50%);
+      .become-Facilitator {
+        width:170px;
+        height:38px;
+        position: absolute;
+        left:50%;
+        bottom:0;
+        opacity:0;
+        transform:translate(-50%, 0%);
+        -ms-transform:translate(-50%, 0%);
+        -moz-transform:translate(-50%, 0%);
+        -webkit-transform:translate(-50%, 0%);
+        -o-transform:translate(-50%, 0%);
+      }
+    }
+  }
+  // 主体的内容
+  .Content-container {
+    width:1200px;
+    height:626px;
+    background-color: #FFFFFF;
+    margin:0 auto;
+    margin-top:30px;
+    .tips-Title {
+      width:100%;
+      height:32px;
+      .status-icon {
+        display: block;
+        margin-left:30px;
+        width:32px;
+        height:32px;
+        background: url('../../../assets/images/auditSuccess-icon.png');
+        background-repeat:no-repeat;
+        background-size: contain;
+      }
+      .inAudit-icon {
+        display: block;
+        margin-left:30px;
+        width:32px;
+        height:32px;
+        background: url('../../../assets/images/inAudit-icon.png');
+        background-repeat:no-repeat;
+        background-size: contain;
+      }
+      .reExamination-icon {
+        display: block;
+        margin-left:30px;
+        width:32px;
+        height:32px;
+        background: url('../../../assets/images/reExamination-icon.png');
+        background-repeat:no-repeat;
+        background-size: contain;
+      }
+      .status-text {
+        font-size:24px;
+        color:#333333;
+        line-height:32px;
+        text-indent:20px;
+      }
+      .inAudit-text {
+        color:#999999;
+      }
+    }
+    .warm-Reminder {
+      margin-top:7px;
+      font-size:18px;
+      color:#333333;
+      line-height:32px;
+    }
+    .procedure-Nav {
+      width:1036px;
+      margin:0 auto;
+      margin-top: 24px;
+      background-color: #FCFCFC;
+      .sept-Wrap {
+        width:998px;
+        height:110px;
+        margin:0 auto;
+        position: relative;
+        border-bottom:1px solid #E7E7E7;
+        .prove-Data {
+          .min-Title {
+            height:16px;
+            line-height:16px;
+            margin-left:20px;
+            margin-top:40px;
+            color:#333333;
+            font-size:16px;
+            font-weight:bold;
+            .mark-Line {
+              width:3px;
+              height:16px;
+              line-height:16px;
+              background: #AA2525;
+              margin-right:10px;
+            }
+          }
+          .tips-Text {
+            margin-left: 34px;
+            margin-top: 12px;
+            height: 14px;
+            line-height: 14px;
+            color: #666666;
+          }
+        }
+        .fillin-Btn {
+          width: 104px;
+          height: 36px;
+          border-radius: 3px;
+          background: #AA2527;
+          color: #FFFFFF;
+          font-size: 16px;
+          line-height: 16px;
+          text-align: center;
+          border:none;
+          outline:none;
+          position: absolute;
+          right: 0px;
+          top: 50%;
+          transform: translate(0%, -50%);
+          -ms-transform: translate(0%, -50%);
+          -moz-transform: translate(0%, -50%);
+          -webkit-transform: translate(0%, -50%);
+          -o-transform: translate(-50%, 0%);
+        }
+      }
+      .sept-Wrap:nth-child(2) {
+        border:none;
+      }
+    }
+  }
+}
+.bg-color {
+  border:1px solid #AA2527 !important;
+  color:#AA2527 !important;
+  background-color: #FCFCFC !important;
+}

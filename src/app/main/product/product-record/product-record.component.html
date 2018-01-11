@@ -1,0 +1,24 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;" href="javascript:history.go(-1)">&lt;&nbsp;返回</a>&nbsp;&nbsp;投资产品管理-投资记录
+  </div>
+</div>
+<div class="wrap">
+  <div class="con mt-30">
+    <p-dataTable rowHover="true" [value]="record" [loading]="!record" loadingIcon="fa-spinner" styleClass="custom-dataTable" emptyMessage="暂无数据">
+      <p-column header="序号">
+        <ng-template let-record="rowData" let-i="rowIndex" pTemplate="body">
+          {{(currentPage-1)*pagination.perPage+i+1}}
+        </ng-template>
+      </p-column>
+      <p-column field="profile.real_name" header="投资人姓名"></p-column>
+      <p-column field="money" header="投资金额（万元）"></p-column>
+      <p-column field="order_time" header="投资时间"></p-column>
+    </p-dataTable>
+    <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                 [first]="pagination.currentPage * pagination.perPage-1"
+                 [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                 (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+  </div>
+</div>

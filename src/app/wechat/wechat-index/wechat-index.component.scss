@@ -1,0 +1,76 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+a:hover{
+  text-decoration: none;
+}
+h3.title{
+  width:100%;
+  font-size:16px;
+  border-bottom:1px solid $border-gray;
+  padding:30px;
+}
+.wechat-index{
+  margin-left:30px;
+  margin-top:20px;
+  >.top{
+    overflow: hidden;
+    li{
+      float: left;
+      width:195px;
+      height:120px;
+      text-align: center;
+      color:#8c8c8c;
+      background-color:#f6f8f9;
+      span{
+        display: block;
+        padding-top:20px;
+        padding-bottom:10px;
+      }
+      b{
+        display: block;
+        font-size:42px;
+        color:#212121;
+        font-weight:normal
+      }
+    }
+    li:first-child{
+      margin-right:30px;
+    }
+  }
+  >h4{
+    font-size:16px;
+    margin-top:30px;
+  }
+  .list{
+    margin-top:15px;
+    overflow: hidden;
+    >li {
+      float: left;
+      width: 195px;
+      height: 45px;
+      line-height: 45px;
+      @include transition(.25s);
+      >a{
+        display: block;
+        font-size:14px;
+        color:#fff;
+        height:45px;
+        line-height:45px;
+        text-align: center;
+        background-color:#22ac38;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+      >a:hover{
+        background-color:#38b44c;
+      }
+      .ico-global{
+        margin-right:10px;
+      }
+    }
+    li:first-child{
+      margin-right:30px;
+    }
+  }
+}

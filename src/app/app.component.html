@@ -1,0 +1,10 @@
+<p-growl [value]="getMessages()" life="5000" [immutable]="false"></p-growl>
+<p-growl [value]="getMsg()" life="2000" styleClass="wechatTip" [immutable]="false"></p-growl>
+<p-confirmDialog icon="fa fa-question-circle" width="540" acceptLabel="确认" rejectLabel="取消" acceptIcon=""
+                 rejectIcon=""></p-confirmDialog>
+<p-confirmDialog icon="fa fa-question-circle" key="managerDel" width="520" rejectLabel="取消" acceptLabel="是的"
+                 acceptIcon="" rejectIcon=""></p-confirmDialog>
+<router-outlet></router-outlet>
+<app-loader></app-loader>
+
+

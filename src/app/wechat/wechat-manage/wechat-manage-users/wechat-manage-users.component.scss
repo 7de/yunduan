@@ -1,0 +1,146 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+
+.clearfix {
+  overflow: hidden;
+  clear: both;
+}
+
+.pd-15 {
+  padding: 15px;
+}
+
+h3.title {
+  width: 100%;
+  font-size: 16px;
+  padding: 30px;
+}
+
+.users-con {
+  padding: 0 30px;
+}
+
+//天数下拉框
+.users-select {
+  width: 150px;
+  .form-control {
+    width: 100%;
+    border: 1px solid $border-gray;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+//用户搜索
+.users-search {
+  width: 350px;
+  text-align: right;
+  .form-group {
+    margin-bottom: 0;
+  }
+  .form-control {
+    width: 100%;
+    float: left;
+    border: 1px solid $border-gray;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  .btn {
+    float: left;
+    outline: none;
+    margin-left: -40px;
+    padding: 5px 12px 5px;
+    border-left-color: $border-gray;
+    background-color: transparent;
+    border-radius: 0;
+    margin-top: 1px;
+    color: #ddd;
+  }
+  .form-control:focus {
+    border: 1px solid #c6c6ca;
+  }
+  .form-control:focus + .btn {
+    background-color: #c6c6ca;
+    border-left-color: #c6c6ca;
+    .ico-search {
+      background-position: -246px -462px;
+    }
+  }
+}
+
+//信息回复
+.reply-info {
+  padding-top: 15px;
+  textarea.form-control {
+    border: 1px solid $border-gray;
+    outline: none;
+    resize: none;
+    margin-bottom: 15px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  textarea.form-control:focus {
+    border-color: #119dee
+  }
+  .btn {
+    width: 106px;
+    background-color: $link-color;
+    border: 1px solid $border-gray;
+    margin-bottom: 8px;
+    outline: none;
+    padding: 5px 12px;
+  }
+  .btn-orange {
+    color: $link-color;
+    border-color: $theme-orange;
+    background-color: $theme-orange;
+    margin-right: 15px;
+  }
+  .btn:focus {
+    outline: none;
+  }
+  .btn:hover {
+    border-color: #dadbe0;
+    background-color: #e7e7eb;
+  }
+  .btn-orange:hover {
+    border-color: $btn-orange-hover;
+    background-color: $btn-orange-hover;
+  }
+  .btn-orange[disabled] {
+    border-color: $btn-orange-disabled;
+    background-color: $btn-orange-disabled;
+  }
+}
+
+//时间
+.time {
+  width: 10%;
+  margin-left: 100px;
+}
+
+.content {
+  font-size: 12px;
+  margin-top: 10px;
+  word-break: break-all;
+}
+
+.info {
+  width: 40%;
+  margin-left: 10px;
+}
+
+.users-info {
+  border: 1px solid #e7e7eb;
+  border-radius: 5px;
+}
+.users-info:hover{
+  background-color: #eee;
+}
+.img{
+  cursor: pointer;
+}
+
+.wechat-search{
+  padding-right: 50px;
+}

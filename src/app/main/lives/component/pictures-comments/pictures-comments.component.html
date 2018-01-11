@@ -1,0 +1,46 @@
+<div class="comments-area ui-g-12">
+  <div class="need-login ui-g-12 ui-g-nopad">
+    <h6 class="fs-14 float-left">全部评论</h6>
+    <div class="comments-login float-left" *ngIf="!loginInfo">
+      <a class="fs-14" (click)="loginBool=true;">登录</a>
+      <a>|</a>
+      <a class="fs-14" [routerLink]="['/login/register']">注册</a>
+    </div>
+  </div>
+  <form [formGroup]="formComments" (submit)="onSubmit(formComments)">
+    <div class="ui-g-12 ui-g-nopad comment-now" style="position: relative;">
+      <img style="display: inline-block;float: left;" *ngIf="companyInfo.avatar" [src]="companyInfo.avatar | image" />
+      <img style="display: inline-block;float: left;" *ngIf="!companyInfo.avatar" src="/assets/images/preview-img.png" />
+      <div class="form-group float-left triangle" style="margin-left: 16px;">
+        <label class="hide">评论内容</label>
+        <textarea formControlName="commentsVal" class="float-right" (input)="computerWord($event)" maxlength="200"></textarea>
+      </div>
+      <div class="ui-g-12 ui-g-nopad comment-submit">
+        <span>还剩{{200 - wordNum}}字</span>
+        <button type="submit" class="btn color-white" style="margin-bottom: 0;height: 22px;line-height: 5px;">评论</button>
+      </div>
+    </div>
+  </form>
+  <div class="comments-item ui-g-12 ui-g-nopad" *ngFor="let item of commentsData">
+    <img *ngIf="item?.user.avatar" [src]="item?.user.avatar | image" class="ui-g-1 ui-g-nopad" />
+    <i *ngIf="!item?.user.avatar" class="companyInfo?.avatar | image"></i>
+    <div class="ui-g-11 ui-g-nopad" style="padding-left: 8px;">
+      <p class="fs-12">{{item?.user.username}}</p>
+      <p class="fs-12">{{item?.content}}</p>
+      <p class="fs-12">{{item?.created_at_txt}}</p>
+    </div>
+  </div>
+</div>
+<div class="pagination">
+  <div class="ui-g-12 ui-g-nopad">
+    <p-paginator [rows]="pagination?.perPage" [first]="pagination?.currentPage * pagination?.perPage-1" [totalRecords]="pagination?.totalCount"
+      [pageLinkSize]="pagination?.pageCount" (onPageChange)="paginate($event)" styleClass="custom-paginator">
+    </p-paginator>
+  </div>
+</div>
+
+<div class="login-dialog">
+  <p-dialog header="会员账号登录" modal="modal" [(visible)]="loginBool" width="421">
+    <app-login-modal (display)="getDialog($event)"></app-login-modal>
+  </p-dialog>
+</div>

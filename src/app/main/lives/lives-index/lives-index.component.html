@@ -1,0 +1,151 @@
+<app-heads-single></app-heads-single>
+<app-lives-search-header></app-lives-search-header>
+<div class="wrap-all">
+  <div class="ui-g wrap-1200" style="margin-bottom: 140px;">
+    <div class="ui-g-12 ui-g-nopad lives-banner">
+      <div class="left-banner ui-g ui-g-nopad float-left">
+        <p-galleria [images]="bannerData" panelWidth="940" panelHeight="415" [autoPlay]="true" [showCaption]="false" [autoPlay]="true"></p-galleria>
+      </div>
+      <div class="right-sort ui-g ui-g-nopad float-right">
+        <div class="hot-lives-all ui-g-12 ui-g-nopad">
+          <div class="lives-header ui-g-12 ui-g-nopad">
+            <div class="float-left"><i class="ico-global ico-yun-hot"></i><span class="fs-16">热门课堂</span></div>
+            <div class="float-right"><a class="fs-14" [routerLink]="['/lives/lives-list']">全部</a></div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad lives-item" *ngFor="let item of hotData" [title]="item?.nickname">
+            <a [routerLink]="['/lives/lives-home']" [queryParams]="{id:item?.id}">
+              <img [src]="item?.img | image"/>
+              <a class="fs-14">{{item?.nickname}}</a>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad videos-area">
+      <div class="left-video-list ui-g ui-g-nopad float-left">
+        <div class="ui-g-12 ui-g-nopad videos-title">
+          <p><i class="ico-global ico-yun-video"></i><span class="fs-16">视频课程专区</span></p>
+        </div>
+        <div class="ui-g-12 ui-g-nopad preference-videos">
+          <div class="ui-g-12 ui-g-nopad">
+            <p class="fs-14 float-left" style="padding-left: 10px;">优选视频</p>
+            <p class="float-right" style="padding-right: 10px;">
+              <a [routerLink]="['/lives/videos-list']">全部</a>
+            </p>
+          </div>
+          <div class="ui-g-12 ui-g-12 ui-g-nopad preference-item">
+            <div class="single-videos-item float-left" *ngFor="let item of preferenceVideosData;let idx=index;" (click)="linkToVideo(item?.id)" (mouseover)="hoverAllBool[idx]=true" (mouseleave)="hoverAllBool[idx]=false" [title]="item?.title">
+                <img [src]="item?.img | image"/>
+                <a>{{item?.title}}</a>
+                <span class="fs-12">连载于：{{item?.media_info.title}}</span>
+                <i *ngIf="hoverAllBool[idx]" class="ico-global ico-yun-hover-play hover-i"></i>
+                <p>
+                  <i class="ico-global ico-yun-play" style="margin-top: -6px;"></i>
+                  <span class="fs-12">{{item?.pv}}</span>
+                  <i class="img-message ico-global ico-yun-comments" style="display:inline-block;margin-left: 19px;margin-top: -6px;"></i>
+                  <span class="fs-12 color-999">{{item?.comment_count}}</span>
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad raw-videos">
+          <div class="ui-g-12 ui-g-nopad">
+            <p class="fs-14 float-left" style="padding-left: 10px;">法律</p>
+            <p class="float-right" style="padding-right: 10px;"><a [routerLink]="['/lives/videos-list']" [queryParams]="{info_type : 1}">全部</a></p>
+          </div>
+          <div class="ui-g-12 ui-g-12 ui-g-nopad raw-item">
+            <div class="single-videos-item float-left" *ngFor="let item of rawData;let idx=index;" (click)="linkToVideo(item?.id)" (mouseover)="hoverRawBool[idx]=true" (mouseleave)="hoverRawBool[idx]=false" [title]="item?.title" [routerLink]="['/lives/videos-details']" [queryParams]="{id: item?.id}">
+              <!--<a [routerLink]="['/lives/videos-details']" [queryParams]="{id: item?.id}">-->
+                <img [src]="item?.img | image"/>
+                <a>{{item?.title}}</a>
+                <span class="fs-12">连载于：{{item?.media_info.title}}</span>
+                <i *ngIf="hoverRawBool[idx]" class="ico-global ico-yun-hover-play hover-i"></i>
+                <p>
+                  <i class="ico-global ico-yun-play" style="margin-top: -6px;"></i>
+                  <span class="fs-12" style="color: #808080;">{{item?.pv}}</span>
+                  <i class="img-message ico-global ico-yun-comments" style="display:inline-block;margin-left: 19px;margin-top: -6px;"></i>
+                  <span class="fs-12" style="color: #808080;">{{item?.comment_count}}</span>
+                </p>
+              <!--</a>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-video-items ui-g ui-g-nopad float-right">
+        <p class="fs-16">热门视频课程</p>
+        <div class="hot-single-video" *ngFor="let item of hotVideosData;let idx=index;" (mouseover)="hoverHotBool[idx]=true" (mouseleave)="hoverHotBool[idx]=false;" [title]="item?.title">
+          <a [routerLink]="['/lives/videos-details']" [queryParams]="{id: item?.id}">
+            <div class="float-left">
+              <img [src]="item?.img | image"/>
+              <i *ngIf="hoverHotBool[idx]" class="ico-global ico-yun-hover-s-play"></i>
+            </div>
+            <div class="float-right">
+              <p><a class="fs-12">{{item?.title}}</a></p>
+              <i class="ico-global ico-yun-play"></i><span class="fs-12">{{item?.media_info.pv}}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad pictures-area">
+      <div class="left-picture-list ui-g ui-g-nopad float-left">
+        <div class="ui-g-12 ui-g-nopad pictures-title">
+          <p><i class="ico-global icon-yun-picture"></i><span class="fs-16">图文课程专区</span></p>
+        </div>
+        <div class="ui-g-12 ui-g-nopad preference-pictures">
+          <div class="ui-g-12 ui-g-nopad">
+            <p class="fs-14 float-left" style="padding-left: 10px;">优选图文</p>
+            <p class="float-right" style="padding-right: 10px;"><a [routerLink]="['/lives/pictures-list']">全部</a></p>
+          </div>
+          <div class="ui-g-12 ui-g-12 ui-g-nopad preference-item">
+            <div class="single-pictures-item float-left" *ngFor="let item of preferencePicturesData" (click)="linkToPic(item?.id)" [title]="item?.title">
+                <img [src]="item?.img | image"/>
+                <a>{{item?.title}}</a>
+                <span class="fs-12">连载于：{{item?.media_info.title}}</span>
+                <p>
+                  <i class="ico-global ico-yun-eye" style="margin-top: -6px;"></i>
+                  <span class="fs-12">{{item?.pv}}</span>
+                  <i class="ico-global ico-yun-comments img-message" style="margin-left: 19px;margin-top: -6px;"></i>
+                  <span class="fs-12 color-999">{{item?.comment_count}}</span>
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad raw-pictures">
+          <div class="ui-g-12 ui-g-nopad">
+            <p class="fs-14 float-left" style="padding-left: 10px;">投研</p>
+            <p class="float-right" style="padding-right: 10px;"><a [routerLink]="['/lives/pictures-list']" [queryParams]="{info_type : 2}">全部</a></p>
+          </div>
+          <div class="ui-g-12 ui-g-12 ui-g-nopad raw-item">
+            <div class="single-pictures-item float-left" *ngFor="let item of investmentPicturesData" (click)="linkToPic(item?.id)" [title]="item?.title">
+                <img [src]="item?.img | image"/>
+                <a>{{item?.title}}</a>
+                <span class="fs-12">连载于：{{item?.media_info.title}}</span>
+                <p>
+                  <i class="ico-global ico-yun-eye" style="margin-top: -6px;"></i>
+                  <span class="fs-12" style="color: #808080;">{{item?.pv}}</span>
+                  <i class="ico-global ico-yun-comments img-message" style="margin-left: 19px;margin-top: -6px;"></i>
+                  <span class="fs-12" style="color: #808080;">{{item?.comment_count}}</span>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-picture-items ui-g ui-g-nopad float-right">
+        <p class="fs-16">热门图文课程</p>
+        <div class="hot-single-picture" *ngFor="let item of hotPicturesData" [title]="item?.title">
+          <a [routerLink]="['/lives/pictures-detail',item?.id]">
+            <div class="float-left">
+              <img [src]="item?.img | image"/>
+            </div>
+            <div class="float-right">
+              <p><a class="fs-12">{{item?.title}}</a></p>
+              <i class="ico-global ico-yun-eye"></i><span class="fs-12">{{item?.pv}}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer [bgc]="1"></app-footer>

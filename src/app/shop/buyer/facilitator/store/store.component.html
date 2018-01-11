@@ -1,0 +1,151 @@
+<app-heads-single></app-heads-single>
+<app-heads-shop [shopId]="shopId"></app-heads-shop>
+<div class="shop-con">
+  <div class="wrap-1200">
+    <div class="ui-g shop-top mt-20">
+      <div class="ui-g-4 ui-g-nopad">
+        <div class="shop-top-left">
+          <h4>{{storeIndex?.name}}</h4>
+          <p>
+            <a class="qq-chat" [href]="(qqFirst+ storeIndex?.qq+qqLast) | safeUrl"><i class="ico-global ico-qq"></i>联系商家</a>
+          </p>
+          <div class="shop-score mt-20">
+            <span>
+              <em class="color-999">服务态度</em>
+              <em class="red">{{(storeIndex?.service_star)/10}}</em>
+            </span>
+            <span>
+              <em class="color-999">工作速度</em>
+              <em class="red">{{(storeIndex?.work_star)/10}}</em>
+            </span>
+            <span>
+              <em class="color-999">完成质量</em>
+              <em class="red">{{(storeIndex?.quality_star)/10}}</em>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-8 ui-g-nopad bg-gray">
+        <div class="shop-top-right">
+          <h5 class="text-center">店铺介绍</h5>
+          <p class="fs-12">{{storeIndex?.introduction?storeIndex?.introduction:'暂无介绍'}}</p>
+          <div class="shop-sevice clearfix">
+            <b class="pull-left fs-14 color-666 mt-5 mr-10">服务特点及保证：</b>
+            <div class="pull-left clearfix">
+              <div class="pull-left features mr-10" *ngFor="let feature of storeIndex ?.features">
+                <img [src]="feature?.image | image:30" width="30" height="30" alt="feature?.name"/>
+                <span class="color-666 fs-12">{{feature?.name}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 轮播图 -->
+    <div class="ui-g" *ngIf="images">
+      <div class="ui-g-12 ui-g-nopad mt-10">
+        <div class="shop-galleria">
+          <p-galleria [images]="images" panelWidth="1200" panelHeight="338" [autoPlay]="true" [showCaption]="false" [transitionInterval]="3000" frameWidth="100%" frameHeight="4">
+          </p-galleria>
+        </div>
+      </div>
+    </div>
+
+    <!-- 商家服务 -->
+    <div class="ui-g mt-20">
+      <div class="ui-g-12 ui-g-nopad service-goods">
+        <div class="shop-title">商家服务</div>
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="tabulation mt-20">
+            <app-goods [goodsData]="goodsList" [shopId]="shopId"></app-goods>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <p-paginator *ngIf="goodsListPagination?.totalCount" [rows]="goodsListPagination?.perPage"
+                       [first]="goodsListPagination.currentPage * goodsListPagination.perPage-1"
+                       [totalRecords]="goodsListPagination?.totalCount" [pageLinkSize]="goodsListPagination?.pageCount"
+                       (onPageChange)="paginate($event, 'goods')" styleClass="custom-paginator">
+          </p-paginator>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 评价 -->
+    <div class="ui-g mt-20">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="shop-title">累计评价</div>
+        <div class="estimate" *ngIf="storeIndex?.commentNum > 0">
+          <div class="ui-g-12 ui-g-nopad shop-estimate">
+            <div class="ui-g-8 ui-g-nopad grade-box">
+              <p>好评度</p>
+              <p>
+                <span class="grade"><em class="grade-num">{{storeIndex?.grade}}</em>%</span>
+                <span>点评人数（{{storeIndex?.commentNum}}）</span>
+              </p>
+            </div>
+            <ul class="ui-g-4 ui-g-nopad text-right store">
+              <li>
+                <span class="color-999">服务态度：</span>
+                <div class="atar_Show" title="{{storeIndex?.service_star / 10}}">
+                  <p [ngStyle]="{'width':getScores(storeIndex?.service_star/10)*2*10 + 'px'}"></p>
+                </div>
+                <b class="fs-14 red">{{storeIndex?.service_star / 10}}</b>
+              </li>
+              <li>
+                <span class="color-999">工作速度：</span>
+                <div class="atar_Show" title="{{storeIndex?.work_star / 10}}">
+                  <p [ngStyle]="{'width':getScores(storeIndex?.work_star/10)*2*10 + 'px'}"></p>
+                </div>
+                <b class="fs-14 red">{{storeIndex?.work_star / 10}}</b>
+              </li>
+              <li>
+                <span class="color-999">完成质量：</span>
+                <div class="atar_Show" title="{{storeIndex?.quality_star / 10}}">
+                  <p [ngStyle]="{'width':getScores(storeIndex?.quality_star/10)*2*10 + 'px'}"></p>
+                </div>
+                <b class="fs-14 red">{{storeIndex?.quality_star / 10}}</b>
+              </li>
+            </ul>
+          </div>
+          <ul class="ui-g-12 ui-g-nopad shop-estimate-list">
+            <li class="ui-g" *ngFor="let comment of commentsData">
+              <div class="ui-g-1 ui-g-nopad">
+                  <img class="header-img" width="50" height="50" [src]="comment?.base.avatar | image:50" alt="头像"/>
+                <p class="fs-12 color-666 text-center" style="width: 50px;">{{handle(comment?.base.username)}}</p>
+              </div>
+              <div class="ui-g-10 ui-g-nopad">
+                <div class="company-estimate">
+                  {{comment?.is_sys?'系统自动评价':comment?.content}}
+                </div>
+                <div class="shop-reply mt-10" *ngIf="comment?.reply">
+                  [商家回复] ：{{comment.reply.content}}
+                </div>
+              </div>
+              <div class="ui-g-1 ui-g-nopad text-right fs-12 color-999">
+                {{comment?.created_at | datetime: 'datetime'}}
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="no-estimate text-center mt-20 mb-20" *ngIf="commentsData?.length<1">
+          <i class="ico-global ico-noEstimate"></i>
+          <p class="gray">暂无评价...</p>
+        </div>
+
+      </div>
+      <div class="ui-g-12 ui-g-nopad mt-10 mb-10">
+        <p-paginator *ngIf="pagination?.totalCount" [rows]="pagination?.perPage"
+                     [first]="pagination.currentPage * pagination.perPage-1"
+                     [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+                     (onPageChange)="paginate($event, 'comments')" styleClass="custom-paginator">
+        </p-paginator>
+      </div>
+    </div>
+  </div>
+
+</div>
+<app-back-to-top *ngIf="show"></app-back-to-top>
+<app-footer [bgc]="2"></app-footer>

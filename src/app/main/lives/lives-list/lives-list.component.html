@@ -1,0 +1,45 @@
+<app-heads-single></app-heads-single>
+<app-lives-search-header></app-lives-search-header>
+<div class="wrap-all">
+  <div class="ui-g wrap-1200" style="margin-bottom: 126px;">
+    <div class="ui-g-12 ui-g-nopad lives-home-header">
+      <img [src]="livesBg | image" class="lives-header-bg"/>
+    </div>
+    <div class="ui-g-12 ui-g-nopad lives-serial">
+      <div class="ui-g-12 ui-g-nopad serial-header">
+        <div class="float-left">
+          <span class="fs-16">热门课堂</span>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad serial-content">
+        <div class="all-item float-left" *ngFor="let item of hotLivesData;let idx=index;" [ngClass]="{'all-item-border': idx===4}">
+          <a [routerLink]="['/lives/lives-home']" [queryParams]="{id: item?.id}">
+            <div>
+              <!--<div></div>-->
+              <!--<div></div>-->
+              <img [src]="item?.img | image"/>
+            </div>
+            <p class="a-hover">
+              <a class="fs-14">{{item?.nickname}}</a>
+            </p>
+            <p>
+              <i class="ico-global ico-yun-play"></i>
+              <span class="fs-12">{{item?.count_video}}</span>
+              <i class="ico-global ico-yun-read img-stage"></i>
+              <img src="" class=""/>
+              <span class="fs-12">{{item?.count_article}}</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad pagination">
+      <p-paginator [rows]="pagination?.perPage"
+                   [first]="pagination?.currentPage * pagination?.perPage-1"
+                   [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+                   (onPageChange)="paginate($event)" styleClass="custom-paginator">
+      </p-paginator>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,142 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+
+.title {
+  color: #333;
+  font-size: 14px;
+  margin-bottom:20px;
+  a {
+    color: #119dee;
+    padding-right: 10px;
+  }
+}
+
+.custom-form {
+  .part {
+    padding: 30px 30px 40px;
+    background-color: #fff;
+    .row {
+      margin: 0;
+    }
+    [class^='col-'] {
+      padding: 0;
+    }
+    .red {
+      font-size: 14px;
+      color: nth($red,3);
+    }
+    p {
+      font-size: 16px;
+      font-weight: bold;
+      color: #971416;
+      margin-top: 25px;
+    }
+
+  }
+  h4 {
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+    padding-left: 15px;
+    border-left: 3px solid nth($red,1);
+  }
+  .control-label {
+    font-size: 14px;
+    color: #444;
+    text-align: left;
+    padding-left: 0;
+    margin-top: 25px;
+  }
+  .form-control {
+    height: 36px;
+    border: 0;
+    border-bottom: 1px solid $border-gray;
+    padding: 6px 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    @include borderRadius(0);
+    @include transition(.25s);
+  }
+  .form-control:focus {
+    border-color: $input-focus;
+  }
+  .form-ul {
+    padding-top: 10px;
+    li {
+      padding: 5px 0;
+    }
+  }
+  .tip {
+    padding: 20px 17px;
+    border: 1px dashed #f2a553;
+    background-color: #fdf9f5;
+    font-size: 14px;
+    h5 {
+      color: #f2a553;
+    }
+    p {
+      font-size: 14px;
+      font-weight: normal;
+      color: #777;
+      margin-top: 10px;
+    }
+    .tip-info {
+      margin-top: 25px;
+      span {
+        padding-bottom: 8px;
+      }
+      span.col-md-5, span.col-md-3 {
+        border-bottom: 1px solid $border-gray;
+      }
+    }
+  }
+}
+
+.add-btn {
+  float: left;
+  width: 23px;
+  height: 23px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 22px;
+  border: 1px solid $input-focus;
+  color: $input-focus;
+  @include borderRadius(50%);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-span {
+  line-height: 16px;
+  font-size: 28px;
+}
+.group-error{
+  color: #ee3737;
+}
+
+.btn {
+  width: 130px;
+  height: 44px;
+  box-shadow: none;
+  @include borderRadius;
+  outline: none;
+}
+
+.btn-red {
+  background-color: nth($red,1);
+  color: #fff;
+  font-size: 14px;
+}
+.btn-red:hover{
+  outline: none;
+  opacity: .9;
+}
+
+.errorMessage, .errorNumber {
+  color: #ee3737;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}

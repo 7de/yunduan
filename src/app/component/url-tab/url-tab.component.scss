@@ -1,0 +1,87 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+/* 第三方 tab  1.4.1*/
+
+.custom-tabs-another li {
+  font-size: 14px;
+}
+
+.custom-tabs-another li a {
+  line-height: 22px;
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+.custom-tabs-another li.active a,
+.custom-tabs-another li.active a:hover,
+.custom-tabs-another li.active a:focus {
+  color: nth($newRed,2);
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid nth($newRed,2);
+}
+
+.custom-tabs-another li a:hover {
+  background-color: transparent;
+  border: none;
+}
+
+.custom-tabs-sub_another li a {
+  min-width: 85px;
+  height: 32px;
+  color: #666;
+}
+
+.custom-tabs-sub_another li a:after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 0;
+  width: 2px;
+  height: 12px;
+  border-right: 1px solid #bbb;
+}
+
+.custom-tabs-sub_another li:last-child a:after {
+  border-right: 0;
+}
+
+/* 个人中心tab样式的修改1.4.1 */
+.custom-tab-cut {
+  background: #F7F7F7;
+  border-top: 1px solid #F4F4F4;
+  border-bottom: 1px solid #F4F4F4;
+  li {
+    width: 84px;
+    text-align: center;
+    font-size: 16px;
+    color: #333333;
+    margin-right:10px;
+    background-color: #F7F7F7 !important;
+    a {
+      width:84px;
+      height: 36px;
+      line-height: 36px;
+      background: #F7F7F7;
+      font-size: 16px;
+      color: #333333;
+      min-width:0px !important;
+      border:none;
+    }
+  }
+  li:nth-child(2) {
+    margin-left:10px;
+    width:100px;
+  }
+}
+.custom-tab-cut li:nth-child(1):after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: -10px;
+  width: 1px;
+  height: 14px;
+  background-color: #D2D2D2;
+  zoom: 1;
+}

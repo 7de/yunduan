@@ -1,0 +1,117 @@
+<div class="ui-g ui-g-nopad">
+  <div class="ui-g-12 ui-g-nopad video-picture-change">
+    <div class="video-status float-left" [class.active]="status === 'videos'">
+      <span (click)="changeStatus('videos');">
+        视频连载
+        <em>（{{serialCount?.media_video_count}}）</em>
+      </span>
+    </div>
+    <div class="video-status float-left" [class.active]="status === 'pictures'">
+      <span (click)="changeStatus('pictures');">
+        图文连载
+        <em>（{{serialCount?.media_article_count}}）</em>
+      </span>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-g-nopad" style="padding: 20px 0">
+    <div class="search-input float-left">
+      <input pInputText type="text" [(ngModel)]="params.title" placeholder="搜索连载名称" />
+      <button class="color-666" (click)="getMySerial()">搜索</button>
+    </div>
+    <div class="create-serial float-left">
+      <a class="color-666" (click)="createMySerial()" (mouseover)="hoverBool=true" (mouseleave)="hoverBool=false">
+        <i [ngClass]="{'ico-yun-create-serial': hoverBool}" class="ico-global ico-yun-create-serial-normal" style="margin-right: 3px;margin-top: -2px;"></i>创建连载</a>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-g-nopad my-serial">
+    <p-dataTable [value]="serialData" styleClass="custom-dataTable" emptyMessage="暂无数据">
+      <p-column header="连载信息" [style]="{'width':'50%'}">
+        <ng-template let-data="rowData" pTemplate="body">
+          <div class="ui-g-4 ui-g-nopad serial-picture padding-16">
+            <img [src]="data?.img | image" />
+          </div>
+          <div class="ui-g-8 ui-g-nopad serial-picture-title padding-16">
+            <p style="font-size: 12px;">{{data?.title}}</p>
+            <span style="font-size: 12px;">{{data?.created_at_txt}}</span>
+          </div>
+        </ng-template>
+      </p-column>
+      <p-column field="business_status_txt" header="视频/图文数量">
+        <ng-template let-data="rowData" pTemplate="body">
+          <p style="color: #000000;margin-top: 16px;font-size: 12px;">{{data?.media_count}}</p>
+        </ng-template>
+      </p-column>
+      <p-column header="播放量">
+        <ng-template let-data="rowData" pTemplate="body">
+          <p style="color: #000000;margin-top: 16px;font-size: 12px;">{{data?.pv}}</p>
+        </ng-template>
+      </p-column>
+      <p-column header="操作">
+        <ng-template pTemplate="body" let-data="rowData">
+          <p style="color: #000000;margin-top: 16px;font-size: 12px;" class="p-hover" (click)="checkSerial(data)">查看</p>
+          <p class="p-hover" style="padding: 12px 0;color: #000000;font-size: 12px;" (click)="editSerial(data?.id)">编辑</p>
+          <p style="color: #000000;font-size: 12px;" class="p-hover" (click)="deleteBool=true;deleteId=data?.id">删除</p>
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+    <p-paginator *ngIf="pagination?.totalCount" [rows]="pagination.perPage" [first]="pagination.currentPage * pagination.perPage-1"
+      [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount" (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+  </div>
+</div>
+
+
+<!--删除弹框-->
+<div class="my-serial-dialog">
+  <p-dialog header="提示" modal="modal" [(visible)]="deleteBool" width="500">
+    <div class="text-center mt-10 color-666">
+      <i class="ico-global ico-tip-yellow" style="margin-right: 10px;"></i>确定删除该连载吗？</div>
+    <p-footer>
+      <p class="text-center">
+        <button type="button" class="cancel-btn-new" (click)="deleteBool=!deleteBool">取消</button>
+        <button type="button" class="submit-btn-new ml-15" (click)="deleteSerial()">确定删除</button>
+      </p>
+    </p-footer>
+  </p-dialog>
+</div>
+
+<!--上传视频弹窗-->
+<div class="my-serial-dialog">
+  <p-dialog header="提示" modal="modal" [(visible)]="uploadBool" width="500">
+    <div class="text-center mt-10 color-666">
+      <i class="ico-global ico-tip-yellow" style="margin-right: 10px;"></i>钱包开通后可上传视频</div>
+    <div class="text-center">
+      <a class="authentication-now">立即认证>></a>
+    </div>
+  </p-dialog>
+</div>
+
+<div class="video-dialog">
+  <p-dialog header="确认操作提示" modal="modal" [(visible)]="livesBool" width="500">
+    <div class="text-center mt-10">
+      <i class="ico-global ico-tip-yellow" style="margin-right: 10px;"></i>
+      <em *ngIf="authorObj['natural'] && companyType === '0'">完善资料</em>
+      <em *ngIf="authorObj['natural'] && companyType === '1'">资质审核通过</em>
+      <em *ngIf="authorObj['wallet']">钱包开通</em>
+      <em *ngIf="authorObj['lives']">课堂资料完善</em>
+      后才可以上创建连载哦
+    </div>
+    <p-footer>
+      <p class="text-center">
+        <a (click)="finishLivesInfo()">立即完善>></a>
+      </p>
+    </p-footer>
+  </p-dialog>
+</div>
+
+<!-- 创建连载 -->
+<div class="create-serial-dialog">
+  <p-dialog modal="modal" [(visible)]="createBool" width="460">
+    <p-header *ngIf="!editId">
+      创建新连载
+    </p-header>
+    <p-header *ngIf="editId">
+      编辑连载
+    </p-header>
+    <app-create-serial-form [mediaId]="editId" [createBool]="createBool" [media_type]="media_type" (result)="hideDialog($event)"></app-create-serial-form>
+  </p-dialog>
+</div>

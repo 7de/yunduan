@@ -1,0 +1,247 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+/*私募底部信息部分*/
+.footer{
+  width: 100%;
+  height:364px;
+  padding:60px 0 20px;
+  position: relative;
+  color: #fff;
+  background:url(../../../assets/images/footer_bg.jpg) no-repeat center top;
+}
+.top-con{
+  position: relative;
+  &:after{
+    content: '';
+    position: absolute;
+    top:0;
+    right:0;
+    width:1px;
+    height:198px;
+    line-height: 0;
+    background-color: rgba(255,255,255,.2);
+  }
+}
+.info{
+  padding-right:85px;
+  p{
+    margin-top:15px;
+  }
+  .logo-info{
+    font-size:15px;
+    margin-top:6px;
+  }
+  .ico-global{
+    margin-right:10px;
+  }
+}
+.nav{
+  width:230px;
+  text-align: center;
+   h4{
+     padding-left:10px;
+     padding-right:62px;
+   }
+  .nav-list{
+    margin-top:26px;
+    li{
+      margin-top: 15px;
+    }
+    a{
+      color: #fff;
+      text-decoration: none;
+      &:hover{
+        span{
+          text-decoration: underline !important;
+        }
+      }
+      span{
+        display: inline-block;
+        width:70px;
+        text-align: left;
+      }
+      i{
+        font-family: "宋体";
+        padding-left:25px;
+      }
+    }
+  }
+}
+.tell{
+  width:345px;
+  padding:45px 55px;
+  p{
+    font-size: 24px;
+    margin-top:25px;
+  }
+  .ico-tell{
+    width:38px;
+    height:38px;
+    background-position:-345px -367px;
+    margin-right:10px;
+    margin-bottom: 3px;
+  }
+}
+.us{
+  width:245px;
+  padding:45px 0 45px 55px;
+  &:after{
+    background-color: transparent;
+  }
+  .us-list{
+    margin-top:18px;
+    li{
+      float: left;
+      position: relative;
+      margin-right:18px;
+      @include transition(.25s);
+      &:last-child{
+        margin-right:0;
+      }
+      .ico-global:hover + .code{
+          display: block;
+      }
+    }
+  }
+  .code{
+    display: none;
+    position: absolute;
+    top:-140px;
+    right:0;
+    width:225px;
+    padding:4px 5px;
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fff;
+    z-index: 1;
+    &:before{
+      content: "";
+      position: absolute;
+      bottom:-14px;
+      right: 8%;
+      width:8px;
+      border:7px solid #333;
+      border-top-color:#fff;
+      margin:0 auto;
+    }
+  }
+  .ico-global{
+    width:50px;
+    height:50px;
+    @include transition(.25s)
+  }
+  .ico-sou{
+    background-position: -278px -413px;
+    &:hover{
+      background-position: -278px -471px;
+    }
+  }
+  .ico-tou{
+    background-position: -338px -413px;
+    &:hover{
+      background-position:-338px -471px;
+    }
+  }
+  .ico-we{
+    background-position: -398px -413px;
+    &:hover{
+      background-position: -398px -471px;
+    }
+  }
+}
+.bigbox-bottm{
+  margin-top:35px;
+  padding-top:20px;
+  text-align: center;
+  border-top:1px solid transparent;
+  .ico-icp{
+    width:80px;
+    height:30px;
+    background-position: -460px -491px;
+    margin-left: 5px;
+  }
+  .linkCheck{
+    color: #999;
+    text-decoration: none;
+  }
+  a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+/* 白色 */
+.bg-white.footer,.bg-gray.footer{
+  color: #333;
+  background: #fff;
+  .top-con:after{
+    background-color: #dfdfdf;
+  }
+  .us:after{
+    background-color: transparent;
+  }
+  .nav a{
+    color: #333;
+  }
+  .tell{
+    .ico-tell{
+      background-position: -303px -367px;
+    }
+  }
+  .code{
+    border:1px solid #dbdbdb;
+    &:before{
+      border-color: #fff;
+      border-top-color:#dbdbdb;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      bottom:-4px;
+      right:20px;
+      width:10px;
+      height:10px;
+      background-color: #fff;
+      transform: rotate(45deg);
+      margin:0 auto;
+    }
+  }
+  .ico-machine{
+    background-position: -102px -76px;
+  }
+  .ico-email{
+    background-position: -122px -76px;
+  }
+  .ico-address{
+    background-position: -142px -76px;
+  }
+  .bigbox-bottm>p{
+    color: #666;
+  }
+}
+.bg-white.footer{
+  background: #fff;
+  .top-con:after{
+    background-color: #eee;
+  }
+  .us:after{
+    background-color: transparent;
+  }
+  .bigbox-bottm{
+    border-top:1px solid #eee;
+  }
+}
+
+/* 灰色 */
+.bg-gray.footer{
+  background: #f2f2f2;
+  .code:before{
+      border-color: #f2f2f2;
+      border-top-color:#dbdbdb;
+    }
+  .bigbox-bottm{
+    border-top:1px solid #dfdfdf;
+  }
+}

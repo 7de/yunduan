@@ -1,0 +1,99 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+
+.btn-orange {
+  padding: 4px 12px;
+  color: #fff;
+  background-color: $theme-orange;
+  > i {
+    font-size: 18px;
+    padding-right: 5px;
+    position: relative;
+    font-style: normal;
+  }
+}
+
+.btn-orange:focus {
+  outline: none;
+}
+
+.btn-orange:hover {
+  background-color: $btn-orange-hover;
+}
+
+.btn-orange[disabled] {
+  background-color: $btn-orange-disabled;
+}
+
+.search-box {
+  width: 250px;
+  .form-group {
+    margin-bottom: 0;
+  }
+  .form-control {
+    width: 100%;
+    float: left;
+    border: 1px solid $border-gray;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  .btn {
+    float: left;
+    outline: none;
+    margin-left: -40px;
+    padding: 5px 12px 5px;
+    border-left-color: $border-gray;
+    background-color: transparent;
+    border-radius: 0;
+    margin-top: 1px;
+    color: #ddd;
+  }
+  .form-control:focus {
+    border: 1px solid #c6c6ca;
+  }
+  .form-control:focus + .btn {
+    background-color: #c6c6ca;
+    border-left-color: #c6c6ca;
+    .ico-search {
+      background-position: -246px -462px;
+    }
+  }
+
+}
+
+.list {
+  li {
+    margin-top: 15px;
+    border: 1px solid $border-gray;
+    h3, h5 {
+      height: 38px;
+      line-height: 40px;
+      font-size: 14px;
+      border-bottom: 1px solid $border-gray;
+      padding: 0 15px;
+      overflow: hidden;
+      > .pull-left {
+        width: 80%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      a {
+        padding-left: 10px;
+      }
+    }
+    h3 {
+      background-color: #f4f5f9;
+    }
+    .list-con {
+      padding: 15px;
+      overflow: hidden;
+      span {
+        float: left;
+      }
+      span:last-child {
+        width: 92%;
+      }
+    }
+  }
+}

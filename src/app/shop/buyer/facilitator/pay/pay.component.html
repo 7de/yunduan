@@ -1,0 +1,181 @@
+<div class="order bg-gray">
+  <div class="order-header">
+    <app-heads-single [bgc]="true"></app-heads-single>
+    <app-head-home [homeTitle]="['支付']"></app-head-home>
+  </div>
+  <div class="order-con">
+    <div class="wrap-1200">
+      <div class="ui-g">
+        <div class="ui-g-12 crumbs">
+          <span>您的位置：</span>
+          <a [routerLink]="['/buyer/facilitator/goods']" [queryParams]="{goodsId:orderInfo?.goods_id, shopId:orderInfo?.shop_id}">商品详情页</a>&gt;
+          <span>支付</span>
+        </div>
+      </div>
+      <div class="bg-white order-box" *ngIf="!paymentState">
+        <div class="ui-g">
+          <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g-3 ui-g-nopad mt-10">
+              <span class="fs-18 color-666">选择支付方式</span>
+            </div>
+            <div class="ui-g-9 ui-g-nopad clearfix">
+              <ul class="order-process clearfix pull-right">
+                <li class="visited"><span>1</span><p>提交订单</p></li>
+                <li class="active"><span>2</span><p>选择支付方式</p></li>
+                <li><span>3</span><p>支付成功</p></li>
+              </ul>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad mt-40 order-box-tip">
+            <div class="ui-g-6 ui-g-nopad">
+              <p>订单提交成功，请尽快付款！订单号：{{orderInfo?.order_no}}</p>
+              <p class="mt-5">请您在<span class="red">72小时</span>内完成支付，否则订单会被自动取消</p>
+            </div>
+            <div class="ui-g-6 ui-g-nopad text-right">应付金额： <b class="red fs-18">￥{{orderInfo?.money}}</b></div>
+          </div>
+        </div>
+        <div class="ui-g mt-20">
+          <div class="ui-g-12 ui-g-nopad order-wallet">
+            <!-- 未开通且未认证通过 //start -->
+            <div *ngIf="!walletData?.wallet || walletData?.wallet?.user_verify_type !== 1" class="no-wallet text-center color-666 fs-16">
+              <ng-container *ngIf="!walletData?.wallet?.user_verify_type">
+                您尚未开通钱包，请先前往开通钱包
+                <button (click)="openWallet()" class="submit-btn-new fs-14 ml-10">前往开通</button>
+              </ng-container>
+              <ng-container *ngIf="walletData?.wallet?.user_verify_type===2">
+                钱包认证不通过，重新开通
+                <button class="submit-btn-new fs-14 ml-10" [routerLink]="['/shop/wallet']">重新开通</button>
+              </ng-container>
+              <ng-container *ngIf="walletData?.wallet?.user_verify_type===3">
+                已提交认证资料，前往查看
+                <button class="submit-btn-new fs-14 ml-10" [routerLink]="['/shop/wallet']">前往查看</button>
+              </ng-container>
+            </div>
+            <!-- 未开通且未认证通过 //end -->
+
+            <!-- 已开通且已认证通过 //start -->
+            <div class="ui-g" *ngIf="walletData?.wallet && walletData?.wallet?.user_verify_type === 1">
+              <form class="ui-g-12 ui-g-nopad" [formGroup]="formPay" (submit)="onSubmit(formPay)">
+                <div class="ui-g-1 ui-g-nopad form-label">支付方式：</div>
+                <div class="ui-g-11 ui-g-nopad form-group">
+                  <label class="hide">支付方式</label>
+                  <div class="clearfix">
+                    <label class="pull-left clearfix check-box">
+                      <input class="pull-left" type="checkbox" checked formControlName="payWay">
+                      <span class="pull-left checkbox"></span>
+                      <span class="pull-left checkico">
+                        <i class="ico-global ico-wallet"></i>
+                      </span>
+                    </label>
+                    <span class="pull-left fs-12 form-tip">（目前仅提供余额支付）</span>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-1 ui-g-nopad">余额支付：</div>
+                  <div class="ui-g-11 ui-g-nopad">
+                    账户余额<span class="red">{{walletData?.wallet?.balance/100}}</span>元
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad mt-20">
+                  <div class="ui-g-1 ui-g-nopad form-label">支付密码：</div>
+                  <div class="ui-g-11 ui-g-nopad">
+                    <div class="form-group">
+                      <p class="clearfix">
+                        <label class="hide">支付密码</label>
+                        <input type="password" class="pull-left form-control" formControlName="payPass" maxlength="6" autocomplete="new-password" placeholder="请填写6位数字或字母支付密码" style="width: 250px;"/>
+                        <a class="pull-left ml-10 fs-12 blue form-tip" [routerLink]="['/buyer/personal/set/account/reset']">忘记密码？</a>
+                      </p>
+                    </div>
+                    <div class="btn-box mt-20">
+                      <button type="submit" class="submit-btn-new">去支付</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- 已开通且已认证通过 //end -->
+          </div>
+        </div>
+      </div>
+      <div class="bg-white order-box" *ngIf="paymentState">
+        <div class="ui-g">
+          <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g-3 ui-g-nopad mt-10">
+              <span class="fs-18 color-666">支付成功</span>
+            </div>
+            <div class="ui-g-9 ui-g-nopad clearfix">
+              <ul class="order-process clearfix pull-right">
+                <li class="visited"><span>1</span><p>提交订单</p></li>
+                <li class="visited"><span>2</span><p>选择支付方式</p></li>
+                <li class="active"><span>3</span><p>支付成功</p></li>
+              </ul>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad mt-60">
+            <div class="ui-g-6 ui-g-nopad text-right"><i class="ico-global ico-tip-green"></i></div>
+            <div class="ui-g-5 ui-g-nopad mt-10 ml-10">
+              <b class="fs-18 color-666">恭喜您，支付成功！</b>
+              <p class="mt-5"><a class="blue fs-12" [routerLink]="['/buyer/personal/order',id]">查看订单详情&gt;</a></p>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad mt-40">
+            <table class="table" style="width: 85%; margin: 0 auto;">
+              <thead>
+                <tr>
+                  <th>订单号</th>
+                  <th>服务名称</th>
+                  <th>服务商</th>
+                  <th>订单创建时间</th>
+                  <th>金额</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>{{orderInfo?.order_no}}</td>
+                <td>{{orderInfo?.goods.title}}</td>
+                <td>{{orderInfo?.shop.company_name}}</td>
+                <td>{{orderInfo?.created_at_txt}}</td>
+                <td>￥{{orderInfo?.money}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="order-footer">
+    <app-footer [bgc]="1"></app-footer>
+  </div>
+</div>
+
+<!-- 提示充值 -->
+<p-dialog header="温馨提示" modal="display" [(visible)]="display" [responsive]="true" [width]="500" styleClass="shop-dialog">
+  <div class="text-center"><i class="ico-global ico-tip-yellow mr-10"></i>您的账户余额不足，请前往钱包进行充值！</div>
+  <p-footer>
+    <div class="text-center mt-20">
+      <button type="button" class="cancel-btn-new" (click)="display=!display">取消
+      </button>
+      <button type="button" class="submit-btn-new ml-15" (click)="rechargeNow()">前往充值</button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<!--<div class="charge-dialog">
+  <p-dialog class="create-pic" [(visible)]="chargeBool" modal="modal" width="570">
+    <p class="color-666">本笔订单交易金额大于2000元，需要输入验证码确认，验证通过方可支付</p>
+    <p class="color-666" style="padding: 18px 0;">验证码已通过短信发送给您（{{hideNumber(phoneNum)}}）请输入您手机上收到的短信验证码</p>
+    <form [formGroup]="formCharge">
+      <div class="check-code form-group">
+        <div class="color-666 float-left">
+          <label>验证码</label>：
+        </div>
+        <input type="text" style="padding: 0 10px;margin-top: 6px;" formControlName="chargeVal" required/>
+        <span class="color-666" style="display: block;font-size: 12px;padding-top: 10px;">注：验证码输入5次错误需要重新支付</span>
+      </div>
+    </form>
+    <p-footer style="text-align: center;">
+      <button type="button" class="btn btn-defaults btn-sure pay-btn color-white" (click)="chargeSubmit(formCharge)">确定</button>
+    </p-footer>
+  </p-dialog>
+</div>-->

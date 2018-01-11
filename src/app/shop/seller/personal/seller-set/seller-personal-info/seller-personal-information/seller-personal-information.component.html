@@ -1,0 +1,87 @@
+
+<form action="" style="margin-top: 20px" [formGroup]="form" (ngSubmit)="onSubmit(form,{})">
+  <div class="ui-g">
+    <div class="ui-g-1">
+      <p class="info-left text_r">当前头像：</p>
+    </div>
+    <div class="ui-g-4">
+      <img width="106px" height="106px" src="{{baseInfo?.avatar | image: 106}}" alt="" />
+    </div>
+  </div>
+  <div class="ui-g" style='margin-top:-5px;'>
+    <div class="ui-g-1">
+      <p class="info-left text_r" style="padding-left: 10px;">账号：</p>
+    </div>
+    <div class="ui-g-4">
+      <p class="info-left" style='padding-left:10px;'>{{phone}} <span class='tips-text'>用于登陆，请牢记哦~</span></p>
+    </div>
+  </div>
+  <div class="ui-g" style='margin-top:-10px;'>
+    <div class="ui-g-1">
+      <p class="info-left text_r">昵称：</p>
+    </div>
+    <div class="ui-g-4">
+      <div class="form-group" style='position:relative;'>
+        <label class="hidden">昵称</label>
+        <input formControlName="nickname" type="text" class="inputs"  maxlength="15" style='width:260px;height:36px;border:1px solid #C7C7C7;'>
+        <div class='warm-tips'>建议填写官方/正式的昵称，方便更好地沟通</div>
+        <!--<div style="margin-top: 2px; color: #aa2426;">{{errMessage}}</div>-->
+      </div>
+      <!--<div *ngIf="!baseInfo?.nickname" class="form-group">
+        <label class="hidden">昵称</label>
+        <input formControlName="name" type="text" class="input" placeholder="请输入您的昵称" maxlength="15"><span>建议填写官方/正式的昵称，方便更好地沟通</span>
+      </div>-->
+    </div>
+  </div>
+
+  <!--<div class="ui-g">
+    <div class="ui-g-1">
+      <p class="info-left text_r">性别:</p>
+    </div>
+    <div class="ui-g-4 info-left">
+      <p-radioButton formControlName="sex" name="groupname" [value]="1" [ngModel]="baseInfo?.sex" label="男"></p-radioButton>
+      <p-radioButton formControlName="sex" name="groupname" [value]="2" [ngModel]="baseInfo?.sex" label="女"></p-radioButton>
+      <p-radioButton formControlName="sex" name="groupname" [value]="0" [ngModel]="baseInfo?.sex" label="保密"></p-radioButton>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-1">
+      <p class="info-left text_r">生日:</p>
+    </div>
+    <div class="ui-g-4">
+      <p-calendar [readonlyInput]="true" formControlName="birthday" placeholder="请输入您的出生年月日" [defaultDate]=""
+                  dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                  yearRange="1930:2030" [locale]="cn" styleClass="form-calendar">
+      </p-calendar>
+    </div>
+  </div>-->
+  <!--<div class="ui-g">
+    <div class="ui-g-1">
+      <p class="info-left text_r">qq号码:</p>
+    </div>
+    <div *ngIf="baseInfo?.qq" class="ui-g-4 form-group">
+      <input formControlName="qqNum" type="text" class="input">
+    </div>
+    <div *ngIf="!baseInfo?.qq" class="ui-g-4 form-group">
+      <input placeholder="请输入您的qq号码" formControlName="qqNum" type="text" class="input">
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-1">
+      <p class="info-left text_r">所在城市:</p>
+    </div>
+    <div class="ui-g-4" *ngIf="baseInfo?.provinceName">
+      <app-city-select [defaultSelect]="cityValue"
+                       (result)="citySelect($event)"></app-city-select>
+    </div>
+    <div *ngIf="!baseInfo?.provinceName" class="ui-g-4">
+      <app-city-select (result)="citySelect($event)"></app-city-select>
+    </div>
+  </div>-->
+  <div class="ui-g" style="margin-top:-10px">
+    <div class="ui-g-1"></div>
+    <div class="ui-g-5">
+      <button class="submit-btn submit-btn-another" type="submit" style='width:90px;height:30px;background:#EA3D3D;margin-left:0px;'>保存</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,122 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+.type-tab {
+  color: #518acb;
+  padding: 20px 122px;
+  span {
+    cursor: pointer;
+    padding: 1px 4px;
+    display: inline-block;
+    border-radius: 3px;
+  }
+}
+
+.tab-click-style {
+  background-color: #ff4611;
+  color: #FFFFFF;
+}
+
+.left-menu {
+  width: 120px;
+  border-top: 1px solid #e6e6e6;
+  z-index: 1;
+  .text-shadow {
+    box-shadow: 4px 0px 20px #e3e3e3;
+  }
+  >div {
+    .tab-item {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: #808080;
+      border-bottom: 1px solid #e6e6e6;
+      background-color: #FFFFFF;
+      cursor: pointer;
+    }
+    .tab-item:hover {
+      background-color: #ff4611;
+      color: #FFFFFF;
+    }
+    .tab-item:nth-child(odd):hover {
+      background-color: #ff4611;
+      color: #FFFFFF;
+    }
+    .tab-item:nth-child(odd) {
+      background-color: #f7f7f7;
+    }
+    .item-click-style {
+      background-color: #ff4611 !important;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.right-list {
+  width: 1080px;
+  .picture-item {
+    width: 214px;
+    height: 255px;
+    background-color: #ffffff;
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    .cover-img {
+      display: inline-block;
+      margin-top: 24px;
+      width: 134px;
+      height: 134px;
+    }
+    p {
+      color: #518acb;
+      padding: 0px 42px 14px;
+      text-align: left;
+      position: relative;
+      line-height: 20px;
+      max-height: 40px;
+      overflow: hidden;
+      margin-bottom: 0;
+      margin-top: 12px;
+      img {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+      }
+    }
+    .p-after::after {
+      content: "...";
+      position: absolute;
+      bottom: 0;
+      right: 40px;
+      padding-left: 12px;
+      background: -webkit-linear-gradient(left, transparent, #fff 55%);
+      background: -o-linear-gradient(right, transparent, #fff 55%);
+      background: -moz-linear-gradient(right, transparent, #fff 55%);
+      background: linear-gradient(to right, transparent, #fff 55%);
+    }
+    div {
+      width: 100%;
+      text-align: center;
+      span {
+        max-width: 134px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #518acb;
+        padding-top: 2px;
+        display: inline-block;
+        text-align: left;
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+  .picture-item:hover {
+    border: 1px solid #ff4611;
+  }
+  .picture-item:hover .cover-img {
+    background-color: #FFFFFF;
+    opacity: 0.5;
+  }
+}

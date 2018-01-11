@@ -1,0 +1,235 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;"  href="javascript:history.go(-1)">&lt;&nbsp;返回</a>&nbsp;&nbsp;投资产品管理-查看数据详情
+  </div>
+</div>
+<div class="wrap-con">
+   <div class="top">
+    <h4>{{productData?.name}}</h4>
+    <ul>
+      <li>
+        <b>{{productData?.kind_txt}}</b>
+        当前状态
+      </li>
+      <li><b class="red" *ngIf="!productData?.newIncome?.fund_value">1</b><b
+        class="red">{{productData?.newIncome?.fund_value}}</b>单位净值
+      </li>
+      <li>
+        <b *ngIf="!productData?.income" class="red">+0%</b>
+        <b *ngIf="productData?.income"  [ngClass]="productData?.income>0?'red':'green'">{{productData?.income}}%</b>
+        累计涨幅
+      </li>
+      <li><b>{{productData?.take_up}}万</b>认购起点</li>
+    </ul>
+  </div>
+  <div class="part">
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <h4><span>产品要素</span></h4>
+        <h5>产品基础信息</h5>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <table class="table table-bordered custom-table">
+              <tbody>
+              <tr>
+                <th>项目名称</th>
+                <td>{{productData?.name}}</td>
+                <th>管理规模</th>
+                <td>{{productData?.publish|number:'1.0'}}万元</td>
+              </tr>
+              <tr>
+                <th>备案号</th>
+                <td>{{productData?.backup_num}}</td>
+                <th>产品状态</th>
+                <td>
+                  <div *ngIf="select==0" class="display pull-left">{{productData?.kind_txt}}</div>
+              </tr>
+              <tr>
+                <th>成立日期</th>
+                <td>{{productData?.create_date}}</td>
+                <th>已募集金额</th>
+                <td>
+                  <div *ngIf="input==0" class="display pull-left">{{productData?.already | number:'1.0'}}万元</div>
+              </tr>
+              <tr>
+                <th>业绩报酬</th>
+                <td>{{productData?.profile?.pay_back}}%</td>
+                <th>风险等级</th>
+                <td>{{getRisk(productData?.risk)}}</td>
+              </tr>
+              <tr>
+                <th>产品类型</th>
+                <td colspan="3">{{getProduct(productData?.type)}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h5>基金经理</h5>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <table class="table table-bordered custom-table">
+              <tr>
+                <th>基金经理</th>
+                <td colspan="3">{{productData?.manager?.name}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h5>日期信息</h5>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <table class="table table-bordered custom-table">
+              <tbody>
+              <tr>
+                <th>发行开始日</th>
+                <td>{{productData?.profile?.sell_start|datetime:'datetime'}}</td>
+                <th>封闭期</th>
+                <td>{{productData?.profile?.closed_end}}个月</td>
+              </tr>
+              <tr>
+                <th>发行结束日</th>
+                <td>{{productData?.profile?.sell_end|datetime:'datetime'}}</td>
+                <th>开放日</th>
+                <td>{{productData?.profile?.open_date}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h5>交易规则</h5>
+        <p class="subtitle">费用信息</p>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <table class="table table-bordered custom-table">
+              <tbody>
+                <tr>
+                  <th>认购起点</th>
+                  <td>{{productData?.take_up}}万元</td>
+                  <th>托管费</th>
+                  <td>{{productData?.profile?.deposit_fee}}%</td>
+                </tr>
+                <tr>
+                  <th>固定管理费</th>
+                  <td>{{productData?.profile?.management_fee}}%</td>
+                  <th>浮动管理费</th>
+                  <td>{{productData?.profile?.float_fee}}%</td>
+                </tr>
+                <tr>
+                  <th>其他费用</th>
+                  <td>{{productData?.profile?.other_fee}}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="subtitle">买入规则</p>
+        <div class="row">
+          <div class="col-xs-6 col-md-6 view-div" style="padding-right: 0;">
+            <div class="row" style="margin: 0;">
+              <div class="col-xs-4 col-md-4"><div class="view-title" [ngStyle]="{'height':subscribeHeight+1+'px','line-height':subscribeHeight+1+'px'}">认购费</div></div>
+              <div class="col-xs-8 col-md-8 view-ul">
+                <ul>
+                  <li><b>买入金额（万）</b><b>费率（%）</b></li>
+                  <ng-container *ngIf="productData?.showFee?.subscribe_fee">
+                    <li *ngFor="let fee of productData?.showFee?.subscribe_fee"><span>{{fee[0]}}</span><span>{{fee[1]}}</span></li>
+                  </ng-container>
+                  <li *ngIf="!(productData?.showFee?.subscribe_fee)"><span>--</span><span>--</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-md-6 view-div" style="padding-left: 0;margin-left: -1px;">
+            <div class="row" style="margin: 0;">
+              <div class="col-xs-4 col-md-4"><div class="view-title" style="border-left: none" [ngStyle]="{'height':purchaseHeight+1+'px','line-height':purchaseHeight+1+'px'}">申购费</div></div>
+              <div class="col-xs-8 col-md-8 view-ul">
+                <ul>
+                  <li><b>买入金额（万）</b><b>费率（%）</b></li>
+                  <ng-container *ngIf="productData?.showFee?.purchase_fee">
+                    <li *ngFor="let fee of productData?.showFee?.purchase_fee"><span>{{fee[0]}}</span><span>{{fee[1]}}</span></li>
+                  </ng-container>
+                  <li *ngIf="!(productData?.showFee?.purchase_fee)"><span>--</span><span>--</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <p class="subtitle">卖出规则</p>
+        <div class="row">
+          <div class="col-xs-6 col-md-6 view-div" style="padding-right: 0;">
+            <div class="row" style="margin: 0;">
+              <div class="col-xs-4 col-md-4"><div class="view-title" [ngStyle]="{'height':sellHeight+1+'px','line-height':sellHeight+1+'px'}">赎回费</div></div>
+              <div class="col-xs-8 col-md-8 view-ul">
+                <ul>
+                  <li><b>持有期限（天）</b><b>费率（%）</b></li>
+                  <ng-container *ngIf="productData?.showFee?.sell_fee">
+                    <li *ngFor="let fee of productData?.showFee?.sell_fee"><span>{{fee[0]}}</span><span>{{fee[1]}}</span></li>
+                  </ng-container>
+                  <li *ngIf="!(productData?.showFee?.sell_fee)"><span>--</span><span>--</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center">
+          <button type="button" class="btn btn-blue mt-30" [routerLink]="['/main/product/create/']" [queryParams] ="{id:productId}">修改</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="part mt-10">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4><span>产品数据追踪</span></h4>
+        <div class="row">
+          <div class="col-sm-7">
+            <h5>单位净值</h5>
+            <div class="view-tab mt-15">
+              <p-tabView (onChange)="line($event)">
+                <p-tabPanel header="成立以来">
+                  <div class="div mt-10"><p-chart type="line" [data]="dataAll"></p-chart></div>
+                </p-tabPanel>
+                <p-tabPanel header="近一月">
+                  <div class="div mt-10"><p-chart type="line" [data]="dataAll"></p-chart></div>
+
+                </p-tabPanel>
+                <p-tabPanel header="近六月">
+                  <div class="div mt-10"><p-chart type="line" [data]="dataAll"></p-chart></div>
+                </p-tabPanel>
+                <p-tabPanel header="近一年">
+                  <div class="div mt-10"><p-chart type="line" [data]="dataAll"></p-chart></div>
+                </p-tabPanel>
+              </p-tabView>
+            </div>
+          </div>
+          <div class="col-sm-5 mt-30">
+            <p-dataTable [value]="incomes" [loading]="!incomes" loadingIcon="fa-spinner" styleClass="custom-dataTable" emptyMessage="暂无数据">
+              <p-column header="序号">
+                <ng-template let-incomes="rowData" let-i="rowIndex" pTemplate="body">
+                  {{(currentPage-1)*pagination.perPage+i+1}}
+                </ng-template>
+              </p-column>
+              <p-column field="income_date" header="日期"></p-column>
+              <p-column field="fund_value" header="单位净值"></p-column>
+              <p-column field="total_value" header="累计净值"></p-column>
+              <p-column field="daily_income" header="日跌涨"></p-column>
+            </p-dataTable>
+            <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                         [first]="pagination.currentPage * pagination.perPage-1"
+                         [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                         (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+          </div>
+        </div>
+        <p class="text-center mt-40">
+          <button type="button" class="btn btn-red" [routerLink]="['/main/product/import',productId]">导入数据</button>
+        </p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

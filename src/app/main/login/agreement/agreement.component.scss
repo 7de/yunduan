@@ -1,0 +1,55 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+.agreement {
+  margin: 0 auto 60px;
+  width: 1180px;
+  position: relative;
+  z-index: 2;
+  &::before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    z-index: 1;
+    border: 1px solid #bfbfbf;
+    background: #ffffff;
+  }
+  &::after {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    z-index: 0;
+    border: 1px solid #bfbfbf;
+    background: #ffffff;
+  }
+  .agreement-content {
+    padding: 0 20px 5px;
+    background: #ffffff;
+    border: 1px solid #a6a6a6;
+    position: relative;
+    z-index: 2
+  }
+  .title {
+    margin: 0 auto 20px;
+    font-size: 22px;
+    font-weight: 900;
+    color: #404040;
+    text-align: center;
+    line-height: 76px;
+    border-bottom: 1px solid #e0e0e0
+  }
+  h6 {
+    font-weight: bold;
+    color: #333;
+  }
+  p {
+    font-size: 12px;
+    color: #666;
+    line-height: 24px;
+  }
+}

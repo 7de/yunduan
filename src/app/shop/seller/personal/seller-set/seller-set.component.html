@@ -1,0 +1,38 @@
+<!--V1.4-->
+<div class="mt-30 mb-40">
+  <div class="wrap-1200 ui-g">
+    <div class="ui-g-2 side-menu-list ui-g-nopad">
+      <ul>
+        <li>
+          基本信息资料
+        </li>
+        <li class="sub-menu-list" routerLink="info" routerLinkActive="active">
+          个人信息
+        </li>
+        <li routerLink="realnameauth" routerLinkActive="active" class="sub-menu-list">
+          行业资质
+        </li>
+        <li routerLink="storeset" routerLinkActive="active" class="sub-menu-list">
+          店铺资料设置
+        </li>
+        <li class="sub-menu-list" routerLink="course-materials" routerLinkActive="active">
+          课堂资料设置
+        </li>
+      </ul>
+      <ul>
+        <li>
+          账号安全
+        </li>
+        <li class="sub-menu-list" routerLink="login-modify" routerLinkActive="active">
+          修改登录密码
+        </li>
+        <li class="sub-menu-list" routerLink="account" routerLinkActive="active">
+          支付账号管理
+        </li>
+      </ul>
+    </div>
+    <div class="ui-g-10 bg-white ui-g-nopad">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

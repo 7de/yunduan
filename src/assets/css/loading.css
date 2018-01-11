@@ -1,0 +1,112 @@
+
+.main-loading {
+  background-color: #fff !important;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.free-loading {
+  display: inline-block;
+}
+
+.loader {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  margin: 20% auto 0;
+}
+
+.loader.small {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8); }
+.loader.circle-round-fade span {
+  -webkit-animation: circle-round-fade 1s ease infinite;
+  animation: circle-round-fade 1s ease infinite;
+}
+.loader.circle-round-fade span {
+  position: absolute;
+  width: .8rem;
+  height: .8rem;
+  display: inline-block;
+  border-radius: 50%;
+  background: #3949ab;
+}
+.loader.circle-round-fade span:nth-child(1) {
+  top: 50%;
+  left: 0;
+  margin-top: -.4rem;
+  -webkit-animation-delay: -1.04s;
+  animation-delay: -1.04s;
+}
+.loader.circle-round-fade span:nth-child(2) {
+  top: .7rem;
+  left: .7rem;
+  -webkit-animation-delay: -.91s;
+  animation-delay: -.91s;
+}
+.loader.circle-round-fade span:nth-child(3) {
+  top: 0;
+  left: 50%;
+  margin-left: -.4rem;
+  -webkit-animation-delay: -.78s;
+  animation-delay: -.78s;
+}
+.loader.circle-round-fade span:nth-child(4) {
+  right: .7rem;
+  top: .7rem;
+  -webkit-animation-delay: -.65s;
+  animation-delay: -.65s;
+}
+.loader.circle-round-fade span:nth-child(5) {
+  right: 0;
+  top: 50%;
+  margin-top: -.4rem;
+  -webkit-animation-delay: -.52s;
+  animation-delay: -.52s;
+}
+.loader.circle-round-fade span:nth-child(6) {
+  bottom: .7rem;
+  right: .7rem;
+  -webkit-animation-delay: -.39s;
+  animation-delay: -.39s;
+}
+.loader.circle-round-fade span:nth-child(7) {
+  bottom: 0;
+  left: 50%;
+  margin-left: -.4rem;
+  -webkit-animation-delay: -.26s;
+  animation-delay: -.26s;
+}
+.loader.circle-round-fade span:nth-child(8) {
+  left: .7rem;
+  bottom: .7rem;
+  -webkit-animation-delay: -.13s;
+  animation-delay: -.13s;
+}
+.free-yellow .loader.circle-round-fade span{
+  background: #b02022 !important;
+}
+:host-context(.free-yellow) .loader.circle-round-fade span{
+  background: #b02022;
+}
+
+@keyframes circle-round-fade {
+  0% {
+    opacity: .25;
+    transform: scale(0.2); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+@-webkit-keyframes circle-round-fade {
+  0% {
+    opacity: .25;
+    transform: scale(0.2); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+

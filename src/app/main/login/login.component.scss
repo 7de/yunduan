@@ -1,0 +1,46 @@
+@import "../../../assets/sass/mixin";
+@import "../../../assets/sass/variables";
+
+.login-footer{
+  padding-top:20px;
+  .footer-a{
+    color:#c2c2c2;
+    a{
+      padding:0 15px;
+      color: #666;
+    }
+    a:first-child{
+      padding-left:0;
+    }
+  }
+  .footer-ul-info{
+    overflow: hidden;
+    color:#666;
+    font-size:14px;
+    margin-top:20px;
+    li{
+      margin-bottom: 10px;
+      overflow: hidden;
+      i{
+        float: left;
+        margin-right:15px;
+        margin-top: 2px;
+      }
+      .ico-login-mail{
+        margin-top:4px;
+      }
+    }
+  }
+  .footer-tel{
+    font-size: 24px;
+    color: #333;
+  }
+  .footer-info{
+    border-top:1px solid #ececec;
+    margin-top: 20px;
+    padding-top:20px;
+    padding-bottom:15px;
+  }
+}
+
+//input:-webkit-autofill {-webkit-box-shadow: 0 0 0 1000px white inset;}

@@ -1,0 +1,84 @@
+@import "../../../../../../../assets/sass/mixin.css";
+@import "../../../../../../../assets/sass/variables";
+
+.layout{
+  padding-bottom: 50px;
+  background-color: nth($gray,1);
+}
+.wallet{
+  position: relative;
+  top: 9px;
+  left: 0;
+  margin-right: 5px;
+  display: inline-block;
+  width: 46px;
+  height: 36px;
+  background: url(../../../../../../../assets/images/webadmin-icon.png) -90px -507px no-repeat;
+}
+.bg-white{
+  background-color: #fff;
+}
+.order{
+  padding: 30px;
+  min-height: 588px;
+}
+.red{
+  color: nth($red,2)
+}
+.title{
+  padding-bottom:15px;
+  background-color: #f7f7f7;
+  height: 44px;
+  .p-title{
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    color: #333;
+  }
+}
+.cash-input{
+  height: 44px;
+  border: 1px solid #ebebec;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: none;
+}
+.cash-pay{
+  padding: 30px;
+  border: 1px solid #eee;
+  border-top: 0;
+}
+.class-button{
+  width: 90px;
+  height: 30px;
+  background-color: #EA3A3A;
+  outline: none;
+  &:focus{
+    outline: none;
+  }
+}
+.cash-detail-button{
+  width: 100px;
+}
+.after-pay{
+  border-top:1px dashed #eee;
+  .after-pay-button{
+    margin-left: 0;
+    margin-right: 5px;
+    background-color: #fff;
+    color: #EA3A3A;
+    border: 1px solid #EA3A3A;
+    height: 30px;
+    width: 90px;
+    font-size: 14px;
+  }
+}
+.tips{
+  color: #666;
+  font-size: 12px;
+  &+div{
+    font-size: 12px;
+    color: #666;
+  }
+}

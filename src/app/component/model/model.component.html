@@ -1,0 +1,19 @@
+<div class="mask" *ngIf="service">
+  <div class="dialog">
+    <div class="row margins">
+      <div class="col-md-12 titleds" *ngIf="!switch"><h3 class="titled">温馨提示</h3></div>
+      <div class="col-md-12 centers">
+        <p >{{switch? '您的资料仍然在审核，不能进行别的操作': '为了更好维护公司的权益，我们将对贵公司'}}</p>
+        <p> {{switch? '我们将会尽快给予审核反馈' : '信息进行审核，审核通过后方可进行操作。'}}</p>
+        <p *ngIf="switch">客服联系电话:0755-86538075</p>
+      </div>
+      <div class="row">
+        <div class="col-md-12 btntop">
+          <button type="button" (click)="skip()" class="btn-defaults">
+            {{switch? '好的' : '去填写审核资料'}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

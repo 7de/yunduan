@@ -1,0 +1,125 @@
+<div class="registers">
+  <form [formGroup]="formGroup" (submit)="onSubmit(formGroup)">
+  <div class="corporate-name">企业基本信息（<span class="reds">*</span>必填）</div>
+  <div class="elementary clearfix">
+    <div class="company">
+      <div class="nameoneleft col-md-6 form-group" style="margin-bottom: 0px">
+        <div class="titleone"><span class="reds">*</span><label >企业名称</label></div>
+        <input type="text" class="inputed" placeholder="请输入公司名称" formControlName="company_name" maxlength="21">
+      </div>
+      <div class="nameoneright col-md-5 col-md-offset-1 form-group" style="margin-bottom: 0px">
+        <div class="titleone"><label>员工规模</label></div>
+        <select name="selectAge" class="select" formControlName="company_scale">
+          <option value="" selected="selected">请选择员工规模人数</option>
+          <option value="0">10人以下</option>
+          <option value="1">10-50人</option>
+          <option value="2">50人以上</option>
+        </select>
+      </div>
+    </div>
+    <div class="manage">
+      <div class="nameoneleft col-md-6 form-group" style="margin-bottom: 0px">
+        <div class="titleone"><span class="reds">*</span><label>企业简称</label></div>
+        <input type="text" class="inputed" placeholder="请输入公司简称" formControlName="name_short">
+      </div>
+      <div class="nameoneright col-md-5 col-md-offset-1 form-group" style="margin-bottom: 0px">
+        <div class="titleone"><label>总管理规模</label></div>
+        <select name="selectAge" class="select" formControlName="manage_scale">
+          <option value="" selected="selected">请选择总管理规模</option>
+          <option value="0">100万以下</option>
+          <option value="1">100万-500万</option>
+          <option value="2">500万-1000万</option>
+          <option value="3">1000万-5000万</option>
+          <option value="4">5000万以上</option>
+        </select>
+      </div>
+    </div>
+    <div class="commerce">
+     <div class="nameoneleft col-md-6 form-group" style="margin-bottom: 0px">
+       <div class="titleone"><span class="reds">*</span><label>公司注册时间</label></div>
+       <p-calendar [(ngModel)]="business_reg_time" [readonlyInput]="true" formControlName="business_reg_time"
+                   placeholder="请选择公司注册时间" dateFormat="yy-mm-dd"
+                   styleClass="registration" [monthNavigator]="true" [yearNavigator]="true"
+                   yearRange="1980:2030" [locale]="cn">
+       </p-calendar>
+     </div>
+     <div class="nameoneright col-md-5 col-md-offset-1 form-group" style="margin-bottom: 0px">
+        <div class="titleone"><span class="reds">*</span><label>管理类别</label></div>
+        <select name="selectAge" class="select" formControlName="manage_type">
+          <option value="" selected="selected">请选择管理类别</option>
+          <option value="0">私募证券投资基金</option>
+          <option value="1">私募股权、创业投资基金</option>
+          <option value="2">其它私募投资基金</option>
+        </select>
+     </div>
+    </div>
+    <div class="capital clearfix">
+      <div class="nameoneleft col-md-6 form-group" style="margin-bottom: 0">
+        <div class="col-md-12 form-group" style="margin: 0;padding: 0;margin-bottom: 20px;">
+          <div class="titleone"><span class="reds">*</span><label class="">联系人姓名</label></div>
+          <input type="text" class="inputed" placeholder="请输入联系人姓名" formControlName="linkman">
+        </div>
+        <div class="ui-g-12 form-group" style="margin: 0;padding: 0;">
+          <div class="titleone"><span class="reds">*</span><label class="">联系邮箱</label></div>
+          <input type="text" class="inputed" placeholder="请输入联系邮箱" formControlName="email">
+        </div>
+      </div>
+      <div class="nameoneright col-md-5 col-md-offset-1" style="border-bottom: 1px solid #ebebec; padding-bottom: 23px" >
+        <div class="titleone">LOGO</div>
+        <div class="imgUpload-coned">
+          <app-basic-img-upload (imgEvent)="onImgLogo($event)" [previewImg]="imgLogo"></app-basic-img-upload>
+        </div>
+
+        <p class="texts">图片格式为108px*108px，支持JPG.PNG，建议大小不超过2M</p>
+        <!--<span class="help-block" *ngIf="errors['imgLogo']" >请上传图片</span>-->
+      </div>
+    </div>
+    <div class="num">
+      <div class="nameoneleft col-md-6 form-group" style="margin-bottom: 0;margin-top: 30px;">
+      <div class="titleone"><span class="reds">*</span><label>登记编号</label></div>
+      <input type="text" class="inputed" placeholder="请输入登记编号" formControlName="reg_number">
+      </div>
+    </div>
+  </div>
+  <div class="audit" [hidden] ="present">
+    <button type="submit">{{buttonValue}}</button>
+  </div>
+  </form>
+</div>
+
+<!--图片放大框 -->
+<!--<div class="mask" *ngIf="showed" (click)="showed = false">-->
+  <!--<div class="showeds">-->
+    <!--<div><span class="fa fa-closeul" (click)="showed = false"></span></div>-->
+    <!--<img src="{{extInfo?.license | image:840}}" alt="" *ngIf="!switchs">-->
+    <!--<img src="{{imgLicense | image :840}}" alt="" *ngIf="switchs">-->
+  <!--</div>-->
+<!--</div>-->
+
+
+<!--第一次进入时提示填写资料弹框-->
+<div class="mask" *ngIf="submitteds">
+  <div class="dialog">
+    <div class="row" style="margin: 0px;padding: 0px;">
+      <div class="col-md-12 titleds">
+        <div class="col-md-6" style="padding: 0px; margin: 0px"> <h3 class="titled">温馨提示</h3></div>
+        <div class="col-md-1 col-md-offset-5">
+          <span class="fa fa-close" style="margin-top: 15px; margin-left: 0px" (click)="submitteds =!submitteds"></span>
+        </div>
+      </div>
+      <div class="col-md-12 centers">
+        <p>{{switchs? '为了更好维护贵公司的权益，我们将对贵公司信息进行审': '资料审核未通过，请前往站内信查看审核不通过原因'}}</p>
+        <p>{{switchs? '核，审核通过后方可进行其他操作。' : '对资料进行修改后再次提交审核'}}</p>
+      </div>
+      <div class="row" style="max-width: 520px; margin-left: 0px;">
+        <div class="col-md-12 btnbox">
+          <button type="button" class="btn-defaultsed" (click)="submitteds =!submitteds" *ngIf="abolish">取消</button>
+          <button type="button" (click)="skip()"  class="btn-defaults">
+            {{switchs? '好的' : '前往站内信'}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

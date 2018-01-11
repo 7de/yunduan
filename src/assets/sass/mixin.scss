@@ -1,0 +1,87 @@
+$theme-blue: #3949ab;
+$theme-green: #4CAF50;
+$link-color: #fff;
+$link-background: #29368B;
+$background: #2B2C30;
+$top: 50px;
+$aside-width: 250px;
+$left-menu: 'left-menu';
+
+@mixin borderRadius($radius: 3px) {
+  border-radius: $radius;
+}
+
+@mixin boxShadow {
+  //box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
+  //box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  //-webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px #e5e5e5;
+  -webkit-box-shadow: 0 0 8px #e5e5e5;
+}
+
+@mixin flexBox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin alignItems($align:center){
+  // 垂直居中
+  /*老版本语法*/
+  -webkit-box-align: $align;
+  -moz-box-align: $align;
+  /*混合版本语法*/
+  -ms-flex-align: $align;
+  /*新版本语法*/
+  -webkit-align-items: $align;
+  align-items: $align;
+}
+
+/*水平居中*/
+@mixin justifyContent(){
+  /*老版本语法*/
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  /*混合版本语法*/
+  -ms-flex-pack: center;
+  /*新版本语法*/
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/*水平右对齐*/
+@mixin justifyContent_End(){
+
+  /*老版本语法*/
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  /*混合版本语法*/
+  -ms-flex-pack: end;
+  /*新版本语法*/
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+@mixin transition($duration, $attribute: all) {
+  -webkit-transition: $attribute $duration;
+  -moz-transition: $attribute $duration;
+  transition: $attribute $duration;
+}
+
+@mixin position($type, $top: '', $right: '', $bottom: '', $left: '') {
+  position: $type;
+  @if $top != '' { top: $top; }
+  @if $right != '' { right: $right; }
+  @if $bottom != '' { bottom: $bottom; }
+  @if $left != '' { left: $left; }
+}
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}

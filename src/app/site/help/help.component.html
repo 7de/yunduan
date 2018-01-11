@@ -1,0 +1,85 @@
+<div class="con">
+  <p class="text-center"><img src="{{imageDomain}}upload/frontend/20171121/b0f5a04695174ea2c03c0f157f641526.jpg" alt="帮助中心"></p>
+  <div class="wrap-1200 ui-g help-con mt-20">
+    <div class="ui-g-2 ui-g-nopad bg-white help-left">
+      <div class="help-side">
+        <h5 class="side-title">
+          <span><i class="ico-global ico-help-guide"></i>新手指南</span>
+        </h5>
+        <ul class="side-list">
+          <li [routerLink]="['./login']" routerLinkActive="active"><a>登录或注册</a></li>
+          <!--<li [routerLink]="['./guide']" routerLinkActive="active"><a>账号认证</a></li>-->
+          <li [routerLink]="['./buyer']" routerLinkActive="active"><a>企业用户认证</a></li>
+          <li [routerLink]="['./seller']" routerLinkActive="active"><a>服务商用户认证</a></li>
+          <li [routerLink]="['./register']" routerLinkActive="active"><a>注册协议</a></li>
+        </ul>
+        <h5 class="side-title">
+          <span><i class="ico-global ico-help-shop"></i>关于云集优服</span>
+        </h5>
+        <ul class="side-list">
+          <li [routerLink]="['./synopsis']" routerLinkActive="active"><a >平台简介</a></li>
+          <li [routerLink]="['./pay']" routerLinkActive="active"><a>支付相关</a></li>
+          <li [routerLink]="['./faq']" routerLinkActive="active"><a>常见问题</a></li>
+          <li [routerLink]="['./service-agreement']" routerLinkActive="active"><a>服务协议</a></li>
+          <li [routerLink]="['./service-specification']" routerLinkActive="active"><a>服务规范</a></li>
+          <li [routerLink]="['./law']" routerLinkActive="active"><a>法律声明</a></li>
+        </ul>
+        <h5 class="side-title">
+          <span><i class="ico-global ico-help-classroom"></i>关于云课堂</span>
+        </h5>
+        <ul class="side-list">
+          <li [routerLink]="['./classroom-synopsis']" routerLinkActive="active"><a>平台简介</a></li>
+          <li [routerLink]="['./video']" routerLinkActive="active"><a>视频上传</a></li>
+          <li [routerLink]="['./picture']" routerLinkActive="active"><a>图文上传</a></li>
+          <li [routerLink]="['./upload']" routerLinkActive="active"><a>上传条款</a></li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="ui-g-10 ui-g-nopad bg-white help-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<!--<div class="wrap-1200 con">
+  <div class="ui-g mt-15">
+    <div class="ui-g-12 ui-g-nopad">
+      <div class="crumbs">
+        <a [routerLink]="['/site/home']">首页</a>&gt;<span>帮助中心</span>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g mt-30" style="min-height: 788px;">
+    <div class="ui-g-3 ui-g-nopad">
+      <div class="menu">
+        <h3 class="title">帮助中心</h3>
+        <ul class="menu-list">
+          <li *ngFor="let item of items" routerLinkActive="active">
+            <a routerLink="{{item.url}}" [queryParams]="item.queryParams">{{item.title}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="ui-g-9 ui-g-nopad pro-Con">
+      <h3 class="title"><span>{{dataId!=='7'?proData?.title:'交易规则'}}</span></h3>
+      <div class="ui-g-12 ui-g-nopad mt-20" *ngIf="dataId==='10'" [innerHTML]="proData?.content">
+      </div>
+      <div class="ui-g-12 ui-g-nopad mt-20" *ngIf="dataId==='9'">
+        <div class="sub-title">
+          <h4 class="active">{{proData?.title}}</h4>
+        </div>
+        <div class="info" [innerHTML]="proData?.content"></div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad mt-20" *ngIf="dataId==='7'">
+        <div class="sub-title" *ngIf="dataSid">
+          <h4 [routerLink]="['/site/help']" [queryParams]="{'type': 1, 'id': 7}">{{proAgreement?.title}}</h4><h4 [routerLink]="['/site/help']" [queryParams]="{'type': 1, 'id': 7,'sid':8}"  routerLinkActive="active">{{proNormData?.title}}</h4>
+        </div>
+        <div class="sub-title" *ngIf="!dataSid">
+          <h4 [routerLink]="['/site/help']" [queryParams]="{'type': 1, 'id': 7}" routerLinkActive="active">{{proAgreement?.title}}</h4><h4 [routerLink]="['/site/help']" [queryParams]="{'type': 1, 'id': 7,'sid':8}">{{proNormData?.title}}</h4>
+        </div>
+        <div class="info" [innerHTML]="proData?.content"></div>
+      </div>
+
+    </div>
+  </div>
+</div>-->

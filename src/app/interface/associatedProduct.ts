@@ -1,0 +1,19 @@
+export class AssociatedProduct {
+  already;
+  backup_num;
+  company_id;
+  create_date;
+  created_at;
+  fund_size;
+  id;
+  income;
+  kind;
+  kind_txt;
+  manager_id;
+  name;
+  publish;
+  risk;
+  take_up;
+  type;
+  updated_at;
+}

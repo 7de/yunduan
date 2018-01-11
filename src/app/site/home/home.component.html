@@ -1,0 +1,268 @@
+<div class="bg-white home">
+  <section class="imgbosx">
+      <p-galleria [images]="images" panelWidth="100%" panelHeight="450"
+                  [autoPlay]="true" [transitionInterval]="4000"
+                  (onImageClicked)="onImageUrl($event,bannerImd)"
+                  showFilmstrip="false" [showCaption]="true"></p-galleria>
+  </section>
+  <div class="ui-g wrap-1200">
+    <div class="ui-g-12 ui-g-nopad home-partA">
+      <div class="home-title">
+        <h3><span>公司简介</span></h3>
+        <p>COMPANY PROFILE</p>
+      </div>
+      <ul class="list clearfix">
+        <li>
+          <i class="ico-global ico-partA-1"></i>
+          <span>更有效的管理投资人</span>
+        </li>
+        <li>
+          <i class="ico-global ico-partA-2"></i>
+          <span>更合规透明的展示自己</span>
+        </li>
+        <li>
+          <i class="ico-global ico-partA-3"></i>
+          <span>更安心的托管协会后台</span>
+        </li>
+        <li>
+          <i class="ico-global ico-partA-4"></i>
+          <span>更便捷的展示宣传品牌</span>
+        </li>
+        <li>
+          <i class="ico-global ico-partA-5"></i>
+          <span>更高效的管理公司员工</span>
+        </li>
+      </ul>
+      <p class="p-content">
+        云端·私募荟是云端互联网（深圳）有限公司倾力打造的一个开放式私募基金资源整合错配的大数据共享平台。平台依托“互联网+”技术在PC端、手机APP端、微信端免费为私募基金公司提供基于微信公众号、微信小程序、手机APP、H5微传单的技术支持及后台管理系统。公司致力于公开透明、规范行业、合格运营、合规展业、品牌传播、投资人引导、资源错配、渠道管理、员工管理等与私募基金运营相关的一揽子专业及贴心的技术支持，并组建顶尖专业的优秀服务团队，为私募基金提供高效、专业、合法、合规、便捷的全方位技术咨询服务。
+      </p>
+    </div>
+  </div>
+  <div class="text-center home-img">
+    <img src="{{imageDomain}}/upload/frontend/20171115/457ee552f227cd70616a737cdf7552ac.jpg" alt="云端·私募荟提供的服务">
+  </div>
+  <div class="ui-g wrap-1200">
+    <div class="ui-g-12 ui-g-nopad home-partB">
+      <div class="ui-g-12 ui-g-nopad partB-title">
+        <h3>云集优服</h3>
+        <p><i class="ico-global ico-home-dotted"></i><span>云集优服值你所托</span><i class="ico-global ico-home-dotted"></i></p>
+      </div>
+      <div class="ui-g-12 ui-g-nopad mt-30 partB">
+        <div class="ui-g-6 ui-g-nopad partB-left">
+          <div class="img">
+            <img src="{{imageDomain}}/upload/frontend/20171115/dd93dca585bee68b041636d85b4f8a53.jpg" width="550" height="320">
+          </div>
+          <p class="p-content">云集优服是云端·私募荟平台中倾力打造的一个线上服务交易平台，提供一站式专业的注册变更、官网开发、产品设计、产品路演、品牌推广、法律服务、财务服务、税务服务、产品托管、募集通道等服务。</p>
+        </div>
+        <div class="ui-g-6 ui-g-nopad partB-right">
+          <ul class="list">
+            <li *ngFor="let item of serviceType,let i =index">
+              <a [routerLink]="['/shop/index']" [queryParams]="{demand_category_id:item.id}">
+                <i class="ico-global ico-service-{{i+1}}"></i>
+                <p>{{item.title}}</p>
+              </a>
+            </li>
+          </ul>
+          <ul class="list-oth">
+            <li><b></b>严格的资质认证</li>
+            <li><b></b>完善的交易保障体系</li>
+            <li><b></b>一对一的订单跟进服务</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad partB-title border">
+        <h3>云课堂</h3>
+        <p><i class="ico-global ico-home-dotted"></i><span>名师与你零距离</span><i class="ico-global ico-home-dotted"></i></p>
+      </div>
+      <div class="ui-g-12 ui-g-nopad mt-30 partB">
+        <div class="ui-g-6 ui-g-nopad partB-left">
+          <div class="img">
+            <img src="{{imageDomain}}/upload/frontend/20171115/33b6fc752b464f9443b8cd07eb49ad01.jpg" width="550" height="320">
+          </div>
+          <p class="p-content">云课堂是给私募基金公司提供的一个在线教学与展示的平台，本站聚合了各大优秀私募基金管理人的优质教学视频，课程涉及最新私募产品、政策解读、行业动态、名家观点等等有关私募的在线课程。
+          </p>
+        </div>
+        <div class="ui-g-6 ui-g-nopad partB-classroom">
+          <ul class="list">
+            <li class="ui-g">
+              <div class="ui-g-6 ui-g-nopad">
+                <div class="classroom-left-box" [routerLink]="['/lives/videos-list']" [queryParams]="{info_type:1}">
+                  <div class="ui-g classroom-left">
+                    <div class="ui-g-4 ui-g-nopad">
+                      <i class="ico-global ico-classroom-1"></i>
+                    </div>
+                    <div class="ui-g-8 ui-g-nopad">
+                      <p class="fs-18">法律合规<b class="gt">&gt;</b></p>
+                      <p class="color-666">法槌之下  指引合规</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g-6 ui-g-nopad">
+                <ul class="list-sub">
+                  <li><b></b>提供法律服务</li>
+                  <li><b></b>私募常用法律重点知识及解读</li>
+                </ul>
+              </div>
+            </li>
+            <li class="ui-g">
+              <div class="ui-g-6 ui-g-nopad">
+                <div class="classroom-left-box" [routerLink]="['/lives/videos-list']" [queryParams]="{info_type:2}">
+                  <div class="ui-g classroom-left">
+                    <div class="ui-g-4 ui-g-nopad">
+                      <i class="ico-global ico-classroom-3"></i>
+                    </div>
+                    <div class="ui-g-8 ui-g-nopad">
+                      <p class="fs-18">投资研究<b class="gt">&gt;</b></p>
+                      <p class="color-666">数据采集  精选基金</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g-6 ui-g-nopad">
+                <ul class="list-sub">
+                  <li><b></b>提供投研采集数据</li>
+                  <li><b></b>精选热门私募基金产品推荐</li>
+                </ul>
+              </div>
+            </li>
+            <li class="ui-g">
+              <div class="ui-g-6 ui-g-nopad">
+                <div class="classroom-left-box" [routerLink]="['/lives/videos-list']" [queryParams]="{info_type:0}">
+                  <div class="ui-g classroom-left">
+                    <div class="ui-g-4 ui-g-nopad">
+                      <i class="ico-global ico-classroom-2"></i>
+                    </div>
+                    <div class="ui-g-8 ui-g-nopad">
+                      <p class="fs-18">财税规范<b class="gt">&gt;</b></p>
+                      <p class="color-666">合理分析  优化建议</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g-6 ui-g-nopad">
+                <ul class="list-sub">
+                  <li><b></b>专业财税托管代理</li>
+                  <li><b></b>私募税收优惠合理意见分析</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center home-img">
+    <img src="{{imageDomain}}/upload/frontend/20171115/5427ca2981444ddf8d9c323c1160c59a.jpg" alt="私募视界">
+  </div>
+  <!-- 视界 //start -->
+  <div class="wrap-1200">
+    <div class="ui-g home-partC">
+      <div class="ui-g-4 ui-g-nopad">
+        <div class="partC-title">
+          <span>行业动态</span>
+          <a [routerLink]="['/site/news']" [queryParams]="{'category_id':4}">更多&gt;</a>
+        </div>
+        <div class="partC-left-con mt-20" *ngFor="let item of newsInfoHYDT">
+          <a [routerLink]="['/site/news/details' , item?.id]">
+            <img src="{{item?.thumb}}" width="396" height="240" alt="">
+          </a>
+          <a [routerLink]="['/site/news/details' , item?.id]">
+            <h4 class="text-overflow">{{item?.title}}</h4>
+          </a>
+          <p class="text-ellipsis">{{item?.description}}</p>
+          <p class="color-999" *ngIf="!item">暂无数据</p>
+        </div>
+      </div>
+      <div class="ui-g-5 ui-g-nopad partC-middle">
+        <div class="ui-g-12 ui-g-nopad partC-title">
+          <span>合规指引</span>
+          <a [routerLink]="['/site/news']" [queryParams]="{'category_id':3}">更多&gt;</a>
+        </div>
+        <div class="ui-g-12 ui-g-nopad" style="height: 220px;">
+          <div class="ui-g-12 ui-g-nopad mt-20" *ngFor="let item of newsInfoHGZY">
+            <div class="ui-g-4 ui-g-nopad">
+              <a [routerLink]="['/site/news/details' , item?.id]">
+                <img src="{{item?.thumb}}" width="148" height="90" alt="合规指引一">
+              </a>
+            </div>
+            <div class="ui-g-8 ui-g-nopad">
+              <a [routerLink]="['/site/news/details' , item?.id]">
+                <h4 class="text-overflow">{{item?.title}}</h4>
+              </a>
+              <p class="text-ellipsis">{{item?.description}}</p>
+            </div>
+            <p class="color-999" *ngIf="!item">暂无数据</p>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad partC-title mt-20">
+          <span>私募干货</span>
+          <a [routerLink]="['/site/news']" [queryParams]="{'category_id':1}">更多&gt;</a>
+        </div>
+        <div class="ui-g-12 ui-g-nopad">
+          <ul class="list">
+            <li *ngFor="let item of newsInfoSMGH">
+              <a class="text-overflow list-title" [routerLink]="['/site/news/details' , item?.id]">
+                <b>•</b>  {{item.title}}</a> <span class="list-date">{{item?.created_at | datetime: 'datetime'}}</span>
+              <p class="color-999" *ngIf="!item">暂无数据</p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="ui-g-3 ui-g-nopad text-right">
+        <a [routerLink]="['/site/news']" [queryParams]="{'category_id':4}">
+          <img src="{{imageDomain}}/upload/frontend/20171116/38659a1fb149f6ec9fcae0c6ec7ad0d3.jpg" width="254" height="410" alt="把握最新私募趋势">
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- 视界 //end -->
+  <!-- 合作伙伴 //start -->
+  <div class="home-partD">
+    <div class="ui-g wrap-1200">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="home-title">
+          <h3><span>合作伙伴</span></h3>
+          <p>PARTNER</p>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="home-partD-slide">
+          <ul class="partD-slide clearfix">
+            <li *ngFor="let item of result">
+              <img src="{{item.pic | image:185}}" width="185" height="70" alt="">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 合作伙伴 //end -->
+</div>
+<div class="home-conter clearfix">
+  <!--<section class="collaborate">
+  </section>
+  <section class="cooperative-partner">
+    <div class="partner-box">
+      <h3 class='titleitem'>合作伙伴</h3>
+      <div class="borders"></div>
+      <p class="english">Partner</p>
+      <div class="organization" id="scroll">
+        <span class="show-left" (click)="prev()"><i></i></span>
+        <ul style="padding-left: 0px">
+          <li *ngFor="let carousel of carousels; let carouselKey=index">
+            <div *ngIf="carouselKey === carouselShowKey">
+              <a *ngFor="let item of carousel">
+                <img src="{{item.source | image: 256}}" alt="">
+              </a>
+            </div>
+          </li>
+        </ul>
+        <span class="show-right" (click)="next()"><i></i></span>
+      </div>
+    </div>
+  </section>-->
+
+</div>

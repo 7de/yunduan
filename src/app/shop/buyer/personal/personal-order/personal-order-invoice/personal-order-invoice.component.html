@@ -1,0 +1,147 @@
+<div class="frame bg-gray">
+  <div class="frame-header">
+    <app-heads-single [bgc]="true"></app-heads-single>
+    <app-head-home [homeTitle]="['订单发票']"></app-head-home>
+  </div>
+  <div class="frame-con">
+    <div class="wrap-1200">
+      <div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="crumbs">
+            <div class='invoice-crumbs'>您的位置：<a [routerLink]="['/buyer/personal/index/indexs']">个人中心</a>><a [routerLink]="['/buyer/personal/index/order']">订单管理</a>><a [routerLink]="['/buyer/personal/order',orderId]">订单详情</a>><a>订单发票</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="order bg-white">
+        <div class="ui-g order-con" style='background:#fff;'>
+          <div class="ui-g-12 ui-g-nopad">
+            <form (ngSubmit)="onSubmit(form)" [formGroup]="form">
+              <div class='invoice-sept-wrap'><span class='sept-tags'>步骤1</span><span class='tags-text'>选择发票类型</span></div>
+              <div class="ui-g mt-30 mb-40" >
+                <label class="ui-g-1 ui-g-nopad control-label">发票类型：</label>
+                <div class="ui-g-11 ui-g-nopad">
+                  <div class="form-group">
+                    <!-- 查看的时候切换显示 -->
+                    <span class='receipt-type' *ngIf="InvoiceStatus >= 1">{{InvoiceType === 0 ? '增值普通发票' : '增值专业发票'}}</span>
+                    <label class="hide" *ngIf="InvoiceStatus === 0">发票类型</label>
+                    <select class='form-control invoice-type' formControlName="type" (change)="invoiceType($event)" *ngIf="InvoiceStatus === 0">
+                      <option value="">选择发票类型</option>
+                      <option value="0">增值普通发票</option>
+                      <option value="1">增值专业发票</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class='invoice-sept-wrap'><span class='sept-tags'>步骤2</span><span class='tags-text'>填写开票信息</span></div>
+              <div class="ui-g mt-30 mb-20">
+                <label class="ui-g-1 ui-g-nopad control-label">抬头名称：</label>
+                <div class="ui-g-3 ui-g-nopad">
+                  <div class="form-group">
+                    <label class="hide">抬头名称</label>
+                    <input type="text" class="form-control w260"  placeholder="请输入抬头名称" formControlName="title" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="InvoiceStatus >= 1" maxlength=30>
+                  </div>
+                </div>
+                <label class="ui-g-1 ui-g-nopad control-label" style='margin-left:36px;' *ngIf="InvoiceType === 1">注册地址：</label>
+                <div class="ui-g-4 ui-g-nopad" *ngIf="InvoiceType === 1">
+                  <div class="form-group">
+                    <label class="hide">注册地址</label>
+                    <input type="text" class="form-control w260" placeholder="请输入注册地址" formControlName="reg_address" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="InvoiceStatus >= 1" maxlength=30>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g mt-20 mb-20">
+                <label class="ui-g-1 ui-g-nopad control-label">发票金额：</label>
+                <div class="ui-g-3 ui-g-nopad">
+                  <div class="form-group" style='position:relative;'>
+                    <label class="hide">发票金额</label>
+                    <input type="text" class="form-control w260"  placeholder="请输入发票金额" formControlName="invoice_amount" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="true" maxlength=12>
+                    <span class='price-unit' *ngIf="InvoiceStatus === 0">元</span>
+                  </div>
+                </div>
+                <label class="ui-g-1 ui-g-offset-1 ui-g-nopad control-label" style="width: 100px;margin-left: 33px;" *ngIf="InvoiceType === 1">开户银行账号：</label>
+                <div class="ui-g-4 ui-g-nopad" *ngIf="InvoiceType === 1">
+                  <div class="form-group">
+                    <label class="hide">开户银行账号</label>
+                    <input type="text" class="form-control w260" placeholder="请输入开户银行账号" formControlName="bank_account" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="InvoiceStatus >= 1" maxlength=26>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g mb-20">
+                <label class="ui-g-1 ui-g-nopad control-label">税号：</label>
+                <div class="ui-g-3 ui-g-nopad">
+                  <div class="form-group">
+                    <label class="hide">税号</label>
+                    <input type="text" class="form-control w260" placeholder="请输入税号" formControlName="tax_num" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="InvoiceStatus >= 1" maxlength=20>
+                  </div>
+                </div>
+                <label class="ui-g-1 ui-g-offset-1 ui-g-nopad control-label" *ngIf="InvoiceType === 1" style='margin-left:36px;'>注册电话：</label>
+                <div class="ui-g-4 ui-g-nopad" *ngIf="InvoiceType === 1">
+                  <div class="form-group">
+                    <label class="hide">正确的注册电话格式</label>
+                    <input type="text" class="form-control w260" placeholder="请输入注册电话" formControlName="mobile" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="InvoiceStatus >= 1" maxlength=11>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g mb-40" *ngIf="InvoiceType === 1">
+                <label class="ui-g-1 ui-g-nopad control-label" style='width:110px;margin-left:-13px;'>开户银行名称：</label>
+                <div class="ui-g-3 ui-g-nopad">
+                  <div class="form-group">
+                    <label class="hide">开户银行名称</label>
+                    <input type="text" class="form-control w260" placeholder="请输入开户银行名称" formControlName="bank_name" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="InvoiceStatus >= 1" maxlength=12>
+                  </div>
+                </div>
+              </div>
+              <div class='invoice-sept-wrap'><span class='sept-tags'>步骤3</span><span class='tags-text'>填写邮寄信息</span></div>
+              <div class="ui-g mt-30">
+                <label class="ui-g-1 ui-g-nopad control-label">收件人：</label>
+                <div class="ui-g-3 ui-g-nopad">
+                  <div class="form-group">
+                    <label class="hide">收件人</label>
+                    <input type="text" class="form-control w260"  placeholder="请输入收件人" formControlName="recipients" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="InvoiceStatus >= 1" maxlength=6>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g mt-20 mb-20">
+                <label class="ui-g-1 ui-g-nopad control-label">联系电话：</label>
+                <div class="ui-g-3 ui-g-nopad">
+                  <div class="form-group">
+                    <label class="hide">正确的联系电话格式</label>
+                    <input type="text" class="form-control w260"  placeholder="请输入联系电话" formControlName="recipients_mobile" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" [readonly]="InvoiceStatus >= 1" maxlength=11>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g mb-30">
+                <label class="ui-g-1 ui-g-nopad control-label">邮寄地址：</label>
+                <div class="ui-g-3 ui-g-nopad">
+                  <div class="form-group">
+                    <label class="hide">邮寄地址</label>
+                    <input type="text" class="form-control w440" placeholder="请输入邮寄地址" formControlName="address" [readonly]="InvoiceStatus >= 1" [ngClass]="InvoiceStatus >= 1 ? 'remove-borders' : ''" maxlength=40>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 服务商已开发票 -->
+              <div class="ui-g mt-30 mb-40" *ngIf="InvoiceStatus === 2">
+                <div class='Invoice-success-nav'>
+                  <i class='Invoice-success-icon'></i><span class='Invoice-success-text'>服务商已开发票</span>
+                </div>
+                <div class="express-nav mt-10">
+                  <span class='express-type'>快递公司：{{data['post_company']}}</span><span class='ourier-number'>快递单号：{{data['post_num']}}</span>
+                </div>
+              </div>
+              <div class="ui-g mt-10 mb-40" *ngIf="InvoiceStatus <= 1">
+                <div class="ui-g-1"></div>
+                <div class="ui-g-11 ui-g-nopad">
+                  <button type="submit" class="submit-btn submit-btn-another" [disabled]="InvoiceStatus >= 1 || !form.valid" style="width:140px;height:36px;margin-left:10px;" [ngClass]="form.valid === true && InvoiceStatus === 0 ? 'adopt-bg':'not-pass-bg'">{{InvoiceStatus === 0 ? '提交申请' : '申请中...'}}</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="frame-footer">
+    <app-footer [bgc]="1"></app-footer>
+  </div>
+</div>

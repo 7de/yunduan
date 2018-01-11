@@ -1,0 +1,477 @@
+.index-header{
+  height: 180px;
+  border:1px solid #eee;
+  padding: 20px;
+  .ico-seller{
+    width: 106px;
+    height: 106px;
+    position: relative;
+    img {
+      width:106px;
+      height:106px;
+    }
+  }
+  .edit{
+    margin-left: 5px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-position:-231px -507px;
+    outline: none;
+  }
+
+  .edit:hover{
+    background-position: -249px -507px;
+  }
+  .index-header-middle{
+    height: 140px;
+    padding: 0 40px;
+    position: relative;
+    .order{
+      transition: all .2s;
+      &:hover{
+        cursor: pointer;
+        >div{
+          color: #EA3A3A!important;
+        }
+        .ico-order{
+          transform: translateY(-5px);
+        }
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+    .video{
+      transition: all .2s;
+      &:hover{
+        cursor: pointer;
+        >div{
+          color: #EA3A3A!important;
+        }
+        .ico-video{
+          transform: translateY(-5px);
+        }
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+    .text{
+      transition: all .2s;
+      &:hover{
+        cursor: pointer;
+        >div{
+          color: #EA3A3A!important;
+        }
+        .ico-text{
+          transform: translateY(-5px);
+        }
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+    .ico-size{
+      width: 40px;
+      height: 40px;
+    }
+    .ico-service{
+      background-position: -500px -35px;
+    }
+    .ico-video{
+      background-position: -587px -35px;
+    }
+    .ico-order{
+      background-position: -543px -35px;
+    }
+    .ico-text{
+      background-position: -631px -35px;
+    }
+    .ico-un-service{background-position: -500px -78px;}
+    .ico-un-video{background-position: -587px -78px;}
+    .ico-un-order{background-position: -543px -78px;}
+    .ico-un-text{background-position: -631px -78px;}
+    .mt-5 {font-size:12px;color:#5D5D5D;}
+  }
+  .index-header-right{
+    padding: 20px;
+    background: url(".././../../../../../assets/images/slope.png");
+    .ico-wallet{
+      display: inline-block;
+      width: 24px;
+      height: 18px;
+      background-position: -203px -96px;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    .gray{
+      background-color: #D9D9D9;
+    }
+    button{
+      width: 90px;
+      height: 30px;
+      background-color: #EA3A3A;
+      border: 0;
+      color: #fff;
+      border-radius: 3px;
+      &:focus{
+        outline: none;
+      }
+    }
+    .ico-help{
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 5px;
+      background-position: -169px -211px;
+    }
+    .ico-help[title]{
+      font-size: 12px;
+    }
+    .income{
+      p:last-child{
+        font-weight: 600;
+      }
+    }
+    .freeze{
+      border-right: 1px dashed #DCDCDC;
+      border-left: 1px dashed #DCDCDC;
+      padding-left: 10px;
+      p:last-child{
+        font-weight: 600;
+      }
+    }
+    .balance{
+      p:last-child{
+        color: #EA3A3A;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.index-main{
+  border:1px solid #eee;
+  .main-title{
+    height: 45px;
+    border-bottom: 1px solid #eee;
+    >span{
+      display: inline-block;
+      height: 16px;
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 16px;
+      padding-left: 15px;
+      border-left: 4px solid #EA3A3A;
+    }
+  }
+  .main-content{
+    padding: 20px;
+    padding-top: 30px;
+    position: relative;
+    .main-content-head{
+      position: relative;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+      span.num{
+        position: absolute;
+        top: -6px;
+        right: 9px;
+        display: inline-block;
+        min-width: 16px;
+        height: 16px;
+        line-height:14px;
+        font-size: 12px;
+        border: 1px solid #EA3A3A;
+        border-radius: 50%;
+        color: #EA3A3A;
+      }
+      >div{
+        position: absolute;
+        top: -5px;
+        right: 0;
+        width: 90px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #fff;
+        border: 1px solid #EA3A3A;
+        border-radius: 3px;
+        &:hover{
+          background-color: #EA3A3A;
+          a{
+            color: #fff!important;
+          }
+        }
+        >a{
+          color: #EA3A3A!important;
+        }
+      }
+      ul{
+        padding: 0;
+        margin: 0;
+        li{
+          float: left;
+          &:focus{
+            outline: none;
+          }
+          &:hover{
+            cursor: pointer;
+            color: #EA3A3A;
+          }
+          &:first-child{
+            padding-right: 20px;
+          }
+          &:nth-child(2){
+            padding-left: 20px;
+            padding-right: 20px;
+            border-left: 1px solid #DCDCDC;
+            border-right: 1px solid #DCDCDC;
+          }
+          &:last-child{
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+    .main-content-detail{
+      .order-head{
+        height: 34px;
+        line-height: 34px;
+        background-color: #f7f7f7;
+        padding-left: 20px;
+        div {font-size:12px;color:#5D5D5D;}
+      }
+      .none{
+        height: 137px;
+        line-height: 137px;
+        font-size: 16px;
+      }
+      .order-detail{
+        .order-detail-head{
+          height: 34px;
+          line-height: 34px;
+          background-color: #F7F7F7;
+          padding-left: 20px;
+          font-size: 12px;
+          .order-num,.order-time{
+            color: #999;
+          }
+        }
+        .order-content{
+          height: 80px;
+          font-size: 12px;
+          padding: 10px 0 10px 20px;
+          border: 1px solid #eee;
+          border-top: 0;
+          .goods-name{
+            display: flex;
+            &:hover{
+              color: #EA3A3A;
+              cursor: pointer;
+            }
+            img:hover{
+              cursor: pointer;
+            }
+            img:focus{
+              outline:none;
+            }
+            .goods-title{
+              height: 60px;
+              line-height: 60px;
+              span{
+                &:focus{
+                  outline: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.order-detail-check{
+  a{
+    color:#333;
+    font-size:12px;
+    &:hover{
+      color: #EA3A3A;
+    }
+  }
+}
+
+.order-more{
+  &:hover{
+    span{
+      color: #EA3A3A;
+      cursor: pointer;
+    }
+  }
+  span:focus{
+      outline: none;
+    }
+}
+
+.index-bottom{
+  border:1px solid #eee;
+  .bottom-title{
+    height: 45px;
+    border-bottom: 1px solid #eee;
+    >span{
+      display: inline-block;
+      height: 16px;
+      line-height: 16px;
+      margin-top: 14px;
+      font-size: 16px;
+      padding-left: 15px;
+      border-left: 4px solid #EA3A3A;
+    }
+  }
+  .bottom-main{
+    position: relative;
+    height: 102px;
+    padding: 20px;
+    div:focus{
+      outline: none;
+    }
+    .ico-video{
+      display: inline-block;
+      width: 44px;
+      height: 42px;
+      background-position: -453px -143px;
+    }
+    .ico-txt{
+      display: inline-block;
+      width: 48px;
+      height: 44px;
+      background-position: -449px -93px;
+    }
+    .class-info{
+      position: absolute;
+      top: 35px;
+      right: 20px;
+      width: 90px;
+      height: 30px;
+      line-height: 30px;
+      background-color: #fff;
+      border: 1px solid #EA3A3A;
+      border-radius: 3px;
+      &:hover{
+        background-color: #EA3A3A;
+        a{
+          color: #fff!important;
+        }
+      }
+      >a{
+        display: inline-block;
+        width: 90px;
+        height: 30px;
+        color: #EA3A3A!important;
+      }
+    }
+  }
+}
+
+.ico-going{
+  top: -2px;
+  display: inline-block;
+  width: 19px;
+  height: 17px;
+  background-position: -160px -96px;
+}
+.ico-pay{
+  top: -2px;
+  display: inline-block;
+  width: 19px;
+  height: 16px;
+  background-position: -137px -96px;
+}
+.ico-finish{
+  top: -2px;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background-position: -183px -96px;
+}
+
+// 基金公司标签
+.user-tag {
+  display: block;
+  width:50px;
+  height:50px;
+  position: absolute;
+  z-index:1;
+  background: url('../../../../../../assets/images/enterprise-tag.png');
+}
+// 基金公司审核状态标签
+.audit-status {
+  display: block;
+  //width:52px;
+  height:16px;
+  line-height:16px;
+  text-align: center;
+  position: absolute;
+  bottom:0;
+  right:0;
+  z-index:1;
+  background-color: #B3B3B3;
+  font-size:12px;
+  color:#FFFFFF;
+}
+// 审核通过标签样式
+.audit-passed {
+  background-color: #7DB744;
+}
+
+.ico-arrow{
+  top: -45px;
+  left: 55px;
+  width: 40px;
+  height: 36px;
+  background-position: -512px -143px;
+}
+.already-know{
+  width: 120px;
+  height: 36px;
+  border-radius: 20px;
+  background-color: #FF4040;
+  color: #fff;
+  line-height: 36px
+}
+.already-know:hover{
+  cursor: pointer;
+}
+
+.video,.text{
+  p:first-child{
+    font-weight:bold;
+    font-size: 16px;
+    margin:0 0 7px;
+  }
+  p:last-child{
+    font-size: 12px;
+    color: #666;
+    &:hover{
+      cursor: pointer;
+      color: #EA3A3A;
+    }
+  }
+}
+.video-ico:hover,.text-ico:hover{
+  cursor: pointer;
+}
+.ico-seller{
+  outline: none;
+  &:hover{
+    cursor: pointer;
+  }
+  &+div{
+    outline: none;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}

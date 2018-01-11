@@ -1,0 +1,79 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+
+.form-group{
+  margin-bottom:0
+}
+textarea.form-control{
+  padding:28px;
+  border-radius: 0;
+  border-color:$border-gray;
+  resize: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+textarea.form-control:focus{
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-color:#1197dd;
+}
+.express-box{
+  height:39px;
+  line-height:39px;
+  color:#8c8c8c;
+  border:1px solid $border-gray;
+  padding-left:28px;
+}
+.radio-box{
+  border:1px solid $border-gray;
+  border-bottom:none;
+  height:39px;
+  line-height:39px;
+  color:#8c8c8c;
+  padding-left:28px;
+  >label{
+    font-weight:normal;
+    margin-bottom:0;
+    margin-right:25px;
+    margin-left:-15px;
+    cursor: pointer;
+  }
+  input[type='radio']{
+    opacity: 0;
+  }
+  .ico-global{
+    margin-right:5px;
+    margin-bottom:2px;
+  }
+  input:checked ~ span{
+    color:#212121;
+  }
+  input:checked ~ .ico-wechat-edior{
+    background-position:-115px -461px;
+  }
+  input:checked ~ .ico-wechat-img{
+    background-position:-146px -461px;
+  }
+}
+.imgUpload-con{
+  padding:20px;
+  border:1px solid $border-gray;
+  border-bottom:none;
+}
+
+.btn{
+  width:105px;
+}
+.btn-orange{
+  color:$link-color;
+  background-color:$theme-orange;
+}
+.btn-orange:focus{
+  outline: none;
+}
+.btn-orange:hover{
+  background-color: $btn-orange-hover;
+}
+.btn-orange[disabled]{
+  background-color: $btn-orange-disabled;
+}

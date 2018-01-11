@@ -1,0 +1,82 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;" (click)="toInvestedUser()">&lt;&nbsp;返回</a>&nbsp;&nbsp;查看-历史投资记录
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="row mt-10">
+    <div class="col-md-12">
+      <app-url-tab [items]="tabItems"></app-url-tab>
+    </div>
+  </div>
+
+  <!--历史投资记录内容-->
+
+  <div class="row mt-15">
+    <div class="col-md-7 f-weight" style="margin-bottom: 0">
+      历史累计投资金额(<s>万元</s>)： <span>{{totalMoney}}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div (click)="showCreate()" class="myAdd">
+        <p><span class="icon-add"></span>添加投资记录</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <p-dataTable [loading]="!dataHistory" loadingIcon="fa-spinner" rowHover="true" [value]="dataHistory" styleClass="custom-dataTable" emptyMessage="暂无数据">
+        <p-column header="序号" [style]="{'width':'70px'}">
+          <ng-template let-data="rowData" let-i="rowIndex" pTemplate="body">
+            <span>{{(pagination.currentPage-1)*pagination.perPage+i+1}}</span>
+          </ng-template>
+        </p-column>
+        <p-column>
+          <ng-template pTemplate="header">
+            <span>项目名称</span>
+          </ng-template>
+          <ng-template let-data="rowData" pTemplate="body">
+            <a [routerLink]="['/main/product/view',data.foundation_id]">{{data.foundation.name}}</a>
+          </ng-template>
+        </p-column>
+        <p-column field="order_time" header="起始时间"></p-column>
+        <p-column>
+          <ng-template pTemplate="header">
+            <span>到期时间</span>
+          </ng-template>
+          <ng-template let-data="rowData" pTemplate="body">
+            <span>{{data.over_time}}</span>
+          </ng-template>
+        </p-column>
+        <p-column>
+          <ng-template pTemplate="header">
+            <span>投资时间</span>
+          </ng-template>
+          <ng-template let-data="rowData" pTemplate="body">
+            <span>{{diffDateTime(data.order_time,data.over_time)}}</span>
+          </ng-template>
+        </p-column>
+        <p-column>
+          <ng-template pTemplate="header">
+            <span>当前状态</span>
+          </ng-template>
+          <ng-template let-data="rowData" pTemplate="body">
+            <span>{{data.foundation.kind_txt}}</span>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+      <p-paginator *ngIf="pagination.perPage" [rows]="pagination.perPage"
+                   [first]="pagination.currentPage * pagination.perPage-1"
+                   [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                   (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+    </div>
+  </div>
+  <!--已投资用户添加投资记录弹框-->
+  <app-create-invest *ngIf="show" [userId]="userId" (showEvent)="closeShow($event)"></app-create-invest>
+</div>

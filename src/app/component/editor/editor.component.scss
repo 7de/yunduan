@@ -1,0 +1,46 @@
+.ql-picker-label[data-label="Normal"]{
+  &:before{
+    content: '正常';
+  }
+}
+.edit-con .ql-snow .ql-picker.ql-header .ql-picker-label::before,.edit-con .ql-snow .ql-picker.ql-header .ql-picker-item::before{
+  content: '正常';
+}
+
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before, .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  content: '加粗';
+}
+
+.textareas ql-snow .ql-picker.ql-header .ql-picker-label[data-label]:not([data-label=''])::before {
+  content: '加粗';
+}
+
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  content: '加粗';
+}
+
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  content: '标题';
+}
+
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-label[data-label="Normal"]::before,
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-item[data-label="Normal"]::before {
+  content: '正常';
+}
+
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-label[data-label="Sans Serif"]::before,
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-item[data-label="Sans Serif"]::before {
+  content: '无衬线体';
+}
+
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before,
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  content: '有衬线体';
+}
+
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before,
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  content: '等宽字体';
+}

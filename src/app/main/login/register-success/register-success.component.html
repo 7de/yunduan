@@ -1,0 +1,29 @@
+<div class="register-success">
+  <div class="register-success__content">
+    <div class="register-success__content__cell">
+      <div class="register-success__content__cell__hd">
+        <span class="ico-global ico-success"></span>
+      </div>
+      <div class="register-success__content__cell__bd">
+        <div class="register-success__content__title">恭喜您注册成功！</div>
+        <div class="register-success__content__desc" *ngIf="type === 1 || type === '1'">前往个人中心完成认证工作，可享用更多的功能。</div>
+        <div class="register-success__content__desc" *ngIf="type === 0 || type === '0'">
+          <p>平台将对贵公司资料进行审核，审核通过可享用更多功能，审核结果将通过站内信</p>
+          <p>通知您，您也可以主动前往管理后台查看审核结果。</p>
+          <p class="color-red">注：企业资料审核通过，才可开通钱包</p>
+        </div>
+        <div class="register-success__content__btn-area">
+          <button class="btn btn-red" *ngIf="type === 1 || type === '1'" routerLink="/seller/personal/index/indexs">前往个人中心</button>
+          <button class="btn btn-red" *ngIf="type === 0 || type === '0'" routerLink="/main/index/index">前往管理后台</button>
+        </div>
+        <div class="register-success__content__links">
+          周围逛逛：
+          <a class="register-success__content__link" routerLink="/site/home">首页</a>
+          <a class="register-success__content__link" routerLink="/shop/index" [queryParams]="{demand_category_id: ''}">云集优服</a>
+          <a class="register-success__content__link" routerLink="/lives/lives-index">云课堂</a>
+          <a class="register-success__content__link" routerLink="/site/about">关于我们</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;" (click)="toInvestedUser()">&lt;&nbsp;返回</a>&nbsp;&nbsp;查看-跟踪记录
+  </div>
+</div>
+<div class="wrap">
+  <div class="row mt-10">
+    <div class="col-md-12">
+      <app-url-tab [items]="tabItems"></app-url-tab>
+    </div>
+  </div>
+  <div class="row mt-20">
+      <div class="col-md-12">
+        <p-dataTable [loading]="!dataTracking" loadingIcon="fa-spinner" rowHover="true" [value]="dataTracking" styleClass="custom-dataTable" emptyMessage="暂无数据">
+          <p-column header="序号" [style]="{'width':'70px'}">
+            <ng-template let-data="rowData" let-i="rowIndex" pTemplate="body">
+              <span>{{(pagination.currentPage-1)*pagination.perPage+i+1}}</span>
+            </ng-template>
+          </p-column>
+          <p-column>
+            <ng-template pTemplate="header">
+              <span>预约时间</span>
+            </ng-template>
+            <ng-template let-data="rowData" pTemplate="body">
+              <span>{{data.created_at | datetime : 'datetime'}}</span>
+            </ng-template>
+          </p-column>
+          <p-column field="profile.real_name" header="姓名"></p-column>
+          <p-column field="user.phone" header="手机号码"></p-column>
+          <p-column>
+            <ng-template pTemplate="header">
+              <span>身份证号码</span>
+            </ng-template>
+            <ng-template let-data="rowData" pTemplate="body">
+              <span>{{data.profile?.id_num}}</span>
+            </ng-template>
+          </p-column>
+          <p-column>
+            <ng-template pTemplate="header">
+              <span>预约投资产品</span>
+            </ng-template>
+            <ng-template let-data="rowData" pTemplate="body">
+              <span>{{data.foundation.name}}</span>
+            </ng-template>
+          </p-column>
+          <p-column>
+            <ng-template pTemplate="header">
+              <span>操作</span>
+            </ng-template>
+            <ng-template let-data="rowData" pTemplate="body">
+              <a href="javascript:void(0)" class="mr-5" (click)="product(data.foundation.id)" style="cursor: pointer;">查看产品</a>
+              <a class="check" [routerLink]="['/main/users/record']"
+              [queryParams]="{app_id:data.id,user_id:data.user_id}">查看跟踪记录</a>
+            </ng-template>
+          </p-column>
+        </p-dataTable>
+        <p-paginator *ngIf="pagination.totalCount" [rows]="pagination.perPage"
+                     [first]="pagination.currentPage * pagination.perPage-1"
+                     [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount"
+                     (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+      </div>
+    </div>
+
+  <!--查看产品弹框-->
+  <app-check-product *ngIf="showProduct" [productId]="productId" (showProduct)="closeProduct($event)"></app-check-product>
+</div>

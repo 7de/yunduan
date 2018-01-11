@@ -1,0 +1,57 @@
+image: node:latest
+cache:
+  paths:
+    - node_modules/
+
+deploy_dev:
+  stage: deploy
+  environment: Dev
+  only:
+    - dev
+  script:
+    - whoami
+    - rm ./package-lock.json
+    - npm install
+#    - ./node_modules/@angular/cli/bin/ng test --progress false --single-run=true --watch=false
+#    - ./node_modules/@angular/cli/bin/ng e2e --progress false --watch=false
+    - node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng build
+    - ls
+    - mv dist company_dev
+#    - ./node_modules/@angular/cli/bin/ng build --prod --env=test
+    - cp -R company_dev /home/www
+    - curl --request POST --url 'https://oapi.dingtalk.com/robot/send?access_token=fd1c562e1f2f29a2bb5aa12b640430053e086ebf223699aa1d1b7239cf44594a' --header 'content-type:application/json' --data '{"msgtype":"text","text":{"content":"http://company-dev.yd.com/ 环境已经更新"},"at":{"atMobiles":[ "18694045201","15012879833","13670272404","15019472523","18211306059","17620326862"],"isAtAll":false}}'
+
+deploy_test:
+  stage: deploy
+  environment: Test
+  only:
+    - test
+  script:
+    - whoami
+    - rm ./package-lock.json
+    - npm install
+    - node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng build --prod --env=test --build-optimizer
+    - ls
+    - mv dist company_test
+    - cp -R company_test /home/www
+    - echo "发布到测试环境"
+    - rsync -avuz -e 'ssh -i /home/www/deploy_rsa' /home/www/company_test root@39.108.14.48:/home/www
+    - echo "修改远程目录"
+    - ssh -i /home/www/deploy_rsa root@39.108.14.48 "rm -rf /home/www/company && mv /home/www/company_test /home/www/company"
+    - curl --request POST --url 'https://oapi.dingtalk.com/robot/send?access_token=fd1c562e1f2f29a2bb5aa12b640430053e086ebf223699aa1d1b7239cf44594a' --header 'content-type:application/json' --data '{"msgtype":"text","text":{"content":"http://company-test.51simuhui.com/ 测试环境已经更新"},"at":{"atMobiles":["18694045201","15992900537","17603031139","15012879833","13670272404","15019472523","18211306059"],"isAtAll":false}}'
+
+deploy_prod:
+  stage: deploy
+  environment: Prod
+  only:
+    - master
+  script:
+    - whoami
+    - rm ./package-lock.json
+    - npm install
+    - node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng build --prod --env=prod --build-optimizer
+    - ls
+    - mv dist company_prod
+    - cp -R company_prod /home/www
+    - curl --request POST  --url 'https://oapi.dingtalk.com/robot/send?access_token=fd1c562e1f2f29a2bb5aa12b640430053e086ebf223699aa1d1b7239cf44594a'  --header 'content-type:application/json'  --data '{"msgtype":"text","text":{"content":"预发布正式环境的代码已经打包好了"},"at":{"atMobiles":["18694045201"],"isAtAll":false}}'
+#    - rsync -avuz -e 'ssh -i /home/www/deploy_rsa' /home/www/company_prod root@39.108.14.48:/home/www

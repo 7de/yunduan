@@ -1,0 +1,31 @@
+<!--顶部返回-->
+<div class="row back">
+  <div class="col-md-12">
+    <a style="cursor: pointer;"  href="javascript:history.go(-1)">&lt;&nbsp;返回</a>&nbsp;&nbsp;管理系统-需求发布系统
+  </div>
+</div>
+<div class="wrap">
+  <div class="con mt-30">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="release-nav">
+          <li *ngFor="let item of demandList,let i = index" class="{{item.class}}"
+              (click)="showbombBox($event,item.id,item.name)">
+            <a data-id="{{item.id}}">
+                <span class="img">
+									<i class="ico-global {{item.ico}}"></i>
+								</span>
+              <span class="text">{{item.name}}</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- 弹框 -->
+<app-index-bombbox *ngIf="showBomb" [demandId]="demandId" [demandTitle]="demandTitle" [onOff]="showBomb"
+                   (bombEvent)="bombMethod($event)"></app-index-bombbox>

@@ -1,0 +1,37 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+
+.bg-white{
+  padding: 30px;
+  background-color: #fff;
+}
+ul{
+  border-bottom:1px solid #D8D8D8;
+}
+
+.side-menu-list{
+  @include transition(.25s);
+  li{
+    height: 50px;
+    line-height:50px;
+    font-size:16px;
+    outline: none;
+    cursor: pointer;
+    padding-left: 30px;
+    color: nth($gray,4);
+    border-left:4px solid transparent;
+    a{
+      display: inline-block;
+      width: 100%;
+      text-decoration: none;
+    }
+  }
+  .active{
+    border-left-color:nth($red,2);
+    color: nth($red,2);
+    background-color: #fff;
+  }
+  .sub-menu-list{
+    font-size: 14px;
+  }
+}

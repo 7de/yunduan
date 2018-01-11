@@ -1,0 +1,5 @@
+@import "../store-order/store-order.component";
+
+.search-input{
+  @include borderRadius;
+}

@@ -1,0 +1,81 @@
+.bodytop {
+  background: url('../../../assets/images/auditing-bg.png');
+  height: 200px;
+  box-sizing: border-box;
+  padding-top: 60px;
+  .titlebox {
+    color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    .title {
+      font-size: 40px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    div {
+      font-size: 20px;
+      line-height: 1;
+    }
+  }
+}
+
+.containers {
+  height: 534px;
+  background: #F2F2F2;
+  padding-top: 30px;
+  .stepbox {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 50px 55px 62px;
+    background: #ffffff;
+    li {
+      padding-left: 18px;
+      line-height: 1;
+      list-style-type: none;
+      margin-bottom: 24px;
+      .step {
+        position: relative;
+        font-size: 24px;
+        color: black;
+        margin-bottom: 10px;
+        span {
+          position: absolute;
+          top: 0;
+          left: -18px;
+          width: 5px;
+          height: 24px;
+          background: #AA2424;
+        }
+      }
+      div {
+        font-size: 16px;
+        color: #666666;
+      }
+      .gotobtn {
+        display: block;
+        margin-top: 16px;
+        width: 104px;
+        font-size: 16px;
+        height: 36px;
+        text-align: center;
+        line-height: 34px;
+        color: #AA2424;
+        box-sizing: border-box;
+        border: solid 1px #AA2424;
+        border-radius: 6px;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+
+@import "../../../assets/sass/mixin.css";
+@import "../../../assets/sass/variables";
+
+.layout {
+  padding-bottom: 50px;
+  background-color: nth($gray, 1);
+}
+
+

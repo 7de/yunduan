@@ -1,0 +1,269 @@
+@import "../../assets/sass/mixin";
+@import "../../assets/sass/variables";
+
+.wrap-1200 {
+  width: 1200px;
+  margin: 0 auto
+}
+
+.wechat-box {
+  min-width: 1200px;
+  background-color: #e7e8eb;
+  z-index: 10;
+}
+
+.wechat-head {
+  min-width: 1200px;
+  background-color: $link-color;
+  border-top: 4px solid $theme-orange;
+  border-bottom: 1px solid #d9dadc;
+  .log {
+    outline: none;
+    cursor: pointer;
+    > img {
+      margin: 10px 0;
+      line-height: 0;
+    }
+  }
+  .nav-menu {
+    height: 60px;
+    line-height: 60px;
+    ul {
+      overflow: hidden;
+      > li {
+        float: left;
+        margin-left: 20px;
+        @include transition(.25s);
+        position: relative;
+        .use-box {
+          overflow: hidden;
+          margin-top: 10px;
+          color: #999;
+          > i.fa-user-circle {
+            margin-top: 14px;
+            margin-right: 5px;
+          }
+          > i.fa-user-circle + a {
+            display: inline-block;
+            position: relative;
+            top: -2px;
+          }
+          > img {
+            float: left;
+            border: 1px solid $borderColorGray;
+            margin-right: 10px;
+          }
+          .use-box-info {
+            float: right;
+            width: 100px;
+            line-height: 20px;
+            p {
+              width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            span {
+              font-size: 12px;
+              padding: 1px 4px;
+              border-radius: 2px;
+              color: $link-color
+            }
+            .green {
+              background-color: #2ba245;
+            }
+            .gray {
+              background-color: #d0d0d0
+            }
+
+          }
+        }
+      }
+      > li:after {
+        position: absolute;
+        top: 0;
+        right: -11px;
+        font-size: 16px;
+        content: '|';
+        color: #e7e7eb;
+      }
+      .back-home {
+        outline: none;
+        cursor: pointer;
+      }
+      .back-home:focus {
+
+      }
+
+      .tel {
+        color: #888;
+        > span {
+          color: $link-color;
+          padding-right: 10px;
+        }
+      }
+      .tel:hover {
+        > span {
+          color: $backgroundBlack;
+        }
+      }
+    }
+  }
+}
+
+.wechat-con {
+  width: 1198px;
+  min-height: 775px;
+  font-size: 14px;
+  background-color: $link-color;
+  border: 1px solid #d9dadc;
+  margin: 36px auto;
+  @include transition(.25s);
+  position: relative;
+}
+
+.wechat-con:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 209px;
+  height: 100%;
+  border-right: 1px solid $border-gray;
+}
+
+.wechat-aside {
+  width: 209px;
+}
+
+.left-menu-item {
+  padding-left: 0;
+  margin-top: 10px;
+  > li {
+    padding: 5px 0;
+    border-bottom: 1px solid $border-gray;
+    @include transition(.25s);
+    > a {
+      display: block;
+      height: 34px;
+      line-height: 34px;
+      padding-left: 30px;
+      @include transition(.25s);
+      > .ico-global {
+        top: -2px;
+        margin-right: 10px;
+      }
+      .accordion-toggle-title {
+        color: #8c8c8c;
+      }
+    }
+    > a:hover, > a.active {
+      text-decoration: none;
+      background-color: $theme-orange;
+      > .ico-wechat-home {
+        background-position: -1px -481px;
+      }
+      > .ico-wechat-action {
+        background-position: -23px -481px;
+      }
+      > .ico-wechat-manage {
+        background-position: -44px -482px;
+      }
+      > .ico-wechat-set {
+        background-position: -66px -481px;
+      }
+      .accordion-toggle-title {
+        color: $link-color
+      }
+    }
+    .submen {
+      padding: 5px 0;
+      > li {
+        > a {
+          display: block;
+          height: 34px;
+          line-height: 34px;
+          padding-left: 61px;
+          color: #212121;
+          cursor: pointer;
+          @include transition(.25s);
+        }
+        > a:hover, > a:focus, > a.active {
+          text-decoration: none;
+          line-height: 34px;
+          background-color: #fc8026 !important;
+          color: #fff;
+        }
+      }
+    }
+  }
+  > li:last-child {
+    border-bottom: none;
+  }
+}
+
+.wechat-main {
+  width: 82.5%;
+  height: 100%;
+}
+
+.wechat-footer {
+  min-width: 1200px;
+  width: 100%;
+  color: $link-color;
+  line-height: 18px;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 0;
+  background-color: #b8b9b9;
+
+  //padding: 10px 0;
+  //text-align: center;
+  //color: #ccc;
+  //background-color: #b8b9b9;
+  //@include transition(.25s);
+  //p {
+  //  width: 100%;
+  //}
+}
+
+.footer-tel {
+  color: #b8b9b9;
+}
+
+.footer-tel:hover {
+  color: $link-color;
+}
+
+.function {
+  display: inline-block;
+  height: 34px;
+  width: 100%;
+  padding-left: 30px;
+}
+
+.function .accordion-toggle-title {
+  line-height: 34px;
+}
+
+.user-marger {
+  display: inline-block;
+  height: 34px;
+  width: 100%;
+  padding-left: 30px;
+}
+
+.user-marger .accordion-toggle-title {
+  line-height: 34px;
+}
+
+.systems {
+  display: inline-block;
+  height: 34px;
+  width: 100%;
+  padding-left: 30px;
+}
+
+.systems .accordion-toggle-title {
+  line-height: 34px;
+}

@@ -1,0 +1,81 @@
+<div class="" id="account-information">
+    <div class="corporate-name">企业基本信息</div>
+    <table class="table table-bordered">
+      <tr>
+        <td class="col-md-2 left-backgroudcolor">企业名称</td>
+        <td class="col-md-4 input-import">
+          <p>{{company?.company_name}}</p>
+        </td>
+        <td class="col-md-2 left-backgroudcolor">
+          员工规模
+        </td>
+        <td class="col-md-4">
+          <p style="height: 15px;">{{scaled}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-2 left-backgroudcolor">企业简称</td>
+        <td class="col-md-4 input-import">
+          <p>{{extInfo?.name_short}}</p>
+        </td>
+        <td class="col-md-2 left-backgroudcolor">
+          总管理规模
+        </td>
+        <td class="col-md-4">
+          <p style="height: 15px;">{{scaledsed}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-2 left-backgroudcolor">企业注册时间</td>
+        <td class="col-md-4 input-import">
+        <p>{{extInfo?.business_reg_time_txt}}</p>
+        </td>
+        <td class="col-md-2 left-backgroudcolor">
+        管理类别
+        </td>
+        <td class="col-md-4 input-import">
+        <p style="height: 15px;">{{categorys}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-2 left-backgroudcolor">联系人姓名</td>
+        <td class="col-md-4 input-import">
+        <p >{{extInfo.linkman}}</p>
+        </td>
+        <td rowspan="3" class="col-md-2 left-backgroudcolor logos">
+          Logo
+        </td>
+        <td rowspan="3" class="col-md-4">
+          <div class="open-photoed" [hidden]="canInsert">
+            <img src="{{extInfo.company_logo  | image: 108}}" alt="Logo" class="imgsed">
+          </div>
+          <p class="text-right logotop" [hidden]="!canInsert">（图片格式为120*120，支持JPG.PNG，建议大小不超过2M）</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-2 left-backgroudcolor">
+          联系邮箱
+        </td>
+        <td class="col-md-4 input-import">
+          <p>{{extInfo?.phone}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-md-2 left-backgroudcolor">登记编号</td>
+        <td class="col-md-4 input-import">
+        <p>{{company?.reg_number}}</p>
+        </td>
+      </tr>
+    </table>
+  <div class="disable" [hidden]="company?.flag !== 2">
+    <button type="submit" disabled>{{buttonValue}}</button>
+  </div>
+</div>
+<!--图片放大框-->
+<div class="mask" [hidden]="!showed" (click)="showed = false">
+  <div class="showeds">
+    <div><span class="fa fa-closes" (click)="showed = false"></span></div>
+    <img src="{{extInfo.license | image:840}}" alt="">
+  </div>
+</div>
+

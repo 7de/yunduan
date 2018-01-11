@@ -1,0 +1,484 @@
+<div class='main-nav-wraps'>
+  <app-heads-single [bgc]='true'></app-heads-single>
+  <app-head-home homeTitle="钱包开户"></app-head-home>
+  <form [formGroup]="formWallet" (submit)="onSubmit(formWallet)">
+    <div class="wallet-Account-Wrap">
+      <div class="wrap-1200 main-Wrap">
+        <div class="naviga-Crumbs">
+          <!--<a class="goBack" routerLink="/shop/applicationservice">< 返回</a>-->
+          <a class="goBack" href="javascript:history.go(-1)">< 返回</a>
+          <span class="crumbsText">钱包开户</span>
+        </div>
+        <div class="content-Wrap wrap-1200">
+          <div class="ui-g">
+            <div class="wallet-Title" style='margin-left:30px;'>
+              <div class="wallet-Title-Wrap flex_">
+                <span class="headline-tags">步骤 1</span>
+                <span class="title-Text">法人身份信息</span>
+              </div>
+            </div>
+          </div>
+          <!--<div class="ui-g">
+            <div class="corporateInfo-Wrap">
+              <div class="min-title">1.法人身份信息</div>
+            </div>
+          </div>-->
+          <div class="IdentityInfo-Wrap">
+            <div class="ui-g">
+              <div class="form-group usernameNav flex_">
+                <div class="left-Alignment">
+                  <span class="must-Icon">*</span>
+                  <label>姓名</label>：
+                </div>
+                <input class="username" type="text" name="userName" [readonly]="readOnlyStatus" formControlName="userName"
+                       placeholder="请输入您的真实姓名" autocomplete="off"
+                       required/>
+              </div>
+            </div>
+            <div class="ui-g">
+              <div class="form-group idCardNav flex_">
+                <i class="calendar"></i>
+                <div class="left-Alignment" style='margin-right:3px;'>
+                  <span class="must-Icon">*</span>
+                  <label>法人身份证有限期</label>：
+                </div>
+                <p-calendar [ngModel]="formDate(businessData)" [readonlyInput]="true"
+                            formControlName="idCardEffective" placeholder="到期时间"
+                            dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                            yearRange="1990:2040" [locale]="cn" styleClass="form-calendar">
+                </p-calendar>
+              </div>
+            </div>
+            <div class="ui-g">
+              <div class="form-group idNumberNav flex_">
+                <div class="left-Alignment">
+                  <span class="must-Icon">*</span>
+                  <label>身份证号码</label>：
+                </div>
+                <input class="idNumber" type="text" name="IdCardNumber" [readonly]="readOnlyStatus"
+                       formControlName="IdCardNumber" autocomplete="off"
+                       placeholder="请输入您的身份证号码" required/>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-g">
+            <div class="upload-card-title flex_">
+              <div class="left-Alignment">
+                <span class="must-Icon" style='margin-right:4px;'>*</span><span class="idCardPhone">身份证正反照片：</span>
+              </div>
+              <span class="prompt-Text">（请点击以下相应区域上传身份证扫描件，扫描件格式JPG，建议文件大小不超过2M；<span class="demand">要求：需提供企业法人的身份证正反面照片，否则会影响对公账户打款</span>）</span>
+            </div>
+          </div>
+
+          <div class="ui-g">
+            <div class="upload-data-wrap">
+              <div class='flex_'>
+                <div class="left-block">
+                  <div class="upload-data-left flex_ idcard-box">
+                    <div class="min-tips flex_ w296">
+                      <div class="left-Alignment">
+                        <p class="idcard-positive" style='margin-right:1px;'>身份证正面照：</p>
+                      </div>
+                    </div>
+                    <a href="javascript:;" class="upload-nav">
+                      <app-basic-img-upload (imgEvent)="Imgdataupload($event,'positive')"
+                                            [previewImg]="IdCardPositive"></app-basic-img-upload>
+                      <i class="idcard-positive-icon"></i>
+                    </a>
+
+                    <div class="clearfix img-error" [ngClass]="{'has-error': errorObj['positive']}">
+                      <span class="help-block" *ngIf="errorObj['positive']">请上传身份证正面照片</span>
+                    </div>
+                  </div>
+                  <div class="upload-data-right flex_ idcard-box">
+                    <div class="min-tips flex_ w296">
+                      <div class="left-Alignment">
+                        <p class="idcard-positive" style='margin-right:1px;'>身份证反面照：</p>
+                      </div>
+                    </div>
+                    <a href="javascript:;" class="upload-nav">
+                      <app-basic-img-upload (imgEvent)="Imgdataupload($event,'opposite')"
+                                            [previewImg]="IdCardOpposite"></app-basic-img-upload>
+                      <i class="idcard-positive-icon"></i>
+                    </a>
+                    <div class="clearfix img-error" [ngClass]="{'has-error': errorObj['opposite']}">
+                      <span class="help-block" *ngIf="errorObj['opposite']">请上传身份证反面照片</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="right-block">
+                  <div class="example-data-right flex_">
+                    <p class="example-text">示例：</p>
+                    <i class="example-idcard-positive"></i>
+                    <ul class="instance-item">
+                      <li>请上传本人身份证正面头部照片</li>
+                      <li>必须看清证件信息，且证件信息不能被遮挡</li>
+                      <li>支持.jpg和.png的图片格式</li>
+                      <li>图片大小不超过2M</li>
+                      <li>您提供的照片云端私募荟将予以保护，不会用于其他用途</li>
+                    </ul>
+                  </div>
+                  <div class="example-data-right flex_">
+                    <p class="example-text">示例：</p>
+                    <i class="example-idcard-positive"></i>
+                    <ul class="instance-item">
+                      <li>必须看清证件信息，且证件信息不能被遮挡</li>
+                      <li>支持.jpg和.png的图片格式</li>
+                      <li>图片大小不超过2M</li>
+                      <li>您提供的照片云端私募荟将予以保护，不会用于其他用途</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g">
+                <div class="wallet-Title" style='margin-left:-22px;'>
+                  <div class="wallet-Title-Wrap flex_">
+                    <span class="headline-tags">步骤 2</span>
+                    <span class="title-Text">企业基本信息</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="enterpriseInfo-Wrap">
+            <!--<span class="enterpriseInfo-title">2.企业信息</span>-->
+            <div class="companyInfo-Wrap">
+              <div class="ui-g flex_">
+                <div class="enterpriseInfo-left">
+                  <div class="ui-g">
+                    <div class="form-group companyNameNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>企业名称</label>：
+                      </div>
+                      <input class="username" type="text" pInputText name="CompanyName" [readonly]="readOnlyStatus"
+                             formControlName="CompanyName" autocomplete="off"
+                             placeholder="请输入企业名称" required/>
+                    </div>
+                  </div>
+                  <div class="ui-g">
+                    <div class="form-group cityNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>所在城市</label>：
+                      </div>
+                      <app-city-select [defaultSelect]="cityValue" [linkageTags]=2 (result)="citySelect($event,'address')">
+                      </app-city-select>
+                      <span class="error-city" *ngIf="errorObj['cityError']">请选择所在城市</span>
+                      <div class="data-mask" *ngIf="readOnlyStatus"></div>
+                    </div>
+                  </div>
+                  <div class="ui-g">
+                    <div class="form-group licenseNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>营业执照号码</label>：
+                      </div>
+                      <input class="username" type="text" pInputText name="licenseNumber" [readonly]="state !== 0"
+                             formControlName="licenseNumber" autocomplete="off"
+                             placeholder="请输入营业执照号码" required/>
+                      <span class="tips-text">（请慎重填写，该项一旦提交，无法修改）</span>
+                    </div>
+                  </div>
+                  <div class="ui-g">
+                    <div class="form-group effectiveTimeNav flex_">
+                      <i class="calendar"></i>
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>营业执照有效期</label>：
+                      </div>
+                      <p-calendar [ngModel]="formDate(licenseTime)" [readonlyInput]="true"
+                                  formControlName="licenseTime" placeholder="到期时间"
+                                  dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                                  yearRange="1990:5000" [locale]="cn" styleClass="form-calendar">
+                      </p-calendar>
+                    </div>
+                  </div>
+                  <div class="ui-g" *ngIf="licenseType === 0 || licenseType === 1">
+                    <div class="form-group organizationNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>组织机构代码</label>：
+                      </div>
+                      <input class="username" type="text" pInputText name="organizationCode" [readonly]="readOnlyStatus"
+                             formControlName="organizationCode" autocomplete="off" placeholder="请输入组织机构代码" required/>
+                    </div>
+                  </div>
+                </div>
+                <div class="enterpriseInfo-right">
+                  <div class="ui-g">
+                    <div class="form-group companyNameNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>企业经营范围</label>：
+                      </div>
+                      <input class="username" type="text" pInputText name="scopeBusiness" [readonly]="readOnlyStatus"
+                             formControlName="scopeBusiness" autocomplete="off" maxlength="150"
+                             placeholder="请输入经营范围" required/>
+                    </div>
+                  </div>
+                  <div class="ui-g">
+                    <div class="form-group AddressNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>企业详细地址</label>：
+                      </div>
+                      <textarea class="detailedAddress" name="companyAddress" cols="30" rows="10"
+                                [readonly]="readOnlyStatus"
+                                formControlName="companyAddress" placeholder="请输入详细地址" required>
+                      </textarea>
+                    </div>
+                  </div>
+                  <div class="ui-g">
+                    <div class="form-group licenseNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>营业执照类型</label>：
+                      </div>
+                      <select formControlName="walletLicence" (change)="licenseSelect($event)">
+                        <option value="">请选择</option>
+                        <option value="0">普通营业执照</option>
+                        <option value="1">多证合一营业执照（存在独立组织结构代码证）</option>
+                        <option value="2">多证合一营业执照（不存在独立组织结构代码证）</option>
+                      </select>
+                      <div class="data-mask" *ngIf="readOnlyStatus"></div>
+                    </div>
+                  </div>
+                  <div class="ui-g" *ngIf="licenseType === 0 || licenseType === 1">
+                    <div class="form-group effectiveTimeNav flex_">
+                      <i class="calendar"></i>
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>组织机构代码有效期</label>：
+                      </div>
+                      <p-calendar [readonlyInput]="true" formControlName="tissueCodeTime" placeholder="到期时间"
+                                  dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                                  yearRange="1990:5000" [locale]="cn" styleClass="form-calendar">
+                      </p-calendar>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="uploadHints">（请点击以下相应区域上传扫描件，扫描件格式JPG或PNG，文件大小不超过2M）</div>
+            <div class="licenseFile-Wrap">
+              <div class='flex_'>
+                <div class="licenseFile-Left business-files flex_ boxs-left">
+                  <div class="min-tips flex_">
+                    <div class="left-Alignment flex_ businessLicenses">
+                      <span class="must-Icon" style='margin-right:6px;margin-top:-18px;'>*</span>
+                      <p class="idcard-positive">营业执照文件：</p>
+                    </div>
+                  </div>
+                  <a href="javascript:;" class="upload-nav mr-60">
+                    <app-basic-img-upload (imgEvent)="businessLicenses($event,'business')"
+                                          [previewImg]="businssLicenseImg"></app-basic-img-upload>
+                    <i class="idcard-positive-icon"></i>
+                  </a>
+                  <div class="clearfix img-error error-msgs business-boxs" [ngClass]="{'has-error': errorObj['opposite']}">
+                    <span *ngIf="errorObj['businessLicenseImg']">请上传营业执照文件</span>
+                  </div>
+                </div>
+                <div class="licenseFile-Right flex_ boxs-right" *ngIf="licenseType === 0 || licenseType === 1">
+                  <div class="min-tips flex_ w305">
+                    <div class="left-Alignment flex_">
+                      <span class="must-Icon">*</span>
+                      <p class="idcard-positive">组织机构代码复印件：</p>
+                    </div>
+                  </div>
+                  <a href="javascript:;" class="upload-nav f124">
+                    <app-basic-img-upload (imgEvent)="businessLicenses($event,'organize')"
+                                          [previewImg]="organizeLicenseImg"></app-basic-img-upload>
+                    <i class="idcard-positive-icon"></i>
+                  </a>
+                  <div class="clearfix img-error organization-boxs" [ngClass]="{'has-error': errorObj['organizeLicenseImg']}">
+                    <span class="help-block" *ngIf="errorObj['organizeLicenseImg']">请上传组织结构代码复印件</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g">
+                <div class="wallet-Title">
+                  <div class="wallet-Title-Wrap flex_">
+                    <span class="headline-tags">步骤 3</span>
+                    <span class="title-Text">银行账户信息</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="enterpriseInfo-Wrap">
+            <!--<span class="enterpriseInfo-title">3.银行账户信息</span>-->
+            <div class="companyInfo-Wrap accountInfo">
+              <div class="ui-g flex_">
+                <div class="enterpriseInfo-left">
+                  <div class="ui-g">
+                    <div class="form-group companyNameNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>开户行所在地</label>：
+                      </div>
+                      <app-city-select [defaultSelect]="bankCity" [linkageTags]=2 (result)="citySelect($event,'bank')">
+                      </app-city-select>
+                      <span class="error-city" *ngIf="errorObj['bankError']">请选择开户行所在地</span>
+                      <div class="data-mask" *ngIf="readOnlyStatus"></div>
+                    </div>
+                  </div>
+                  <div class="ui-g">
+                    <div class="form-group cityNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>开户行支行名称</label>：
+                      </div>
+                      <input class="username" type="text" pInputText name="bankBranch" [readonly]="readOnlyStatus"
+                             formControlName="bankBranch" autocomplete="off"
+                             placeholder="请输入支行名称" required/>
+                    </div>
+                  </div>
+                </div>
+                <div class="enterpriseInfo-right">
+                  <div class="ui-g">
+                    <div class="form-group companyNameNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>开户行名称</label>：
+                      </div>
+                      <input class="username" type="text" pInputText name="bankName" [readonly]="readOnlyStatus"
+                             (blur)="clearBanks()"
+                             [ngModel]="formWallet.value.bankName"
+                             minlength="1"
+                             maxlength="15"
+                             (input)="selectBank($event)"
+                             formControlName="bankName"
+                             placeholder="请选择开户行名称" autocomplete="off" required/>
+                      <div class="bank-items" ngClass="" *ngIf="showSelect">
+                        <div class="select-bank" *ngFor="let item of selectedBank;"
+                             (click)="showBank(item)"><span>{{item?.bank_name}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui-g">
+                    <div class="form-group licenseNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>银行账号</label>：
+                      </div>
+                      <input class="username" type="text" pInputText name="bankAccount" [readonly]="readOnlyStatus"
+                             formControlName="bankAccount" autocomplete="off"
+                             placeholder="请输入银行账号" required/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="uploadHints">（请点击以下相应区域上传扫描件，扫描件格式JPG或PNG，文件大小不超过2M）</div>
+            <div class="licenseFile-Wrap flex_ bankLicence-box">
+              <div class="licenseFile-Left flex_">
+                <div class="min-tips flex_ w296">
+                  <div class="left-Alignment business-File flex_ ">
+                    <span class="must-Icon" style='margin-right:6px;margin-top:-18px;'>*</span>
+                    <p class="idcard-positive">银行开户许可证：</p>
+                  </div>
+                </div>
+                <a href="javascript:;" class="upload-nav">
+                  <app-basic-img-upload (imgEvent)="Imgdataupload($event,'openingPermit')"
+                                        [previewImg]="bankAccountImg"></app-basic-img-upload>
+                  <i class="idcard-positive-icon"></i>
+                </a>
+                <div class="clearfix img-error" [ngClass]="{'has-error': errorObj['openingPermit']}">
+                  <span class="help-block" *ngIf="errorObj['openingPermit']">请上传银行开户许可证</span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g">
+              <div class="wallet-Title" *ngIf="state !== 1">
+                <div class="wallet-Title-Wrap flex_">
+                  <span class="headline-tags">步骤 4</span>
+                  <span class="title-Text">支付信息</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="enterpriseInfo-Wrap payInfo-Nav">
+            <!--<span class="enterpriseInfo-title">4.支付信息</span>-->
+            <div class="companyInfo-Wrap accountInfo" *ngIf="state !== 1">
+              <div class="ui-g flex_">
+                <div class="enterpriseInfo-left pay-Info">
+                  <div class="ui-g">
+                    <div class="form-group companyNameNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>钱包支付密码</label>：
+                      </div>
+                      <input class="username" type="password" pInputText name="PayPassword" [readonly]="readOnlyStatus"
+                             formControlName="PayPassword" maxlength="6" autocomplete="off"
+                             placeholder="请输入6位数字/字母组合" required/>
+                    </div>
+                  </div>
+                  <div class="ui-g" style='width:800px;'>
+                    <div class="form-group cityNav flex_" style='width:800px;'>
+                      <div class="left-Alignment">
+                        <label>注册手机号码</label>：
+                      </div>
+                      <span class="registered-Phone">{{userPhone}}</span><!--<span class='tips-info'>（每笔交易平台将发送验证码到该手机号码确认，请记牢~）</span>-->
+                    </div>
+                  </div>
+                  <div class="ui-g" *ngIf="state === 0">
+                    <div class="form-group cityNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>短信验证码</label>：
+                      </div>
+                      <input class="verification-Code" type="text" pInputText name="messageCode"
+                             formControlName="messageCode" placeholder="请输入验证码" autocomplete="off" required/>
+                      <button (click)="sendCode()" type="button" class="code-btn" style="width:117px;"
+                              [disabled]="(!userPhone) && !sendCodeDisabled">{{sendCodeButton}}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="enterpriseInfo-right">
+                  <div class="ui-g">
+                    <div class="form-group companyNameNav flex_">
+                      <div class="left-Alignment">
+                        <span class="must-Icon">*</span>
+                        <label>确认支付密码</label>：
+                      </div>
+                      <input class="username" type="password" pInputText name="confirmPassword"
+                             [readonly]="readOnlyStatus" maxlength="6"
+                             formControlName="confirmPassword" autocomplete="off" placeholder="请再次输入密码" required />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='dashed-line'></div>
+          <div class="ui-g-12 sub-btn">
+            <button class="btn btn-defaults btn-blue submit-btn shop-submit" type="submit" *ngIf="!walletStatus">{{state === 2 ? '重新认证' : '提交认证'}}
+              <div class="btn-mask" *ngIf="state === 1"></div>
+            </button>
+            <!--<button class="btn btn-defaults btn-blue submit-btn shop-submit audit" type="submit" *ngIf="walletStatus">审核中
+              <div class="btn-mask" *ngIf="state === 1"></div>
+            </button>-->
+            <button class="btn btn-defaults btn-blue submit-btn shop-submit" [ngClass]="verifyThrough === true ? '' : 'audit'" type="submit" *ngIf="walletStatus">{{verifyThrough === true ? '认证成功' : '审核中'}}
+              <div class="btn-mask" *ngIf="state === 1"></div>
+            </button>
+          </div>
+
+          <!-- 点击遮罩层 -->
+          <div class="click-mask" *ngIf="state === 1"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 返回顶部 -->
+    <div class='go-back' *ngIf='returnTop' (click)='goBack()'></div>
+  </form>
+</div>

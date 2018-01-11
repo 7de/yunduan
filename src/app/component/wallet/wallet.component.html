@@ -1,0 +1,60 @@
+<!--买家没开通钱包状态-->
+<div class="wallet" *ngIf="userInfo?.wallet == null || userInfo?.wallet?.user_verify_type != 1">
+  <div class="ui-g">
+    <div class="ui-g-12 ui-g-nopad">
+      <div class="ui-g-3 ui-g-nopad" style="font-weight: bold;">
+        <span class="ico-global ico-wallet"></span>我的钱包</div>
+    </div>
+    <div *ngIf=" userInfo?.wallet == null" class="ui-g-12 mt-20 text-center" style="font-size: 16px;">
+      <span *ngIf="user == 'seller'">开通钱包，赚取第一桶金</span><span *ngIf="user == 'buyer'">开通钱包功能，才能购买服务喔，亲~</span><button (click)="openWallet()" type="button" class="submit-btn fs-14 cash-btn">前往开通</button>
+    </div>
+    <div *ngIf=" userInfo?.wallet?.user_verify_type === 2" class="ui-g-12 mt-20 text-center" style="font-size: 16px;">
+      钱包认证不通过，前往查看<button [routerLink]="['/shop/wallet']" type="button" class="submit-btn fs-14 cash-btn">前往查看</button>
+    </div>
+    <div *ngIf=" userInfo?.wallet?.user_verify_type === 3" class="ui-g-12 mt-20 text-center" style="font-size: 16px;">
+      您已提交认证资料，前往查看<button [routerLink]="['/shop/wallet']" type="button" class="submit-btn fs-14 cash-btn">前往查看</button>
+    </div>
+  </div>
+</div>
+
+<!--开通钱包状态-->
+<div class="wallet" *ngIf="(userInfo?.wallet != null && userInfo?.wallet?.user_verify_type === 1)">
+  <div class="ui-g-12 ui-g-nopad">
+    <div class="ui-g-3 ui-g-nopad" style='font-weight:bold;'>
+      <span class="ico-global ico-wallet"></span>我的钱包</div>
+    <div class="ui-g-3 ui-g-nopad ui-g-offset-6 text-right">
+      <a [routerLink]="['/'+user+'/detail']">查看收支明细></a>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-g-nopad mt-30">
+    <div *ngIf="user == 'buyer'" class="ui-g-3 ui-g-nopad income">
+      <p>支出</p>
+      <p>￥{{userInfo?.wallet?.payout / 100}}</p>
+    </div>
+    <div *ngIf="user == 'seller'" class="ui-g-3 ui-g-nopad income">
+      <p>收入</p>
+      <p>￥{{userInfo?.wallet?.income / 100}}</p>
+    </div>
+    <div class="ui-g-3 ui-g-nopad pdr-30 freeze">
+      <p><span class="ico-global ico-help" title="冻结金额为提现中金额"></span>冻结金额</p>
+      <p style="padding-left: 19px;">￥{{userInfo?.wallet?.freeze_balance / 100}}</p>
+    </div>
+    <div class="ui-g-3 ui-g-nopad pdl-30 balance">
+      <p>余额</p>
+      <p>￥{{userInfo?.wallet?.balance / 100}}</p>
+    </div>
+    <div *ngIf="user == 'buyer'" class="ui-g-3 ui-g-nopad text-right" style="margin-top: -15px">
+      <div class="ui-g-12 ui-g-nopad">
+        <button class="pay-btn" [routerLink]="['/'+user+'/pay']">充值</button>
+      </div>
+      <div class="ui-g-12 ui-g-nopad mt-5">
+        <button class="cash-btn"  [routerLink]="['/'+user+'/cash']">提现</button>
+      </div>
+    </div>
+    <div *ngIf="user == 'seller'" class="ui-g-3 ui-g-nopad text-right" style="margin-top: 15px;">
+      <div class="ui-g-12 ui-g-nopad mt-5">
+        <button class="cash-btn"  [routerLink]="['/'+user+'/cash']">提现</button>
+      </div>
+    </div>
+  </div>
+</div>

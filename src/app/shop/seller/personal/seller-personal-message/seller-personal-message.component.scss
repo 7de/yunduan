@@ -1,0 +1,109 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+
+.con{
+  min-height: 535px;
+  padding-bottom:40px;
+}
+.side-box{
+  border-right: 1px solid #eee;
+}
+.side-menu{
+  padding-right:30px;
+  > li{
+    height:36px;
+    line-height: 36px;
+    text-align: center;
+    color: #666;
+    border-bottom:1px solid #eee;
+    a{
+      display: block;
+      outline: none;
+      text-decoration: none;
+      color: nth($gray,4);
+      &:hover{
+        color: nth($newRed,2);
+      }
+    }
+    &:last-child{
+      border-bottom: none;
+    }
+    &.active{
+      a{
+        color: nth($newRed,2);
+      }
+    }
+  }
+}
+.con-box{
+  padding-left:30px;
+}
+.title{
+  height:36px;
+  line-height: 36px;
+  padding-left:10px;
+  background-color: #f7f7f7;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  span{
+    font-size: 16px;
+  }
+}
+.list{
+  >li{
+    border-bottom:1px solid nth($gray,5);
+    color: #444;
+    padding:20px 10px;
+    .ui-g-10{
+      line-height: 22px;
+    }
+    &:hover{
+      background-color: #f5f9fd;
+    }
+    &.no-con{
+      border-bottom: none;
+      color: #b2b2b2;
+      &:hover{
+        background-color: #fff;
+      }
+    }
+  }
+}
+.ico-nomessage{
+  width:80px;
+  height:61px;
+  background-position: -555px -481px;
+}
+.trade-list{
+  li{
+    padding:20px 10px;
+    border-bottom:1px solid #eee;
+    .order{
+      margin-left:-20px;
+      padding-top:10px;
+    }
+    p{
+      margin-bottom:5px;
+    }
+    .time{
+      line-height: 90px;
+    }
+    &:hover{
+      background-color: #f5f9fd;
+    }
+    &.no-con{
+      border-bottom: none;
+      color: #b2b2b2;
+      &:hover{
+        background-color: #fff;
+      }
+    }
+  }
+
+}
+.gray{
+  color: nth($gray,7);
+}
+.blue{
+  color: nth($blue,1);
+}

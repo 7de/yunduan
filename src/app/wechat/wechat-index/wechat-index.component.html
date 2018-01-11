@@ -1,0 +1,18 @@
+<h3 class="title">关键数据</h3>
+<div class="wechat-index">
+  <ul class="top">
+    <li>
+      <span>昨日新增粉丝</span>
+      <b>{{data?.new}}</b>
+    </li>
+    <li>
+      <span>总粉丝量</span>
+      <b>{{data?.sum}}</b>
+    </li>
+  </ul>
+  <h4>快速入口</h4>
+  <ul class="list">
+    <li><a [routerLink]="['/wechat/wechat-set','empower']"><i class="ico-global ico-wechat-wechat"></i>微信公众号授权> </a></li>
+    <li><a [routerLink]="['/wechat/wechat-action','menu']"><i class="ico-global ico-wechat-menu"></i>自定义菜单配置</a></li>
+  </ul>
+</div>

@@ -1,0 +1,269 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+
+.login-header {
+  .log {
+    padding: 20px 0;
+    .log-title {
+      font-size: 32px;
+      color: #4c4c4c;
+      margin-top: 7px;
+      margin-left: 15px;
+      padding-left: 15px;
+      position: relative;
+    }
+    .log-title:before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 0;
+      display: block;
+      height: 36px;
+      border-left: 1px solid #ccc;
+    }
+    .log-right a {
+      display: block;
+      margin-top: 16px;
+      font-size: 16px;
+      color: #C71521;
+    }
+  }
+}
+
+.login-content {
+  position: relative;
+  text-align: center;
+  .login-bg {
+    width: 100%;
+    min-width: 1500px;
+    height: 626px;
+  }
+}
+
+.login-content-box{
+  width:100%;
+  max-width:1200px;
+  height:626px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  @include flexBox;
+  @include alignItems;
+  @include justifyContent_End;
+}
+
+.panel {
+  width: 460px;
+  box-sizing: border-box;
+  margin-left:10px;
+  background-color: #ffffff;
+  @include borderRadius(0)
+}
+
+.panel-body {
+  padding: 25px 29px 50px;
+}
+
+h3 {
+  text-align: left;
+  color: #676767;
+  font-weight: normal;
+  font-size: 20px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ebebeb;
+  line-height: 1;
+}
+
+.form-login {
+  margin: 0 auto;
+  text-align: left;
+  .row {
+    margin: 0 0 15px;
+  }
+  .form-label {
+    font-size: 18px;
+    color: #333;
+    font-weight: normal;
+    padding: 0;
+    margin-top: 9px;
+    float: left;
+    position: relative;
+    left: 46px;
+    z-index: 2;
+    width: 35px;
+    margin-left: -35px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      right: 0;
+      width: 1px;
+      height: 20px;
+      border-left: 1px solid #e0e0e0;
+    }
+  }
+  .form-group {
+    padding: 0;
+    margin-bottom:0;
+  }
+  input {
+    width: 100%;
+    height: 46px;
+    padding: 1rem 1rem 1rem 55px;
+    border: 1px solid #ddd;
+    background-color: transparent;
+    @include borderRadius;
+    outline: none;
+  }
+  input:focus {
+    border-color: $input-focus;
+  }
+  p {
+    color: #e0e0e0;
+    a {
+      color: nth($red, 2);
+      padding: 0 10px;
+    }
+  }
+}
+
+.btn {
+  width: 100%;
+  height: 46px;
+  font-size: 16px;
+  @include borderRadius;
+  margin: 20px 0;
+
+}
+
+.btn-red {
+  color: #fff;
+  background-color: nth($red, 2);
+}
+
+p.clearfix{text-align: right;}
+.form-login .clearfix{
+  span{margin-left:8px;margin-right:8px;color:#676767;}
+  a{padding:0;margin:0;color:#676767;
+    &:hover{color:#B02022;}
+  }
+}
+
+.btn-red:hover, .btn-red:focus {
+  outline: none;
+  opacity: .8;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.login-footer {
+  padding-top: 20px;
+  .footer-a {
+    color: #c2c2c2;
+    a {
+      padding: 0 15px;
+      color: #666;
+    }
+    a:first-child {
+      padding-left: 0;
+    }
+  }
+  .footer-ul-info {
+    overflow: hidden;
+    color: #666;
+    font-size: 14px;
+    margin-top: 20px;
+    li {
+      margin-bottom: 10px;
+      overflow: hidden;
+      i {
+        float: left;
+        margin-right: 15px;
+        margin-top: 2px;
+      }
+      .ico-login-mail {
+        margin-top: 4px;
+      }
+    }
+  }
+  .footer-tel {
+    font-size: 24px;
+    color: #333;
+  }
+  .footer-info {
+    margin-top: 20px;
+    padding-bottom: 15px;
+  }
+}
+
+.credible-box {
+  margin-top: 20px;
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid #ececec;
+}
+
+.credible {
+  width: 130px;
+  height: 48px;
+  margin: 0 auto;
+}
+
+.account-type {
+  // width: 200px;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.account-type:nth-of-type(2) {
+  border-left: 1px solid #e0e0e0;
+}
+
+.account-type > span {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.account-type > input {
+  width: 100%;
+  height: 100% !important;
+  height: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  opacity: 0;
+}
+
+.bgBlue {
+  background-color: #0a72c9;
+  color: #FFFFFF;
+}
+
+.triangleDown {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #0a72c9;
+}
+.mt-30{margin-top:30px;}
+.qrcode{text-align:center;color:#7A7A7A;}

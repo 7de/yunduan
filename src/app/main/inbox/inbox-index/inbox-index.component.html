@@ -1,0 +1,28 @@
+<div class="wrap">
+  <div class="row">
+    <div class="col-md-12" style="padding-left: 0;margin-bottom: 30px;">
+      <span *ngIf="!params?.has_read">
+        <i class="i-bold">站内信</i> &nbsp;（共
+        <i>{{allCount}}</i>封，其中
+        <a [routerLink]="['/main/inbox/index']" [queryParams]="{'has_read':0}">未读信件</a>{{unreadCount}}封）
+      </span>
+      <span *ngIf="params?.has_read">
+        <i class="i-bold">未读信件</i>
+        <a [routerLink]="['/main/inbox/index']" class="ml-10">返回</a>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <p-panel [header]="email.notice_type_txt" [toggleable]="true" [style]="{'margin-bottom':'20px'}" *ngFor="let email of emails">
+      {{email.content}}
+      <p-footer>
+        <button pButton type="button" (click)="delete(email.id)" icon="fa-close" label="删除" class="ui-button-danger"></button>
+      </p-footer>
+    </p-panel>
+    <p-paginator [rows]="pagination.perPage" *ngIf="pagination.totalCount" [first]="pagination.currentPage * pagination.perPage-1"
+      [totalRecords]="pagination.totalCount" [pageLinkSize]="pagination.pageCount" (onPageChange)="paginate($event)" styleClass="custom-paginator"></p-paginator>
+  </div>
+</div>
+<p-growl [(value)]="msgs"></p-growl>
+<p-confirmDialog acceptLabel="确认" rejectLabel="取消"></p-confirmDialog>

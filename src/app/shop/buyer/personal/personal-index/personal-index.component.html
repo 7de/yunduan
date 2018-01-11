@@ -1,0 +1,33 @@
+<!-- 1.4.1 -->
+<div class="wrap-1200 ui-g mt-20">
+  <!--左侧导航栏-->
+  <div class="ui-g-2 ui-g-nopad">
+    <div class="ui-g-12 ui-g-nopad personal text-center">
+      <span class="ico-global ico-personal"></span>
+      <span style="line-height: 18px;display: inline-block">个人中心</span>
+    </div>
+    <div class="ui-g-4 ui-g-nopad personal-box">
+      <div class="personal-list">
+        <ul>
+          <li class="list-header">
+            <span class="ico-global ico-deal"></span>交易管理
+          </li>
+          <li routerLinkActive="active" routerLink="order" (click)="orderEven()">我的订单</li>
+          <li routerLinkActive="active" [routerLink]="['./estimate']">评价管理</li>
+        </ul>
+        <ul>
+          <li class="list-header">
+            <span class="ico-global ico-class"></span>课堂管理
+          </li>
+          <li routerLinkActive="active" [routerLink]="['./video-material']">视频素材</li>
+          <li routerLinkActive="active" [routerLink]="['./graphic-material']">图文素材</li>
+          <li routerLinkActive="active" [routerLink]="['./my-serial']">我的连载</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--右侧内容切换栏-->
+  <div class="ui-g-10 ui-g-nopad personal-right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

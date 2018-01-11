@@ -1,0 +1,76 @@
+<div class="mask">
+  <div class="dialog">
+    <div class="row modal-head">
+      <div class="col-md-4 modal-title">
+        添加投资记录
+      </div>
+      <div (click)="cancel(1)" class="col-md-1 col-md-offset-7">
+        <span class="fa fa-close"></span>
+      </div>
+    </div>
+    <form class="form-horizontal modal-body" [formGroup]="formGroup" (submit)="onSubmit(formGroup)">
+      <div class="row mb-5">
+        <label class="col-md-3 control-label">投资项目：</label>
+        <div class="col-md-8">
+          <div class="form-group">
+            <select (change)="value($event.target.value)" class="form-control select" formControlName="product_id">
+              <option *ngFor="let productItem of products.items"
+                      [value]="productItem.id">{{productItem.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="data">
+        <div class="row">
+          <div class="col-md-5 col-md-offset-3 tip">
+            <b class="tips mr-5"></b>当前状态：{{data.kind_txt}}
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <label class="col-md-3 control-label">投资金额：</label>
+        <div class="col-md-6">
+          <div class="form-group outline">
+            <input type="text" minlength="1" maxlength="11" class="form-control input" placeholder="请输入投资金额" formControlName="money">
+          </div>
+        </div>
+        <div class="col-md-2 control-label">万元</div>
+      </div>
+      <div class="row mb-5">
+        <label class="col-md-3 control-label">起始时间：</label>
+        <div class="col-md-8">
+          <div class="form-group">
+            <p-calendar [readonlyInput]="true" formControlName="startTime" placeholder="请选择投资日期"
+                        dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                        yearRange="1990:2030" [locale]="cn" styleClass="form-calendar" [maxDate]="formGroup.value.endTime || null"></p-calendar><span class="icon-calendar"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <label class="col-md-3 control-label">到期时间：</label>
+        <div class="col-md-8">
+          <div class="form-group">
+            <p-calendar [readonlyInput]="true" formControlName="endTime" placeholder="请选择到期时间"
+                        dateFormat="yy-mm-dd" [monthNavigator]="true" [yearNavigator]="true"
+                        yearRange="1990:2030" [locale]="cn" styleClass="form-calendar" [minDate]="formGroup.value.startTime || null"></p-calendar><span class="icon-calendar"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <label class="col-md-3 control-label">投资时间：</label>
+        <div class="col-md-6 control-label" style="text-align: center">
+          {{diffDateTime(formGroup.value)}}
+        </div>
+      </div>
+      <div class="row my-btn">
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <div class="form-group">
+            <button [disabled]="data.kind_txt==='已清盘'" class="submit-btn" type="submit">确定</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

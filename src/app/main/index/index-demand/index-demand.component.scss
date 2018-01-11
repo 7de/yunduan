@@ -1,0 +1,99 @@
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/variables";
+
+.title{
+  font-size:16px;
+  a{
+    color:#119dee;
+    padding-right:10px;
+  }
+}
+.release-nav {
+  overflow: hidden;
+}
+
+.release-nav li {
+  float: left;
+  width: 360px;
+  height: 196px;
+  padding: 30px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  //border: 1px solid #e6e6e6;
+  text-align: center;
+  background-color: #F9F9F9;
+}
+.release-nav li a{
+  text-decoration: none;
+}
+.release-nav li a, .release-nav li a > span {
+  display: block;
+}
+
+.release-nav li .img {
+  //padding: 35px 0;
+}
+
+.release-nav li .text {
+  height: 41px;
+  line-height: 41px;
+  font-size: 16px;
+  color: #666;
+  margin-top: 15px;
+}
+
+.release-nav .release-nav-a .img {
+  //background-color: #97c2f7;
+}
+
+.release-nav .release-nav-b .img {
+  //background-color: #f8c793;
+}
+
+.release-nav .release-nav-c .img {
+  //background-color: #99de91;
+}
+
+.release-nav .release-nav-d .img {
+  //background-color: #97d9f7;
+}
+
+.release-nav .release-nav-e .img {
+  //background-color: #d9b8f8;
+}
+
+.release-nav .release-nav-f .img {
+  //background-color: #fcb0a3;
+}
+
+.release-nav .release-nav-g .img {
+  //background-color: #97c2f7;
+}
+
+.release-nav .release-nav-h .img {
+  //background-color: #99de91;
+}
+
+.release-nav li a:-webkit-any-link {
+  text-decoration: none;
+}
+.release-nav li a{
+  display: inline-block;
+  width:88px;
+  height: 88px;
+  //padding-top: 16px;
+  line-height: 88px;
+  border-radius: 50%;
+  background-color: #AA2426;
+}
+.release-nav li a .ico-global{
+  line-height: 88px;
+  margin:0 auto;
+}
+ .release-nav li a:hover .ico-global {
+  transform: scale(1.1);
+}
+
+ .release-nav li a:hover .text {
+  color: #AA2426;
+}

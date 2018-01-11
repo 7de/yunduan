@@ -1,0 +1,21 @@
+<div class="detail-main">
+  <div class="wrap-1200 main clearfix">
+    <div class="head-title">
+      我的位置：<span class="mr-10" [routerLink]="['/site/home']">首页</span>&gt;<span class="ml-10 mr-10" [routerLink]="['/site/news']">私募视界</span>&gt;<span class="ml-10">详情</span>
+    </div>
+    <div class="main-left pull-left">
+      <div class="main-left-title">
+        <div class="title">{{details?.title}}</div>
+        <div class="mt-20 fs-12">
+          <span class="time">{{details?.created_at | datetime: 'time'}}</span><span class="author">作者：{{details?.writer}}</span><span class="source">来源：{{details?.source}}</span>
+        </div>
+      </div>
+      <div class="main-left-content" [innerHtml]="details?.content | keepHtml">
+      </div>
+    </div>
+    <div class="main-right pull-right">
+      <app-hot></app-hot>
+    </div>
+  </div>
+</div>
+

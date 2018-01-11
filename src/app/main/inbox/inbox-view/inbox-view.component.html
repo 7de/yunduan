@@ -1,0 +1,29 @@
+<div class="row" style="overflow: hidden;margin-bottom: 20px;">
+  <div class="col-md-12" style="margin-bottom: 0;">
+    <span *ngIf="has_read == true"><a [routerLink]="['/main/inbox/index']">站内信</a>>查看信件</span>
+    <span *ngIf="has_read == false">
+        <a [routerLink]="['/main/inbox/index']">站内信</a>>
+        <a [routerLink]="['/main/inbox/index']" [queryParams]="{has_read:0}">未读信件</a>>查看信件
+      </span>
+  </div>
+</div>
+<div class="wrap">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="email-container">
+        <div class="col-md-12 titleh3">
+          <p class="textpor">{{data?.title}}</p>
+          <p class="timers">时间：<span style="color:#808080;">{{data?.created_at}}</span></p>
+        </div>
+        <div class="col-md-12" style="padding: 20px; line-height: 22px;">
+          <p>{{data?.content}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-40" style="text-align: center;">
+      <button type="button" class="submit-btn" [routerLink]="['/main/inbox/index']">返回</button>
+    </div>
+  </div>
+</div>

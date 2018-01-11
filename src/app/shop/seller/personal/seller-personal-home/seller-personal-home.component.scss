@@ -1,0 +1,43 @@
+@import "../../../../../assets/sass/mixin";
+@import "../../../../../assets/sass/variables";
+
+.layout{
+  background-color: #fff;
+}
+//.side-menu{
+//  border-top:1px solid nth($gray,5);
+//}
+//.side-menu-list{
+//  overflow: hidden;
+//  li{
+//    float: left;
+//    height: 54px;
+//    line-height: 54px;
+//    text-align: left;
+//    font-size: 16px;
+//    cursor: pointer;
+//    outline: none;
+//    margin-right: 40px;
+//    &.active{
+//      color: nth($red,2);
+//    }
+//  }
+//}
+//.top-menu{
+//  border-bottom:1px solid #ddd;
+//  height: 54px;
+//  line-height: 54px;
+//  background-color: #fff;
+//  padding:0 20px;
+//}
+//.top-menu .top-menu-list{
+//  width: 1200px;
+//  margin: 18px auto;
+//}
+//.top-menu .top-menu-list li{
+//  display: inline-block;
+//  font-size: 16px;
+//  margin-right: 30px;
+//  text-align: center;
+//  line-height: 50px;
+//}

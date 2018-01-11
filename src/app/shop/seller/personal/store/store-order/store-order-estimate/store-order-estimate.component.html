@@ -1,0 +1,70 @@
+<div class="frame bg-gray">
+  <div class="frame-header">
+    <app-heads-single [bgc]="true"></app-heads-single>
+    <app-head-home [homeTitle]="['订单评价']"></app-head-home>
+  </div>
+  <div class="frame-content">
+    <div class="wrap-1200">
+      <div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="head-title">
+            您的位置：<span class="ml-10 mr-10" [routerLink]="['/seller/personal/index/order']" [queryParams]="{type:''}">交易订单管理</span>&gt;<span class="ml-10 mr-10" [routerLink]="['/seller/personal/order',orderId]">订单详情</span>&gt;<span class="ml-10">订单评价</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white main-wrap">
+        <div class="ui-g">
+          <div class="ui-g-12 ui-g-nopad goods-info">
+            <div class="ui-g-2 ui-g-nopad mr-20" style="width: 106px;">
+              <img width="106" height="106" [src]="orderData?.goods.first_img | image:106:106" alt="">
+            </div>
+            <div class="ui-g-10 ui-g-nopad">
+              <div class="mt-5">服务名称：{{orderData?.goods?.title}}</div>
+              <div class="mt-5">需求方：{{orderData?.companyProfile?.nickname}}</div>
+              <div class="mt-5">交易金额：{{orderData?.money}}元</div>
+            </div>
+          </div>
+        </div>
+        <form action="" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+          <div class="merchant-evaluation">
+            <div class="form-group">
+              <label class="form-radio">
+                <input type="radio" formControlName="grade" value="0">
+                <span>
+                  <i class="ico-global ico-estimate-good-default"></i>
+                  <span class="name">好评</span>
+                </span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" formControlName="grade" value="1">
+                <span>
+                  <i class="ico-global ico-estimate-middle-default"></i>
+                  <span class="name">中评</span>
+                </span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" formControlName="grade" value="2">
+                <span>
+                  <i class="ico-global ico-estimate-bad-default"></i>
+                  <span class="name">差评</span>
+                </span>
+              </label>
+              <!--<p *ngIf="form.get('grade').touched && form.get('grade').hasError('required')">请选择评价</p>-->
+            </div>
+            <div class="form-group mt-10 limit">
+              <label class="hide">您对商家的评价</label>
+              <textarea formControlName="content" class="evaluate" placeholder="写下您对商家的评价吧。" maxlength="200"></textarea>
+              <app-string-length class="limit-num" [limitLength]="200" [dataProvider]="form.value.content"></app-string-length>
+            </div>
+            <div class="mt-20">
+              <button type="submit" class='submit-btn-new' [disabled]="!form.value">发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="frame-footer">
+    <app-footer [bgc]="1"></app-footer>
+  </div>
+</div>

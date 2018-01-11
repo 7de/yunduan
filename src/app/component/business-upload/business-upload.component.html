@@ -1,0 +1,41 @@
+<div class="ui-g" *ngIf="!fileType||fileType===1">
+  <div class="ui-g-12 ui-g-nopad" *ngIf="fileAry.length">
+    <div class="upload-file-con" *ngFor="let fileObj of fileAry;let idx = index">
+      <i class="ico-global ico-paperclip"></i>
+      <span>
+            {{fileObj.file?.name?fileObj.file?.name:fileObj?.file_name}}
+        <span class="process-box" *ngIf="!fileObj?.file_name" [ngClass]="{'hide':fileObj.process===100}">
+          <span class="process">
+              <span class="process-bar" [ngStyle]="{'width': fileObj.process+'%'}"></span>
+            </span>
+            {{fileObj.process}}%
+        </span>
+        <span class="color-999">（{{fileSize(fileObj.file?.size?fileObj.file?.size:fileObj.size)}}）</span>
+        <span class="delete" (click)="deleteFile(idx,1)">删除</span>
+      </span>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-g-nopad upload-img mt-10 clearfix">
+    <input type="file" #myInput (change)="uploadFile($event)" class="submit-btn-new upload-file"/>
+    <button type="button" class="submit-btn-new">上传附件</button>
+    <span class="fs-12 color-999">（推荐文件格式：'xls', 'doc', 'ppt', 'pdf', 'jpg', 'png', 'zip','rar'）</span>
+  </div>
+<!--  <span class="gray" style="display: inline-block;margin-top: 2px;">提示：支持'xls', 'xlsx', 'docx', 'doc', 'ppt', 'pptx', 'pdf', 'jpg', 'png', 'jpeg', 'gif', 'zip','rar'格式,附件大小最大为8M。</span>-->
+
+
+</div>
+<ul class="img-box" *ngIf="fileType===2">
+  <li *ngFor="let img of fileAry;let idx = index;">
+    <div class="img">
+      <img [src]="(img?img:img?.file
+?.name) | image:180" width="180" height="180"/>
+    </div>
+    <span class="ico-delete" (click)="deleteFile(idx)">&times;</span>
+  </li>
+  <li [ngClass] = "(fileAry.length === 5)? 'hide': '' " >
+    <input type="file" #myInput (change)="uploadFile($event)" class="img-file"/>
+    <div class="img">
+      <i class="ico-global ico-plus-gray"></i>
+    </div>
+  </li>
+</ul>

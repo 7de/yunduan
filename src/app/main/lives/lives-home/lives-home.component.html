@@ -1,0 +1,126 @@
+<app-heads-single></app-heads-single>
+<app-lives-search-header></app-lives-search-header>
+<div class="wrap-all">
+  <div class="ui-g wrap-1200" style="margin-bottom: 80px;">
+    <div class="ui-g-12 ui-g-nopad lives-home-header">
+      <img [src]="livesBg | image" class="lives-header-bg"/>
+      <div class="ui-g-12 ui-g-nopad">
+        <img [src]="allData?.img | image" class="lives-header-img"/>
+        <p class="color-white" style="font-weight: 600;font-size: 22px;">{{allData?.nickname}}</p>
+        <p style="padding-top: 6px;">
+          <i class="ico-global ico-yun-play img-play"></i>
+          <span class="color-white fs-12">{{allData?.count_video}}</span>
+          <i class="ico-global ico-yun-read img-read" style="margin-left: 15px;"></i>
+          <span class="fs-12 color-white">{{allData?.count_article}}</span>
+        </p>
+        <span class="color-white fs-14" style="margin: 10px 0;display: inline-block;width: 642px;text-align: left;">{{allData?.description}}</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad lives-serial">
+      <div class="ui-g-12 ui-g-nopad serial-header">
+        <div class="float-left">
+          <i class="ico-global ico-yun-serial" style="margin-top: -4px;"></i>
+          <span class="fs-16">连载</span>
+        </div>
+        <div class="float-right">
+          <a *ngIf="serialData && allBool['serial']" title="云集优服" class="fs-14" (click)="getAllSerial()">全部</a>
+          <a *ngIf="serialData && !allBool['serial']" class="fs-14" (click)="getLivesInfo('serial')">收回</a>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad serial-content" *ngIf="serialData">
+        <div class="all-item float-left" *ngFor="let item of serialData" (click)="linkToIndex(item?.media_type, item?.id)">
+          <div>
+            <div></div>
+            <div></div>
+            <img [src]="item?.img | image"/>
+          </div>
+          <p class="a-hover">
+            <a class="fs-14">{{item?.title}}</a>
+          </p>
+          <p>
+            <i *ngIf="item?.media_type === 0" class="ico-global ico-yun-play"></i>
+            <i *ngIf="item?.media_type === 1" class="ico-global ico-yun-eye"></i>
+            <span class="fs-12">{{item?.pv}}</span>
+            <i class="ico-global ico-yun-date-gray img-stage"></i>
+            <span class="fs-12">共{{item?.update_to}}期</span>
+          </p>
+        </div>
+      </div>
+      <div class="home-no-data" *ngIf="!serialData.length">
+        <p class="color-999 fs-18">您还没有创建过!</p>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad lives-videos">
+      <div class="ui-g-12 ui-g-nopad videos-header">
+        <div class="float-left">
+          <i class="ico-global ico-yun-video"></i>
+          <span class="fs-16">视频课程</span>
+        </div>
+        <div class="float-right">
+          <a *ngIf="videosData && allBool['videos']" class="fs-14" (click)="getAllVideos()">全部</a>
+          <a *ngIf="videosData && !allBool['videos']" class="fs-14" (click)="getLivesInfo('videos')">收回</a>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad videos-content" *ngIf="videosData">
+        <div class="all-item float-left" *ngFor="let item of videosData;let idx=index;" (mouseover)="hoverObj[idx]=true;" (mouseleave)="hoverObj[idx]=false;">
+          <a [routerLink]="['/lives/videos-details']" [queryParams]="{id: item?.id}">
+            <div>
+              <div></div>
+              <div></div>
+              <img [src]="item?.img | image"/>
+              <i *ngIf="hoverObj[idx]" class="ico-global ico-yun-hover-play"></i>
+            </div>
+            <p class="a-hover">
+              <a class="fs-14">{{item?.title}}</a>
+            </p>
+            <p>
+              <i class="ico-global ico-yun-play"></i>
+              <span class="fs-12">{{item?.pv}}</span>
+              <i class="ico-global ico-yun-comments img-stage"></i>
+              <span class="fs-12">{{item?.comment_count}}</span>
+            </p>
+          </a>
+        </div>
+      </div>
+      <div class="home-no-data" *ngIf="!videosData.length">
+        <p class="color-999 fs-18">您还没有上传过视频!</p>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad lives-pictures">
+      <div class="ui-g-12 ui-g-nopad pictures-header">
+        <div class="float-left">
+          <i class="ico-global icon-yun-picture"></i>
+          <span class="fs-16">图文语音课程</span>
+        </div>
+        <div class="float-right">
+          <a *ngIf="picturesData && allBool['pictures']" class="fs-14" (click)="getAllPictures()">全部</a>
+          <a *ngIf="picturesData && !allBool['pictures']" class="fs-14" (click)="getLivesInfo('pictures')">收回</a>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad pictures-content" *ngIf="picturesData">
+        <div class="all-item float-left" *ngFor="let item of picturesData">
+          <a [routerLink]="['/lives/pictures-detail', item?.id]">
+            <div>
+              <div></div>
+              <div></div>
+              <img [src]="item?.img | image"/>
+            </div>
+            <p class="a-hover">
+              <a class="fs-14">{{item?.title}}</a>
+            </p>
+            <p>
+              <i class="ico-global ico-yun-eye" style="margin-top: 2px;"></i>
+              <span class="fs-12">{{item?.pv}}</span>
+              <i class="ico-global ico-yun-comments img-stage"></i>
+              <span class="fs-12">{{item?.comment_count}}</span>
+            </p>
+          </a>
+        </div>
+      </div>
+      <div class="home-no-data" *ngIf="!picturesData.length">
+        <p class="color-999 fs-18">您还没有创建过图文语音课程!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer [bgc]="1"></app-footer>

@@ -1,0 +1,71 @@
+<app-head-home [homeTitle]="['申请成为服务商']"></app-head-home>
+<div class='data-certificate-wrap'>
+  <!-- 页头导航部分 -->
+  <div class='header-wrap'>
+    <div class='header-Become-service'>
+      <a class='become-Facilitator'></a>
+    </div>
+  </div>
+
+  <!-- 内容容器的大小 -->
+  <div class='Content-container'>
+    <div class='h40'></div>
+
+    <div class='tips-Title flex_' *ngIf="applystatus >= 3">
+      <i class='inAudit-icon'></i>
+      <span class='status-text inAudit-text'>正在审核中...</span>
+    </div>
+    <div class='tips-Title flex_' *ngIf="applystatus === 2">
+      <i class='reExamination-icon'></i>
+      <span class='status-text'>审核未通过</span>
+    </div>
+    <div class='tips-Title flex_' *ngIf="applystatus === 1">
+      <i class='reExamination-icon'></i>
+      <span class='status-text'>审核已通过</span>
+    </div>
+
+    <div class='warm-Reminder marginleft82'>申请成为服务商，请先完成递交以下相关审核资料：</div>
+    <div class="ui-g ui-g-nopad" *ngIf="applystatus === 2 && buyerMail" style="margin-left: 82px;color: #aa2426;">
+      <div class="ui-g-12 ui-g-nopad" *ngFor=" let mail of buyerMail">
+          <span style="color: #aa2426;" *ngIf="mail.has_read == 0">
+            {{mail?.content}}
+          </span>
+      </div>
+    </div>
+    <div class="ui-g ui-g-nopad" *ngIf="applystatus === 2 && sellerMail" style="margin-left: 82px;color: #aa2426;">
+      <div class="ui-g-12 ui-g-nopad" *ngFor=" let mail of sellerMail">
+          <span style="color: #aa2426;" *ngIf="mail.has_read == 0">
+            {{mail?.content}}
+          </span>
+      </div>
+    </div>
+    <div class='procedure-Nav marginleft82'>
+      <div class='sept-Wrap flex_'>
+        <div class='prove-Data'>
+          <div class='min-Title flex_'>
+            <i class='mark-Line'></i>
+            行业资质证明资料
+          </div>
+          <div class='tips-Text'>(店铺服务类型、行业资质证明、服务协议)</div>
+        </div>
+        <button *ngIf="proveStatus < 1" class='fillin-Btn' (click)='aptitudeProve()'><span>去填写&nbsp;></span></button>
+        <button *ngIf="proveStatus >= 3" class='fillin-Btn bg-color' (click)='aptitudeProve()'><span>审核中&nbsp;...</span></button>
+        <button *ngIf="proveStatus === 1" class='fillin-Btn bg-color' (click)='aptitudeProve()'><span>已通过</span></button>
+        <button *ngIf="proveStatus === 2" class='fillin-Btn' (click)='aptitudeProve()'><span>重新填写 ></span></button>
+      </div>
+      <div class='sept-Wrap flex_'>
+        <div class='prove-Data'>
+          <div class='min-Title flex_'>
+            <i class='mark-Line'></i>
+            钱包开户资料
+          </div>
+          <div class='tips-Text'>(法人身份信息、企业信息、银行账户信息、支付信息)</div>
+        </div>
+        <button *ngIf="openAccountStatus < 1" class='fillin-Btn' (click)='walletAccount()'><span>去填写&nbsp;></span></button>
+        <button *ngIf="openAccountStatus >= 3" class='fillin-Btn bg-color' (click)='walletAccount()'><span>审核中&nbsp;...</span></button>
+        <button *ngIf="openAccountStatus === 1" class='fillin-Btn bg-color' (click)='walletAccount()'><span>已通过</span></button>
+        <button *ngIf="openAccountStatus === 2" class='fillin-Btn' (click)='walletAccount()'><span>重新填写&nbsp;></span></button>
+      </div>
+    </div>
+  </div>
+</div>

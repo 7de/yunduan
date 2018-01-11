@@ -1,0 +1,81 @@
+<div class="frame bg-gray">
+  <div class="frame-header">
+    <app-heads-single [bgc]="true"></app-heads-single>
+    <app-head-home [homeTitle]="['订单评价']"></app-head-home>
+  </div>
+  <div class="frame-content wrap-1200">
+    <div class="ui-g">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="head-title">
+          您的位置：<span class="mr-10" [routerLink]="['/buyer/personal']">个人中心</span>&gt;<span class="ml-10 mr-10" [routerLink]="['/buyer/personal/index/order']">订单管理</span>&gt;<span class="ml-10 mr-10" [routerLink]="['/buyer/personal/order',orderId]">订单详情</span>&gt;<span class="ml-10">订单评价</span>
+        </div>
+      </div>
+    </div>
+    <div class='bg-white main-wrap'>
+      <div class="ui-g">
+        <div class="ui-g-12 ui-g-nopad goods-info">
+          <div class="ui-g-2 ui-g-nopad mr-20" style="width: 106px;">
+            <img width="106" height="106" [src]="goodsDetail?.goods.first_img | image:106:106" alt="">
+          </div>
+          <div class="ui-g-10 ui-g-nopad service-detail">
+            <p>服务名称：{{goodsDetail?.goods?.title}}</p>
+            <p>服务商：{{goodsDetail?.shop?.name}}</p>
+            <p>交易金额：{{goodsDetail?.goods.price}}元</p>
+          </div>
+        </div>
+      </div>
+      <form action="" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <div class="merchant-evaluation">
+          <div class='service-nav'>
+            <span class='service-attitude'>服务态度：</span>
+            <span class="evaluation-value"><p-rating formControlName="attitude" [(ngModel)]="valAttitude" iconOnStyle=""></p-rating></span>
+          </div>
+          <div class='work-schedule-nav'>
+            <span class='work-schedule'>工作速度：</span>
+            <span class="evaluation-value"><p-rating formControlName="rate" [(ngModel)]="valRate" iconOnStyle=""></p-rating></span>
+          </div>
+          <div class='finish-quality-nav'>
+            <span class='finish-quality'>完成质量：</span>
+            <span class="evaluation-value"><p-rating formControlName="quality" [(ngModel)]="valQuality" iconOnStyle=""></p-rating></span>
+          </div>
+          <div class="form-group mt-30">
+            <label class="form-radio">
+              <input type="radio" formControlName="grade" value="0">
+              <span>
+                  <i class="ico-global ico-estimate-good-default"></i>
+                  <span class="name">好评</span>
+            </span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" formControlName="grade" value="1">
+              <span>
+                  <i class="ico-global ico-estimate-middle-default"></i>
+                  <span class="name">中评</span>
+            </span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" formControlName="grade" value="2">
+              <span>
+                  <i class="ico-global ico-estimate-bad-default"></i>
+                  <span class="name">差评</span>
+            </span>
+            </label>
+          </div>
+          <div class="form-group" style="position: relative;">
+            <textarea formControlName="replyContent" class='evaluate mt-20' name="evaluate-content" placeholder="写下您对商家的评价吧。200字以内" maxlength="200" (keyup)="onKeyup($event)" style="resize:none;"></textarea>
+          </div>
+          <div class="limit-num">{{descriptionLength}}/<i style="color: #B3B3B3;font-style:normal;">200</i></div>
+          <div class="mt-5">
+            <button [disabled]="form.invalid" type="submit" class="submit-btn-new">发表评论</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="frame-footer">
+    <app-footer [bgc]="1"></app-footer>
+  </div>
+</div>
+
+
+

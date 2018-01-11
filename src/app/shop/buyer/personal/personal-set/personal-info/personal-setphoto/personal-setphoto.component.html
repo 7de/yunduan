@@ -1,0 +1,32 @@
+<div class='_flex'>
+  <div class="shop_personal_setphotobox" style='margin-left:10px;margin-top: 20px;width:460px;border-right:1px dashed #EAEAEA;'>
+    <form action="" [formGroup]="form" (ngSubmit) = onSubmit(form.value,{})>
+      <!--<div class="ui-g ui-g-nopad mt-30">
+        <div class="ui-g-12 ui-g-nopad" style="font-size: 14px;color: #999;">请上传您的真容或者公司LOGO，树立品牌形象以便大家更容易找到您~</div>
+      </div>-->
+      <input type="button" value="+ 选择您要上传的头像" class="updataimgbtn">
+      <div class="textp flex_">
+        <div class='navs'>
+          <app-img-upload (imgEvent)="imgMethod($event)" [previewImg]="imgSrc"></app-img-upload>
+          <input type="hidden" name="msg_content" formControlName="msg_content" ngModel="{{imgSrc}}" >
+        </div>
+        <p>（支持JPG、PNG格式，文件小于2M）</p>
+
+      </div>
+      <div class="flexrow imgbox"></div>
+      <button type="submit" class="submit-btn-another submit-btn">保存</button>
+    </form>
+  </div>
+  <div class='preview-wrap'>
+    <div class='preview-title'>效果预览</div>
+    <span class='tips-text'>你上传的图片会自动生成2种尺寸，请注意小尺寸的头像是否清晰</span>
+    <div class='preview-big-nav'>
+      <img width="106px" height="106px" src="{{baseInfo?.avatar | image: 106}}" alt="" />
+      <span class='min-title'>106x106像素</span>
+    </div>
+    <div class='preview-small-nav'>
+      <img width="50px" height="50px" src="{{baseInfo?.avatar | image: 50}}" alt="" />
+      <span class='min-title'>50x50像素</span>
+    </div>
+  </div>
+</div>

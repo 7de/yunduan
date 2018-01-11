@@ -1,0 +1,157 @@
+<app-heads-single></app-heads-single>
+<div class='Invoice-details-wraps'>
+  <div class='invoice-details-nav-wrap'>
+    <app-head-home [homeTitle]="['发票详情']"></app-head-home>
+    <div class='main-wraps'>
+      <div class="detalisCenter clearfix main-navs" style='margin:0 auto;margin-top:0px;'>
+        <div class='nav-menus'>您的位置：<a class="red" routerLink="/seller/personal/index/invoice/list">发票管理</a> > <span>发票详情</span></div>
+        <!--<div class="detalised clearfix">
+          <h4 class="title">发票详情</h4>
+          <div class="centened "></div>
+          <div class="cententBotn clearfix">
+            <div class="leftbtn clearfix">
+              <div class="titles">
+                <h4>发票信息</h4>
+              </div>
+              <div  class="invoiceCen clearfix">
+                <div class="boxed"><div class="informTitle">开票方  :  </div>   <div class="textone">企业</div> </div>
+                <div class="boxed"><div class="informTitle">税号  :   </div>     <div class="textone">{{invoiceDetalis?.tax_num}}</div>  </div>
+                <div class="boxed"><div class="informTitle">发票类型  : </div>   <div class="textone">{{invoiceDetalis?.type === 1? '增值专业发票' : '增值普通发票'}}</div>  </div>
+                <div class="boxed"><div class="informTitle">抬头名称  : </div>  <div class="textone">{{invoiceDetalis?.title}}</div>   </div>
+                <ng-container *ngIf="invoiceDetalis?.type === 1">
+                  <div class="boxed"><div class="informTitle">开户银行名称 :  </div><div class="textone">{{invoiceDetalis?.bank_name}}</div>  </div>
+                  <div class="boxed"><div class="informTitle">开户银行账号 :</div>  <div class="textone">{{invoiceDetalis?.bank_account}}</div>  </div>
+                  <div class="boxed"><div class="informTitle">注册地址  : </div> <div class="textone">{{invoiceDetalis?.reg_address}}</div>    </div>
+                  <div class="boxed"><div class="informTitle">注册电话  : </div>  <div class="textone">{{invoiceDetalis?.mobile}}</div>   </div>
+                </ng-container>
+                <div class="boxed"><div class="informTitle">金额  :   </div>   <div class="textone">￥{{invoiceDetalis?.money}}</div>   </div>
+              </div>
+              <div class="titles">
+                <h4>邮寄信息</h4>
+              </div>
+              <div class="invoiceCened clearfix">
+                <div class="boxed"><div class="informTitleOne">收件人姓名  : </div>  <div class="textone">{{invoiceDetalis?.recipients}}</div>   </div>
+                <div class="boxed"><div class="informTitleOne">申请时间  : </div>   <div class="textone">{{invoiceDetalis?.created_at_txt}}</div> </div>
+                <div class="boxed">
+                  <div class="informTitleOne">收件人联系电话  :   </div>
+                  <div class="textone">{{invoiceDetalis?.recipients_mobile}}</div>
+                </div>
+                <div class="boxed"><div class="informTitleOne">收件人地址  : </div>   <div class="textone">{{invoiceDetalis?.address}}</div>  </div>
+              </div>
+            </div>
+            <div class="rightbtn clearfix">
+              <h4 class="til">买家已申请发票</h4>
+              <p>点击确认发票，表示发票即将寄出</p>
+              <form method="put" class="ui-g" (ngSubmit)="onSubmit(form)" [formGroup]="form">
+                <div class="inputed form-group"> <span class="red">*</span> <label>  快递单号  :</label>
+                  <input type="text" formControlName="post_num" class="inputeds" minlength=8 maxlength=13 [readonly]="invoiceDetalis?.status === 1" ></div>
+                &lt;!&ndash;<a class="invoiceangin">已开发票</a>&ndash;&gt;
+                <div style="width: 100%;">
+                  <button class="search invoiceangin" type="submit" [disabled] = "invoiceDetalis?.status === 1" >{{(invoice === true || invoiceDetalis?.status)? '已开发票': '确认发票'}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>-->
+
+        <div class='Invoice-details'>
+          <form method='put' (ngSubmit)="onSubmit(form)" [formGroup]="form">
+            <div class='flex_ nav-bars'>
+              <span class='nav-titles'>当前订单状态：</span><span class='nav-title-cons'>需求方已申请开发票</span>
+            </div>
+            <div class='tips-text'>请输入快递单号、快递公司，点击确认</div>
+            <div class='flex_'>
+              <div class='left-box flex_'>
+                <i class='required'>*</i><span class='input-title'>快递单号：</span>
+              </div>
+              <div class='right-box form-group'>
+                <label class="hidden">快递单号</label>
+                <input type="text" [ngClass]="{'bordernone': invoiceDetalis?.status === 1}" name='post_num' placeholder='请输入快递单号' formControlName="post_num" minlength=8 maxlength=30 autocomplete="off" [readonly]="invoiceDetalis?.status === 1">
+              </div>
+              <!--<div *ngIf="invoiceDetalis?.type === 1" class='express-nums'>{{invoiceDetalis?.post_num}}</div>-->
+            </div>
+            <div class='flex_'>
+              <div class='left-box flex_'>
+                <i class='required'>*</i><span class='input-title'>快递公司：</span>
+              </div>
+              <div class='right-box form-group'>
+                <label class="hidden">快递公司</label>
+                <input type="text" [ngClass]="{'bordernone': invoiceDetalis?.status === 1}" name='post_company' placeholder='请输入快递公司' formControlName="post_company" minlength=2 maxlength=30 autocomplete="off" [readonly]="invoiceDetalis?.status === 1">
+              </div>
+              <!--<div *ngIf="invoiceDetalis?.status === 1" class='express-nums'>{{invoiceDetalis?.post_company}}</div>-->
+            </div>
+            <div *ngIf="invoiceDetalis?.status === 1" class='success-box flex_'><i class='success-icon'></i><span>已开发票</span></div>
+            <input *ngIf="invoiceDetalis?.status !== 1" class='btn-box' type="submit" value='确认开发票' [disabled]="isdisabled" />
+            <div class='lines'></div>
+          </form>
+          <div class='invoice-info-nav'>
+            <div class='info-boxs flex_'>
+              <div class='left-nav-boxs'>
+                <div class='invoice-info-titles'>发票信息</div>
+                <span>{{timeHandle(invoiceDetalis?.created_at | datetime:'time' , 1)}}</span>
+                <span>{{timeHandle(invoiceDetalis?.created_at | datetime:'time' , 2)}}</span>
+              </div>
+              <div class='detail-infos'>
+                <div class='mt-12 h-28 flex_'>
+                  <span class='info-titles'>发票类型：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.type === 1 ? '增值税发票' : '普通发票' }}</span>
+                </div>
+                <div class='h-28 flex_'>
+                  <span class='info-titles'>税号：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.tax_num}}</span>
+                </div>
+                <div class='h-28 flex_'>
+                  <span class='info-titles'>抬头名称：</span>
+                  <!--<span class='data-infos'>{{invoiceDetalis?.title}}<a class='spear' [href]="(qqFirst+data?.companyProfile?.qq+qqLast) | safeUrl">私聊</a></span>-->
+                  <span class='data-infos'>{{invoiceDetalis?.title}}</span>
+                </div>
+                <div class='h-28 flex_'>
+                  <span class='info-titles'>金额：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.money}}元</span>
+                </div>
+
+                <!-- start 只有已开票,并且发票类型为增值发票才有以下这些字段 -->
+                <!--<div class='h-28 flex_' *ngIf="invoiceDetalis?.status === 1">-->
+                <div class='h-28 flex_' *ngIf="invoiceDetalis?.type === 1">
+                  <span class='info-titles'>开户银行名称：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.bank_name}}</span>
+                </div>
+                <div class='h-28 flex_' *ngIf="invoiceDetalis?.type === 1">
+                  <span class='info-titles'>开户银行账号：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.bank_account}}</span>
+                </div>
+                <div class='h-28 flex_' *ngIf="invoiceDetalis?.type === 1">
+                  <span class='info-titles'>注册地址：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.reg_address}}</span>
+                </div>
+                <div class='h-28 flex_' *ngIf="invoiceDetalis?.type === 1">
+                  <span class='info-titles'>注册电话：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.mobile}}</span>
+                </div>
+                <!-- end 只有已开票才有 -->
+
+                <div class='h-28 flex_'>
+                  <span class='info-titles'>收件人：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.recipients}}</span>
+                </div>
+                <div class='h-28 flex_'>
+                  <span class='info-titles'>申请时间：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.created_at_txt}}</span>
+                </div>
+                <div class='h-28 flex_'>
+                  <span class='info-titles'>联系方式：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.recipients_mobile}}</span>
+                </div>
+                <div class='h-28 mb-12 flex_'>
+                  <span class='info-titles'>地址：</span>
+                  <span class='data-infos'>{{invoiceDetalis?.address}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer [bgc]="1"></app-footer>
+</div>

@@ -1,0 +1,21 @@
+<div class="" id="compliance-template">
+  <table class="">
+    <p-dataTable [rowHover]="true" [value]="template" styleClass="custom-dataTable" emptyMessage="暂无数据">
+      <p-column field="indexOf" header="序号" [style]="{'width':'132px'}">
+        <ng-template let-data="rowData" let-i="rowIndex" pTemplate="body">
+          <span>{{i+1}}</span>
+        </ng-template>
+      </p-column>
+      <p-column field="title" header="模版名称"></p-column>
+      <p-column styleClass="col-button" field="id" [style]="{'width':'80px'}">
+        <ng-template pTemplate="header">操作</ng-template>
+        <ng-template let-tem="rowData" pTemplate="body">
+          <a href="{{api + tem.url }}" target="_blank">下载</a>
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+  </table>
+</div>
+
+<app-model></app-model>
+

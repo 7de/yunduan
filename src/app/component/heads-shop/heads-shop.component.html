@@ -1,0 +1,21 @@
+<div class="header-bigbox">
+  <div class="wrap-1200 clearfix">
+    <div class="header-left pull-left">
+      <a routerLink="/shop/index" [queryParams]="{demand_category_id: ''}" class="logo">
+        <img src="{{imageDomain}}upload/frontend/20171218/caa62b7995422c3b569c683c1ed75565.png" alt="logo" style="margin-top: -10px;" *ngIf="!shopId">
+        <img src="{{imageDomain}}upload/frontend/20171218/690183b36345eedadaa66653b28be64c.png" alt="logo" style="margin-top: -5px;" *ngIf="shopId">
+      </a>
+    </div>
+    <div class="header-middle pull-left">
+      <form (ngSubmit)="onSubmit(form.value)"  [formGroup]="form" >
+        <div class="search-box">
+          <input type="text" name="name" formControlName="keyword" placeholder="请输入商品关键词，如“法律协议”" autocomplete="off">
+          <button type="submit">搜 索</button>
+        </div>
+      </form>
+    </div>
+    <div class="header-right pull-right">
+      <span class="ico-global ico-aptitude ico-size"></span><span class="ico-global ico-safe ico-size"></span><span class="ico-global ico-guarantee ico-size"></span>
+    </div>
+  </div>
+</div>

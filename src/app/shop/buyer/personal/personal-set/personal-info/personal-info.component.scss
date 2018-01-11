@@ -1,0 +1,14 @@
+.flexrow{display:flex;display:-webkit-box;
+  flex-direction:row;-webkit-box-orient:horizontal;
+  justify-content:flex-start;-webkit-box-pack:start;
+  }
+//.alignstart{align-items:flex-start;-webkit-box-align: start;}
+.aligncenter{align-items:center;-webkit-box-align:center;}
+//.alignend{align-items:flex-end;-webkit-box-align:end;}
+//li{list-style:none;}
+
+.personbox{
+    h2{@extend .flexrow;@extend .aligncenter;color:#333333;font-size:24px;margin-bottom:30px;line-height:1;margin-top:0px;
+        span{display:block;width:5px;height:24px;background:#B02022;margin-right:12px;}
+    }
+}

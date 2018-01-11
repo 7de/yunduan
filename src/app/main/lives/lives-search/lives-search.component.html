@@ -1,0 +1,163 @@
+<app-heads-single></app-heads-single>
+<app-lives-search-header [searchAll]="searchAllBool"></app-lives-search-header>
+<div class="wrap-all">
+  <div class="ui-g wrap-1200">
+    <div class="left-menu float-left">
+      <div class="ui-g-12 ui-g-nopad text-shadow">
+        <div class="tab-item fs-14"><i></i>搜索分类</div>
+        <div class="tab-item fs-14" (click)="linkAll('')" [ngClass]="{'menu-click-style': !kind}">全部
+        </div>
+        <div class="tab-item fs-14" (click)="linkAll('serial')" [ngClass]="{'menu-click-style': kind === 'serial'}">
+          连载
+        </div>
+        <div class="tab-item fs-14" (click)="linkAll('videos')" [ngClass]="{'menu-click-style': kind === 'videos'}">
+          视频
+        </div>
+        <div class="tab-item fs-14" (click)="linkAll('pictures')" [ngClass]="{'menu-click-style': kind === 'pictures'}">
+          图文
+        </div>
+        <div class="tab-item fs-14" (click)="linkAll('lives')" [ngClass]="{'menu-click-style': kind === 'lives'}">
+          课堂
+        </div>
+      </div>
+    </div>
+    <div class="right-list float-left" *ngIf="!noDataBool">
+      <div class="ui-g-12 ui-g-nopad serial-area" *ngIf="!kind || kind === 'serial'">
+        <div class="serial-header-title ui-g-12 ui-g-nopad" *ngIf="serialData.length">
+          <div class="float-left"><i class="ico-global ico-yun-serial"></i><span class="fs-16">连载</span><i></i></div>
+          <div class="float-right" *ngIf="!kind"><a class="fs-14 color-999" (click)="linkAll('serial')">全部</a></div>
+        </div>
+        <div class="serial-content ui-g-12 ui-g-nopad">
+          <div class="all-item float-left" *ngFor="let item of serialData" (click)="linkToSerial(item)">
+              <div class="img-content">
+                <div></div>
+                <div></div>
+                <img [src]="item?.img | image"/>
+              </div>
+              <p class="item-title"><a class="fs-14">{{item?.title}}</a></p>
+              <p class="item-play-read">
+                <i *ngIf="item?.media_type === 0" class="ico-global ico-yun-play" style="margin-top: -2px;"></i>
+                <i *ngIf="item?.media_type === 1" class="ico-global ico-yun-read" style="margin-top: -2px;"></i>
+                <span class="fs-12">{{item?.pv}}</span>
+                <i class="ico-global ico-yun-date-gray" style="margin-left: 20px;"></i>
+                <span class="fs-12">共{{item?.update_to}}期</span>
+              </p>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad" *ngIf="kind === 'serial'" style="padding: 35px 20px;">
+          <p-paginator [rows]="pagination?.perPage"
+                       [first]="pagination?.currentPage * pagination?.perPage-1"
+                       [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+                       (onPageChange)="paginate($event)" styleClass="custom-paginator">
+          </p-paginator>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad videos-area" *ngIf="!kind || kind === 'videos'">
+        <div class="videos-header-title ui-g-12 ui-g-nopad" *ngIf="videosData.length">
+          <div class="float-left"><i class="ico-global ico-yun-video"></i><span class="fs-16">视频课程</span><i></i></div>
+          <div class="float-right" *ngIf="!kind"><a class="fs-14 color-999" (click)="linkAll('videos')">全部</a></div>
+        </div>
+        <div class="videos-content ui-g-12 ui-g-nopad">
+          <div class="all-item float-left" *ngFor="let item of videosData;let idx=index;" (mouseover)="hoverBool[idx]=true" (mouseleave)="hoverBool[idx]=false" [routerLink]="['/lives/videos-details']" [queryParams]="{id: item?.id}">
+            <!--<a [routerLink]="['/lives/videos-index']" [queryParams]="{id: item?.id}">-->
+              <div class="img-content">
+                <div></div>
+                <div></div>
+                <img [src]="item?.img | image"/>
+                <i *ngIf="hoverBool[idx]" class="ico-global ico-yun-hover-play"></i>
+              </div>
+              <p class="item-title"><a class="fs-14">{{item?.title}}</a></p>
+              <p class="item-play-read">
+                <i class="ico-global ico-yun-play"></i>
+                <span class="fs-12">{{item?.pv}}</span>
+                <i class="ico-global ico-yun-comments" style="margin-left: 20px;"></i>
+                <span class="fs-12">{{item?.comment_count}}</span>
+              </p>
+            <!--</a>-->
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad" *ngIf="kind === 'videos'" style="padding: 35px 20px;">
+          <p-paginator [rows]="pagination?.perPage"
+                       [first]="pagination?.currentPage * pagination?.perPage-1"
+                       [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+                       (onPageChange)="paginate($event)" styleClass="custom-paginator">
+          </p-paginator>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad pictures-area" *ngIf="!kind || kind === 'pictures'">
+        <div class="pictures-header-title ui-g-12 ui-g-nopad" *ngIf="picturesData.length">
+          <div class="float-left"><i class="ico-global icon-yun-picture"></i><span class="fs-16">图文语音教程</span><i></i>
+          </div>
+          <div class="float-right" *ngIf="!kind"><a class="fs-14 color-999" (click)="linkAll('pictures')">全部</a></div>
+        </div>
+        <div class="pictures-content ui-g-12 ui-g-nopad">
+          <div class="all-item float-left" *ngFor="let item of picturesData" [routerLink]="['/lives/pictures-detail', item?.id]">
+              <div class="img-content">
+                <div></div>
+                <div></div>
+                <img [src]="item?.img | image"/>
+              </div>
+              <p class="item-title"><a class="fs-14">{{item?.title}}</a></p>
+              <p class="item-play-read">
+                <i class="ico-global ico-yun-read" style="margin-top: -2px;"></i>
+                <span class="fs-12">{{item?.pv}}</span>
+                <i class="ico-global ico-yun-comments" style="margin-left: 20px;"></i>
+                <span class="fs-12">{{item?.comment_count}}</span>
+              </p>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad" *ngIf="kind === 'pictures'" style="padding: 35px 20px;">
+          <p-paginator [rows]="pagination?.perPage"
+                       [first]="pagination?.currentPage * pagination?.perPage-1"
+                       [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+                       (onPageChange)="paginate($event)" styleClass="custom-paginator">
+          </p-paginator>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad lives-area" *ngIf="!kind || kind === 'lives'">
+        <div class="lives-header-title ui-g-12 ui-g-nopad" *ngIf="livesData.length">
+          <div class="float-left"><i class="ico-global ico-yun-lives"></i><span class="fs-16">课堂</span><i></i></div>
+          <div class="float-right" *ngIf="!kind"><a class="fs-14 color-999" (click)="linkAll('lives')">全部</a></div>
+        </div>
+        <div class="lives-content ui-g-12 ui-g-nopad">
+          <div class="lives-item float-left" *ngFor="let item of livesData">
+            <a [routerLink]="['/lives/lives-home']" [queryParams]="{id: item?.id}">
+              <img [src]="item?.img | image" class="float-left"/>
+              <div class="lives-title float-left">
+                <p class="fs-14">{{item?.nickname}}</p>
+                <p class="fs-12 color-999">{{item?.description}}</p>
+                <p class="fs-12">
+                  <i class="ico-global ico-yun-play-s-gray play-img"></i>
+                  <span class="color-999">{{item?.count_video}}</span>
+                  <i class="ico-global ico-yun-lives-read read-img"></i>
+                  <span class="color-999">{{item?.count_article}}</span>
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad" *ngIf="kind === 'lives'" style="padding: 35px 20px;">
+          <p-paginator [rows]="pagination?.perPage"
+                       [first]="pagination?.currentPage * pagination?.perPage-1"
+                       [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+                       (onPageChange)="paginate($event)" styleClass="custom-paginator">
+          </p-paginator>
+        </div>
+      </div>
+    </div>
+    <div class="no-search-data" *ngIf="noDataBool">
+      <div>
+        <div class="tips-left float-left">
+          <p class="fs-16">很抱歉，没有查到任何结果</p>
+          <p class="fs-12">您可以：</p>
+          <p class="fs-12">1.使用其他关键词查询；</p>
+          <p class="fs-12">2.<a [routerLink]="['/lives/lives-index']">返回首页</a></p>
+        </div>
+        <div class="img-right float-left">
+          <img src=".././../../../assets/images/noSearchData.png"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

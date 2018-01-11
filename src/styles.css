@@ -1,0 +1,4077 @@
+body,
+body .ui-widget,
+body .ui-widget .ui-widget,
+body .ui-widget button,
+body .ui-widget input,
+body .ui-widget select,
+body .ui-widget textarea {
+  font: 14px Microsoft Yahei;
+}
+
+.wrap,
+.wrap-con {
+  width: 100%;
+  height: 100%;
+  min-height: 790px;
+  padding: 30px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.wrap-con {
+  padding: 0;
+  background-color: transparent;
+}
+
+.wrap-1200 {
+  width: 1200px;
+  min-width: 1200px;
+  margin: 0 auto;
+}
+
+.wrap-950 {
+  width: 950px;
+  min-width: 950px;
+  margin: 0 auto;
+}
+
+i {
+  font-style: normal;
+}
+
+a {
+  cursor: pointer;
+}
+
+li {
+  list-style: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+a:visited,
+a:link,
+a:active {
+  color: #63A8EB;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+
+/**
+** 站内信选中的修改样式
+ */
+
+body .ui-datatable .ui-datatable-data tr.ui-datatable-even.ui-state-highlight {
+  background-color: #f7fbfe;
+  color: #777777;
+}
+
+body .ui-datatable .ui-datatable-data tr.ui-state-highlight {
+  background-color: #f7fbfe;
+  color: #777777;
+}
+
+body .ui-state-active {
+  background-color: #62a8ea !important;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active {
+  background-color: #62a8ea !important;
+  border: 0;
+}
+
+
+/* margin */
+
+.mt-0 {
+  margin-bottom: 0;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mr-30 {
+  margin-right: 30px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+
+/*padding*/
+
+.pl-20 {
+  padding-left: 20px;
+}
+
+.pdr-30 {
+  padding-right: 30px;
+}
+
+.pdr-20 {
+  padding-right: 20px;
+}
+
+.pdr-10 {
+  padding-right: 10px;
+}
+
+.pdr-5 {
+  padding-right: 5px;
+}
+
+.pdl-30 {
+  padding-left: 30px;
+}
+
+.pdl-20 {
+  padding-left: 20px;
+}
+
+.pdl-10 {
+  padding-left: 10px;
+}
+
+.pdl-5 {
+  padding-left: 5px;
+}
+
+.pdt-30 {
+  padding-top: 30px;
+}
+
+.pdt-25 {
+  padding-top: 25px;
+}
+
+.pdt-20 {
+  padding-top: 20px;
+}
+
+.pdt-10 {
+  padding-top: 10px;
+}
+
+.pdt-5 {
+  padding-top: 5px;
+}
+
+.pdb-30 {
+  padding-bottom: 30px;
+}
+
+.pdb-20 {
+  padding-bottom: 20px;
+}
+
+.pdb-10 {
+  padding-bottom: 10px;
+}
+
+.pdb-5 {
+  padding-bottom: 5px;
+}
+
+
+/* ico */
+
+.ico-global {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  background: url('assets/images/webadmin-icon.png') no-repeat;
+}
+
+
+/* ico-白色logo */
+
+.icon-log-white {
+  width: 196px;
+  height: 50px;
+  background-position: -1px -1px
+}
+
+.ico-user {
+  width: 18px;
+  height: 20px;
+  background-position: -1px -116px;
+}
+
+.ico-edit {
+  width: 18px;
+  height: 20px;
+  background-position: -23px -116px;
+}
+
+.ico-switch {
+  width: 20px;
+  height: 20px;
+  /*background-position: -1px -96px;*/
+  background-position: -1px -118px;
+}
+
+.ico-user-m {
+  width: 16px;
+  height: 15px;
+  /*background-position: -21px -76px;*/
+  background-position: -21px -56px;
+}
+
+.ico-page {
+  width: 16px;
+  height: 17px;
+  /*background-position: -61px -76px;*/
+  background-position: -61px -55px;
+}
+
+.ico-record {
+  width: 16px;
+  height: 17px;
+  /*background-position: -41px -76px;*/
+  background-position: -41px -55px;
+}
+
+.ico-set {
+  width: 16px;
+  height: 16px;
+  /*background-position: -81px -76px;*/
+  background-position: -81px -56px;
+}
+
+.ico-manage {
+  width: 16px;
+  height: 16px;
+  /*background-position: -1px -76px;*/
+  background-position: -1px -55px;
+}
+
+.ico-wechat {
+  width: 72px;
+  height: 60px;
+  background-position: 0 -238px;
+}
+
+.ico-demand {
+  width: 64px;
+  height: 60px;
+  background-position: -77px -238px;
+}
+
+.ico-plane {
+  width: 66px;
+  height: 60px;
+  background-position: -209px -238px;
+}
+
+.ico-data {
+  width: 25px;
+  height: 22px;
+  background-position: -68px -128px;
+  ;
+}
+
+.ico-link-s {
+  width: 24px;
+  height: 22px;
+  background-position: -98px -128px;
+  ;
+}
+
+.ico-mail {
+  width: 23px;
+  height: 17px;
+  /*background-position: -25px -98px;*/
+  background-position: -25px -119px;
+}
+
+.ico-release-a {
+  width: 56px;
+  height: 56px;
+  background-position: -1px -302px;
+}
+
+.ico-release-b {
+  width: 56px;
+  height: 56px;
+  background-position: -60px -302px;
+}
+
+.ico-release-c {
+  width: 56px;
+  height: 56px;
+  background-position: -120px -302px;
+}
+
+.ico-release-d {
+  width: 56px;
+  height: 56px;
+  background-position: -180px -302px;
+}
+
+.ico-release-e {
+  width: 50px;
+  height: 56px;
+  background-position: -1px -362px;
+}
+
+.ico-release-f {
+  width: 60px;
+  height: 56px;
+  background-position: -55px -362px;
+}
+
+.ico-release-g {
+  width: 56px;
+  height: 56px;
+  background-position: -119px -362px;
+}
+
+.ico-release-h {
+  width: 56px;
+  height: 56px;
+  background-position: -179px -362px;
+}
+
+.ico-ok {
+  width: 80px;
+  height: 80px;
+  background-position: -85px -154px;
+}
+
+.ico-error {
+  width: 80px;
+  height: 80px;
+  background-position: -1px -154px;
+}
+
+.ico-errortip {
+  width: 14px;
+  height: 14px;
+  background-position: -169px -176px;
+}
+
+.ico-eye {
+  width: 18px;
+  height: 10px;
+  background-position: -1px -140px;
+}
+
+.ico-eye-close {
+  width: 18px;
+  height: 8px;
+  background-position: -45px -142px;
+}
+
+.ico-checkup-green {
+  width: 74px;
+  height: 24px;
+  background-position: -169px -210px;
+}
+
+
+/* 灰色图标 */
+
+.ico-plus-gray {
+  width: 26px;
+  height: 26px;
+  background-position: -1px -422px;
+}
+
+.ico-calendar-gray {
+  width: 30px;
+  height: 30px;
+  background-position: -31px -421px;
+}
+
+.ico-file-gray {
+  width: 28px;
+  height: 25px;
+  background-position: -65px -424px;
+}
+
+.ico-search {
+  width: 13px;
+  height: 14px;
+  background-position: -230px -462px;
+}
+
+.ico-close {
+  width: 18px;
+  height: 18px;
+  background-position: -169px -154px;
+}
+
+
+/* 登录 */
+
+.ico-user-white {
+  width: 20px;
+  height: 20px;
+  background-position: -194px -152px;
+}
+
+.ico-lock-white {
+  width: 20px;
+  height: 23px;
+  background-position: -222px -150px;
+}
+
+
+/* 已认证、未认证 */
+
+.ico-approve {
+  width: 74px;
+  height: 24px;
+  background-position: -193px -210px;
+}
+
+.ico-noapprove {
+  width: 74px;
+  height: 24px;
+  background-position: -193px -181px;
+}
+
+
+/* 登录ico */
+
+.ico-login {
+  display: block;
+  vertical-align: middle;
+  background: url("assets/images/login_icon.png") no-repeat;
+}
+
+.ico-login-log {
+  width: 220px;
+  height: 54px;
+  background-position: -5px -31px;
+}
+
+.ico-login-fax {
+  width: 16px;
+  height: 15px;
+  background-position: -5px -5px;
+}
+
+.ico-login-mail {
+  width: 16px;
+  height: 11px;
+  background-position: -31px -5px;
+}
+
+.ico-login-addr {
+  width: 15px;
+  height: 16px;
+  background-position: -57px -5px;
+}
+
+
+/* 公众号后台 */
+
+.ico-wechat-home {
+  width: 18px;
+  height: 16px;
+  background-position: -1px -502px;
+}
+
+.ico-wechat-home {
+  width: 18px;
+  height: 16px;
+  background-position: -1px -502px;
+}
+
+.ico-wechat-action {
+  width: 17px;
+  height: 17px;
+  background-position: -23px -502px;
+}
+
+.ico-wechat-manage {
+  width: 18px;
+  height: 16px;
+  background-position: -44px -503px;
+}
+
+.ico-wechat-set {
+  width: 18px;
+  height: 17px;
+  background-position: -66px -503px;
+}
+
+.ico-wechat-news {
+  width: 16px;
+  height: 12px;
+  background-position: -95px -463px;
+}
+
+.ico-wechat-edior {
+  width: 12px;
+  height: 14px;
+  background-position: -130px -461px;
+}
+
+.ico-wechat-img {
+  width: 14px;
+  height: 14px;
+  background-position: -164px -461px;
+}
+
+.ico-wechat-wechat {
+  width: 30px;
+  height: 22px;
+  background-position: -1px -524px;
+}
+
+.ico-wechat-menu {
+  width: 24px;
+  height: 24px;
+  background-position: -36px -523px;
+}
+
+.ico-wechat-express {
+  width: 20px;
+  height: 20px;
+  background-position: -206px -456px;
+}
+
+
+/* ico-index  -- new add */
+
+.ico-index-app {
+  width: 44px;
+  height: 66px;
+  background-position: -153px -237px;
+}
+
+.ico-index-applet {
+  width: 62px;
+  height: 56px;
+  background-position: -280px -238px;
+}
+
+.ico-index-staff {
+  width: 66px;
+  height: 59px;
+  background-position: -347px -237px;
+}
+
+.ico-index-amac {
+  width: 55px;
+  height: 58px;
+  background-position: -418px -235px;
+}
+
+.ico-index-data {
+  width: 70px;
+  height: 55px;
+  background-position: -241px -304px;
+}
+
+.ico-index-risk {
+  width: 62px;
+  height: 61px;
+  background-position: -316px -301px;
+}
+
+.ico-index-investment {
+  width: 60px;
+  height: 71px;
+  background-position: -383px -304px;
+}
+
+.ico-index-video {
+  width: 52px;
+  height: 52px;
+  background-position: -241px -364px;
+}
+
+.ico-index-customer {
+  width: 22px;
+  height: 22px;
+  background-position: -126px -128px;
+}
+
+
+/* 评价图标 */
+
+.ico-estimate-good-default {
+  width: 18px;
+  height: 20px;
+  background-position: -198px 0;
+}
+
+.ico-estimate-middle-default {
+  width: 19px;
+  height: 21px;
+  background-position: -219px 0;
+}
+
+.ico-estimate-bad-default {
+  width: 19px;
+  height: 21px;
+  background-position: -241px 0;
+}
+
+.ico-estimate-good {
+  width: 18px;
+  height: 20px;
+  background-position: -198px -23px;
+}
+
+.ico-estimate-middle {
+  width: 19px;
+  height: 21px;
+  background-position: -219px -23px;
+}
+
+.ico-estimate-bad {
+  width: 19px;
+  height: 21px;
+  background-position: -241px -23px;
+}
+
+
+/*shop*/
+
+.ico-location {
+  width: 9px;
+  height: 11px;
+  background-position: -98px -425px;
+}
+
+.ico-tip-yellow {
+  width: 44px;
+  height: 44px;
+  background-position: -279px -678px;
+}
+
+.ico-tip-green {
+  width: 45px;
+  height: 44px;
+  background-position: -556px -143px;
+}
+
+.ico-customer {
+  width: 38px;
+  height: 37px;
+  background-position: -526px -549px;
+}
+
+
+/*首页*/
+
+.ico-project {
+  background-position: -397px -473px;
+  width: 69px;
+  height: 68px;
+}
+
+.ico-money {
+  background-position: -309px -373px;
+  width: 72px;
+  height: 79px;
+}
+
+.ico-trusteeshiped {
+  background-position: -307px -464px;
+  width: 70px;
+  height: 71px;
+}
+
+.ico-texted {
+  background-position: -391px -387px;
+  width: 74px;
+  height: 64px;
+}
+
+.ico-rigister {
+  background-position: -399px -155px;
+  width: 55px;
+  height: 62px;
+}
+
+.ico-office {
+  background-position: -292px -154px;
+  width: 70px;
+  height: 56px;
+}
+
+.ico-copy {
+  background-position: -391px -79px;
+  width: 38px;
+  height: 61px;
+}
+
+.ico-brand {
+  background-position: -284px -76px;
+  width: 66px;
+  height: 62px;
+}
+
+.ico-deposit {
+  background-position: -382px -4px;
+  width: 58px;
+  height: 61px
+}
+
+.ico-computer {
+  background-position: -282px -9px;
+  width: 64px;
+  height: 54px;
+}
+
+.ico-simu {
+  background-position: -394px -155px;
+  width: 55px;
+  height: 62px;
+}
+
+.ico-offices {
+  background-position: -287px -154px;
+  width: 70px;
+  height: 56px;
+}
+
+.ico-copys {
+  background-position: -386px -79px;
+  width: 38px;
+  height: 61px;
+}
+
+.ico-brands {
+  background-position: -279px -76px;
+  width: 66px;
+  height: 62px;
+}
+
+.ico-computered {
+  background-position: -377px -4px;
+  width: 58px;
+  height: 61px;
+}
+
+.ico-raise {
+  background-position: -277px -9px;
+  width: 64px;
+  height: 54px;
+}
+
+
+/*第三方服务商-卓鹏飞*/
+
+.ico-cycle {
+  background-position: -457px -47px;
+  width: 40px;
+  height: 42px;
+}
+
+.ico-time {
+  background-position: -456px -1px;
+  width: 41px;
+  height: 41px;
+}
+
+
+/*云课堂*/
+
+.ico-yun-hot {
+  background-position: -4px -688px;
+  width: 20px;
+  height: 25px;
+}
+
+.ico-yun-play {
+  background-position: -110px -694px;
+  width: 10px;
+  height: 14px;
+}
+
+.ico-yun-comments {
+  background-position: -131px -694px;
+  width: 14px;
+  height: 14px;
+}
+
+.ico-yun-video {
+  background-position: -78px -692px;
+  width: 24px;
+  height: 18px;
+}
+
+.icon-yun-picture {
+  background-position: -206px -690px;
+  width: 20px;
+  height: 20px;
+}
+
+.ico-yun-eye {
+  background-position: -235px -695px;
+  width: 16px;
+  height: 10px;
+}
+
+.ico-yun-read {
+  background-position: -257px -692px;
+  width: 15px;
+  height: 15px;
+}
+
+.icon-yun-play-orange {
+  background-position: -333px -736px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon-yun-play-red {
+  background-position: -333px -676px;
+  width: 48px;
+  height: 48px;
+}
+
+.ico-yun-play-s-orange {
+  background-position: -393px -695px;
+  width: 16px;
+  height: 16px;
+}
+
+.ico-yun-play-s-gray {
+  background-position: -412px -695px;
+  width: 16px;
+  height: 16px;
+}
+
+.ico-yun-play-s-orange {
+  background-position: -393px -695px;
+  width: 16px;
+  height: 16px;
+}
+
+.ico-yun-serial {
+  background-position: -151px -722px;
+  width: 20px;
+  height: 20px;
+}
+
+.ico-yun-date {
+  background-position: -177px -728px;
+  width: 12px;
+  height: 14px;
+}
+.ico-yun-date-gray {
+  background-position: -412px -660px;
+  width: 12px;
+  height: 14px;
+}
+
+.ico-yun-logo-word {
+  background-position: -57px -717px;
+  width: 110px;
+  height: 25px;
+}
+
+.ico-yun-upload-red {
+  background-position: -53px -695px;
+  width: 16px;
+  height: 12px;
+}
+
+.ico-yun-video-upload {
+  background-position: -195px -748px;
+  width: 18px;
+  height: 13px;
+}
+
+.ico-yun-pic-upload {
+  background-position: -196px -728px;
+  width: 16px;
+  height: 13px;
+}
+
+.ico-yun-lives-read {
+  background-position: -221px -727px;
+  width: 13px;
+  height: 14px;
+}
+
+.ico-yun-lives {
+  background-position: -243px -727px;
+  width: 14px;
+  height: 14px;
+}
+
+.ico-yun-create-serial-normal {
+  background-position: -177px -728px;
+  width: 12px;
+  height: 14px;
+}
+
+.ico-yun-create-serial {
+  background-position: -177px -747px;
+  width: 12px;
+  height: 14px;
+}
+
+.ico-yun-upload-pic-normal {
+  background-position: -265px -734px;
+  width: 13px;
+  height: 13px;
+}
+
+.ico-yun-upload-pic {
+  background-position: -265px -761px;
+  width: 13px;
+  height: 13px;
+}
+
+.ico-yun-upload-video-normal {
+  background-position: -294px -734px;
+  width: 16px;
+  height: 11px;
+}
+
+.ico-yun-upload-video {
+  background-position: -294px -758px;
+  width: 16px;
+  height: 11px;
+}
+
+.ico-yun-hover-play {
+  background-position: -157px -683px;
+  width: 34px;
+  height: 34px;
+}
+
+.ico-yun-plus-gray {
+  background-position: -88px -748px;
+  width: 30px;
+  height: 30px;
+}
+
+.ico-yun-plus-red {
+  background-position: -138px -748px;
+  width: 30px;
+  height: 30px;
+}
+
+.ico-yun-hover-s-play {
+  background-position: -204px -657px;
+  width: 24px;
+  height: 24px;
+}
+.ico-yun-upload-protocol {
+  background-position: -1px -549px;
+  width: 186px;
+  height: 46px;
+}
+.ico-yun-forbid-play {
+  background-position: -442px -619px;
+  width: 48px;
+  height: 48px;
+}
+.ico-yun-forbid-voice {
+  background-position: -504px -619px;
+  width: 48px;
+  height: 48px;
+}
+.ico-yun-forbid-read {
+  background-position: -563px -618px;
+  width: 48px;
+  height: 48px;
+}
+.ico-yun-pic-gray {
+  background-position: -394px -736px;
+  width: 15px;
+  height: 16px;
+}
+
+/* tabs--橙色 */
+
+.custom-tabs {
+  overflow: hidden;
+}
+
+.custom-tabs li {
+  float: left;
+  font-size: 14px;
+  text-align: center;
+}
+
+.custom-tabs li a {
+  min-width: 120px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 10px;
+  color: #333;
+  border-color: #fff;
+  background-color: #fff;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.custom-tabs li a:hover {
+  border-color: #F7F7F7;
+  background-color: #F7F7F7;
+}
+
+.custom-tabs li.active a {
+  color: #fff;
+  border-color: #AA2426;
+  background-color: #AA2426;
+}
+
+.custom-tabs li.active a:hover,
+.custom-tabs li.active a:focus {
+  color: #fff;
+  border-color: #AA2426;
+  background-color: #AA2426;
+}
+
+
+/* table--表格 */
+
+.custom-table {
+  table-layout: fixed
+}
+
+.custom-table>thead>tr>th,
+.custom-table>tbody>tr>th,
+.custom-table>tfoot>tr>th,
+.custom-table>thead>tr>td,
+.custom-table>tbody>tr>td,
+.custom-table>tfoot>tr>td {
+  height: 44px;
+  vertical-align: middle;
+  font-size: 14px;
+  border-top-color: #e6e6e6;
+  word-wrap: break-word;
+  padding: 2px 8px 1px;
+}
+
+.custom-table>thead>tr>th {
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.custom-table>tbody>tr>td {
+  color: #666;
+}
+
+.custom-table>tbody>tr>td>a {
+  display: inline-block;
+  color: #63A8EB;
+}
+
+.custom-table>thead>tr>th.th-title,
+.custom-table>tbody>tr>td.td-title {
+  text-align: left;
+}
+
+.custom-table.table-bordered>thead>tr>th,
+.custom-table.table-bordered>tbody>tr>th,
+.custom-table.table-bordered>tfoot>tr>th,
+.custom-table.table-bordered>thead>tr>td,
+.custom-table.table-bordered>tbody>tr>td,
+.custom-table.table-bordered>tfoot>tr>td {
+  border-color: #e6e6e6;
+}
+
+.custom-table.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #fcfcfe;
+}
+
+body .custom-dataTable .ui-datatable-thead>tr>th,
+body .custom-dataTable .ui-datatable-tfoot>tr>td,
+body .custom-dataTable .ui-datatable-data>tr>td {
+  border-color: #ebebec;
+  border-right-width: 0;
+  border-left-width: 0;
+  padding: .75em 14px;
+  height: 52px;
+  word-break: break-all
+}
+
+.custom-dataTable .ui-datatable-thead>tr>th {
+  text-align: left;
+  height: 52px;
+  font-weight: bold;
+  background-color: #f3f3f3 !important;
+}
+
+body .custom-dataTable .ui-widget-content {
+  border: none;
+}
+
+body .custom-dataTable .ui-datatable-data tr.ui-datatable-even {
+  background-color: #fff;
+}
+
+body .custom-dataTable .ui-paginator-bottom {
+  border: none;
+}
+
+body .custom-dataTable .ui-datatable-data.ui-datatable-hoverable-rows>tr.ui-widget-content:not(.ui-state-highlight):hover {
+  background-color: rgba(243, 243, 243, .3);
+  cursor: default;
+}
+
+.custom-dataTable .ui-datatable-loading {
+  background-color: transparent;
+}
+
+.custom-dataTable .ui-datatable-loading-content {
+  top: 50%;
+  color: #aa2426;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+body .ui-widget-header {
+  border: 0
+}
+
+
+/* 分页 */
+
+.ui-paginator {
+  margin: 10px 0;
+  text-align: right;
+}
+
+body .ui-paginator .ui-paginator-pages .ui-paginator-page,
+body .ui-paginator .ui-paginator-prev,
+body .ui-paginator .ui-paginator-next,
+body .ui-paginator .ui-paginator-first,
+body .ui-paginator .ui-paginator-last {
+  padding: 5px 5px;
+  text-align: center;
+  color: #999;
+  outline: none;
+}
+
+body .ui-paginator .ui-paginator-prev:hover,
+body .ui-paginator .ui-paginator-next:hover,
+body .ui-paginator .ui-paginator-first:hover,
+body .ui-paginator .ui-paginator-last:hover {
+  background-color: transparent;
+}
+
+
+/* 弹框 */
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10001;
+}
+
+.dialog {
+  min-width: 520px;
+  /*padding: 20px;*/
+  background: #fff;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 6px;
+  opacity: 1;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  /* for Chrome || Safari */
+  -moz-transform: translateX(-50%);
+  /* for Firefox */
+  -ms-transform: translateX(-50%);
+  /* for IE */
+  -o-transform: translateX(-50%);
+  /* for Opera */
+}
+
+
+/* 错误提示 */
+
+.custom-group.has-error {
+  position: relative;
+}
+
+.has-error>.help-block {
+  color: #ee3737;
+}
+
+.has-error>input,
+.has-error>textarea,
+.has-error .ui-inputtext,
+.has-error>select {
+  border-color: #ee3737 !important;
+}
+
+.custom-group .help-block {
+  padding-left: 18px;
+}
+
+.custom-group .help-block:after {
+  content: '!';
+  display: block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #fff;
+  margin-left: -17px;
+  margin-top: -17px;
+  border-radius: 50%;
+  background-color: #ee3737;
+}
+
+
+/* 日历上传组件 */
+
+.form-calendar,
+.form-calendar .ui-inputtext {
+  width: 100%;
+}
+
+.form-calendar .ui-inputtext::-moz-placeholder {
+  color: #757575;
+  font-family: '微软雅黑'
+}
+
+.form-calendar .ui-inputtext:-moz-placeholder {
+  color: #757575;
+  font-family: '微软雅黑'
+}
+
+.form-calendar .ui-inputtext::-webkit-input-placeholder {
+  color: #757575;
+  font-family: '微软雅黑'
+}
+
+.form-calendar .ui-inputtext:-ms-input-placeholder {
+  color: #757575;
+  font-family: '微软雅黑'
+}
+
+.form-calendar .ui-inputtext {
+  height: 36px;
+  border: 1px solid #ebebec;
+  border-bottom: 1px solid #ebebec;
+}
+
+.form-calendar-my .ui-inputtext {
+  height: 30px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.form-calendar .ui-inputtext:focus {
+  border-color: #62a8ea !important;
+}
+
+.form-calendar-border .ui-inputtext {
+  border: 0;
+  border-bottom: 1px solid #ebebec;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.form-calendar-border .ui-inputtext:focus {
+  border: 0;
+  border-bottom: 1px solid #62a8ea !important;
+}
+
+.form-calendar-small .ui-inputtext {
+  height: 30px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.form-calendar-small .ui-button {
+  height: 90%;
+  color: #b3b3b3;
+  background-color: #fff;
+  top: 1px;
+  right: 0;
+  cursor: default;
+}
+
+.form-calendar-small .ui-button:enabled:hover,
+.form-calendar-small .ui-button:enabled:active {
+  background-color: #fff;
+  box-shadow: none;
+}
+
+
+/* 工商注册时间组件 */
+
+.registration {
+  margin-top: 20px;
+  width: 100%;
+  padding: 0px;
+}
+
+.registration .ui-inputtext {
+  height: 30px;
+  width: 100%;
+  border: none;
+  padding: 0px;
+  border-bottom: 1px solid #ebebec;
+  padding-bottom: 10px;
+}
+
+.registration .ui-inputtext:active {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #62a8ea;
+}
+
+.registration .ui-inputtext:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #62a8ea;
+}
+
+
+/* 产品查看折线图tab切换 */
+
+.view-tab .ui-tabview-nav {
+  padding-right: 4%;
+  margin-top: 15px;
+  overflow: hidden;
+  border-bottom: none !important;
+}
+
+.view-tab .ui-state-default {
+  float: left;
+  width: 24%;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #e6e6e6 !important;
+  border-right-color: #fff !important;
+  margin-right: 0 !important;
+  border-radius: 0 !important;
+}
+
+.view-tab .ui-state-default a {
+  width: 100%;
+  display: block;
+  height: 44px;
+  line-height: 44px;
+  margin-right: 0;
+  background-color: #fff;
+  padding: 0 !important;
+  border: none;
+  color: #333;
+}
+
+.view-tab .ui-state-default a:hover {
+  color: #666;
+  background-color: #fcfcfe;
+  text-decoration: none;
+}
+
+.view-tab .ui-state-default:last-child {
+  border-right-color: #e6e6e6 !important;
+}
+
+.view-tab .ui-state-active>a,
+.view-tab .ui-state-active>a:hover,
+.view-tab .ui-state-active>a:focus {
+  color: #666 !important;
+  background-color: #fcfcfe;
+  border: none;
+}
+
+
+/* 关键词tags */
+
+.ui-chips>ul.ui-inputtext {
+  padding: 10px 15px !important;
+  border-radius: 0 !important;
+}
+
+.form-group .ui-inputtext:focus {
+  border-color: #66afe9 !important;
+}
+
+
+/* 自动回复图片上传 */
+
+.imgUpload-con .ui-widget-header {
+  border: none;
+}
+
+.imgUpload-con .ui-fileupload .ui-fileupload-buttonbar {
+  background-color: transparent;
+  padding: 5px 0 5px;
+}
+
+.imgUpload-con .ui-widget-content {
+  border: none;
+}
+
+.imgUpload-con .ui-fileupload .ui-fileupload-content {
+  padding: 0.25em;
+}
+
+.imgUpload-cons .ui-button {
+  width: 150px;
+  height: 150px;
+  border: none;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.imgUpload-coned .ui-button {
+  width: 110px;
+  height: 110px;
+  border: none;
+  background-color: transparent;
+  z-index: 10;
+}
+
+
+/**/
+
+.imgUpload-coneds .ui-button {
+  width: 146px;
+  height: 108px;
+  border: none;
+  background-color: transparent;
+  z-index: 10;
+}
+
+
+/*X号样式*/
+
+div>span.fa-close {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url('/assets/images/close.png');
+  background-repeat: no-repeat;
+  text-align: center;
+  line-height: 18px;
+  color: transparent;
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+div>span.fa-close:hover {
+  background-image: url('/assets/images/closed.png');
+}
+
+.modal-head {
+  background-color: #f4f5f9;
+  margin-right: 0;
+  margin-left: 0;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+}
+
+
+/*button样式*/
+
+.submit-btn,
+.cancel-btn {
+  width: 100px;
+  height: 36px;
+  border-radius: 4px;
+  border-color: transparent;
+}
+
+.submit-btn {
+  color: #fff;
+  background-color: #AA2426;
+  margin-left: 15px;
+}
+
+.submit-btn:hover {
+  opacity: .9;
+}
+
+.submit-btn:focus {
+  outline: none;
+  background-color: #971416;
+}
+
+.cancel-btn {
+  color: #777;
+  margin-right: 15px;
+  background-color: #E0E0E0;
+}
+
+.cancel-btn:hover {
+  outline: none;
+  background-color: #eee;
+}
+
+.cancel-btn:focus {
+  outline: none;
+  background-color: #bdbdbd;
+}
+
+.submit-btn-another {
+  width: 120px;
+  height: 40px;
+}
+
+
+/* 1.4.1  newButton*/
+
+.cancel-btn-new,
+.submit-btn-new,
+.submit-btn-new-border {
+  display: inline-block;
+  min-width: 50px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  outline: none;
+  border-radius: 3px;
+}
+
+button.cancel-btn-new,
+button.submit-btn-new,
+button.submit-btn-new-border {
+  line-height: 0;
+}
+
+.cancel-btn-new {
+  background-color: #b3b3b3;
+  border: 1px solid #b3b3b3;
+}
+
+.cancel-btn-new:hover {
+  background-color: #bfbfbf;
+  border-color: #bfbfbf;
+}
+
+.cancel-btn-new:focus {
+  background-color: #a6a6a6;
+  border-color: #a6a6a6;
+}
+
+.submit-btn-new {
+  background-color: #ea3a3a;
+  border: 1px solid #ea3a3a;
+}
+
+.submit-btn-new:hover {
+  background-color: #ff4040;
+  border-color: #ff4040;
+}
+
+.submit-btn-new:focus {
+  background-color: #cc3333;
+  border-color: #cc3333;
+}
+
+.submit-btn-new:disabled {
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+}
+
+.submit-btn-new-border {
+  color: #ea3a3a;
+  border: 1px solid #ea3a3a;
+  background-color: #fff;
+}
+
+.submit-btn-new-border:hover {
+  color: #fff;
+  background-color: #ea3a3a;
+}
+
+
+/*input样式*/
+
+.input {
+  width: 100.568%;
+  height: 36px;
+  border: 1px solid #ebebec;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 30px;
+  outline: none;
+}
+
+.input::-moz-placeholder {
+  color: #757575;
+}
+
+.input:-moz-placeholder {
+  color: #757575;
+}
+
+.input::-webkit-input-placeholder {
+  color: #757575;
+}
+
+.input:-ms-input-placeholder {
+  color: #757575;
+}
+
+.textarea::-moz-placeholder {
+  color: #757575;
+}
+
+.textarea:-moz-placeholder {
+  color: #757575;
+}
+
+.textarea::-webkit-input-placeholder {
+  color: #757575;
+}
+
+.textarea:-ms-input-placeholder {
+  color: #757575;
+}
+
+
+/*搜索图标*/
+
+.icon-search {
+  position: absolute;
+  right: 25px;
+  top: 11px;
+  display: inline-block;
+  width: 13px;
+  height: 14px;
+  background-image: url('/assets/images/search.png')
+}
+
+body .header-bigbox .icon-search {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  display: inline-block;
+  width: 15px;
+  height: 16px;
+  margin-top: -8px;
+  background-image: url('/assets/images/search.png');
+  background-size: cover;
+}
+
+
+/*日历图标*/
+
+.icon-calendar {
+  position: absolute;
+  right: 26px;
+  top: 10px;
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  background-image: url('assets/images/calendar.png')
+}
+
+.input:focus {
+  border-color: #63A8EB;
+}
+
+
+/*搜索*/
+
+.search {
+  display: inline-block;
+  /*width: 54px;*/
+  width: 80px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid transparent;
+  background-color: #63A8EB;
+  border-radius: 4px;
+  /*border-top-right-radius: 4px;*/
+  /*border-bottom-right-radius: 4px;*/
+  vertical-align: top;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.searches {
+  margin-top: 26px;
+  margin-bottom: 26px;
+  height: 36px;
+}
+
+.search:hover {
+  background-color: #3A85CC;
+}
+
+.myTitle {
+  color: #333;
+  font-weight: bold;
+  height: 22px;
+  line-height: 22px;
+  font-size: 16px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+
+/*我的结束*/
+
+
+/* 微信提示 */
+
+.wechatTip {
+  top: 0;
+  left: 40%;
+  width: 340px;
+  height: 32px;
+}
+
+.wechatTip .ui-growl-message-warn,
+.wechatTip .ui-growl-message-success,
+.wechatTip .ui-growl-message-error,
+.wechatTip .ui-growl-message-info {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.wechatTip .ui-growl-item {
+  padding: 0;
+  text-align: center;
+  color: #fff;
+}
+
+.wechatTip .ui-growl-image,
+.wechatTip .ui-growl-icon-close {
+  display: none;
+}
+
+.wechatTip .ui-growl-message {
+  padding: 0 .4em .4em;
+  margin-left: 0
+}
+
+.wechatTip .ui-growl-message-warn {
+  background-color: #eaa000;
+}
+
+.wechatTip .ui-growl-message-success {
+  background-color: #44B549;
+}
+
+.wechatTip .ui-growl-message-error {
+  background-color: #F76162;
+}
+
+.wechatTip .ui-growl-message-info {
+  background-color: #626364;
+  background-color: rgba(0, 0, 0, .55);
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  padding: 3px 15px;
+  line-height: 10px;
+  border-radius: 3px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.wechatTip .ui-growl-message-info .ui-growl-message p {
+  line-height: 22px;
+}
+
+
+/* 微信确认弹框 */
+
+body .ui-confirmdialog {
+  box-shadow: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-dialog-titlebar {
+  background-color: #f4f5f9;
+  border-bottom: none !important;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-dialog-title {
+  font-size: 16px !important;
+  font-weight: normal !important;
+}
+
+.ui-confirmdialog .fa-close:before {
+  content: '×';
+  display: block;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .fa-close:before {
+  font-size: 30px;
+  margin-top: -5px;
+}
+
+.ng-tns-c1-0.ui-confirmdialog.ui-dialog .ui-dialog-content {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-dialog-footer {
+  border: none;
+  text-align: center;
+  background-color: #f4f5f9;
+  padding: 1.3em;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-button {
+  width: 106px;
+  height: 32px;
+  padding: 0;
+  background-color: #fc8026;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-button:first-child:focus {
+  background-color: #fc8026;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-button:first-child:hover {
+  background-color: #d46819;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-button:last-child {
+  background-color: #fff;
+  border-color: #e7e7eb;
+  color: #222;
+  margin-left: 8px;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-button:last-child:hover {
+  border-color: #dadbe0;
+  background-color: #e7e7eb;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-dialog-content .fa-exclamation-circle {
+  margin-right: 5px;
+  font-style: normal;
+  margin-bottom: 4px;
+}
+
+.ng-tns-c1-0.ui-confirmdialog .ui-dialog-content .fa-exclamation-circle:before {
+  content: '!';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 50%;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  background-color: #f86161;
+}
+
+
+/* 基金经理删除弹框 */
+
+body .ng-tns-c1-1.ui-confirmdialog .ui-dialog-titlebar {
+  padding: 20px;
+  border-bottom: none;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .fa-close:before,
+.shop-dialog .fa-close:before {
+  content: '';
+}
+
+.ng-tns-c1-1.ui-confirmdialog .fa-close,
+.shop-dialog .fa-close {
+  width: 18px;
+  height: 18px;
+  background: url('/assets/images/close.png') no-repeat 0 0;
+  font-size: 0;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .fa-close:hover,
+.shop-dialog .fa-close:hover {
+  background: url('/assets/images/closed.png') no-repeat 0 0;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .ui-dialog-content {
+  text-align: center;
+  font-size: 16px;
+  color: #444;
+}
+
+body .ng-tns-c1-1.ui-confirmdialog .ui-widget-content {
+  border: none;
+  text-align: center;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .ui-dialog-footer {
+  padding: 30px;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .ui-button {
+  padding: 0;
+  width: 120px;
+  height: 44px;
+  background-color: #aa2426;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .ui-button:hover {
+  background-color: #aa2426;
+  opacity: .9;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .ui-button:focus {
+  background-color: #971416;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .ui-dialog-footer button[type=button]:last-child {
+  background-color: #e0e0e0;
+  color: #777;
+  margin-left: 25px;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .ui-dialog-footer button[type=button]:last-child:hover {
+  background-color: #eee;
+}
+
+.ng-tns-c1-1.ui-confirmdialog .ui-dialog-footer button[type=button]:last-child:focus {
+  background-color: #bdbdbd;
+  box-shadow: none;
+}
+
+
+/* 第三方弹框 */
+
+.shop-dialog .fa-close {
+  border-radius: 50%;
+}
+
+body .shop-dialog.ui-widget button {
+  font-size: 12px;
+  min-width: 80px;
+}
+
+body .shop-dialog.ui-corner-all {
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+body .shop-dialog .ui-dialog-titlebar {
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  padding: 0 10px;
+  background-color: #f5f5f5;
+}
+
+body .shop-dialog .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 14px;
+  color: #666;
+}
+
+body .shop-dialog .ui-dialog-titlebar-icon {
+  margin-top: 6px;
+}
+
+body .shop-dialog .ui-dialog-footer {
+  border: none;
+  padding: 20px;
+}
+
+body .shop-dialog .ui-dialog-content {
+  padding: 30px 20px 0;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.back {
+  background-color: #f2f2f2;
+  height: 30px;
+  margin-bottom: 11px;
+}
+
+
+/*添加/新增样式*/
+
+.myAdd {
+  width: 140px;
+  height: 44px;
+  text-align: center;
+  border: 1px solid #AA2426;
+  border-radius: 3px;
+  margin-top: 26px;
+  margin-bottom: 26px;
+  color: #AA2426;
+  cursor: pointer;
+  outline: none;
+}
+
+.myAdd>i {
+  margin-top: 20px;
+}
+
+.myAdd:hover {
+  background-color: #AA2426;
+  color: #fff;
+}
+
+.myAdd:hover span.icon-add {
+  background-image: url('assets/images/addW.png');
+}
+
+.myAdd p {
+  height: 42px;
+  line-height: 42px;
+  margin: 0;
+}
+
+.icon-add {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url('assets/images/addM.png');
+  margin-right: 10px;
+}
+
+
+/*首页拨打客服*/
+
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+  font-weight: lighter;
+}
+
+
+/*官网精灵图*/
+
+.sprite {
+  background-image: url("assets/images/spritesheet.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle !important;
+  text-align: -webkit-match-parent;
+}
+
+.ico-machine {
+  width: 16px;
+  height: 15px;
+  background-position: -160px -121px;
+}
+
+.ico-email {
+  width: 16px;
+  height: 11px;
+  background-position: -180px -121px;
+}
+
+.ico-address {
+  width: 15px;
+  height: 16px;
+  background-position: -200px -121px;
+}
+
+.ico-projector {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  background-position: -82px -5px;
+}
+
+.ico-aircraft {
+  width: 31px;
+  height: 32px;
+  vertical-align: middle;
+  background-position: -5px -47px;
+}
+
+.ico-like {
+  width: 32px;
+  height: 33px;
+  vertical-align: middle;
+  background-position: -46px -47px;
+}
+
+
+/*.compliance {*/
+
+
+/*width: 39px;*/
+
+
+/*height: 36px;*/
+
+
+/*vertical-align: middle;*/
+
+
+/*background-position: -88px -47px;*/
+
+
+/*}*/
+
+
+/*.operation {*/
+
+
+/*width: 36px;*/
+
+
+/*height: 36px;*/
+
+
+/*vertical-align: middle;*/
+
+
+/*background-position: -5px -93px;*/
+
+
+/*}*/
+
+
+/*.communication {*/
+
+
+/*width: 39px;*/
+
+
+/*height: 36px;*/
+
+
+/*vertical-align: middle;*/
+
+
+/*background-position: -51px -93px;*/
+
+
+/*}*/
+
+
+/*.management {*/
+
+
+/*width: 39px;*/
+
+
+/*height: 35px;*/
+
+
+/*vertical-align: middle;*/
+
+
+/*background-position: -100px -93px;*/
+
+
+/*}*/
+
+
+/*.exponent {*/
+
+
+/*width: 36px;*/
+
+
+/*height: 36px;*/
+
+
+/*vertical-align: middle;*/
+
+
+/*background-position: -137px -5px;*/
+
+
+/*}*/
+
+
+/*.roadshow {*/
+
+
+/*width: 36px;*/
+
+
+/*height: 35px;*/
+
+
+/*vertical-align: middle;*/
+
+
+/*background-position: -149px -51px;*/
+
+
+/*}*/
+
+
+/*.distortions {*/
+
+
+/*width: 36px;*/
+
+
+/*height: 36px;*/
+
+
+/*vertical-align: middle;*/
+
+
+/*background-position: -149px -96px;*/
+
+
+/*}*/
+
+
+/*评分*/
+
+.fa-ban {
+  display: none;
+}
+
+.fa-star {
+  color: #FFB400!important;
+}
+
+.fa-star:hover {
+  text-decoration: none;
+}
+
+.ui-rating a:hover {
+  text-decoration: none;
+}
+
+.fa-star-o {
+  color: #333;
+}
+
+
+/**
+ * 为商家评价样式修改-刘鑫 (2017-09-08)
+ */
+
+
+/* 星级评价被选中时候的颜色 */
+
+
+/*.store-score-wrap .fa-star {*/
+
+.fa-star {
+  color: #E78145;
+}
+
+
+/* 星级评价被没有被选中的样式(实心) */
+
+
+/*.store-score-wrap .fa-star-o:before {*/
+
+.merchant-evaluation .fa-star-o:before {
+  content: "\F005";
+}
+
+
+/* 星级评价星的大小 */
+
+.store-score-wrap .fa-star,
+.store-score-wrap .fa-star-o {
+  /*font-size: 26px;*/
+}
+
+
+/* 星级评价被没有被选中时候的颜色 */
+
+
+/* .store-score-wrap .fa-star-o { */
+
+.merchant-evaluation .fa-star-o {
+  color: #C6C6C6;
+}
+
+
+/* 星级评价去掉a标签样式 */
+
+
+/*.store-score-wrap a:visited,
+.store-score-wrap a:link,
+.store-score-wrap a:active,
+.store-score-wrap a {
+  text-decoration: none;
+  clolor: white !important;
+}*/
+
+
+/*首页轮播图*/
+
+.imgbosx .ui-galleria .ui-galleria-caption {
+  width: 0px !important;
+  height: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  bottom: 0px !important;
+}
+
+.imgbosx .ui-galleria-filmstrip-wrapper .ui-galleria-filmstrip {
+  margin-left: 50px;
+}
+
+.imgbosx .ui-galleria-filmstrip-wrapper {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-7%);
+}
+
+.imgbosx .ui-galleria-filmstrip-wrapper .ui-galleria-filmstrip .ui-galleria-frame {
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: 10px;
+}
+
+.imgbosx .ui-galleria-filmstrip-wrapper .ui-galleria-filmstrip .ui-galleria-frame .ui-galleria-frame-content {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.imgbosx .ui-galleria-filmstrip-wrapper .ui-galleria-filmstrip .ui-galleria-frame .ui-galleria-frame-content img {
+  width: 2px !important;
+  height: 2px !important;
+  border-radius: 50%;
+}
+
+.imgbosx .ui-galleria-nav-prev {
+  width: 42px;
+  height: 100px;
+  background-color: #2c292a;
+  top: 37%;
+  left: 0;
+  padding-top: 35px;
+}
+
+.imgbosx .fa-chevron-circle-left:before {
+  font-size: 26px;
+  content: "\F053" !important;
+}
+
+.imgbosx .ui-galleria-nav-next {
+  width: 42px;
+  height: 100px;
+  background-color: #2c292a;
+  top: 37%;
+  right: 0.9%;
+  padding-top: 35px;
+}
+
+.imgbosx .fa-chevron-circle-right:before {
+  font-size: 26px;
+  content: "\F054" !important;
+}
+
+.imgbosx .ui-widget-content {
+  border: none;
+  width: 100%;
+}
+
+
+/**
+ * 修改首页轮播图的样式 （刘鑫-2017-9-21）
+ */
+
+body .home-conter .ui-galleria-panel {
+  width: 100%;
+}
+
+body .home-conter .ui-galleria-panel img {
+  width: 100%;
+}
+
+
+/**
+ * 修改了首页关于我们的样式 （刘鑫-2017-9-21）
+ */
+
+body .ourselves .ourselves-bigbox p {
+  text-indent: 23px !important;
+}
+
+body .ourselves .ourselves-bigbox .target p {
+  text-indent: 0px !important;
+}
+
+
+/**
+店铺图片轮播样式修改-卓鹏飞
+ */
+
+.galleria .ui-galleria-nav-next {
+  right: 0;
+}
+
+.galleria .ui-galleria-nav-prev {
+  left: 0;
+}
+
+.galleria .ui-galleria-nav-next,
+.galleria .ui-galleria-nav-prev {
+  width: 32px;
+  height: 70px;
+  bottom: 86px !important;
+  background-color: #b02022;
+}
+
+.galleria .fa-chevron-circle-left:before,
+.galleria .fa-chevron-circle-right:before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shop-show .ui-galleria-caption {
+  display: none !important;
+}
+/* 店铺图片上传的小差叉叉样式修改 */
+body .stormeset-wrap .delete {
+  width: 25px;
+  height: 25px;
+  top: 0 !important;
+  right: 0 !important;
+  z-index: 112;
+  background: url('http://api-dev.51simuhui.com//upload/company/21/image/2017/1118/ec76d91e536e4fe2def170f101877c3e.png') no-repeat 7px;
+  background-size: 10px;
+  background-color: #C6C6C6;
+}
+body .store-imgs .shop-step-info-uploadimg .delete {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  font-size: 22px;
+  color: #6c6c6c;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.25s;
+  z-index: 112;
+  background: none;
+}
+
+/*第三方服务商店铺主页-卓鹏飞*/
+
+.header-title {
+  width: 100%;
+  margin-top: 20px;
+  /*padding: 15px 0 22px 0;*/
+  /*background-color: #333333;*/
+}
+
+.color-white {
+  color: #fff;
+}
+
+.h-title {
+  font-size: 26px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.p-title {
+  /*padding-top: 24px;*/
+  padding-bottom: 25px;
+}
+
+.shop-titles,
+.pay-titles {
+  height: 16px;
+  line-height: 16px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #444;
+  padding-left: 15px;
+  border-left: 3px solid #aa2426;
+  margin-bottom: 20px;
+}
+
+.shop-show .ui-panel-images {
+  width: 100%;
+  height: 100%;
+}
+
+.shop-show .ui-widget-content {
+  border: 0
+}
+
+.shop-galleria .ui-galleria-filmstrip-wrapper {
+  padding-bottom: 15px;
+}
+
+.shop-galleria .ui-galleria-filmstrip {
+  width: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+
+.shop-galleria .ui-galleria-frame {
+  width: 24px;
+  height: 4px;
+  margin-right: 10px;
+  background-color: #988e83;
+  overflow: hidden;
+}
+
+.shop-galleria .ui-galleria-frame-active {
+  background-color: #fff;
+}
+
+.shop-galleria .ui-galleria-nav-prev,
+.shop-galleria .ui-galleria-nav-next {
+  display: none;
+}
+.shop-galleria img{
+  width:1200px;
+  height:360px;
+}
+body .shop-galleria .ui-widget-content{
+  border:none;
+}
+
+
+/*商品详情左右按钮*/
+
+body .ui-corner-all {
+  border-radius: 0;
+}
+
+.img-galleria .fa-chevron-circle-right:before {
+  content: "\F054" !important;
+}
+
+.img-galleria .fa-chevron-circle-left:before {
+  content: "\F053" !important;
+}
+
+.img-galleria .ui-galleria-nav-next {
+  width: 32px;
+  height: 70px;
+  background-color: #2c292a;
+  top: 37%;
+  right: 0%;
+  padding-top: 24px;
+}
+
+.img-galleria .ui-galleria-nav-prev {
+  width: 32px;
+  height: 70px;
+  background-color: #2c292a;
+  top: 37%;
+  left: 0%;
+  padding-top: 24px;
+}
+
+.img-galleria .fa-chevron-circle-right:before {
+  font-size: 26px !important;
+}
+
+.img-galleria .fa-chevron-circle-left:before {
+  font-size: 26px !important;
+}
+
+
+/* 店铺里面的banner图的样式修改 */
+
+body .shop-sellers-shopdetails-Carousel .ui-galleria-panel-wrapper li .ui-panel-images {
+  width: 340px;
+  height: 260px;
+}
+
+
+/*评价列表-卓鹏飞*/
+
+.p-3-padding {
+  padding-top: 26px;
+}
+
+.p-1-margin {
+  margin-left: -22px;
+}
+
+.p-4-padding {
+  padding: 0;
+}
+
+.p-4-padding>span {
+  color: #333333;
+  font-weight: 900;
+}
+
+
+/*.evaluate-items {*/
+
+
+/*padding: 7px 0;*/
+
+
+/*background-color: #f4f4f4;*/
+
+
+/*margin-bottom: 20px;*/
+
+
+/*border: 1px solid #e7e7e7;*/
+
+
+/*border-left: 0;*/
+
+
+/*border-right: 0;*/
+
+
+/*}*/
+
+
+/*.evaluate-items {*/
+
+
+/*margin-bottom: 7px;*/
+
+
+/*}*/
+
+
+/*.evaluate-list {*/
+
+
+/*padding-bottom: 15px;*/
+
+
+/*border-bottom: 1px solid #e7e7e7;*/
+
+
+/*}*/
+
+.p-6-padding {
+  padding-left: 14px;
+}
+
+
+/**商品详情-卓鹏飞 */
+
+.buyers-review {
+  line-height: 24px;
+}
+
+.description-title {
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 14px;
+  padding-top: 8px;
+}
+
+.submission-price {
+  padding: 9px 0;
+}
+
+.wrap-bg {
+  background-color: #f2f2f2;
+}
+
+
+/*统一样式-卓鹏飞*/
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.p-time {
+  font-size: 16px;
+}
+
+.color-333 {
+  color: #333;
+}
+
+.color-666 {
+  color: #666666;
+}
+
+.color-999 {
+  color: #999999;
+}
+
+.color-white {
+  color: #fff;
+}
+
+.color-red {
+  color: #c71521;
+}
+
+.bg-red {
+  background-color: #aa2426;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-gray {
+  background-color: #f5f5f5;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-22 {
+  font-size: 22px;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+
+/* 省略号 */
+
+.text-overflow {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/**/
+
+.newsbox p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.newsbox p img {
+  display: block;
+  margin: 0 auto;
+}
+
+.tabulation .pagation .ui-paginator {
+  margin-top: 20px;
+}
+
+.shop-service .boxText img {
+  width: 156px !important;
+  height: 110px !important;
+}
+
+
+/*服务商*/
+
+
+/* 第三方 tab  */
+
+.custom-tabs-anothersed li {
+  font-size: 12px;
+}
+
+.custom-tabs-anothersed li a {
+  line-height: 22px;
+  font-size: 12px;
+  border: none;
+  padding-bottom: 15px;
+  border-bottom: 3px solid transparent;
+}
+
+.custom-tabs-anothersed li.active a,
+.custom-tabs-anothersed li.active a:hover,
+.custom-tabs-anothersed li.active a:focus {
+  color: #b02022 !important;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #aa2426;
+}
+
+.custom-tabs-anothersed li a:hover {
+  background-color: transparent;
+  border: none;
+}
+
+
+/*V1.4.1btn*/
+
+.submit-btn-my {
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  width: 90px;
+  height: 30px;
+  background-color: #EA3A3A;
+  margin-left: 0;
+  outline: none;
+}
+.submit-btn-my:hover{
+  background-color: #FF5353;
+}
+
+
+/*
+ * 申请为服务商-上传图片插件-实名验证上传图片样式修改 (basic-img-upload)
+ * 刘鑫 (2017-9-12)
+ */
+
+body .upload-data-wrap .ui-button,
+body .Content-container-warp .ui-button {
+  width: 100%;
+  height: 100%;
+}
+
+body .upload-data-wrap .upload-img,
+body .Content-container-warp .upload-img {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  z-index: 6;
+  border: 1px solid #C7C7C7;
+}
+
+body .upload-data-wrap .closed,
+body .Content-container-warp .closed {
+  top: 8px;
+  right: 8px;
+  z-index: 7;
+}
+
+
+/*
+ * 申请为服务商-服务类型的选择复选框组件样式的修改 (basic-img-upload)
+ * 刘鑫 (2017-9-19)
+ */
+
+body .realname-auth-wrap .ui-chkbox .ui-chkbox-box.ui-state-active {
+  background-color: #ffffff !important;
+  border: 1px solid #D9D9D9;
+}
+
+body .realname-auth-wrap .fa-check:before {
+  content: "\F00C";
+  color: #AA2424;
+  font-size: 10px;
+}
+
+body .realname-auth-wrap .ui-chkbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+
+/*
+ * 服务商个人中心上传头像样式更改 殷远登
+ */
+
+/*.shop_personal_setphotobox {*/
+  /*position: relative;*/
+/*}*/
+
+/*.shop_personal_setphotobox .ui-widget * {*/
+  /*overflow: visible;*/
+  /*opacity: 0;*/
+/*}*/
+
+/*.shop_personal_setphotobox .ui-fileupload-buttonbar {*/
+  /*padding: 0 !important;*/
+/*}*/
+
+/*.shop_personal_setphotobox .ui-button {*/
+  /*width: 200px;*/
+  /*height: 44px;*/
+  /*position: absolute;*/
+  /*z-index: 12;*/
+  /*top: 40px;*/
+/*}*/
+
+/*.shop_personal_setphotobox .ui-widget-content {*/
+  /*border: none;*/
+  /*padding: 0;*/
+/*}*/
+
+/*.shop_personal_setphotobox img {*/
+  /*border: 0;*/
+  /*position: absolute;*/
+  /*bottom: 25%;*/
+  /*left: 15%;*/
+/*}*/
+
+/*.shop_personal_setphotobox .ui-fileupload-choose input[type=file] {*/
+  /*width: 200px;*/
+  /*height: 40px;*/
+  /*overflow: hidden;*/
+  /*z-index: 22;*/
+  /*cursor: pointer;*/
+/*}*/
+
+/*.shop_personal_setphotobox p {*/
+  /*!*margin-left: -33px;*!*/
+  /*line-height: 30px;*/
+/*}*/
+
+/*.shop_personal_setphotobox .submit-btn {*/
+  /*margin-left: 0*/
+/*}*/
+
+
+/**
+ * 钱包开户的上传图片的插件样式的修改 (刘鑫-2017-9-23)
+ */
+
+body .wallet-Account-Wrap .ui-button {
+  width: 100%;
+  height: 100%;
+}
+
+body .wallet-Account-Wrap .upload-img {
+  width:250px !important;
+  height:155px !important;
+  z-index: 4;
+  border: 1px solid #C7C7C7;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+body .wallet-Account-Wrap .closed {
+  top: 8px;
+  /*right: 8px;*/
+  left:220px;
+  z-index: 7;
+}
+
+
+/**
+ * 钱包日期时间插件 - 刘鑫
+ */
+
+.wallet-Account-Wrap .mit-city-select {
+  margin-left: 13px;
+}
+
+.wallet-Account-Wrap .licenseNav .ng-touched,
+.wallet-Account-Wrap .licenseNav .ng-untouched {
+  margin-left: 13px;
+}
+
+.wallet-Account-Wrap .effectiveTimeNav .ui-corner-all,
+.wallet-Account-Wrap .companyNameNav .ui-corner-all,
+.wallet-Account-Wrap .cityNav .ui-corner-all {
+  margin-left: 13px !important;
+}
+
+.wallet-Account-Wrap .idCardNav .ui-inputtext {
+  margin-left: 9px;
+}
+
+.wallet-Account-Wrap .has-error .help-block {
+  width: 430px;
+  /*margin-left: 163px;*/
+  margin-left: 143px;
+}
+
+.wallet-Account-Wrap .IdentityInfo-Wrap .has-error .help-block {
+  margin-left: 163px;
+}
+
+.wallet-Account-Wrap .upload-data-wrap .has-error .help-block {
+  margin-left: -234px;
+}
+
+.wallet-Account-Wrap .licenseFile-Wrap .has-error .help-block {
+  margin-left: -240px;
+}
+
+.wallet-Account-Wrap .enterpriseInfo-right .has-error .help-block {
+  margin-left: 183px !important;
+}
+
+.wallet-Account-Wrap .licenseFile-Right .has-error .help-block {
+  margin-left: -240px;
+}
+
+.wallet-Account-Wrap .form-group {
+  margin-bottom: 0px;
+}
+
+
+/* 获取验证码按钮的样式修改 */
+
+.wallet-Account-Wrap .code-btn {
+  width: 110px;
+  height: 36px;
+  line-height: 36px;
+  background: #699FE9;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #FFFFFF;
+  border: none;
+}
+
+.wallet-Account-Wrap .licenseNav select,
+.wallet-Account-Wrap .companyNameNav .username,
+.wallet-Account-Wrap .idCardNav .ui-inputtext,
+.wallet-Account-Wrap .cityNav .mit-city-select .select,
+.wallet-Account-Wrap .effectiveTimeNav .ui-inputtext,
+.wallet-Account-Wrap .enterpriseInfo-left .companyNameNav .select,
+.wallet-Account-Wrap .pay-Info .username {
+  Width: 260px;
+}
+
+/* 钱包开户ie显示的样式调整 */
+/* 身份证 */
+.wallet-Account-Wrap .idcard-box .has-error .help-block {
+  margin-left:-90px;
+}
+/*银行开户许可证*/
+.wallet-Account-Wrap .bankLicence-box .has-error .help-block {
+  margin-left:-106px;
+}
+/*钱包支付密码  确认支持密码   短信验证码*/
+.wallet-Account-Wrap .left-boxs .has-error .help-block {
+  margin-left:130px;
+}
+/*开户行支行名称：*/
+.wallet-Account-Wrap .BranchName-box .has-error .help-block {
+  margin-left:140px;
+}
+
+/**
+ * 修改了日历组件的样式
+ */
+
+body .wallet-Account-Wrap .ui-widget-content {
+  margin-left: 10px;
+}
+
+
+/*
+ * 修改下拉选择框的样式
+ */
+
+body .wallet-Account-Wrap .list-menu {
+  /*width:346px !important;*/
+}
+
+body .wallet-Account-Wrap .mit-city-select .list-menu .sub-list li {
+  height: 28px;
+  line-height: 6px;
+  text-align: center;
+  border-bottom: 1px solid #D2D2D2;
+  border-right: 1px solid #d2d2d2;
+  border-left: 1px solid #d2d2d2;
+}
+
+body .wallet-Account-Wrap .enterpriseInfo-right .companyNameNav .bank-items {
+  width: 260px;
+  max-height: 260px;
+  overflow: auto;
+  text-align: center;
+  background: #fff;
+}
+
+body .wallet-Account-Wrap .enterpriseInfo-right .companyNameNav .bank-items .select-bank {
+  border-bottom: 1px solid #D2D2D2;
+}
+
+
+/*
+ * 商家详情轮播图左右切换按钮样式更改 殷远登
+ */
+
+.shop-sellers-shopdetails-Carousel .galleria .ui-galleria-nav-next,
+.shop-sellers-shopdetails-Carousel .galleria .ui-galleria-nav-prev {
+  background: none;
+}
+
+
+/* 上传图片组件样式的修改 */
+
+body .upload-data-wrap .wrap-nav {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+/*
+ * 服务商个人中心、基金公司个人中心（上传头像样式更改--两处共用） 殷远登
+ shop_personal_setphotobox为标识
+ */
+
+.shop_personal_setphotobox {
+  position: relative;
+}
+
+.shop_personal_setphotobox .ui-widget * {
+  overflow: visible;
+  opacity: 0;
+}
+
+.shop_personal_setphotobox .ui-fileupload-buttonbar {
+  padding: 0 !important;
+}
+
+.shop_personal_setphotobox .ui-button {
+  width: 200px;
+  height: 44px;
+  position: absolute;
+  z-index: 12;
+  top: 40px;
+}
+
+.shop_personal_setphotobox .ui-widget-content {
+  border: none;
+  padding: 0;
+  display: none;
+}
+
+.shop_personal_setphotobox img {
+  border: 0;
+  position: absolute;
+  bottom: 25%;
+  /*left: 15%;*/
+  left: 30%;
+}
+
+.shop_personal_setphotobox .ui-fileupload-choose input[type=file] {
+  width: 200px;
+  height: 40px;
+  overflow: hidden;
+  z-index: 22;
+  cursor: pointer;
+}
+
+.shop_personal_setphotobox p {
+  /*margin-left: -33px;*/
+  line-height: 30px;
+}
+
+.shop_personal_setphotobox .submit-btn {
+  margin-left: 0
+}
+
+
+/*
+ * 钱包开户 图片上传组件样式修改 刘鑫
+ */
+
+body .wallet-Account-Wrap .upload-data-wrap .wrap-nav {
+  width: 252px !important;
+  height: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+body .wallet-Account-Wrap .img-input {
+  width: 252px !important;
+}
+
+body .wallet-Account-Wrap .mit-city-select .list-menu {
+  width: 600px !important;
+}
+
+body .wallet-Account-Wrap label {
+  font-weight: 500;
+}
+
+.wallet-Account-Wrap .submit-btn {
+  background-color: #D63236;
+}
+
+.wallet-Account-Wrap input,
+.wallet-Account-Wrap textarea {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  ;
+  padding-left: 10px !important;
+}
+
+
+/* app后台公告管理的图片上传组件样式修改(刘鑫) */
+
+body .notice-wrap-nav .shop-step-info-uploadimg .ui-button {
+  width: 100%;
+  height: 100%;
+}
+
+body .notice-wrap-nav .shop-step-info-uploadimg .closed {
+  top: 6px;
+  right: 6px;
+}
+
+body .notice-wrap-nav .shop-title .help-block,
+body .notice-wrap-nav .shop-type .help-block {
+  margin-left: 14px;
+}
+
+body .notice-wrap-nav .shop-step-info-uploadimg .help-block {
+  position: absolute;
+  left: 0%;
+  bottom: -24%;
+  color: #ee3737;
+  font-size: 14px;
+}
+
+body .notice-wrap-nav .shop-service .help-block {
+  position: absolute;
+  left: 5%;
+  bottom: -9%;
+  color: #ee3737;
+  font-size: 14px;
+}
+
+
+/* 图标 */
+
+.ico-right {
+  background-position: -111px -426px;
+  width: 8px;
+  height: 6px;
+}
+
+
+/** 云课堂 */
+
+.icon-play {
+  background-position: -124px -426px;
+  width: 20px;
+  height: 20px;
+}
+
+body .ui-radiobutton .ui-radiobutton-box {
+  position: relative;
+  top: -2px;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  background-color: #fff !important;
+  border: 1px solid #d9d9d9;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active .ui-radiobutton-icon.fa-circle {
+  color: #666;
+  position: relative;
+  top: 0.15em;
+}
+
+body .ui-radiobutton .ui-radiobutton-box .ui-radiobutton-icon {
+  overflow: auto;
+}
+
+.wrap-nav {
+  width: 0px !important;
+  height: 0px !important;
+}
+
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-options .ql-picker-item[data-value="1"]::before {
+  content: '标题';
+}
+
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  content: '副标题';
+}
+
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-label[data-label="Normal"]::before,
+.textareas .ql-snow .ql-picker.ql-header .ql-picker-item[data-label="Normal"]::before {
+  content: '正常';
+}
+
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-label[data-label="Sans Serif"]::before,
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-item[data-label="Sans Serif"]::before {
+  content: '无衬线体';
+}
+
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before,
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  content: '有衬线体';
+}
+
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before,
+.textareas .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  content: '等宽字体';
+}
+
+.edit-con .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
+.edit-con .ql-picker.ql-header .ql-picker-options .ql-picker-item[data-value="1"]::before {
+  content: '标题';
+}
+
+.edit-con .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
+.edit-con .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  content: '副标题';
+}
+
+.edit-con .ql-snow .ql-picker.ql-header .ql-picker-label[data-label="Normal"]::before,
+.edit-con .ql-snow .ql-picker.ql-header .ql-picker-item[data-label="Normal"]::before {
+  content: '正常';
+}
+
+.edit-con .ql-snow .ql-picker.ql-font .ql-picker-label[data-label="Sans Serif"]::before,
+.edit-con .ql-snow .ql-picker.ql-font .ql-picker-item[data-label="Sans Serif"]::before {
+  content: '无衬线体';
+}
+
+.edit-con .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before,
+.edit-con .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  content: '有衬线体';
+}
+
+.edit-con .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before,
+.edit-con .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  content: '等宽字体';
+}
+
+
+/*服务商tab栏样式*/
+
+.exhibition-box .custom-tabs-anothersed li {
+  margin: 0px !important;
+  width: 285px;
+}
+
+.exhibition-box .custom-tabs-anothersed li a {
+  width: 120px;
+  height: 100%;
+}
+
+
+/*首页新logo*/
+
+.ico-whiteLogo {
+  background-position: 0 0;
+  width: 186px;
+  height: 46px;
+}
+
+.ico-newLogo {
+  background-position: 0px -549px;
+  width: 186px;
+  height: 46px;
+}
+
+.ico-serviceLogo {
+  background-position: -1px -644px;
+  vertical-align: bottom;
+  width: 152px;
+  height: 33px;
+}
+
+.ui-helper-hidden-accessible {
+  color: #333;
+}
+
+.ui-dropdown-label:hover {
+  background-color: #fff;
+}
+
+body .ui-dropdown .ui-dropdown-trigger .fa {
+  color: #333;
+}
+
+body .ui-dropdown .ui-dropdown-label {
+  color: #333;
+}
+
+
+/* 后台管理系统头部组件样式修改(1.4 刘鑫 2017-10-21) */
+
+.aside-header-inner .log-subname {
+  padding-left: 15px;
+}
+
+
+/* 评分星级显示 */
+
+.atar_Show {
+  width: 98px;
+  height: 14px;
+  background: url(assets/images/stark.png);
+}
+
+.atar_Show>p {
+  height: 14px;
+  background: url(assets/images/stars.png)
+}
+
+
+/*修改云课堂后台管理样式-卓鹏飞*/
+
+.create-pic .ui-widget {
+  min-width: 570px !important;
+}
+
+.create-pic .ui-dialog .ui-dialog-titlebar {
+  border: 0;
+  background-color: #fafbfc;
+}
+
+.create-pic .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.create-pic .ui-widget input {
+  height: 46px;
+}
+
+.create-pic .ui-dialog .ui-dialog-content {
+  padding: 30px 64px 42px 62px;
+}
+
+.charge-dialog .ui-dialog .ui-dialog-content {
+  padding: 30px 64px 20px 62px;
+}
+
+.charge-dialog .ui-dialog-footer {
+  padding-bottom: 30px;
+}
+
+.create-pic .ui-widget label {
+  padding-top: 15px !important;
+  font-weight: 400;
+}
+
+.create-pic .img-input {
+  opacity: 0.3 !important;
+  background-color: gray;
+}
+
+
+/** 云课堂后台 - 卓鹏飞*/
+
+.video-upload .ui-fileupload-buttonbar .ui-button {
+  z-index: 1;
+}
+
+.video-upload .ui-button-icon-only .fa {
+  z-index: -1;
+}
+
+.album-view-dialog .ui-dialog,
+.article-dialog .ui-dialog,
+.video-dialog .ui-dialog {
+  width: 570px !important;
+}
+
+.album-view-dialog .ui-dialog .ui-dialog-titlebar,
+.article-dialog .ui-dialog .ui-dialog-titlebar,
+.video-dialog .ui-dialog .ui-dialog-titlebar {
+  border-bottom: 0;
+  background-color: #fafbfc;
+}
+
+.album-view-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-title,
+.article-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-title,
+.video-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.album-view-dialog .ui-chkbox-label {
+  font-weight: 400;
+}
+
+
+/** 支付-卓鹏飞 */
+
+.pay-dialog .ui-widget-content,
+.charge-dialog .ui-widget-content {
+  border: 0;
+  text-align: center;
+}
+
+
+/*填写店铺资料页面IE浏览器下输入框border-bottom样式修改*/
+
+.tabbox .ng-invalid.ng-dirty.ui-inputtext,
+p-autocomplete.ng-invalid.ng-dirty>.ui-autocomplete>.ui-inputtext,
+p-calendar.ng-invalid.ng-dirty>.ui-inputtext,
+p-checkbox.ng-invalid.ng-dirty .ui-chkbox-box,
+p-chips.ng-invalid.ng-dirty>.ui-inputtext,
+p-dropdown.ng-invalid.ng-dirty>.ui-dropdown,
+p-inputmask.ng-invalid.ng-dirty>.ui-inputtext,
+p-inputswitch.ng-invalid.ng-dirty .ui-inputswitch,
+p-listbox.ng-invalid.ng-dirty .ui-inputtext,
+p-multiselect.ng-invalid.ng-dirty>.ui-multiselect,
+p-radiobutton.ng-invalid.ng-dirty .ui-radiobutton-box,
+p-selectbutton.ng-invalid.ng-dirty .ui-button,
+p-spinner.ng-invalid.ng-dirty>.ui-inputtext,
+p-togglebutton.ng-invalid.ng-dirty .ui-button {
+  border-bottom-color: #D9D9D9;
+}
+
+
+/*评价管理样式*/
+
+.reply-box {
+  background-color: #F4F4F4;
+  min-height: 198px;
+  padding: 10px 10px 15px 10px;
+  z-index: 100001;
+}
+
+.reply-box-top {
+  width: 100%;
+  height: 124px;
+  resize: none;
+  padding: 20px;
+  outline: none;
+  background-color: #fff;
+  word-break: break-all;
+  border: 1px solid #ccc
+}
+
+.reply-box-top:focus {
+  border-color: #119dee;
+}
+
+.reply-box-bottom {
+  margin-top: 10px;
+}
+
+.reply-header {
+  height: 36px;
+  font-size: 12px;
+  color: #666;
+  background-color: #f3f3f3;
+}
+
+
+/* 修改的样式 (2017/9/20 刘鑫) */
+
+.commentList {
+  width: 100% !important;
+}
+
+.contentCenter {
+  align-items: center;
+}
+
+.replyNav {
+  width: 100%;
+}
+
+.replyContent {
+  flex-flow: column;
+  margin-top: 6px;
+}
+
+.replyText {
+  word-break: break-all;
+}
+
+.estimate-container {
+  color: #333;
+  border-bottom: 1px solid #ebebec;
+}
+
+.grade select {
+  width: 100px;
+  height: 26px;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #D6D6D6;
+}
+
+.estimate-reply {
+  color: #E93B39;
+  padding: 0 20px;
+  margin: 5px 0;
+  background-color: #FAFAFA;
+}
+
+.reply-btn {
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  color: #333!important;
+  background-color: #F5F5F5;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.submit-reply {
+  font-size: 14px;
+  width: 90px;
+  height: 30px;
+  background-color: #EA3A3A;
+}
+
+.reply-btn:hover {
+  border-color: #EA3A3A;
+  background-color: #fff;
+  color: #EA3A3A;
+}
+
+.estimate-info {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform: translate(0, -50%);
+}
+
+
+/* 发票管理 */
+
+.manage-manages-wrap .form-group {
+  margin-left: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+body .order-page-wrap .header {
+  margin-top: 10px;
+}
+
+body .invoice-wrap .custom-dataTable .ui-datatable-thead>tr {
+  height: 35px !important;
+  margin-bottom: 20px;
+}
+
+body .invoice-wrap .custom-dataTable .ui-datatable-thead>tr>th {
+  height: 35px !important;
+  padding: 0 0.75em;
+  text-align: center;
+}
+
+body .invoice-wrap .custom-dataTable .ui-datatable-thead>tr>th>span {
+  font-size: 12px;
+  color: #666666;
+}
+
+body .invoice-wrap .custom-dataTable .ui-datatable-data>tr>td {
+  text-align: center;
+}
+body .searchBox .has-success .form-control:focus,
+body .searchBox .form-control:focus {
+  border: 1px solid #5b9fe2 !important;
+  box-shadow: none !important;
+}
+
+/* 钱包开户 */
+.main-nav-wraps .tops:nth-child(1) {
+  /*margin-top: -30px !important;*/
+  display: none !important;
+}
+
+
+/* 个人中心 */
+
+body .personbox li,
+body .personbox li.active a,
+body .personbox li.active,
+body .personsetbox li,
+body .personsetbox li.active a,
+body .personsetbox li.active {
+  background-color: #F7F7F7 !important;
+}
+
+body .personbox li.active a,
+body .personbox li.active a,
+body .personsetbox li.active a,
+body .personsetbox li.active a {
+  color: #EA3A3A !important;
+  font-size: 16px !important;
+  border: none;
+}
+
+.shop_personal_setphotobox .ui-button {
+  width: 180px;
+  height: 44px;
+  position: absolute;
+  z-index: 12;
+  top: 0px;
+  overflow: hidden;
+}
+body .stormeset-wrap .ui-button {
+  width: 180px !important;
+  height: 44px !important;
+  position: absolute;
+  z-index: 12;
+  top: 0%;
+  left: 0%;
+  overflow: hidden;
+}
+.stormeset-wrap .tabbox .has-error .help-block {
+  margin-left:15px;
+}
+
+/* 基金公司发票详情 */
+
+.main-wraps .right-box .help-block {
+  margin-top: -15px !important;
+}
+
+
+/* 我的课堂后台连载 - 卓鹏飞 */
+
+.my-serial td {
+  vertical-align: top;
+}
+
+.my-serial-dialog .ui-corner-all,
+.picture-dialog .ui-corner-all,
+.video-dialog .ui-dialog-titlebar,
+.login-dialog .ui-corner-all,
+.create-serial-dialog .ui-corner-all {
+  border-radius: 6px;
+}
+
+.my-serial-dialog .ui-dialog-titlebar,
+.picture-dialog .ui-dialog-titlebar,
+.video-dialog .ui-dialog-titlebar,
+.create-serial-dialog .ui-dialog-titlebar {
+  color: #666666;
+  border-bottom: 0!important;
+  background-color: #f5f5f5;
+  padding: 10px 16px !important;
+}
+
+.my-serial-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-title,
+.picture-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-title,
+.video-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-title,
+.create-serial-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 14px;
+}
+
+.my-serial-dialog .ui-widget-content,
+.picture-dialog .ui-widget-content,
+.video-dialog .ui-widget-content,
+.login-dialog .ui-widget-content,
+.create-serial-dialog .ui-widget-content {
+  border: 0;
+  border-radius: 6px;
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+
+.my-serial-dialog .ui-dialog .ui-dialog-content,
+.picture-dialog .ui-dialog .ui-dialog-content,
+.video-dialog .ui-dialog .ui-dialog-content,
+.login-dialog .ui-dialog .ui-dialog-content {
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+.create-serial-dialog .ui-dialog .ui-dialog-content {
+  padding: 0;
+}
+
+.my-serial-dialog .ui-dialog .ui-dialog-titlebar-close span:hover,
+.picture-dialog .ui-dialog .ui-dialog-titlebar-close span:hover,
+.video-dialog .ui-dialog .ui-dialog-titlebar-close span:hover,
+.login-dialog .ui-dialog .ui-dialog-titlebar-close span:hover,
+.create-serial-dialog .ui-dialog .ui-dialog-titlebar-close span:hover {
+  color: #c71622;
+}
+
+
+/*.pagination .ui-paginator {*/
+
+
+/*background-color: #fafafc;*/
+
+
+/*}*/
+
+.login-dialog .ui-widget-content {
+  padding: 27px 30px 48px 30px;
+}
+
+.login-dialog .ui-dialog-titlebar {
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6!important;
+  padding-top: 0!important;
+  padding-bottom: 24px!important;
+}
+
+.login-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 22px;
+  /*font-weight: 600;*/
+  color: #666666;
+}
+
+.login-dialog .ui-dialog .ui-dialog-content {
+  padding-left: 15px;
+  padding-right: 17px;
+}
+
+.login-dialog .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon {
+  margin-right: -28px;
+  margin-top: -14px;
+}
+
+
+/*收支明细修改*/
+
+body .wallet-detail .custom-dataTable .ui-datatable-thead>tr>th {
+  height: 34px;
+  font-weight: normal;
+  color: #666;
+  font-size: 12px;
+}
+
+.wallet-detail-table {
+  font-size: 12px!important;
+}
+
+.head-title {
+  height: 50px;
+  line-height: 50px;
+  color: #666;
+  font-size: 12px;
+}
+
+.head-title span:hover {
+  color: #EA3A3A;
+  cursor: pointer;
+}
+
+.head-title span:focus {
+  outline: none;
+}
+
+
+/*卖家个人中心首页引导框修改样式*/
+
+body .cover-guide .ui-dialog .ui-dialog-titlebar {
+  padding: 0;
+  border: 0;
+}
+
+body .cover-guide .ui-widget-content {
+  background-color: #7B7B7B;
+  border: 0;
+}
+
+body .cover-guide .ui-shadow {
+  box-shadow: none;
+}
+
+.open-shop {
+  width: 90px;
+  height: 30px;
+  border: 1px solid #EA3A3A;
+  color: #EA3A3A;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.paginator .ui-widget-header {
+  background-color: #fafafc!important;
+  padding: 20px 0;
+}
+.pagination .ui-widget-header {
+  background-color: #fafafc;
+}
+
+
+/*云课堂主页图片轮播*/
+
+.left-banner .ui-galleria-panel-wrapper {
+  float: left;
+  /*border: 1px solid red;*/
+}
+
+.left-banner .ui-galleria-panel {
+  width: 748px!important;
+}
+
+.left-banner .ui-panel-images {
+  width: 100%;
+  height: 100%;
+  margin-top: 1px;
+}
+
+.left-banner .ui-galleria-filmstrip-wrapper {
+  width: 188px !important;
+  height: 462px !important;
+  top: -1px;
+  float: right;
+}
+
+.left-banner .ui-galleria-filmstrip {
+  width: 188px;
+}
+
+.left-banner .ui-galleria-panel-wrapper {
+  width: 748px!important;
+  height: 470px !important;
+}
+
+.left-banner .ui-galleria-frame {
+  float: none;
+}
+
+.left-banner .ui-galleria-panel {
+  height: 468px!important;
+}
+
+.left-banner .ui-galleria-nav-prev,
+.left-banner .ui-galleria-nav-next {
+  display: none;
+}
+
+.left-banner .ui-galleria-frame {
+  width: 188px!important;
+  height: 114px!important;
+  margin: 2px;
+}
+
+.left-banner .ui-galleria-frame-content {
+  width: 100%;
+  height: 100%
+}
+
+.left-banner .ui-galleria-frame-content>img {
+  width: 100%!important;
+  height: 100%!important;
+  display: inline-block;
+}
+
+.my-serial .custom-dataTable {
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+}
+
+.my-serial .custom-dataTable .ui-datatable-thead>tr>th {
+  height: 38px;
+}

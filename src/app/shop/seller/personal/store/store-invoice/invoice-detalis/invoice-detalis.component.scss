@@ -1,0 +1,401 @@
+@import "../../../../../../../assets/sass/mixin";
+@import "../../../../../../../assets/sass/variables";
+
+.detalisCenter{
+  max-width: 1200px;
+  height: 100%;
+  margin: 10px auto 0;
+}
+.detalised{
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  //border: 1px solid #e0e0e0;
+  padding: 30px 55px 40px 55px;
+  background-color: #fff;
+  margin-bottom:42px;
+}
+.detalisCenter .detalis .title{
+  font-size: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-indent: 20px;
+  color: #333;
+  font-weight: 400;
+  border-left: 5px solid #aa2426;
+  padding-bottom: 15px;
+
+}
+.centened{
+  border-top: 1px solid #e0e0e0;
+  margin-top: 15px;
+}
+.cententBotn{
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #E0E0E0;
+}
+.cententBotn .leftbtn .titles {
+  height: 40px;
+  width: 100%;
+  background-color: #ededed;
+  border-right: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0;
+}
+.cententBotn .leftbtn .titles h4{
+  text-indent: 10px;
+  line-height: 42px;
+  font-size: 14px;
+  color: #555;
+}
+.cententBotn .leftbtn{
+  width: 378px;
+  height: 100%;
+  float: left;
+}
+.informTitle{
+  width: 110px;
+  text-align: right;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+}
+.textone{
+  float: left;
+  width: 240px;
+  line-height: 30px;
+  text-indent: 10px;
+  height: 30px;
+}
+.invoiceCen{
+  width: 100%;
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  border-right: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0;
+}
+.boxed{
+  width: 378px;
+  height: 30px;
+}
+.invoiceCened .informTitleOne{
+  width: 125px;
+  text-align: right;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+}
+.invoiceCened{
+  width: 100%;
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-right: 1px solid #E0E0E0;
+}
+.rightbtn{
+  width: 708px;
+  height: 100%;
+  float: right;
+  padding: 55px;
+}
+.rightbtn .til{
+  color: #262626;
+  font-size: 16px;
+  font-weight: 400;
+}
+.invoiceangin{
+  width: 76px;
+  height: 30px;
+  display: block;
+  border: 1px solid #c7c7c7;
+  background-color: #f4f4f4;
+  color: #4d4d4d;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 15px;
+}
+.rightbtn p{
+  margin-top: 15px;
+}
+.rightbtn .inputed{
+  margin-top: 15px;
+}
+.rightbtn .inputed .inputeds{
+  width: 220px;
+  height: 30px;
+  border: 1px solid #c7c7c7;
+  border-radius: 3px;
+  margin-left: 10px;
+
+}
+.inputed .red{
+  color: #ec2d2d;
+  display: inline-block;
+  line-height: 30px;
+  margin-top: 10px;
+}
+.red{
+  color: nth($red,1);
+}
+
+
+/* 1.4.1样式的修改 */
+/* 弹性布局 */
+._flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  align-items: baseline;
+}
+.flex_ {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+body {
+  background: #F5F5F5;
+}
+.invoice-details-nav-wrap {
+  position: relative;
+  z-index: 11;
+  background-color: #fff;
+  position: relative;
+}
+.main-wraps {
+  background: #F4F4F4;
+  border-top: 1px solid #E2E2E2;
+
+}
+.main-wraps .nav-menus {
+  height:52px;
+  line-height:52px;
+  height: 52px;
+  line-height: 52px;
+  font-size: 12px;
+  color: #5D5D5D;
+  font-weight: bold;
+}
+.main-wraps .nav-menus a {
+  font-size: 12px;
+  color: #5D5D5D;
+  font-weight: bold;
+}
+.mains {
+  width: 1200px;
+  margin:0 auto;
+  background-color:#fff;
+}
+.Invoice-details {
+  width: 1160px;
+  margin:0 auto;
+  padding-top:28px;
+  margin-left: 0px;
+  background-color: #fff;
+}
+.left-box {
+  width: 82px;
+  height: 46px;
+  line-height: 46px;
+  margin-left:40px;
+  text-align: right;
+}
+.right-box {
+  height: 46px;
+  line-height: 43px;
+  width: 1040px;
+  margin-left:5px;
+}
+.nav-bars {
+  height: 45px;
+  margin-left:40px;
+}
+.nav-titles {
+  line-height: 60px;
+  font-size:16px;
+  color:#2E2E2E;
+}
+.nav-title-cons {
+  height: 50px;
+  line-height: 50px;
+  font-size:24px;
+  color: #EA3A3A;
+}
+.tips-text {
+  margin-left:40px;
+  color:#999999;
+  font-size:14px;
+  height: 23px;
+  line-height: 23px;
+  margin-bottom:12px;
+}
+.required {
+  height: 46px;
+  line-height: 46px;
+  margin-right: 4px;
+  color: #D63236;
+}
+.input-title {
+  width: 72px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 14px;
+  color: #2E2E2E;
+}
+.right-box input {
+  width:260px;
+  height: 36px;
+  line-height: 36px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border:1px solid #C1C1C1;
+  font-size:14px;
+  color:#909090;
+  padding-left:8px;
+}
+.express-nums {
+  width:260px;
+  height: 36px;
+  line-height: 36px;
+  font-size:14px;
+  color:#2E2E2E;
+  padding-left:8px;
+  margin-top:5px;
+}
+.title-navs {
+  width: 80px;
+  height: 46px;
+}
+.success-box {
+  height: 26px;
+  line-height: 26px;
+  margin-left: 40px;
+}
+.success-icon {
+  display: block;
+  width: 28px;
+  height: 26px;
+  background: url('../../../../../../../assets/images/success-tips.png') no-repeat;
+  background-size:contain;
+}
+.success-box span {
+  margin-left:10px;
+  font-size:16px;
+  color:#666666;
+  font-weight: bold;
+}
+.lines {
+  margin-top:30px;
+  border-bottom: 1px dashed #F5F5F5;
+}
+.btn-box {
+  margin-top:5px;
+  margin-left:128px;
+  width: 100px;
+  height: 30px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background: #EA3D3D;
+  color:#FFFFFF;
+  font-size: 12px;
+  text-align:center;
+  border:none;
+}
+.info-boxs {
+  /*width: 122px;*/
+  margin-top:32px;
+  margin-bottom:40px;
+}
+.left-nav-boxs {
+  width: 82px;
+  margin-left: 40px;
+  text-align: center;
+}
+.invoice-info-titles {
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
+  color:#333333;
+}
+.left-nav-boxs span:nth-child(2) , .left-nav-boxs span:nth-child(3) {
+  display: block;
+  width: 100%;
+  height: 17px;
+  line-height: 17px;
+  color:#666666;
+  font-size: 12px;
+}
+.detail-infos {
+  width: 900px;
+  border:1px solid #EFEFEF;
+  margin-left:5px;
+  background: #FAFAFA;
+  margin-bottom: 56px;
+}
+.mt-12 {
+  margin-top:12px;
+}
+.mb-12 {
+  margin-bottom: 12px;
+}
+.h-28 {
+  height: 28px;
+  line-height: 28px;
+  margin-left:32px;
+}
+.info-titles {
+  /*width: 70px;*/
+  width: 98px;
+  height: 28px;
+  line-height: 28px;
+  text-align: left;
+  font-size:12px;
+  color:#333333;
+}
+.data-infos {
+  width: 840px;
+  height: 28px;
+  line-height: 28px;
+  /*padding-left:15px;*/
+  padding-right: 36px;
+  font-size:12px;
+  color:#333333;
+}
+.tips {
+  /*height: 28px;*/
+  width: 98px;
+  line-height: 28px;
+  text-align: left;
+  font-size: 12px;
+  color: #333333;
+  margin-left: 32px;
+}
+.tips-txt {
+  width: 840px;
+  line-height: 22px;
+  padding-right: 36px;
+  font-size: 12px;
+  color: #333333;
+  margin-top: 2px;
+}
+.spear {
+  margin-left:12px;
+  font-size:12px;
+  color:#5B9EE2;
+  text-decoration:none;
+}
+.Invoice-details input {
+  outline:none;
+}
+.bordernone {
+  border:none !important;
+}

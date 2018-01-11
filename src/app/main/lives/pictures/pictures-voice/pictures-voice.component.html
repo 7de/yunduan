@@ -1,0 +1,86 @@
+<div class="ui-g wrap-1200">
+  <div class="pictures__title">
+    <img class="pictures__title__thumb" src="{{data?.media_author.img | image}}">
+    <div class="pictures__title__name">{{data?.media_author.nickname}}</div>
+  </div>
+  <div class="pull-left" style="width: 941px">
+    <div class="pictures-panel">
+      <div class="pictures-media-box">
+        <div class="pictures-media-box__hd">
+          <div class="pictures-media-box__thumb">
+            <img [src]="data?.img | image">
+          </div>
+        </div>
+        <div class="pictures-media-box__bd">
+          <div class="pictures-media-box__title">{{data?.title}}</div>
+          <ul class="pictures-media-box__info clearfix">
+            <li class="pictures-media-box__info__mate">
+              类别：
+              <a [routerLink]="['/lives/pictures-list']" [queryParams]="{info_type: data?.media_info.info_type}">【{{data?.media_info.info_type_txt}}】</a>
+            </li>
+            <li class="pictures-media-box__info__mate">最近更新：{{data?.updated_at * 1000 | date:'yyyy-MM-dd'}}</li>
+          </ul>
+          <div class="pictures-media-box__links">
+            <a class="pictures-media-box__links__icon" routerLink="/lives/pictures-voice/{{data?.id}}">
+              <i class="pictures-icon-voice" title="语音模式"></i>
+            </a>
+            <a class="pictures-media-box__links__icon" routerLink="/lives/pictures-detail/{{data?.id}}">
+              <i class="pictures-icon-picture" title="图文模式"></i>
+            </a>
+            <div class="pictures-media-box__links__extra">
+              <span class="pictures-media-box__links__numb">{{data?.pv}}</span>
+              次播放
+            </div>
+          </div>
+          <div class="pictures-media-box__desc">{{data?.description}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="pictures-panel pictures-panel_voice">
+      <div class="pictures-panel__content">
+        <app-audio-player [src]="data?.audio_url"></app-audio-player>
+        <!-- <p>{{data?.description}}</p> -->
+      </div>
+    </div>
+
+    <app-pictures-comments [params]="commentParams"></app-pictures-comments>
+
+  </div>
+  <div class="pull-right" style="width: 259px">
+    <div class="pictures__right">
+      <div class="pictures__right__title">收录于连载</div>
+      <div class="pictures__right__cells">
+        <a href="javascript:;" class="pictures__right__cell">
+          <div class="pictures__right__cell__hd">
+            <div class="pictures__right__cell__thumb pictures__right__cell__thumb_lg">
+              <img [src]="data?.media_info.img | image">
+            </div>
+          </div>
+          <div class="pictures__right__cell__bd">
+            <div class="pictures__right__cell__name">{{data?.media_info.title}}</div>
+            <div class="pictures__right__cell__desc">{{data?.media_info.update_to}} 个图文语音</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="pictures__right">
+      <div class="pictures__right__title">连载中的其余图文</div>
+      <div class="pictures__right__cells">
+        <a href="javascript:;" class="pictures__right__cell" [class.hide]="item.id === data.id" *ngFor="let item of picList" routerLink="/lives/pictures-voice/{{item.id}}">
+          <div class="pictures__right__cell__hd">
+            <div class="pictures__right__cell__thumb">
+              <img src="{{item.img | image}}">
+            </div>
+          </div>
+          <div class="pictures__right__cell__bd">
+            <div class="pictures__right__cell__name">{{item.title}}</div>
+            <div class="pictures__right__cell__desc">
+              <i class="vg-icon-play_arrow"></i>
+              {{item.pv}}
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

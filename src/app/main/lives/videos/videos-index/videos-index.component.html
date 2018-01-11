@@ -1,0 +1,54 @@
+<div class="ui-g wrap-1200">
+  <div class="ui-g-12 ui-g-nopad picture-header-title">
+    <img [src]="singleData?.media_author.img | image"/>
+    <span class="fs-22">{{singleData?.media_author.nickname}}</span>
+  </div>
+  <div class="ui-g-nopad ui-g-12 picture-content">
+    <div class="ui-g-2 ui-g-nopad picture-img-pre">
+      <div class="pre-content">
+        <div></div>
+        <div></div>
+        <img [src]="singleData?.img | image"/>
+      </div>
+    </div>
+    <div class="ui-g-10 ui-g-nopad pictures-info">
+      <p class="fs-18" style="margin-left: 20px;">{{singleData?.title}}</p>
+      <p class="fs-12" style="margin-left: 20px;">类别：<em class="picture-type" [routerLink]="['/lives/videos-list']" [queryParams]="{info_type: singleData?.info_type}">【{{singleData?.info_type_txt}}】</em>最近更新：{{singleData?.created_at_txt}}
+      </p>
+      <p style="margin-left: 20px;">
+        <a title="视频模式" style="padding-right: 20px;">
+          <i *ngIf="singleData?.update_to" class="ico-global icon-yun-play-red" (click)="playVidedo(firstVideoId)"></i>
+          <i *ngIf="!singleData?.update_to" class="ico-global ico-yun-forbid-play" title="该连载没有视频"></i>
+        </a>
+        <span style="margin-left: 47px;"><em class="font-bold fs-18">{{singleData?.pv}}</em>次播放</span>
+      </p>
+    </div>
+    <div class="ui-g-12 ui-g-nopad">
+      <p class="ui-g-10 ui-g-nopad fs-16 picture-intro">{{singleData?.description}}</p>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-g-nopad serial-title">
+    <p>连载中的视频</p>
+  </div>
+
+  <div class="ui-g-12 ui-g-nopad picture-list">
+    <div class="picture-item" *ngFor="let item of videosList;let idx=index;" (mouseover)="hoverObj[idx]=true" (mouseleave)="hoverObj[idx]=false">
+      <div class="picture-list-left float-left">
+        <i [ngClass]="{'ico-yun-play-s-orange': hoverObj[idx]}" class="ico-global ico-yun-play-s-gray" (click)="playVidedo(item?.id)"></i>
+        <a [title]="item?.title" (click)="playVidedo(item?.id)">{{item?.title}}</a>
+      </div>
+      <div class="picture-list-right float-right">
+        <i class="ico-global ico-yun-play" style="margin-top: -4px;"></i>
+        <span>{{item?.pv}}</span>
+        <span>{{item?.created_at_txt}}</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-g-nopad pagination" style="margin: 20px 0;">
+      <p-paginator [rows]="pagination?.perPage"
+                   [first]="pagination?.currentPage * pagination?.perPage-1"
+                   [totalRecords]="pagination?.totalCount" [pageLinkSize]="pagination?.pageCount"
+                   (onPageChange)="paginate($event)" styleClass="custom-paginator">
+      </p-paginator>
+    </div>
+  </div>
+</div>

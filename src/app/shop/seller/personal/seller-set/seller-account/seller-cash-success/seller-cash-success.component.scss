@@ -1,0 +1,65 @@
+@import "../../../../../../../assets/sass/mixin.css";
+@import "../../../../../../../assets/sass/variables";
+
+.layout{
+  padding-bottom: 50px;
+  background-color: nth($gray,1);
+}
+.order{
+  padding: 30px;
+  height: 588px;
+}
+.bg-white{
+  background-color: #fff;
+}
+
+//.crumbs {
+//  padding: 15px 0;
+//  font-size: 12px;
+//  span:hover{
+//    color: #EA3A3A;
+//    cursor: pointer;
+//    &:focus{
+//      outline: none;
+//    }
+//  }
+//}
+.title{
+  padding-bottom:15px;
+  background-color: #f7f7f7;
+  height: 44px;
+  .p-title{
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    color: #333;
+  }
+}
+.cash-suc{
+  height: 411px;
+  background-color: #fff;
+  border:1px solid #eee;
+  border-top: 0;
+}
+.ico-success{
+  width: 44px;
+  height: 44px;
+  background-position: -556px -143px;
+}
+.cash-success-button{
+  width: 100px;
+  height: 30px;
+  background-color: #F5F5F5;
+  border: 1px solid #CCCCCC;
+  color: #333;
+  border-radius: 3px;
+  font-size: 12px;
+  &:focus{
+    outline: none;
+  }
+  &:hover{
+    background-color: #fff;
+    color: #EA3A3A;
+    border-color: #EA3A3A;
+  }
+}

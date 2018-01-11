@@ -1,0 +1,56 @@
+.btn-defaults{
+  width: 130px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: #fff;
+  background-color: #aa2425;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+}
+.btn-defaults:hover{
+  background-color: #bb5051;
+}
+.margins{
+  margin: 0px !important;
+  border-radius: 5px;
+}
+.titleds{
+  height: 50px;
+  background-color: #f4f5f9;
+  margin: 0;
+  padding:0;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.centers{
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+.titled{
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  line-height: 50px;
+  font-weight: normal;
+  text-indent: 20px;
+  line-height: 50px;
+  margin: 0px !important;
+}
+.centers p{
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+.dialog{
+  top:40%;
+
+}
+.dialogtop{
+  margin-top: 20px;
+}
+.btntop{
+  text-align: center;
+  margin-bottom: 30px;
+}

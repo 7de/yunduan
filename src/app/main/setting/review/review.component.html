@@ -1,0 +1,64 @@
+<div class="boxbig" id="change-password">
+  <form role="form" [formGroup]="reviewForm" (submit)="modify(reviewForm)">
+  <div class="row" style="margin-top: 50px;">
+    <div class="nameone">
+      <div class="nameoneleft col-md-6">
+        <div class="titleone"> <label class="form-label">旧密码</label> </div>
+        <div class="form-group">
+          <input type="password" class="inputed" type="{{step==true?'text':'password'}}" autocomplete="off"
+                 onkeydown="boolError=false" formControlName="old_pass" placeholder="请输入密码" maxlength="12"
+                 [ngClass]="(hint===true)?'hitned':'' ">
+        </div>
+        <div class="hint" [hidden]="!wrong" >原始密码错误，请重新输入</div>
+      </div>
+      <div class="col-md-1 passwords">
+        <span class="ico-global" [ngClass]="(step==true)?'ico-eye':'ico-eye-close'" (click)="step =!step"></span>
+      </div>
+      <div class="nameoneright col-md-5">
+      </div>
+    </div>
+    <div class="nametwo">
+      <div class="nameoneleft col-md-6 ">
+        <div class="titleone"><label class="form-label">新密码</label></div>
+        <div class="form-group">
+          <input type="password" class="inputed" type="{{new==true?'text':'password'}}"
+                 autocomplete="off" onkeydown="boolError=false" formControlName="agin_pass"
+                  maxlength="12" placeholder="请输入新密码">
+        </div>
+      </div>
+      <div class="col-md-1 passwords">
+        <span class="ico-global " [ngClass]="(new==true)?'ico-eye':'ico-eye-close'" (click)=" new =!new"></span>
+      </div>
+      <div class="nameoneright col-md-5">
+      </div>
+    </div>
+    <div class="namethree">
+      <div class="nameoneleft col-md-6 ">
+        <div class="titleone"><label class="form-label">确认新密码</label></div>
+        <div class="form-group">
+          <input type="password" class="inputed" type="{{flags==true?'text':'password'}}" autocomplete="off"
+                                       onkeydown="boolError=false" formControlName="new_pass" minlength="6" maxlength="12"
+                                       placeholder="请再次输入新密码" [ngClass]="(hints===true)?'hitned':'' ">
+        </div>
+        <div class="hint" [hidden]="!action">两次输入密码不一致，请重新输入</div>
+      </div>
+      <div class="col-md-1 passwords">
+        <span class="ico-global" [ngClass]="(flags==true)?'ico-eye':'ico-eye-close'" (click)="flags =!flags"></span>
+      </div>
+      <div class="nameoneright col-md-5">
+      </div>
+    </div>
+  </div>
+  <div class="confirm-modification row">
+    <div class="nameoneleft col-md-6">
+     <div class="sunmint">
+       <button type="submit">确认修改</button>
+     </div>
+    </div>
+    <div class="nameoneright col-md-6">
+    </div>
+  </div>
+  </form>
+</div>
+<app-model></app-model>
+
